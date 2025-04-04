@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NCLEX Practice Exam - PayLeNN.tech</title>
+    <title>NCLEX Practice Exam - paylenn.tech</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../css/neubrutalism.css">
 </head>
@@ -11,7 +11,7 @@
     <!-- Header -->
     <header class="header">
         <div class="container">
-            <a href="../index.html" class="logo">PayLeNN<span>.tech</span></a>
+            <a href="../index.html" class="logo">paylenn<span>.tech</span></a>
             <nav class="nav">
                 <a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
                 <span id="exam-title-nav" class="nav-link">Practice Exam</span>
@@ -24,11 +24,14 @@
         <div class="container">
             <div class="neu-card tertiary">
                 <div id="exam-intro">
-                    <h2 id="exam-title">NCLEX Practice Exam</h2>
+                    <div class="section-header">
+                        <h2 id="exam-title">NCLEX Practice Exam</h2>
+                        <div class="section-line"></div>
+                    </div>
                     <p id="exam-description">Loading exam information...</p>
                     <div class="exam-controls mt-4">
-                        <button id="start-exam-btn" class="neubtn primary">Begin Exam</button>
-                        <a href="../index.html" class="neubtn">Return Home</a>
+                        <button id="start-exam-btn" class="neubtn primary">Begin Exam <i class="fas fa-play"></i></button>
+                        <a href="../index.html" class="neubtn"><i class="fas fa-arrow-left"></i> Return Home</a>
                     </div>
                 </div>
                 
@@ -38,7 +41,7 @@
                             <h3 id="question-number">Question 1 of 10</h3>
                         </div>
                         <div>
-                            <button id="exit-exam-btn" class="neubtn">Exit Exam</button>
+                            <button id="exit-exam-btn" class="neubtn"><i class="fas fa-times"></i> Exit Exam</button>
                         </div>
                     </div>
                     
@@ -50,19 +53,22 @@
                     </div>
                     
                     <div class="exam-controls">
-                        <button id="prev-question-btn" class="neubtn" disabled>Previous</button>
-                        <button id="show-answer-btn" class="neubtn secondary">Show Answer</button>
-                        <button id="next-question-btn" class="neubtn primary">Next</button>
+                        <button id="prev-question-btn" class="neubtn" disabled><i class="fas fa-arrow-left"></i> Previous</button>
+                        <button id="show-answer-btn" class="neubtn secondary"><i class="fas fa-eye"></i> Show Answer</button>
+                        <button id="next-question-btn" class="neubtn primary">Next <i class="fas fa-arrow-right"></i></button>
                     </div>
                     
                     <div id="rationale-container" class="answer-rationale hidden">
-                        <h3>Rationale</h3>
+                        <h3><i class="fas fa-lightbulb"></i> Rationale</h3>
                         <p id="rationale-text"></p>
                     </div>
                 </div>
                 
                 <div id="results-container" class="hidden">
-                    <h2>Exam Results</h2>
+                    <div class="section-header">
+                        <h2>Exam Results</h2>
+                        <div class="section-line"></div>
+                    </div>
                     <div class="neu-card">
                         <div class="stats-container">
                             <div class="stat-box">
@@ -82,13 +88,16 @@
                         <div id="result-message" class="mt-3 mb-3"></div>
                         
                         <div class="exam-controls">
-                            <button id="review-exam-btn" class="neubtn secondary">Review Answers</button>
-                            <a href="../index.html" class="neubtn primary">Return Home</a>
+                            <button id="review-exam-btn" class="neubtn secondary"><i class="fas fa-search"></i> Review Answers</button>
+                            <a href="../index.html" class="neubtn primary"><i class="fas fa-home"></i> Return Home</a>
                         </div>
                     </div>
                     
                     <div id="question-review" class="hidden mt-4">
-                        <h3>Question Review</h3>
+                        <div class="section-subheader">
+                            <h3>Question Review</h3>
+                            <div class="section-subline"></div>
+                        </div>
                         <div id="review-questions">
                             <!-- Review questions will be inserted here -->
                         </div>
@@ -101,7 +110,7 @@
     <!-- Font Size Controls -->
     <div class="font-size-controls collapsed" id="font-size-controls">
         <div class="font-size-controls-header" id="font-size-controls-header">
-            <h5 class="font-size-controls-title">Font Size</h5>
+            <h5 class="font-size-controls-title"><i class="fas fa-text-height"></i> Text Size</h5>
             <span class="font-size-controls-toggle">⬆️</span>
         </div>
         <div class="font-size-buttons">
@@ -117,8 +126,13 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
-                    <h3>PayLeNN.tech</h3>
+                    <h3>paylenn.tech</h3>
                     <p>Your NCLEX Success Partner</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    </div>
                 </div>
                 <div class="footer-links">
                     <h3>Quick Links</h3>
@@ -130,11 +144,12 @@
                 </div>
                 <div class="footer-contact">
                     <h3>Contact</h3>
-                    <p>Email: support@paylenn.tech</p>
+                    <p><i class="fas fa-envelope"></i> support@paylenn.tech</p>
+                    <p><i class="fas fa-phone"></i> (555) 123-4567</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 PayLeNN.tech. All rights reserved.</p>
+                <p>&copy; 2023 paylenn.tech. All rights reserved.</p>
             </div>
         </div>
     </footer>

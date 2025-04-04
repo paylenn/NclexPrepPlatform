@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NCLEX Prep - PayLeNN.tech</title>
+    <title>NCLEX Prep - paylenn.tech</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/neubrutalism.css">
     <script async>
@@ -125,11 +125,11 @@
     <!-- Header -->
     <header class="header">
         <div class="container">
-            <a href="index.html" class="logo">PayLeNN<span>.tech</span></a>
+            <a href="index.html" class="logo">paylenn<span>.tech</span></a>
             <nav class="nav">
-                <a href="#exams" class="nav-link">Exams</a>
-                <a href="#progress" class="nav-link">Progress</a>
-                <a href="#tips" class="nav-link">Tips</a>
+                <a href="#exams" class="nav-link"><i class="fas fa-pencil-alt"></i> Exams</a>
+                <a href="#progress" class="nav-link"><i class="fas fa-chart-line"></i> Progress</a>
+                <a href="#tips" class="nav-link"><i class="fas fa-lightbulb"></i> Tips</a>
             </nav>
         </div>
     </header>
@@ -138,11 +138,17 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>ACE YOUR NCLEX EXAM!</h1>
-                <p>Practice with traditional and Next Generation NCLEX questions to build your confidence and clinical judgment skills.</p>
+                <div class="hero-badge">NCLEX PREP</div>
+                <h1>ACE YOUR <span class="highlight">NCLEX EXAM!</span></h1>
+                <p class="hero-subtitle">Practice with traditional and Next Generation NCLEX questions to build your confidence and clinical judgment skills.</p>
                 <div class="hero-buttons">
-                    <a href="#exams" class="neubtn primary">Start Practicing</a>
+                    <a href="#exams" class="neubtn primary">Start Practicing <i class="fas fa-arrow-right"></i></a>
                 </div>
+            </div>
+            <div class="hero-decoration">
+                <div class="hero-shape shape-1"></div>
+                <div class="hero-shape shape-2"></div>
+                <div class="hero-shape shape-3"></div>
             </div>
         </div>
     </section>
@@ -150,9 +156,13 @@
     <!-- Exam Options Section -->
     <section class="section" id="exams">
         <div class="container">
-            <h2>CHOOSE YOUR EXAM</h2>
+            <div class="section-header">
+                <h2>CHOOSE YOUR EXAM</h2>
+                <div class="section-line"></div>
+            </div>
             <div class="grid-3">
                 <div class="neu-card primary exam-card">
+                    <div class="card-flag">RECOMMENDED</div>
                     <div class="exam-card-body">
                         <div class="exam-icon">
                             <i class="fas fa-clipboard-list"></i>
@@ -167,11 +177,12 @@
                         </ul>
                     </div>
                     <div class="exam-card-footer">
-                        <a href="pages/practice.html?exam=exam1" class="neubtn" onclick="trackExamStart('exam1')">START PRACTICE</a>
+                        <a href="pages/practice.html?exam=exam1" class="neubtn" onclick="trackExamStart('exam1')">START PRACTICE <i class="fas fa-play"></i></a>
                     </div>
                 </div>
                 
                 <div class="neu-card secondary exam-card">
+                    <div class="card-flag card-flag-secondary">NEW</div>
                     <div class="exam-card-body">
                         <div class="exam-icon">
                             <i class="fas fa-brain"></i>
@@ -186,7 +197,7 @@
                         </ul>
                     </div>
                     <div class="exam-card-footer">
-                        <a href="pages/practice.html?exam=exam2" class="neubtn" onclick="trackExamStart('exam2')">START NGN PRACTICE</a>
+                        <a href="pages/practice.html?exam=exam2" class="neubtn" onclick="trackExamStart('exam2')">START NGN PRACTICE <i class="fas fa-play"></i></a>
                     </div>
                 </div>
                 
@@ -205,7 +216,7 @@
                         </ul>
                     </div>
                     <div class="exam-card-footer">
-                        <a href="pages/simulator.html" class="neubtn" onclick="trackExamStart('simulator')">LAUNCH SIMULATOR</a>
+                        <a href="pages/simulator.html" class="neubtn" onclick="trackExamStart('simulator')">LAUNCH SIMULATOR <i class="fas fa-play"></i></a>
                     </div>
                 </div>
             </div>
@@ -213,9 +224,12 @@
     </section>
 
     <!-- Progress Section -->
-    <section class="section" id="progress">
+    <section class="section section-alt" id="progress">
         <div class="container">
-            <h2>YOUR PROGRESS</h2>
+            <div class="section-header">
+                <h2>YOUR PROGRESS</h2>
+                <div class="section-line"></div>
+            </div>
             <div class="stats-container">
                 <div class="stat-box">
                     <div class="stat-value" id="stat-visits">0</div>
@@ -231,7 +245,10 @@
                 </div>
             </div>
             
-            <h3>EXAM STATISTICS</h3>
+            <div class="section-subheader">
+                <h3>EXAM STATISTICS</h3>
+                <div class="section-subline"></div>
+            </div>
             <div id="exam-stats-container">
                 <!-- Exam statistics will be populated by JavaScript -->
             </div>
@@ -241,7 +258,10 @@
     <!-- Tips Section -->
     <section class="section" id="tips">
         <div class="container">
-            <h2>NCLEX SUCCESS TIPS</h2>
+            <div class="section-header">
+                <h2>NCLEX SUCCESS TIPS</h2>
+                <div class="section-line"></div>
+            </div>
             <div class="tips-grid">
                 <div class="neu-card quaternary tip-card">
                     <div class="tip-icon">
@@ -299,8 +319,13 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
-                    <h3>PayLeNN.tech</h3>
+                    <h3>paylenn.tech</h3>
                     <p>Your NCLEX Success Partner</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    </div>
                 </div>
                 <div class="footer-links">
                     <h3>Quick Links</h3>
@@ -312,11 +337,12 @@
                 </div>
                 <div class="footer-contact">
                     <h3>Contact</h3>
-                    <p>Email: support@paylenn.tech</p>
+                    <p><i class="fas fa-envelope"></i> support@paylenn.tech</p>
+                    <p><i class="fas fa-phone"></i> (555) 123-4567</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 PayLeNN.tech. All rights reserved.</p>
+                <p>&copy; 2023 paylenn.tech. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -324,7 +350,7 @@
     <!-- Font Size Controls -->
     <div class="font-size-controls collapsed" id="font-size-controls">
         <div class="font-size-controls-header" id="font-size-controls-header">
-            <h5 class="font-size-controls-title">Font Size</h5>
+            <h5 class="font-size-controls-title"><i class="fas fa-text-height"></i> Text Size</h5>
             <span class="font-size-controls-toggle">⬆️</span>
         </div>
         <div class="font-size-buttons">
