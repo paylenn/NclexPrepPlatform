@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Study Profile - NCLEX Prep Portal</title>
+    <!-- Bootstrap Dark Theme CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="../css/styles.css?v=2.3">
+    <link rel="stylesheet" href="../css/responsive.css?v=2.3">
+    <style>
+        :root {
+            --primary-color: #4361ee;
+            --secondary-color: #3a0ca3;
+            --accent-color: #4cc9f0;
+            --light-color: #f8f9fa;
+            --dark-color: #0f172a;
+            --success-color: #06d6a0;
+            --warning-color: #ffd166;
+            --danger-color: #ef476f;
+            --transition-slow: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            --transition-medium: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            --transition-fast: all 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-color);
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        
+        /* Portal Background */
+        .portal-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, #1e3a8a 0%, #0f172a 100%);
+            z-index: -2;
+            overflow: hidden;
+        }
+        
+        .portal-background::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(67, 97, 238, 0.15) 0%, transparent 20%),
+                radial-gradient(circle at 80% 70%, rgba(76, 201, 240, 0.1) 0%, transparent 20%);
+            z-index: -1;
+        }
+        
+        /* Floating Particles */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .particle {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-2000%) translateX(200px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Navigation */
+        .navbar {
+            background-color: rgba(15, 23, 42, 0.8);
+            padding: 1.5rem 0;
+            transition: var(--transition-medium);
+        }
+        
+        .navbar.scrolled {
+            background-color: rgba(15, 23, 42, 0.95);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 1rem 0;
+        }
+        
+        .navbar-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: white;
+            letter-spacing: -0.5px;
+        }
+        
+        .navbar-brand span {
+            color: var(--accent-color);
+            position: relative;
+        }
+        
+        .navbar-brand span::after {
+            content: "";
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 4px;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: var(--transition-medium);
+        }
+        
+        .navbar-brand:hover span::after {
+            transform: scaleX(1);
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+            padding: 0.75rem 1.25rem;
+            margin: 0 0.25rem;
+            position: relative;
+            transition: var(--transition-fast);
+            z-index: 1;
+        }
+        
+        .nav-link::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(67, 97, 238, 0.1);
+            border-radius: 8px;
+            z-index: -1;
+            transform: scale(0);
+            transition: var(--transition-fast);
+        }
+        
+        .nav-link:hover::before,
+        .nav-link.active::before {
+            transform: scale(1);
+        }
+        
+        .nav-link:hover,
+        .nav-link.active {
+            color: white;
+        }
+        
+        .nav-link.active::after {
+            content: "";
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            width: 20px;
+            height: 3px;
+            background-color: var(--accent-color);
+            border-radius: 3px;
+            transform: translateX(-50%);
+        }
+        
+        /* Profile Section */
+        .profile-section {
+            padding: 3rem 0;
+        }
+        
+        .profile-card {
+            background-color: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid rgba(76, 201, 240, 0.2);
+            transition: var(--transition-medium);
+        }
+        
+        .profile-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3), 0 0 20px rgba(76, 201, 240, 0.2);
+            border-color: rgba(76, 201, 240, 0.4);
+        }
+        
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .profile-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.8), rgba(76, 201, 240, 0.8));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.5rem;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .profile-avatar::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 50%;
+            border: 2px solid rgba(76, 201, 240, 0.5);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.7;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .profile-avatar i {
+            font-size: 3rem;
+            color: white;
+        }
+        
+        .profile-info h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .profile-status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            background-color: rgba(6, 214, 160, 0.2);
+            color: var(--success-color);
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+        
+        .status-premium {
+            background-color: rgba(255, 209, 102, 0.2);
+            color: var(--warning-color);
+        }
+        
+        /* Countdown Timer */
+        .countdown-card {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .countdown-header {
+            margin-bottom: 1.5rem;
+        }
+        
+        .countdown-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .countdown-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        
+        .countdown-block {
+            width: 80px;
+            text-align: center;
+            margin: 0 0.5rem;
+        }
+        
+        .countdown-digit {
+            height: 80px;
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.2), rgba(76, 201, 240, 0.2));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 0.5rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), inset 0 0 10px rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .countdown-digit::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.1), transparent 70%);
+            z-index: 1;
+            animation: light-sweep 3s infinite linear;
+        }
+        
+        @keyframes light-sweep {
+            0% {
+                transform: translateX(-100%) skewX(-20deg);
+            }
+            100% {
+                transform: translateX(200%) skewX(-20deg);
+            }
+        }
+        
+        .countdown-label {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .countdown-message {
+            margin-top: 1rem;
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+        
+        /* Study Progress */
+        .progress-card {
+            padding: 2rem;
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .progress-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin: 0;
+        }
+        
+        .progress-filter {
+            display: flex;
+            align-items: center;
+        }
+        
+        .filter-label {
+            margin-right: 0.5rem;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .filter-dropdown {
+            background-color: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .chart-container {
+            margin-bottom: 2rem;
+        }
+        
+        .study-stats {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -0.5rem;
+        }
+        
+        .stat-card {
+            flex: 1;
+            min-width: 200px;
+            background-color: rgba(15, 23, 42, 0.7);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 0.5rem;
+            border: 1px solid rgba(76, 201, 240, 0.1);
+            transition: var(--transition-fast);
+        }
+        
+        .stat-card:hover {
+            background-color: rgba(25, 33, 52, 0.8);
+            border-color: rgba(76, 201, 240, 0.2);
+            transform: translateY(-5px);
+        }
+        
+        .stat-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .icon-blue {
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.2), rgba(76, 201, 240, 0.2));
+            color: var(--accent-color);
+        }
+        
+        .icon-purple {
+            background: linear-gradient(135deg, rgba(58, 12, 163, 0.2), rgba(67, 97, 238, 0.2));
+            color: #4361ee;
+        }
+        
+        .icon-green {
+            background: linear-gradient(135deg, rgba(76, 201, 240, 0.2), rgba(6, 214, 160, 0.2));
+            color: var(--success-color);
+        }
+        
+        .icon-orange {
+            background: linear-gradient(135deg, rgba(6, 214, 160, 0.2), rgba(255, 209, 102, 0.2));
+            color: var(--warning-color);
+        }
+        
+        .stat-value {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .stat-label {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Study Plan */
+        .plan-card {
+            padding: 2rem;
+        }
+        
+        .plan-header {
+            margin-bottom: 1.5rem;
+        }
+        
+        .plan-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .plan-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        .plan-actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 1.5rem;
+        }
+        
+        .plan-toggle {
+            background-color: rgba(15, 23, 42, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .plan-toggle i {
+            margin-right: 0.5rem;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 7px;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #4361ee, #4cc9f0);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+        
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+        
+        .timeline-point {
+            position: absolute;
+            left: -2rem;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--accent-color);
+            box-shadow: 0 0 0 4px rgba(76, 201, 240, 0.2);
+            z-index: 1;
+        }
+        
+        .timeline-point.completed {
+            background-color: var(--success-color);
+            box-shadow: 0 0 0 4px rgba(6, 214, 160, 0.2);
+        }
+        
+        .timeline-point.current {
+            background-color: var(--warning-color);
+            box-shadow: 0 0 0 4px rgba(255, 209, 102, 0.2);
+        }
+        
+        .timeline-content {
+            background-color: rgba(15, 23, 42, 0.7);
+            border-radius: 10px;
+            padding: 1.5rem;
+            border: 1px solid rgba(76, 201, 240, 0.1);
+        }
+        
+        .timeline-date {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-description {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-tasks {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .timeline-task {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+            font-size: 0.85rem;
+        }
+        
+        .timeline-task:last-child {
+            margin-bottom: 0;
+        }
+        
+        .task-checkbox {
+            width: 18px;
+            height: 18px;
+            border-radius: 4px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.75rem;
+            margin-top: 0.15rem;
+            flex-shrink: 0;
+        }
+        
+        .task-checkbox.checked {
+            background-color: var(--success-color);
+            border-color: var(--success-color);
+            color: white;
+        }
+        
+        .task-label {
+            flex: 1;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .task-completed {
+            text-decoration: line-through;
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        /* Recommendations */
+        .recommendations-card {
+            padding: 2rem;
+        }
+        
+        .recommendations-header {
+            margin-bottom: 1.5rem;
+        }
+        
+        .recommendations-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .recommendations-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        .recommendations-list {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -0.5rem;
+        }
+        
+        .recommendation-item {
+            flex: 1;
+            min-width: 250px;
+            background-color: rgba(15, 23, 42, 0.7);
+            border-radius: 10px;
+            margin: 0.5rem;
+            overflow: hidden;
+            border: 1px solid rgba(76, 201, 240, 0.1);
+            transition: var(--transition-medium);
+        }
+        
+        .recommendation-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border-color: rgba(76, 201, 240, 0.3);
+        }
+        
+        .recommendation-header {
+            padding: 1rem 1.5rem;
+            background-color: rgba(30, 41, 59, 0.8);
+            display: flex;
+            align-items: center;
+        }
+        
+        .recommendation-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.25rem;
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.2), rgba(76, 201, 240, 0.2));
+            color: var(--accent-color);
+        }
+        
+        .recommendation-title {
+            font-weight: 600;
+            font-size: 1rem;
+            margin: 0;
+        }
+        
+        .recommendation-content {
+            padding: 1.5rem;
+        }
+        
+        .recommendation-description {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 1rem;
+        }
+        
+        .recommendation-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+        
+        .recommendation-stat {
+            text-align: center;
+        }
+        
+        .recommendation-value {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            margin-bottom: 0.25rem;
+        }
+        
+        .recommendation-label {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .recommendation-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .recommendation-difficulty {
+            display: flex;
+            align-items: center;
+        }
+        
+        .difficulty-dots {
+            display: flex;
+            margin-left: 0.5rem;
+        }
+        
+        .difficulty-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            margin-right: 3px;
+        }
+        
+        .difficulty-dot.active {
+            background-color: var(--accent-color);
+        }
+        
+        .difficulty-label {
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .recommendation-action {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+        }
+        
+        .recommendation-action i {
+            margin-left: 0.5rem;
+            transition: var(--transition-fast);
+        }
+        
+        .recommendation-action:hover i {
+            transform: translateX(3px);
+        }
+    </style>
+</head>
+<body>
+    <div class="portal-background"></div>
+    <div class="particles" id="particles"></div>
+    
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                NCLEX<span>Prep</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="practice.html">Practice</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="simulation.html">Simulation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="results.html">Results</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="profile.html">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="resources.html">Resources</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Section -->
+    <section class="profile-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="profile-card">
+                        <div class="profile-header">
+                            <div class="profile-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="profile-info">
+                                <h2>Sarah Johnson</h2>
+                                <p>Nursing Student, University of Healthcare</p>
+                                <div class="profile-status status-premium">Premium Member</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><strong>Email:</strong> sarah.johnson@example.com</p>
+                                <p><strong>Membership:</strong> Premium (Expires: 12/31/2025)</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p><strong>NCLEX Exam Date:</strong> June 15, 2025</p>
+                                <p><strong>Study Plan:</strong> Intensive (20 hours/week)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="profile-card countdown-card">
+                        <div class="countdown-header">
+                            <h3 class="countdown-title">NCLEX Exam Countdown</h3>
+                            <p class="countdown-subtitle">Stay focused and keep studying - you're getting closer every day!</p>
+                        </div>
+                        <div class="countdown-timer">
+                            <div class="countdown-block">
+                                <div class="countdown-digit">72</div>
+                                <div class="countdown-label">Days</div>
+                            </div>
+                            <div class="countdown-block">
+                                <div class="countdown-digit">13</div>
+                                <div class="countdown-label">Hours</div>
+                            </div>
+                            <div class="countdown-block">
+                                <div class="countdown-digit">45</div>
+                                <div class="countdown-label">Minutes</div>
+                            </div>
+                            <div class="countdown-block">
+                                <div class="countdown-digit">22</div>
+                                <div class="countdown-label">Seconds</div>
+                            </div>
+                        </div>
+                        <p class="countdown-message">You're 65% through your study plan. Keep up the great work!</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="profile-card progress-card">
+                        <div class="progress-header">
+                            <h3 class="progress-title">Study Progress</h3>
+                            <div class="progress-filter">
+                                <span class="filter-label">View:</span>
+                                <select class="filter-dropdown">
+                                    <option value="last-30">Last 30 Days</option>
+                                    <option value="last-90">Last 90 Days</option>
+                                    <option value="all-time" selected>All Time</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="progressChart" height="250"></canvas>
+                        </div>
+                        <div class="study-stats">
+                            <div class="stat-card">
+                                <div class="stat-icon icon-blue">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="stat-value">247 hrs</div>
+                                <div class="stat-label">Total Study Time</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon icon-purple">
+                                    <i class="fas fa-question-circle"></i>
+                                </div>
+                                <div class="stat-value">3,842</div>
+                                <div class="stat-label">Questions Answered</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon icon-green">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="stat-value">78%</div>
+                                <div class="stat-label">Average Score</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon icon-orange">
+                                    <i class="fas fa-award"></i>
+                                </div>
+                                <div class="stat-value">12</div>
+                                <div class="stat-label">Full Simulations</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="profile-card plan-card">
+                        <div class="plan-header">
+                            <h3 class="plan-title">Personalized Study Plan</h3>
+                            <p class="plan-subtitle">Your customized roadmap to NCLEX success</p>
+                        </div>
+                        <div class="plan-actions">
+                            <button class="plan-toggle">
+                                <i class="fas fa-calendar-alt"></i>
+                                Calendar View
+                            </button>
+                        </div>
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-point completed"></div>
+                                <div class="timeline-content">
+                                    <div class="timeline-date">March 10 - March 24, 2025</div>
+                                    <h4 class="timeline-title">Phase 1: Content Review</h4>
+                                    <p class="timeline-description">Complete comprehensive review of all major NCLEX content areas.</p>
+                                    <ul class="timeline-tasks">
+                                        <li class="timeline-task">
+                                            <div class="task-checkbox checked">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <div class="task-label task-completed">Review Fundamentals of Nursing (10 hours)</div>
+                                        </li>
+                                        <li class="timeline-task">
+                                            <div class="task-checkbox checked">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <div class="task-label task-completed">Study Pharmacology Basics (8 hours)</div>
+                                        </li>
+                                        <li class="timeline-task">
+                                            <div class="task-checkbox checked">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <div class="task-label task-completed">Complete Medical-Surgical Nursing Review (15 hours)</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-point current"></div>
+                                <div class="timeline-content">
+                                    <div class="timeline-date">March 25 - April 15, 2025</div>
+                                    <h4 class="timeline-title">Phase 2: Focused Practice</h4>
+                                    <p class="timeline-description">Concentrate on question practice and identifying knowledge gaps.</p>
+                                    <ul class="timeline-tasks">
+                                        <li class="timeline-task">
+                                            <div class="task-checkbox checked">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <div class="task-label task-completed">Complete 500 Practice Questions (Medical-Surgical)</div>
+                                        </li>
+                                        <li class="timeline-task">
+                                            <div class="task-checkbox checked">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <div class="task-label task-completed">Complete 300 Practice Questions (Pharmacology)</div>
+                                        </li>
+                                        <li class="timeline-task">
+                                            <div class="task-checkbox">
+                                            </div>
+                                            <div class="task-label">Complete 250 Practice Questions (OB/Peds)</div>
+                                        </li>
+                                        <li class="timeline-task">
+                                            <div class="task-checkbox">
+                                            </div>
+                                            <div class="task-label">Take 3 Mini Practice Exams (75 questions each)</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-point"></div>
+                                <div class="timeline-content">
+                                    <div class="timeline-date">April 16 - May 15, 2025</div>
+                                    <h4 class="timeline-title">Phase 3: Comprehensive Review</h4>
+                                    <p class="timeline-description">Integrate knowledge and practice with simulated exams.</p>
+                                    <ul class="timeline-tasks">
+                                        <li class="timeline-task">
+                                            <div class="task-checkbox">
+                                            </div>
+                                            <div class="task-label">Review Weak Areas Identified in Phase 2</div>
+                                        </li>
+                                        <li class="timeline-task">
+                                            <div class="task-checkbox">
+                                            </div>
+                                            <div class="task-label">Complete 5 Full-Length Simulations</div>
+                                        </li>
+                                        <li class="timeline-task">
+                                            <div class="task-checkbox">
+                                            </div>
+                                            <div class="task-label">Review All Incorrect Questions</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="timeline-item">
+                                <div class="timeline-point"></div>
+                                <div class="timeline-content">
+                                    <div class="timeline-date">May 16 - June 14, 2025</div>
+                                    <h4 class="timeline-title">Phase 4: Final Preparation</h4>
+                                    <p class="timeline-description">Fine-tune knowledge and build confidence before exam day.</p>
+                                    <ul class="timeline-tasks">
+                                        <li class="timeline-task">
+                                            <div class="task-checkbox">
+                                            </div>
+                                            <div class="task-label">Complete 3 NGN-Style Full Simulations</div>
+                                        </li>
+                                        <li class="timeline-task">
+                                            <div class="task-checkbox">
+                                            </div>
+                                            <div class="task-label">Review Priority Setting and Delegation Concepts</div>
+                                        </li>
+                                        <li class="timeline-task">
+                                            <div class="task-checkbox">
+                                            </div>
+                                            <div class="task-label">Practice Test-Taking Strategies</div>
+                                        </li>
+                                        <li class="timeline-task">
+                                            <div class="task-checkbox">
+                                            </div>
+                                            <div class="task-label">Prepare Mentally and Physically for Test Day</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="profile-card recommendations-card">
+                        <div class="recommendations-header">
+                            <h3 class="recommendations-title">Personalized Recommendations</h3>
+                            <p class="recommendations-subtitle">Based on your performance data</p>
+                        </div>
+                        <div class="recommendations-list">
+                            <div class="recommendation-item">
+                                <div class="recommendation-header">
+                                    <div class="recommendation-icon">
+                                        <i class="fas fa-heartbeat"></i>
+                                    </div>
+                                    <h4 class="recommendation-title">Cardiovascular Review</h4>
+                                </div>
+                                <div class="recommendation-content">
+                                    <p class="recommendation-description">Your recent assessments indicate a need to review cardiac medications and interventions.</p>
+                                    <div class="recommendation-stats">
+                                        <div class="recommendation-stat">
+                                            <div class="recommendation-value">65%</div>
+                                            <div class="recommendation-label">Current Score</div>
+                                        </div>
+                                        <div class="recommendation-stat">
+                                            <div class="recommendation-value">15%</div>
+                                            <div class="recommendation-label">Below Target</div>
+                                        </div>
+                                    </div>
+                                    <div class="recommendation-footer">
+                                        <div class="recommendation-difficulty">
+                                            <span class="difficulty-label">Difficulty:</span>
+                                            <div class="difficulty-dots">
+                                                <span class="difficulty-dot active"></span>
+                                                <span class="difficulty-dot active"></span>
+                                                <span class="difficulty-dot active"></span>
+                                                <span class="difficulty-dot"></span>
+                                                <span class="difficulty-dot"></span>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="recommendation-action">
+                                            Start Review <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="recommendation-item">
+                                <div class="recommendation-header">
+                                    <div class="recommendation-icon">
+                                        <i class="fas fa-pills"></i>
+                                    </div>
+                                    <h4 class="recommendation-title">Pharmacology Quiz</h4>
+                                </div>
+                                <div class="recommendation-content">
+                                    <p class="recommendation-description">Focus on drug classes and their effects, especially anti-hypertensives and antibiotics.</p>
+                                    <div class="recommendation-stats">
+                                        <div class="recommendation-stat">
+                                            <div class="recommendation-value">70%</div>
+                                            <div class="recommendation-label">Current Score</div>
+                                        </div>
+                                        <div class="recommendation-stat">
+                                            <div class="recommendation-value">10%</div>
+                                            <div class="recommendation-label">Below Target</div>
+                                        </div>
+                                    </div>
+                                    <div class="recommendation-footer">
+                                        <div class="recommendation-difficulty">
+                                            <span class="difficulty-label">Difficulty:</span>
+                                            <div class="difficulty-dots">
+                                                <span class="difficulty-dot active"></span>
+                                                <span class="difficulty-dot active"></span>
+                                                <span class="difficulty-dot active"></span>
+                                                <span class="difficulty-dot active"></span>
+                                                <span class="difficulty-dot"></span>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="recommendation-action">
+                                            Start Quiz <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="recommendation-item">
+                                <div class="recommendation-header">
+                                    <div class="recommendation-icon">
+                                        <i class="fas fa-vial"></i>
+                                    </div>
+                                    <h4 class="recommendation-title">Lab Values Practice</h4>
+                                </div>
+                                <div class="recommendation-content">
+                                    <p class="recommendation-description">Practice interpreting lab values, focusing on electrolyte imbalances and ABGs.</p>
+                                    <div class="recommendation-stats">
+                                        <div class="recommendation-stat">
+                                            <div class="recommendation-value">75%</div>
+                                            <div class="recommendation-label">Current Score</div>
+                                        </div>
+                                        <div class="recommendation-stat">
+                                            <div class="recommendation-value">5%</div>
+                                            <div class="recommendation-label">Below Target</div>
+                                        </div>
+                                    </div>
+                                    <div class="recommendation-footer">
+                                        <div class="recommendation-difficulty">
+                                            <span class="difficulty-label">Difficulty:</span>
+                                            <div class="difficulty-dots">
+                                                <span class="difficulty-dot active"></span>
+                                                <span class="difficulty-dot active"></span>
+                                                <span class="difficulty-dot"></span>
+                                                <span class="difficulty-dot"></span>
+                                                <span class="difficulty-dot"></span>
+                                            </div>
+                                        </div>
+                                        <a href="#" class="recommendation-action">
+                                            Start Practice <i class="fas fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h5>About NCLEX Prep</h5>
+                    <p>We provide comprehensive resources and tools to help nursing students prepare for and pass the NCLEX examination.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="practice.html">Practice</a></li>
+                        <li><a href="simulation.html">Simulation</a></li>
+                        <li><a href="results.html">Results</a></li>
+                        <li><a href="profile.html">Profile</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5>Study Resources</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Question Bank</a></li>
+                        <li><a href="#">Study Guides</a></li>
+                        <li><a href="ngn-types.html">NGN Question Types</a></li>
+                        <li><a href="#">Test Strategies</a></li>
+                        <li><a href="#">Content Review</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Contact Us</h5>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope me-2"></i> support@nclexprep.com</li>
+                        <li><i class="fas fa-phone me-2"></i> (800) 555-NCLEX</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i> 123 Main St, Suite 400<br>New York, NY 10001</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <p class="mb-0">&copy; 2025 NCLEX Prep Portal. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js?v=2.3"></script>
+    <script>
+        // Create floating particles for background effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const particlesContainer = document.getElementById('particles');
+            
+            // Create floating particles
+            for (let i = 0; i < 50; i++) {
+                createParticle();
+            }
+            
+            function createParticle() {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random size between 2px and 6px
+                const size = Math.random() * 4 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random position
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                
+                // Random animation delay
+                const delay = Math.random() * 15;
+                particle.style.animationDelay = `${delay}s`;
+                
+                // Random animation duration between 15s and 30s
+                const duration = Math.random() * 15 + 15;
+                particle.style.animationDuration = `${duration}s`;
+                
+                // Random opacity
+                const opacity = Math.random() * 0.5 + 0.1;
+                particle.style.opacity = opacity;
+                
+                particlesContainer.appendChild(particle);
+                
+                // Remove and recreate particle after animation ends
+                setTimeout(() => {
+                    particle.remove();
+                    createParticle();
+                }, duration * 1000);
+            }
+            
+            // Add scroll class to navbar
+            window.addEventListener('scroll', function() {
+                const navbar = document.querySelector('.navbar');
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+            
+            // Initialize progress chart
+            const progressCtx = document.getElementById('progressChart');
+            new Chart(progressCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Study Hours',
+                        data: [15, 22, 36, 48, 62, 64],
+                        borderColor: '#4cc9f0',
+                        backgroundColor: 'rgba(76, 201, 240, 0.1)',
+                        tension: 0.4,
+                        fill: true
+                    }, {
+                        label: 'Average Score',
+                        data: [65, 68, 72, 74, 77, 78],
+                        borderColor: '#06d6a0',
+                        backgroundColor: 'transparent',
+                        tension: 0.4,
+                        borderDash: [5, 5],
+                        yAxisID: 'y1'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        },
+                        y: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            },
+                            min: 0
+                        },
+                        y1: {
+                            position: 'right',
+                            grid: {
+                                drawOnChartArea: false
+                            },
+                            ticks: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            },
+                            min: 50,
+                            max: 100
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: {
+                                color: 'rgba(255, 255, 255, 0.7)'
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Countdown timer logic
+            function updateCountdown() {
+                // Actual logic would be implemented here to calculate real countdown
+                // This is just a placeholder for the static demo
+                
+                // In a real implementation:
+                // const examDate = new Date("June 15, 2025");
+                // const now = new Date();
+                // const diff = examDate - now;
+                // ...calculate days, hours, minutes, seconds...
+            }
+            
+            // Update countdown every second in a real implementation
+            // setInterval(updateCountdown, 1000);
+            
+            // Task checkbox functionality
+            document.querySelectorAll('.task-checkbox').forEach(checkbox => {
+                checkbox.addEventListener('click', function() {
+                    if (!this.classList.contains('checked')) {
+                        this.classList.add('checked');
+                        this.innerHTML = '<i class="fas fa-check"></i>';
+                        this.nextElementSibling.classList.add('task-completed');
+                    } else {
+                        this.classList.remove('checked');
+                        this.innerHTML = '';
+                        this.nextElementSibling.classList.remove('task-completed');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
