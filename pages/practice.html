@@ -98,6 +98,20 @@
         </div>
     </section>
 
+    <!-- Font Size Controls -->
+    <div class="font-size-controls collapsed" id="font-size-controls">
+        <div class="font-size-controls-header" id="font-size-controls-header">
+            <h5 class="font-size-controls-title">Font Size</h5>
+            <span class="font-size-controls-toggle">⬆️</span>
+        </div>
+        <div class="font-size-buttons">
+            <button class="font-size-button" data-size="small">A</button>
+            <button class="font-size-button active" data-size="medium">A</button>
+            <button class="font-size-button" data-size="large">A</button>
+            <button class="font-size-button" data-size="xl">A</button>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -162,16 +176,71 @@
             localStorage.setItem('nclexAnalytics', JSON.stringify(analytics));
         }
         
-        document.addEventListener('DOMContentLoaded', function() {
-            // Setup exam based on URL parameter
-            const urlParams = new URLSearchParams(window.location.search);
-            const examType = urlParams.get('exam') || 'exam1';
+        // Font size control functionality
+        function initFontSizeControls() {
+            // Get elements
+            const fontSizeControls = document.getElementById('font-size-controls');
+            const fontSizeHeader = document.getElementById('font-size-controls-header');
+            const fontSizeButtons = document.querySelectorAll('.font-size-button');
             
+            // Check if font size preference exists
+            const savedFontSize = localStorage.getItem('nclexFontSize');
+            if (savedFontSize) {
+                setFontSize(savedFontSize);
+                
+                // Update active button
+                fontSizeButtons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('data-size') === savedFontSize) {
+                        btn.classList.add('active');
+                    }
+                });
+            }
+            
+            // Toggle the font size controls panel
+            fontSizeHeader.addEventListener('click', function() {
+                fontSizeControls.classList.toggle('collapsed');
+            });
+            
+            // Add click event to each font size button
+            fontSizeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const size = this.getAttribute('data-size');
+                    
+                    // Remove active class from all buttons
+                    fontSizeButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Set font size
+                    setFontSize(size);
+                    
+                    // Save preference to localStorage
+                    localStorage.setItem('nclexFontSize', size);
+                });
+            });
+        }
+        
+        function setFontSize(size) {
+            // Remove all font size classes
+            document.body.classList.remove('font-size-small', 'font-size-medium', 'font-size-large', 'font-size-xl');
+            
+            // Add the selected font size class
+            document.body.classList.add(`font-size-${size}`);
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
             // Initialize the practice exam
             initializePracticeExam();
             
             // Setup the exam questions
+            const urlParams = new URLSearchParams(window.location.search);
+            const examType = urlParams.get('exam') || 'exam1';
             setupExamQuestions(examType);
+            
+            // Initialize font size controls
+            initFontSizeControls();
         });
     </script>
 </body>
