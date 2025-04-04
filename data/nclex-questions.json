@@ -1,0 +1,275 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "stem": "A male client who had a transurethral resection of the prostate (TURP) today has a continuous bladder irrigation (CBI). The client requests pain medication for abdominal pain rated at \"9\" on a scale of 1 to 10. What action should the nurse take first?",
+      "options": [
+        "Administer prescribed PRN analgesic medication.",
+        "Position him on the left side and slow the irrigation rate.",
+        "Palpate his abdomen and check his urinary output.",
+        "Assist him to ambulate to help pass flatus."
+      ],
+      "correctAnswer": 2,
+      "rationale": "The first action is to assess the client by palpating his abdomen and checking urinary output. Abdominal pain after TURP may indicate a complication such as bladder distention or clot retention. Assessment should always precede intervention.",
+      "category": "Urinary Disorders",
+      "type": "standard"
+    },
+    {
+      "id": 2,
+      "stem": "The mental health nurse takes several adolescent clients to the inpatient schoolroom. The teacher asks the nurse to stay and help one of the male clients who has attention-deficit hyperactivity disorder with his spelling assignment. Which goal is reasonable for this client to attain during this one-hour class?",
+      "options": [
+        "Completes at least one page of spelling.",
+        "Follows directions the first time they are given.",
+        "Sits quietly with peers and completes assignment.",
+        "Shares his problems with others in the class."
+      ],
+      "correctAnswer": 0,
+      "rationale": "Setting a concrete, achievable goal such as completing one page is realistic for a client with ADHD who may have difficulty concentrating for long periods. Other options are less measurable or may be too challenging for a one-hour session.",
+      "category": "Mental Health",
+      "type": "standard"
+    },
+    {
+      "id": 3,
+      "stem": "A client is receiving a standardized solution of heparin 25,000-units/250 ml of normal saline. The healthcare provider prescribes to increase the client's current infusion rate of heparin to 700 units/hour. How many ml/hour should the nurse program the infusion pump?",
+      "options": [
+        "5 ml/hour",
+        "7 ml/hour",
+        "10 ml/hour",
+        "14 ml/hour"
+      ],
+      "correctAnswer": 1,
+      "rationale": "Using the formula: (Desired dose ÷ Concentration) × Volume. (700 units/hour ÷ 25,000 units) × 250 ml = 7 ml/hour",
+      "category": "Pharmacology",
+      "type": "calculation"
+    },
+    {
+      "id": 4,
+      "stem": "A client is receiving the intravenous adrenergic agonist dobutamine (Dobutrex). In evaluating the client's reaction to the medication, which assessment finding indicates to the nurse that the medication is effective?",
+      "options": [
+        "The client denies chest pain or discomfort.",
+        "The client had 160 ml urine output in 8 hours.",
+        "The client's blood pressure is 110/70 mmHg.",
+        "The client's posterior tibial pulses are 1+."
+      ],
+      "correctAnswer": 2,
+      "rationale": "Dobutamine is used to improve cardiac output in clients with heart failure. A stable blood pressure within normal range (110/70 mmHg) indicates improved cardiac function and effective medication.",
+      "category": "Pharmacology",
+      "type": "standard"
+    },
+    {
+      "id": 5,
+      "stem": "A client misses breakfast because of a two-hour hand washing ritual that is performed daily. What plan is most therapeutic for the nurse to implement?",
+      "options": [
+        "Meet with the client daily to discuss motivation for initiating the ritual.",
+        "Wake the client early so the ritual can be completed before breakfast.",
+        "Set limits on amount of time the client is allowed to perform the ritual.",
+        "Socialize with the client during the ritual to demonstrate acceptance."
+      ],
+      "correctAnswer": 1,
+      "rationale": "The most therapeutic approach is to accommodate the client's ritual while ensuring basic needs (breakfast) are met. Waking the client earlier allows time for the ritual without disrupting meals, which is important for physical health.",
+      "category": "Mental Health",
+      "type": "standard"
+    },
+    {
+      "id": 6,
+      "stem": "Which discharge instruction should the nurse provide a client with heart failure who is taking digoxin (Lanoxin)?",
+      "options": [
+        "Avoid concurrent use of herbal products.",
+        "Take Lanoxin with high-fiber foods.",
+        "Restrict fluid intake to equal urine output.",
+        "Check blood glucose level weekly."
+      ],
+      "correctAnswer": 0,
+      "rationale": "Herbal products can interact with digoxin, potentially causing dangerous side effects or reducing medication effectiveness. This is important patient education for safe medication management.",
+      "category": "Pharmacology",
+      "type": "standard"
+    },
+    {
+      "id": 7,
+      "stem": "The charge nurse in the Intensive Care Unit (ICU) needs to transfer a client to the medical unit so that a client from the Emergency Room can be admitted to ICU. Which client is best to consider?",
+      "options": [
+        "A 38-year-old with a myocardial infarction who is having multifocal premature ventricular contractions.",
+        "A 66-year-old with congestive heart failure who has 2+ pitting edema and is short of breath on exertion.",
+        "A 58-year-old diagnosed with Guillain-Barre syndrome who is having difficulty breathing.",
+        "An 80-year-old with a bleeding peptic ulcer who has a Hgb of 7 g/dl and coffee ground drainage from NG."
+      ],
+      "correctAnswer": 1,
+      "rationale": "The 66-year-old with CHF is the most stable of the four clients and would be the most appropriate for transfer to a lower level of care. The other clients have more acute conditions requiring intensive monitoring.",
+      "category": "Prioritization",
+      "type": "standard"
+    },
+    {
+      "id": 8,
+      "stem": "The nurse stops to render aid at the scene of a motor vehicle collision and finds a child about 6 months of age strapped into a car seat in the back seat of the car. After calming the infant with a pacifier, what action should the nurse take?",
+      "options": [
+        "Remove the infant from the car seat while stabilizing the neck.",
+        "Assess the infant's ability to move arms and legs.",
+        "Determine if pupils constrict when exposed to light.",
+        "Lift the car seat out of the car with the infant strapped in it."
+      ],
+      "correctAnswer": 3,
+      "rationale": "The safest approach is to maintain the infant's position in the car seat and remove the entire seat from the car. This minimizes movement and helps stabilize the spine in case of injury.",
+      "category": "Emergency Care",
+      "type": "standard"
+    },
+    {
+      "id": 9,
+      "stem": "An unresponsive female victim of a motor vehicle collision is brought to the emergency department where it is determined that immediate surgery is required to save her life. The client is accompanied by a close friend, but no family members are available. Which intervention should the nurse implement?",
+      "options": [
+        "Obtain an emergency court order for life-saving surgery for the client.",
+        "Prepare the client for surgery without a signed informed consent.",
+        "Ask the woman's friend if the client has an advanced directive.",
+        "Monitor the client until a family member can be located."
+      ],
+      "correctAnswer": 1,
+      "rationale": "In an emergency situation where the client is unresponsive and surgery is necessary to save the client's life, implied consent is assumed and surgery can proceed without formal consent. Delaying treatment could result in the client's death.",
+      "category": "Legal/Ethical",
+      "type": "standard"
+    },
+    {
+      "id": 10,
+      "stem": "A confused and combative male client was placed in bilateral wrist restraints to keep him from pulling out a nasogastric tube. The client developed severe abrasions on both wrists. On the morning that the abrasions were found, the client's record contained nursing documentation stating that skin and circulation checks were conducted every 6 to 8 hours. How should the nurse-manager respond to this situation?",
+      "options": [
+        "Meet with the client's nurse to determine why adequate assessment was not performed.",
+        "Reassure the staff that skin damage can occur even when the standard of care is met.",
+        "Provide an in-service on the documentation needed for clients with altered skin integrity.",
+        "Instruct the staff about the correct protocol for the application of bilateral wrist restraints."
+      ],
+      "correctAnswer": 0,
+      "rationale": "The nurse-manager should first investigate why proper assessments weren't performed. Standards of care and facility policies typically require restraint checks every 1-2 hours, not 6-8 hours. This indicates a failure to follow proper protocols that resulted in patient harm.",
+      "category": "Management",
+      "type": "standard"
+    },
+    {
+      "id": 11,
+      "stem": "When the nurse auscultates the anterior chest just above the right nipple, moderate pitched breath sounds are heard that are equal on inspiration and expiration. Which statement best describes this finding?",
+      "options": [
+        "Bronchial breath sounds that are normal in that location.",
+        "Bronchovesicular breath sounds that are abnormal in that location.",
+        "Bronchial breath sounds that are abnormal in that location.",
+        "Bronchovesicular breath sounds that are normal in that location."
+      ],
+      "correctAnswer": 3,
+      "rationale": "Bronchovesicular breath sounds are normal when heard in the upper third of the anterior chest. They are moderate in pitch and equal on inspiration and expiration, which matches the description in the question.",
+      "category": "Assessment",
+      "type": "standard"
+    },
+    {
+      "id": 12,
+      "stem": "A client is seen in the clinic with an acute episode of acute gastritis. Which nursing diagnosis has the highest priority?",
+      "options": [
+        "Acute pain related to inflammation.",
+        "Nausea related to gastric irritation.",
+        "Risk for fluid volume deficit related to vomiting.",
+        "Imbalanced nutrition: less than body requirements related to decreased intake."
+      ],
+      "correctAnswer": 0,
+      "rationale": "Acute pain is the highest priority nursing diagnosis because pain must be addressed before other issues can be managed effectively. Pain can worsen other symptoms and prevent the client from participating in care.",
+      "category": "Nursing Diagnosis",
+      "type": "standard"
+    }
+  ],
+  "categories": [
+    "Urinary Disorders",
+    "Mental Health",
+    "Pharmacology",
+    "Prioritization",
+    "Emergency Care",
+    "Legal/Ethical",
+    "Management",
+    "Assessment",
+    "Nursing Diagnosis",
+    "Cardiovascular",
+    "Respiratory",
+    "Neurological",
+    "Gastrointestinal",
+    "Endocrine",
+    "Musculoskeletal",
+    "Oncology",
+    "Maternal/Newborn",
+    "Pediatric",
+    "Community Health"
+  ],
+  "simulationTopics": [
+    {
+      "title": "Acid/Base Imbalance",
+      "applicability": ["NCLEX-RN", "NCLEX-PN", "REx-PN"]
+    },
+    {
+      "title": "Appendicitis",
+      "applicability": ["NCLEX-RN", "NCLEX-PN", "REx-PN"]
+    },
+    {
+      "title": "Cardiac Arrhythmias",
+      "applicability": ["NCLEX-RN"]
+    },
+    {
+      "title": "Chronic Kidney Disease",
+      "applicability": ["NCLEX-RN", "NCLEX-PN", "REx-PN"]
+    },
+    {
+      "title": "Cirrhosis",
+      "applicability": ["NCLEX-RN", "NCLEX-PN", "REx-PN"]
+    },
+    {
+      "title": "Compartment Syndrome",
+      "applicability": ["NCLEX-RN", "NCLEX-PN", "REx-PN"]
+    },
+    {
+      "title": "Chronic Obstructive Pulmonary Disease",
+      "applicability": ["NCLEX-RN", "NCLEX-PN", "REx-PN"]
+    },
+    {
+      "title": "Diabetic Ketoacidosis",
+      "applicability": ["NCLEX-RN", "NCLEX-PN", "REx-PN"]
+    },
+    {
+      "title": "Electrolyte Imbalances",
+      "applicability": ["NCLEX-RN"]
+    },
+    {
+      "title": "Hip Fracture",
+      "applicability": ["NCLEX-RN", "NCLEX-PN", "REx-PN"]
+    },
+    {
+      "title": "Increased Intracranial Pressure",
+      "applicability": ["NCLEX-RN", "NCLEX-PN"]
+    },
+    {
+      "title": "Mental Health: Therapeutic Communication",
+      "applicability": ["NCLEX-RN", "NCLEX-PN", "REx-PN"]
+    },
+    {
+      "title": "Pediatric Dehydration",
+      "applicability": ["NCLEX-RN", "NCLEX-PN", "REx-PN"]
+    },
+    {
+      "title": "Postpartum Hemorrhage",
+      "applicability": ["NCLEX-RN", "NCLEX-PN", "REx-PN"]
+    },
+    {
+      "title": "Pneumonia",
+      "applicability": ["NCLEX-RN", "NCLEX-PN", "REx-PN"]
+    },
+    {
+      "title": "Pressure Ulcers",
+      "applicability": ["NCLEX-RN", "NCLEX-PN", "REx-PN"]
+    },
+    {
+      "title": "Sexually Transmitted Infections",
+      "applicability": ["NCLEX-RN", "NCLEX-PN", "REx-PN"]
+    },
+    {
+      "title": "Sickle Cell Anemia",
+      "applicability": ["NCLEX-RN", "NCLEX-PN", "REx-PN"]
+    },
+    {
+      "title": "Transfusion Reaction",
+      "applicability": ["NCLEX-RN", "REx-PN"]
+    },
+    {
+      "title": "Urinary Tract Infection",
+      "applicability": ["NCLEX-RN", "NCLEX-PN", "REx-PN"]
+    }
+  ]
+}

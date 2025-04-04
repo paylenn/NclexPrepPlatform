@@ -1,0 +1,1400 @@
+Nurse Achieve  
+Interactive Simulations  
+ 
+ 
+*titles  highlighted in blue are rooted directly in the 6 Clinical Judgement Model steps  
+  Applicability  
+Simulation Title * NCLEX -RN NCLEX -PN REx-PN 
+Acid/Base Imbalance  ✔ ✔ ✔ 
+Appendicitis  ✔ ✔ ✔ 
+Cardiac Arrhythmias  ✔   
+Chronic Kidney Disease  ✔ ✔ ✔ 
+Cirrhosis  ✔ ✔ ✔ 
+Compartment Syndrome  ✔ ✔ ✔ 
+Chronic Obstructive Pulmonary Disease  ✔ ✔ ✔ 
+Diabetic Ketoacidosis  ✔ ✔ ✔ 
+Electrolyte Imbalances  ✔   
+Hip Fracture  ✔ ✔ ✔ 
+Increased Intracranial Pressure  ✔ ✔  
+Mental Health: Therapeutic Communication  ✔ ✔ ✔ 
+Pediatric Dehydration  ✔ ✔ ✔ 
+Postpartum Hemorrhage  ✔ ✔ ✔ 
+Pneumonia  ✔ ✔ ✔ 
+Pressure Ulcers  ✔ ✔ ✔ 
+Sexually Transmitted Infections  ✔ ✔ ✔ 
+Sickle Cell Anemia  ✔ ✔ ✔ 
+Transfusion Reaction  ✔  ✔ 
+Urinary Tract Infection  ✔ ✔ ✔ 
+-1- 
+ 
+NCLEX® is a registered trademark of the National Council of State Boards of Nursing.     
+NurseAchieve is a registered trademark of NurseAchieve, Inc.  
+Copyright © NurseAchieve, Inc.  Nurse Achieve  
+www.nurseachieve.com  
+CHAPTERS  INCLUDED  IN THE  NURSEACHIEVE  
+COMPREHENSIVE NCLEX® REVIEW  
+NCLEX TEST  STRATEGIES:  
+• NCLEX  EXAM  OVERVIEW  
+• TEST  TAKING  STRATEGIES  
+NURSING  SKILLS   AND  FUNDAMENTALS:    
+• ADMINISTRATION  OF BLOOD  PRODUCTS  AND  LABORATORY  VALUES  
+• AMPUTATION  
+• CARE  OF A CLIENT  WITH  A TUBE  
+• CLIENT  POSITIONING  
+• COMPLEMENTARY  ALTERNATIVE  MEDICINE  
+• DOCUMENTATION  AND   INFORMATICS  
+• FAMILY  DYNAMICS  
+• NURSING  DIAGNOSES  
+• PHYSICAL  ASSESSMENT    
+• ROLE MANAGEMENT,  PRIORITIZATION,  DELEGATION,  EDUCATION    
+• STANDARD  PRECAUTIONS  
+AUTO -IMMUNE AND  INFLAMMATORY  DISORDERS:   
+• AUTOIMMUNE  DISEASES  
+• APPENDICITIS  
+• CHOLECY STITIS  
+• CYSTITIS  
+• DIVERTICULITIS  
+• GUILLAIN -BARR É SYNDROME  
+• INFLAMMATORY  DISEASES  OF THE EAR  
+CARDIOVASCULAR DISORDERS:    
+• ANGINA  
+• ATRIAL  FIBRILLATION  
+• CARDIOMYOPATHY  
+-2- 
+ 
+NCLEX® is a registered trademark of the National Council of State Boards of Nursing.     
+NurseAchieve is a registered trademark of NurseAchieve, Inc.  
+Copyright © NurseAchieve, Inc.  • CARDIOPULMONARY  RESUSCITATION  
+• ELECTROCARDIOGRAM  BASICS  
+• HEART  FAILURE  
+• HYPERTENSION  
+• INFLAMMATORY  DISEASES  OF THE HEART  
+• MYOCARDIAL  INFARCTION    
+• PERIPHERAL  VASCULAR  DISEASE  
+• PULMONARY  EMBOLISM  AND  PLEURAL  EFFUSION  
+• STROKE  
+• TAMPONADE   
+CANCER:  
+• CANCER  OVERVIEW  
+• FEMALE  REPRODUCTIVE  CANCERS  
+• GASTRO -INTESTINAL  CANCER  
+• HEMATOLOGICAL  CANCERS    
+• LARGE  ORGAN    CANCER    
+• MALE  REPRODUCTIVE  CANCERS    
+   
+DERMATOLOGY:  
+• BURNS  
+• DERMATITIS -CELLULITIS  
+• PRESSURE  ULCERS  
+• SKIN  CONDITIONS  
+ 
+ENDOCRINE DISORDERS:    
+• ADDISON'S  DISEASE  
+• DIABETES  MELLITUS    
+• HORMONE  REGULATION  
+• HYPERTHYROIDISM  
+• HYPOTHYROIDISM  
+• NUTRITIONAL  DISORDERS  AND  METABOLIC  SYNDROME PARATHYROID  
+DISORDERS    
+ELECTROLYTE  DISORDERS:    
+• ACID  BASE  IV THERAPY    
+• ELECTROLYTE  IMBALANCES  
+• FLUIDS  AND  ELECTROLYTES  
+-3- 
+ 
+NCLEX® is a registered trademark of the National Council of State Boards of Nursing.     
+NurseAchieve is a registered trademark of NurseAchieve, Inc.  
+Copyright © NurseAchieve, Inc.  EYE DISORDERS:  
+• EYE,  EAR,  NOSE,  THROAT  & UPPER  AIRWAY VISION  DISORDERS     
+GASTROINTESTINAL DISORDERS:  
+• GASTROESOPHAGEAL  REFLUX  DISEAS (GERD)  
+• PEPTIC ULCER  DISEASE  AND GASTRITIS   
+INFECTIOUS DI SEASES:  
+• HEPATITIS  
+• HUMAN  IMMUNODEFICIENCY  VIRUS  (HIV)  
+• IMMUNODEFICIENCY  
+• LYME  DISEASE  
+• MENINGITIS  
+• PNEUMONIA  
+• SEVERE  ACUTE  RESPIRATORY  SYNDROME  (SARS)  
+• SEXUALLY  TRANSMITTED  INFECTIONS  
+• TUBERCULOSIS  
+• ULCERATIVE  COLITIS   
+MATERNAL  HEALTH:    
+• ANTEPARTUM  
+• INTRA -PARTUM  
+• POST -PARTUM  
+MEDICAL -SURGICAL CARE:    
+• POSTOPERATIVE  SURGICAL  EMERGENCIES  AND  COMPLICATIONS  
+• PRE/POST  OPERATIVE  CARE  
+• SHOCK  MANAGEMENT  - EMERGENCY  CARE   
+MENTAL HEALTH:    
+• ALZHEIMER'S  DISEASE  
+• ANXIETY  DISORDERS  
+• BIPOLAR -PERSONALITY  DISORDERS  
+• COGNITIVE  IMPAIRMENTS  ATTENTION  DISORDERS  
+• EATING  DISORDERS    
+• MENTAL  HEALTH  THERAPEUTIC  REALATIONSHIPS  
+• SCHIZOPHRENIA  
+• SUBSTANCE  ABUSE  
+-4- 
+ 
+NCLEX® is a registered trademark of the National Council of State Boards of Nursing.     
+NurseAchieve is a registered trademark of NurseAchieve, Inc.  
+Copyright © NurseAchieve, Inc.  MUSCULOSKELETAL DISORDERS:    
+• CONNECTIVE  TISSUE  DISORDERS  
+• FRACTURES  
+• MULTIPLE  SCLEROSIS  
+• MUSCULOSKELETAL  CONDITIONS  
+  
+NEUROLOGY:  
+• CEREBRAL  ANEURYSMS  
+• DELIRIUM,  DEPRESSION  AND  DEMENTIA  
+• INCREASED  INTRACRANIAL  PRESSURE    
+• PARKINSON'S  DISEASE  
+• SEIZURE  DISORDERS SPINAL  CORD    INJURY    
+• THE  HYPOTHALAMUS  
+• VALVULAR  DISORDERS    
+• VERTIGO  - MENIERES  SYNDROME  
+PHARMACOLOGY:  
+• PHARMACOLOGY  
+• PHARMACOLOGY:  MEDICATION  CALCULATION  AND  ADMINISTRATION  
+PSYCHO -SOCIA L:  
+• ABUSE  & VIOLENCE  
+• PHYSIOLOGICAL  AND  PSYCHOSOCIAL  CHANGES  IN  AGING  
+• END  OF LIFE  CARE  
+PUBLIC HEALTH:    
+• HEALTH  PROMOTION  AND  MAINTENANCE  
+• IMMUNITY  
+• IMMUNIZATION  DISASTER  
+RENAL DISORDERS:    
+• ACUTE  RENAL  FAILURE  
+• CIRRHOSIS  
+• CHRONIC  KIDNEY  DISEASE  (CKD) RENAL  CALCULI   
+  
+-5- 
+ 
+NCLEX® is a registered trademark of the National Council of State Boards of Nursing.     
+NurseAchieve is a registered trademark of NurseAchieve, Inc.  
+Copyright © NurseAchieve, Inc.  RESPIRATORY  DISORDERS:    
+• ASTHMA  
+• CHEST  INJURIES  
+• CHRONIC  OBSTRUCTIVE  PULMONARY  DISEASE  (COPD)  
+• PHYSIOLOGY  OF BREATHING  
+PEDIATRICS:  
+• CARE  OF THE NEWBORN  
+• PEDIATRIC  CARDIOVASCULAR  NURSING    
+• PEDIATRIC  COGNITIVE  NEUROLOGIC  PSYCHOSOCIAL    
+• PEDIATRIC  DIABETES  MELLITUS  
+• PEDIATRIC  DEVELOPMENTAL  STAGES  
+• PEDIATRIC  EYE,  EAR,  AND  THROAT  DISORDERS  
+• PEDIATRIC  FEVER,  DEHYDRATION,  AND  PHENYLKETONURIA  
+• PEDIATRIC  GASTROINTESTINAL  DISORDERS  
+• HIDDEN  FROM  STUDENTS:PEDIATRIC  HEMATOLOGICAL  ONOLOGICAL  
+• PEDIATRIC  INFECTIOUS  AND  COMMUNICABLE  DISEASES  
+• PEDIATRIC  INTEGUMENTARY DYSFUNCTION    
+• PEDIATRIC  MEDICATION  ADMINISTRATION  
+• PEDIATRIC  MUSCULOSKELETAL  DISORDERS  
+• PEDIATRIC  NEUROLOGIC,  COGNITIVE,  AND  PSYCHOSOCIAL  DISORDERS  
+• PEDIATRIC  RESPIRATORY  DISORDERS    
+• PEDIATRIC  RENAL/URINARY/GASTROURINARY  DISORDERS   
+URINARY  AND  REPRODUCTIVE  HEALTH:    
+• BENIGN  PROSTATIC  HYPERPLASIA  
+• CUSHING'S  DISEASE  
+• PITUITARY  DISORDERS  
+• POSTERIOR  PITUITARY  DISORDERS REPRODUCTIVE  ANATOMY  
+• REPRODUCTIVE  COMPLICATIONS  
+2023 HESI V1 Exit Exam – Questions 
+1. A male client who had a transurethral resection of the prostate (TURP) today has a continuous bladder 
+irrigation (CBI). The client requests pain medication for abdominal pain rated at “ 9“on  a scale of 1 to 10. 
+What action should the nu rse take first?  
+A.Administer prescribed PRN analgesic medication.  
+B.Position him on the left side and slow the irrigation rate.  
+C.Palpate his abdomen and check his urinary output. <  
+D.Assist him to ambulate to help pass flatus.  
+2. The mental health nurse takes sever al adolescent clients to the inpatient schoolroom. The teacher asks 
+the nurse to stay and help one of the male clients who has attention -deficit hyperactivity disorder with 
+his spelling assignment. Which goal is reasonable for this client to attain during this one -hour class?  
+A.Completes at least one page of spelling. <  
+B.Follows directions the first time they are given.  
+C.Sits quietly with peers and completes assignment.  
+D.Shares his problems with others in the class.  
+3. A client is receiving  a standardized solution  of heparin 25,000 -units/250 ml of normal saline. The 
+healthcare provider prescribes to increase the client’s current infusion rate of heparin to 700 
+units/hour. How many ml/hour should the nurse program the infusion pump? Enter the  numerical 
+value only.  
+Using formula, D/H x Q, 700 units/hour 25,000 units x 25o ml = 7 ml/hour  
+4. A client is receiving the intravenous adrenergic agonist dobutamine (Dobutrex). In evaluating the 
+client’s reaction to the medication, which assessment findin g indicates to the nurse  that the medication 
+is effective?  
+A.The client denies chest pain or discomfort.  
+B.The client had 160 ml urine output in 8 hours.  
+C.The client’s blood pressure is 110/70 mmHg. <  
+D.The client’s posterior tibial pulses are 1+.  
+5. A client misse s breakfast because of a  two-hour hand washing ritual that is performed daily. What plan 
+is most therapeutic for the nurse to implement?  
+A.Meet with the client daily to discuss motivation for initiating the ritual.  
+B.Wake the client early so the ritual can be completed before breakfa st.  <  
+C.Set limits on amount of time the client is allowed to perform the ritual.  
+D.Socialize with the client during the ritual to demonstrate acceptance.  
+6. Which discharge instruction should the nurse provide a client with heart failure  who is taking digoxin 
+(Lanoxin)?  
+A.Avoid concurrent use of herbal products. <  
+B.Take Lanoxin with high -fiber foods.  
+C.Restrict fluid intake to equal urine output.  
+D.Check blood glucose level weekly.  
+7. The charge nurse in the Intensive Care Unit (ICU) needs to tran sfer a client to the med ical unit so that a 
+client from the Emergency Room can be admitted to ICU. Which client is best to consider?  
+A. A 38 -year -old with a myocardial infarction who is having multifocal premature ventricular 
+contractions.  
+B. A 66 -year -old with congestive heart failure  who has 2+ pitting edema and is short of breath on 
+exertion. <  
+C. A 58 -year -old diagnosed with Guillain -Barre syndrome who is having difficulty breathing.  
+D. An 80 -year -old with a bleeding peptic ulcer who has a Hgb of 7 g/dl and coffee ground drainage 
+from NG.  
+ 
+8. The nurse stops to render aid at the scene of a motor vehicle collision and finds a child about 6 months 
+of age strapped into a car seat in the back seat of the car. After calming the infant with a pacifier, what 
+action should the  nurse take?  
+A. Remove t he infant from the car seat while stabilizing the neck.  
+B. Assess the infant’s ability to move arms and legs.  
+C. Determine if pupils constrict when exposed to light.  
+D. Lift the car seat out of the car with the infant strapped in it . < 
+ 
+9. An unresponsive fem ale victim of a motor vehicle collision is brought to the emergency department 
+where it is determined that immediate surgery is required to save her life. The client is accompanied by 
+a close friend, but no family members are availa ble. Which intervention should the nurse implement?  
+A. Obtain an emergency court order for life -saving surgery for the client.  
+B. Prepare the client for surgery without a signed informed consent. <  
+C. Ask the woman’s friend if the client has an advanced directive.  
+D. Monitor the client until  a family member can be located.  
+ 
+10. A confused and combative male client was placed in bilateral wrist restraints to keep him from pulling 
+out a nasogastric tube. The client developed severe abrasions on both wrists. On the morning th at the 
+abrasions were fo und, the client’s record contained nursing documentation stating that skin and 
+circulation checks were conducted every 6 to 8 hours. How should the nurse -manager respond to this 
+situation?  
+A. Meet with the client’s nurse to determine w hy adequate assessment w as not performed. <  
+B. Reassure the staff that skin damage can occur even when the standard of care is met.  
+C. Provide an in -service on the documentation needed for clients with altered skin integrity.  
+D. Instruct the staff about the correct  protocol for the applic ation of bilateral wrist restraints.  
+ 
+11. When the nurse auscultates the anterior chest just above the right nipple, moderate pitched breath 
+sounds are heard that are equal on inspiration and expiration. Which statement best describes t his 
+finding?  
+A. Bronchial b reath sounds that are normal in that location.  
+B. Bronchovesicular breath sounds that are abnormal in that location.  
+C. Bronchial breath sounds that are abnormal in that location.  
+D. Bronchovesicular breath sounds that are normal in that loc ation. <  
+ 
+12. A client is se en in the clinic with an acute episode of acute gastritis. Which nursing diagnosis has the 
+highest priority?  
+A. Acute pain related to inflammation. <  
+B. Nausea related to gastric irritation.  
+C. Knowledge deficit related to diet.  
+D. Potential fo r injury related to blee ding.  
+ 
+13. The nurse should encourage males over the age of 45 to obtain which test to screen for prostatic 
+cancer?  
+A. Prostate -specific antigen (PSA). <  
+B. Serum testosterone level.  
+C. Alpha -fetoprotein radioimmunoassay (AFP).  
+D. Ultrasound of the  scrotum.  
+ 
+14. A male client  tells the nurse that he does not want to receive a blood transfusion that was prescribed to 
+treat internal hemorrhaging. What action should the nurse implement?  
+A. Notify the prescribing healthcare provider of the client’s refusal to receive the blood transf usion. 
+< 
+B. Notify the hospital’s attorney of the client’s wishes and the need to exercise life -saving measures.  
+C. Check the client’s medical record to see if he signed a legal informed consent form.  
+D. Explain the treatment options availab le to him if he refuses the prescribed blood transfusion.  
+ 
+15. The nurse is caring for a laboring client whose membranes ruptured 24 hours prior to admission. Based 
+on the laboring client’s record and the current fetal monitor reading, which action should the nurse 
+implement? (Click on each chart for additional information. Please be sure to scroll to the bottom right 
+corner of each tab to view all information contained in the client’s medical record.)  
+A. Stop the oxytocin infusion.  
+B. Prepare for Cesarean delivery. < 
+C. Assess the vital signs . 
+D. Apply oxygen 10 L/mask.  
+ 
+16. Which nursing intervention has the highest priority when completing discharge teaching for a client 
+with Helicobacter pylori (H. pylori) induced peptic ulcer diseases (PUD)?  
+A. Refer the client to a counselor  for information on stre ss reduction and relaxation.  
+B. Encourage the client to eat regularly scheduled meals to help prevent the pain.  
+C. Instruct the client to take all the antibiotics, proton pump inhibitors, and Pepto -Bismol. <  
+D. Teach the importance of taking  the Carafate medication  immediately before meals.  
+ 
+17. A client had a total hip replacement two days ago. She has never been in the hospital before. She has 
+just called for the bedpan. How should the nurse place the pan under this client?  
+A. Ask her to roll to t he unoperated side and s lide the bedpan under her, then roll back onto the 
+pan. <  
+B. Ask her to roll to the operated side and slide the bedpan under her, then roll her back onto the pan.  
+C. Ask her to flex her knees, spread her legs, and lift her buttocks with t he flat part of her feet , then 
+push the bedpan under her from the front.  
+D. Ask her to grab her over bed trapeze, push both heels into the mattress, and raise her buttocks off 
+the bed so the bedpan can be slipped under her.  
+ 
+18. A male client diagnosed with hyper tension has a nursing go al of, “The client will be able to verbalize 
+ways to decrease blood pressure.” What statement by the client indicates that this outcome has been 
+met?  
+A. “I should have my blood pressure checked monthly to make sure it is within normal limits.”  
+B. “If I lose weig ht, quit smoking, and exercise regularly I may not have to take any medication.” <  
+C. “I should increase my fluid intake and decrease my fiber intake.”  
+D. “If I take my medication every day, I won’t have to worry about my blood pressure.”  
+ 
+19. On the third day of ho spitalization for depression, a male client tells the nurse that he is feeling much 
+better and reports that he believes the antidepressant therapy is working. He participates in all 
+scheduled activities and agrees to take on additio nal ward assignments. Wh at nursing action is most 
+important for the nurse to implement at this time?  
+A. Assign an attendant to monitor the client’s whereabouts at all times. <  
+B. Praise the client’s willingness to take on additional duties.  
+C. Encourage the client to share his positive at titude with other clients.  
+D. Monitor the client’s behavior and intake during meals to determine appetite.  
+ 
+20. A client experiencing intracranial hypertension from a traumatic brain injury is admitted to the trauma 
+unit. How should the nu rse position this client ? 
+A. Totally prone.  
+B. Right side lying.  
+C. Completely supine.  
+D. Elevated head of bed. <  
+ 
+21. The parents of a 4 -week -old male infant report that he eats well but vomits after each feeding. Which 
+assessment finding should the nurse expect him to e xhibit if the baby is re ceiving inadequate nutrition?  
+A. Tachypnea.  
+B. Hypoactive bowel sounds.  
+C. Sunken fontanels. <  
+D. Absent Moro reflex.  
+ 
+22. The nurse is planning the discharge teaching for a female client who has frequent urinary tract 
+infections. In teaching the c lient how to prevent uri nary tract infections, which recommendation should 
+the nurse include?  
+A. Void immediately after intercourse. <  
+B. Sit in a tub of warm water each evening.  
+C. Drink a glass of water upon arising each morning.  
+D. Perform Kegel exercises several t imes daily.  
+ 
+23. When admini stering an antibiotic that causes photosensitivity, which instruction is important for the 
+nurse to provide the client?  
+A. Have hearing checked periodically.  
+B. Be sure to drink plenty of fluids after activity.  
+C. Wear long -sleeved clothing outdoors. <  
+D. Get up slowl y to avoid dizziness.  
+ 
+24. A client is receiving an infusion of 500 ml D5W with 25,000 units of heparin at 1,000 units/hour has a 
+partial thromboplastin time (PTT) of 110 seconds. The sliding scale prescription reads: “If the PTT is les s 
+than 65 seconds, incre ase the rate by 200 units/hour; and if the PTT is greater than 95 seconds 
+decrease the rate by 200 units/hour.” The nurse should regulate the infusion pump for how many 
+ml/hour? (Enter numeric value only.)  
+ 
+        16 
+ 
+25. The nurse te aching a preconception preparatio n class is discussing ways to improve dietary folic acid 
+intake. Which evening snack contains the most folic acid?  
+A. Whole grain cereal and milk. <  
+B. Hard -boiled egg and juice.  
+C. Vanilla milkshake with protein supplement.  
+D. Toasted  white bread with butter.  
+ 
+26. An 8 -month -old boy who has tetralogy of Fallot experiences periodic “tet spells” with paroxysmal 
+dyspnea. Which nursing intervention is most effective in managing these episodes?  
+A. Administer digoxin and Lasix as prescribed.  
+B. Admini ster oxygen and place the child i n the knee -chest position. <  
+C. Place the child in a prone position and administer chloral hydrate.  
+D. Elevate the head of the bed and take the child’s vital signs.  
+ 
+27. A 21 -year -old male client has developed splenomegaly secondary to infection mononucleosis. What 
+factor in the client’s history is most important in developing his discharge -teaching plan?  
+A. He regularly eats at fast food restaurants.  
+B. On weekends he usually drinks 1 or 2 beers.  
+C. Lately he has been sleeping 10 to 12 hours every night.  
+D. He works as a furnit ure mover. <  
+ 
+28. The nurse is monitoring an infant with pulmonic stenosis. Which finding is most important for the nurse 
+to report to the healthcare provider?  
+A. Clubbing of the fingers.  
+B. Systemic cyanosis. <  
+C. Presence of a thrill.  
+D. Polycythemia.  
+ 
+29. The nurse is plan ning care for a newborn with bladder exstrophy. During the preoperative period, which 
+intervention should the nurse implement?  
+A. Expose the bladder to room air to promote scar formation.  
+B. Place a dry sterile dressing over the exposed bladder.  
+C. Apply a sterile non-adherent dressing over the bladder. <  
+D. Use pre -weighed large diapers for diapering the infant.  
+ 
+30. After positioning a client on the side to administer a rectal suppository, the nurse observes that the 
+client has been incon tinent of a large amount of liqui d stool, which has soaked through a gauze pad 
+covering a stage three -pressure ulcer. What action should the nurse take first?  
+A. Administer the rectal suppository.  
+B. Replace the soiled dressing. <  
+C. Assess the client’s bowel sound s. 
+D. Check the client for an impact ion. 
+ 
+31. The nurse is assessing a 48 -year -old client with Guillain -Barre syndrome. What symptom is this client 
+most likely to exhibit?  
+A. Pill rolling movement of the fingers.  
+B. Difficulty keeping eyelids open.  
+C. Pain on one side of the face.  
+D. Decreased mobility of t he legs. <  
+ 
+32. The emergency department notifies the charge nurse at 3:00 a.m. of the transfer of a client who is 
+being admitted because of multiple lacerations that are a result of self -destructive behavior. Agency 
+policy sta tes that this client should be ad mitted to a safe room with window locks, but the only safe 
+room on the unit is currently occupied by a postoperative client. What action should the nurse take?  
+A. Admit the client to a regular room and provide intensive monito ring.  
+B. Have the client remain in t he emergency department until morning.  
+C. Move the postoperative client to another room. <  
+D. Decline the client because a safe room is unavailable.  
+ 
+33. The nurse is caring for a two -day postoperative client. What assessment finding  indicates that wound 
+healing is likely?  
+A. Tolerated a full liquid diet on the second postoperative day.  
+B. Ambulated in the hallway 24 hours after surgery.  
+C. Current serum potassium level is 4.9 mEq/L.  
+D. Total serum protein is 5.4 g/dl. <  
+ 
+34. A client’s arterial bloo d gases are: pH 7.5, PaO2 94, PaC O2 30, HCO2 24. What action should the nurse 
+take based on these findings?  
+A. Auscultate the client’s breath sounds for increased secretions.  
+B. Review the client’s electrolytes and intake/output for fluid balance.  
+C. Assess the cli ent for nausea, vomiting, or diar rhea.  
+D. Assess the client for causes of hyperventilation. <  
+ 
+35. A “Code Pink” is announced over the hospital intercom system, indicating that a baby has been 
+abducted from the nursery. What action should the charge nurse on a me dical surgical unit implement 
+first? 
+A. Assign one UAP to report to the nursery to assist with the search.  
+B. Instruct the nursing staff to check every client’s room, bathroom, and treatment room.  
+C. Assign one staff member to stay at each of the emergency exits a nd stairwell doors. <  
+D. Stay alert for further announcements because a code pink primarily affects maternity units.  
+ 
+36. A client who is experiencing paranoid ideation is admitted to the psychiatric unit. During the first 48 
+hours of treatment, which nursing int ervention is best for the nurse t o implement?  
+A. Place the client in group activities with other paranoid clients.  
+B. Encourage the client to participate in unit social activities.  
+C. Refer the client to occupational therapy.  
+D. Allow the client to initiate relationsh ips and activities. <  
+37. Which surve illance clues are specific potential indicators of a bioterrorism attack? (Select all that apply.)  
+A. Geographic clustering of client illnesses. <  
+B. Increased rate of hospital emergency room visits.  
+C. Emergency room understaffing for six consecutive shifts.  
+D. Incre ased prevalence of cases previously not seen in a geographic area. <  
+E. Increased biosafety practice precautions used by emergency room staff.  
+F. Unusual age distribution for a common disease. <  
+ 
+38. A client in acute renal failure h as a serum potassium level of 6.3  mEq/L. What medication can the nurse 
+expect the healthcare provider to prescribe?  
+A. Nitrofurantoin (Macrodantin) orally.  
+B. Erythropoietin (Epogen) intravenously.  
+C. Kayexalate retention enema. <  
+D. Azathioprine (Imuran) orally.  
+ 
+39. The nurse finds a client at 33 -weeks  gestation in cardiac arrest. What adaptation to cardiopulmonary 
+resuscitation (CPR) should the nurse implement?  
+A. Position a hip wedge for lateral uterine displacement. <  
+B. Adjust the ventilation -to-compression ratio to 3:20.  
+C. Apply less compression force to r educe aspiration.  
+D. Apply oxygen mask after opening the airway.  
+ 
+40. A client has produced the first of a series of sputum samples for cytology. What action should the nurse 
+implement?  
+A. Ensure the client remains NPO until all the samples are collected.  
+B. Discard th e initial sample and document the time it was obtained.  
+C. Transport the sputum container to the laboratory in a biohazard bag. <  
+D. Document the time the client last ate or drank on the laboratory slip.  
+ 
+41. In scheduling home visit s, which client is best for the h ome health charge nurse to assign to the 
+licensed practical nurse (LPN)?  
+A. A client who needs the first postoperative dressing change following a skin graft to the lower leg.  
+B. A postoperative client who no longer needs wound c are, but has called to report a f ever.  
+C. A client with diabetes who has called to report a newly discovered foot ulceration.  
+D. A bedfast client who needs daily irrigation of a stage 4 pressure ulcer. <  
+ 
+42. A client is hospitalized for pregnancy -induced hypertensi on (PIH) and is receiving magnesi um sulfate 2 
+g/hour IV. Which medication should the nurse plan to have immediately available for this client?  
+A. Sodium bicarbonate.  
+B. Atropine.  
+C. Epinephrine.  
+D. Calcium gluconate. <  
+ 
+43. Which statement by the mother of a male toddler with croup indicates to the nurse  that the teaching 
+was effective?  
+A. “I need to take him to the nearest ER immediately if he starts having trouble swallowing.” <  
+B. “The cough makes him sound sicker than he is. I don’t need to worry.”  
+C. “I can give him baby aspir in for the fever and cough.”  
+D. “Using a steam vaporizer at night in his room will help ease the cough.”  
+ 
+44. The healthcare provider prescribes meperidine (Demerol) 25 mg IV every 3 hours for an older, 
+postoperative client. The nurse prepares the prescribed dose  from a cartridge labeled “meperi dine 75 
+mg/ml” and dilutes the medication with 5 ml of normal saline for IV administration. How many ml is 
+the total volume of diluted medication? (Enter numeric value only. If rounding is required, round to the 
+nearest ten th.) 5.3  
+ 
+45. Which assessment findin g indicates to the nurse that resolution of a client’s subcutaneous emphysema 
+has occurred?  
+A. No crepitus palpated at site. <  
+B. Client denies pain or tenderness at site.  
+C. No lymph node enlargement.  
+D. No redness or inflammation not ed. 
+ 
+46. One hour after receiving the  initial dose of doxazosin (Cardura), a male client with benign prostatic 
+hypertrophy complains of a rapid heartbeat and dizziness. He is sitting at the side of the bed finishing 
+his bedtime snack. His radial pulse is 144 b eats/minute. What action should t he nurse take first?  
+A. Assist the client to a recumbent position.  
+B. Notify the healthcare provider.  
+C. Obtain his blood pressure and apical pulse rate. <  
+D. Obtain an electrocardiogram (ECG).  
+ 
+47. When preparing the client for a thoracen tesis, it is essential for the nu rse to take which action?  
+A. Have the client lie in the prone position. <  
+B. Determine if chest x -rays have been completed.  
+C. Encourage the client to cough during the procedure.  
+D. Ask the client to void prior to the procedure.  
+ 
+48. The n urse is preparing a disaster plan  for a community. When planning for a potential bioterrorism 
+attack, which disease should be considered?  
+A. Shigellosis.  
+B. West Nile virus.  
+C. Pertussis.  
+D. Tularemia. <  
+ 
+49. The nurse has completed discharge teaching with a client who ha d perineal surgery one week ago. 
+Which statement by the client indicates that the teaching was effective?  
+A. “I will try to avoid eating fruits and vegetables.”  
+B. “I will limit my fluid intake to about a quart a day.”  
+C. “I will cleanse the perineum after every bo wel movement.” <  
+D. “I will only use  enemas if I do not have a daily bowel movement.”  
+ 
+50. A male client tells the nurse that he has experienced acid reflux for several years. The nurse recognizes 
+that this client has an increased risk for what problem?  
+A. Cancer. <  
+B. Cardiac disease.  
+C. Abdominal aneur ysm.  
+D. Lymphadenopathy.  
+ 
+51. Which equipment should the nurse use to administer iron to an infant with iron deficiency anemia?  
+A. Rectal suppository.  
+B. Medicine dropper. <  
+C. Medicine cup.  
+D. IV pump.  
+ 
+52. A 25 year -old male client with testicu lar carcinoma is scheduled for a unilateral orchiectomy tomorrow. 
+During the preoperative preparation, he tells the nurse that he is concerned that his scrotum will not 
+look normal after the surgery, even though he knows that a testicular prosthesis will b e inserted during 
+surgery. What i mmediate response is best for the nurse to provide?  
+A. Explain that the prosthesis feels and looks natural in the scrotum. <  
+B. Refer the client to a support group for young adults with cancer.  
+C. Reassure the client that no one wil l know just by looking at him.  
+D. Arrange for a recipient of testicular prosthesis to visit the client.  
+ 
+53. An adult male client presents to the psychiatric clinic accompanied by his mother who is concerned that 
+her child is going to jail because he broke into a  jewelry store. The nurse conduct s an intake assessment 
+and determines that the son is using marijuana daily. What information should the nurse provide this 
+mother?  
+A. Describe the consequences of enabling behaviors. <  
+B. Suggest to the mother that she allow her  son to go to jail.  
+C. Refer the son  to a drug treatment program immediately.  
+D. Tell the mother to discourage her son’s marijuana use.  
+ 
+54. The nurse plans to frequently monitor the skin color, mucous membranes, and nail beds of a client with 
+acute renal failure (A RF). What is the purpose in carry ing out this nursing intervention?  
+A. Identify early signs of infections.  
+B. Identify early signs of dietary deficiencies.  
+C. Detect signs of anemia. <  
+D. Assess for signs of jaundice.  
+ 
+55. A 7-year -old with Guillain -Barre syndrome is admi tted with ascending paralysis to the C -6 level. In 
+developing a plan to prevent disease until the paralysis subsides, which intervention is most important 
+for the nurse to include in the child’s plan of care?  
+A. Emotional support and diversional, educational activities.  
+B. Adequate fluid intake  and hygienic care for an indwelling catheter.  
+C. Bowel incontinent care and skin care to bony prominences.  
+D. Range of motion and passive exercises of all large muscle groups. <  
+ 
+56. A female client who is being prepared for a hyste rosalpingogram (HSG) informs the nurse that she is 
+allergic to shellfish. What action should the nurse implement?  
+A. Administer an antihistamine before the HSG.  
+B. Document the client’s allergy.  
+C. Notify the healthcare provider. <  
+D. Ensure that a latex -free supply c art is available.  
+ 
+57. Returning to t he office after seeing a homebound client, the home health care nurse has many 
+telephone messages from the assigned caseload. Which telephone message should the nurse return 
+first?  
+A. A young adult who was discharged from the hospital yesterday and is not fee ling well. <  
+B. An older adult with Type 2 diabetes who complains of intense itching of both feet.  
+C. An adult client with a peripheral saline lock with redness at the insertion site.  
+D. A middle -aged client with a sigmoid colostomy  who has irritation around the st oma.  
+ 
+58. A client with hypertension is scheduled to receive a dose of the alpha -beta adrenergic blocking agent 
+carvedilol (Coreg). Which of the client’s vital signs warrants notification of the healthcare provider prior 
+to adm inistering the scheduled dose?  
+A. Temperature of 101.4 F.  
+B. Blood pressure of 170/92.  
+C. Pulse rate of 42 beats/minute. <  
+D. Respiratory rate of 12 breaths/minute.  
+ 
+59. A 45 -year -old female client who had a hysterectomy one week ago asks the nurse when she will start to 
+experience hot flashes. Before re sponding to the client’s question, what information should the nurse 
+obtain?  
+A. The reason why the hysterectomy was performed.  
+B. The type of birth control used preoperatively.  
+C. The type of hysterectomy that was performed.  
+D. Whether  the client’s ovaries were also r emoved. <  
+ 
+60. After sitting outside, an elderly male who is attending an adult daycare center develops uticaria and a 
+macular rash with raised wheals over most of his trunk. He is slightly dyspneic, and is furiously 
+scratching  the rash with both hands. What a ction should the nurse take first?  
+A. Call 911 to transport the client to an emergency center. <  
+B. Assess the vital signs q15 minutes for one hour.  
+C. Ask the client if there were any fire ants on the patio.  
+D. Cover the hives with a  topical antihistamine cream.  
+ 
+61. A client with an indwelling urinary catheter has developed hematuria in the last four hours. What 
+action should the nurse implement?  
+A. Assist the client to a right side -lying position in the bed.  
+B. Determine if the client is rece iving any anticoagulant medicatio ns. <  
+C. Withhold further oral fluids until the healthcare provider is notified.  
+D. Remove the client’s indwelling urinary catheter immediately.  
+ 
+62. The charge nurse observes a male healthcare provider viewing his sister’s record on  the computer 
+monitor. What actio n should the nurse take?  
+A. Remind the healthcare provider that only the treatment team should view the client’s records. <  
+B. Tell the healthcare provider to maintain confidentiality of the contents in his sister’s record.  
+C. Allow  the healthcare provider to conti nue viewing the client’s medical record.  
+D. Ask the client if she gave her brother permission to view her record.  
+ 
+63. While receiving the first of two prescribed units of packed red blood cells, a client develops a low -grade 
+feve r, flushing, and uticaria, so the  nurse stops the transfusion. What action should the nurse 
+implement next?  
+A. Notify the healthcare provider of the client’s reaction to the transfusion.  
+B. Obtain the second unit of packed red blood cells from the blood bank.  
+C. Start a second IV line to administe r emergency intravenous medications.  
+D. Maintain the patency of the IV site by infusing a normal saline solution. <  
+ 
+64. The nurse is working with an unlicensed assistive personnel (UAP) to prepare a client who had hip 
+replacement  surgery for transfer to the reha bilitation unit. A practical nurse (PN) enters the room and 
+reports that a client with pneumonia has become confused and combative. What action should the 
+nurse implement?  
+A. Ask the UAP to continue packing the belongings of t he surgical client while the two nurses return to 
+the room of the combative client. <  
+B. Continue to prepare the surgical client for the transfer and instruct the PN to apply restraints to the 
+combative client.  
+C. Assign the UAP to stay with the combative client  until the two nurses have transf erred the surgical 
+client to the rehabilitation unit.  
+D. Assess the combative client after asking the PN to help the UAP prepare the surgical client for 
+transfer to the rehabilitation unit.  
+ 
+65. At a 2 -year -old well -child visit, a  toddler’s parent tells the nurse  that this child, who is the youngest of 
+five, rarely talks spontaneously. Which intervention should the nurse implement?  
+A. Demonstrate games requiring expressive speech.  
+B. Suggest that the parent read aloud to the child at bed time.  
+C. Schedule an appointment wit h pediatric audiologist. <  
+D. Encourage the parent to enroll in preschool classes.  
+ 
+66. An 82 -year -old female client is hospitalized with a fractured femur. During a routine nursing 
+assessment, she repeatedly asks the nurse to “sp eak up” so that she can hear the questions. Which 
+action is best for the nurse to take?  
+A. Over -enunciate word syllables.  
+B. Decrease speaking speed. <  
+C. Raise voice volume to a shout.  
+D. Exaggerate nonverbal expressions.  
+ 
+67. A 79 -year -old female client with chronic obs tructive pulmonary disease (COPD)  asks why she has a 
+round chest. The nurse correctly responds that the typical “barrel -chest” appearance of an emphysema 
+client is caused by which condition?  
+A. Constant coughing.  
+B. Abdominal breathing.  
+C. Upper body exercises to i ncrease lung capacity.  
+D. Hyperinfla tion of the lungs. <  
+ 
+68. Vaginal exam of a client who is admitted in early labor reveals cervical dilation of 2 cm with 50% 
+effacement and a -3 fetal station. The client tells the nurse that a friend’s bag of waters was ruptur ed by 
+the doctor to make labor pr ogress faster, and she is concerned because her doctor did not rupture the 
+membranes. What response is best for the nurse to provide?  
+A. The baby’s cord can prolapse if the fetal head is high in the pelvis. <  
+B. Cervical dilatati on to 4 cm is needed to rupture t he membranes.  
+C. The bag of waters is not ruptured until the birth is imminent.  
+D. Rupturing the bag of waters does not have any effect on labor.  
+ 
+69. The nurse plans to administer a 0.5 ml intramuscular injection to an 18 -month -old toddler in the vastus 
+lateralis. What is the rationale for choosing this site?  
+A. This injection site is the easiest to expose fully at this age.  
+B. The mother of the child can hold the child most securely when this site is used.  
+C. This injection site has the fewe st major blood vessels at this ag e. 
+D. This is the most developed muscle until the child has been walking longer. <  
+ 
+70. “Social isolation” is identified as a nursing diagnosis for a 16 -year -old who is experiencing facial edema. 
+What behavior indicates a positive  outcome for this diagnosis? The client  
+A. Is quietly watching television.  
+B. Requests that visitors be restricted.  
+C. Sleeps soundly through the night.  
+D. Is laughing and talking on the phone. <  
+ 
+71. In planning strategies to promote client rest and sleep during the nigh t shift, the nurse should 
+encoura ge the staff to adhere to which guideline?  
+A. Keep the nurses’ station free of excessive debris and clutter.  
+B. Exchange shift report in a private room with the door closed. <  
+C. Wear dark colored scrub suits, uniforms, and lab jack ets. 
+D. Make sure bright lighting is  maintained in the hallways.  
+ 
+72. The nurse is planning care for a client who is newly diagnosed with type 1 diabetes mellitus (DM). What 
+nursing intervention should the nurse include in this client’s plan of care?  
+A. Give an oral  hypoglycemic agent per sliding s cale.  
+B. Check each voided urine for sugar and ketones.  
+C. Monitor blood glucose levels every 6 hours.  
+D. Teach diabetic information at every opportunity. <  
+ 
+73. The nurse is evaluating preoperative teaching. What statement by the clien t indicates an understanding 
+of the need to remain NPO prior to surgery?  
+A. “My intestines need to be empty during surgery.”  
+B. “Less fluid will collect in my lungs.”  
+C. “I will be less likely to vomit after surgery.”  
+D. “There’s less chance I will vomit during surger y.” <  
+ 
+74. A resident of a long -term care facility falls during the night. After determining the resident has an 
+obvious wrist injury and blunt head trauma, the charge nurse is unable to reach the healthcare provider 
+despite multiple calls to the pager and ans wering service. Which action shou ld the charge nurse 
+implement?  
+A. Request permission from the family to transport the client to the hospital.  
+B. Refer the situation the Director of Nursing for further action.  
+C. Document the incident and transport the client to th e hospital. <  
+D. Apply a wrist splin t and continue to try contacting the healthcare provider.  
+ 
+75. A new plaster cast is applied to a client’s arm for a fracture of the ulna. Sixty minutes after receiving an 
+analgesic, the client reports pain in the arm and score s the intensity at “10” on a scal e of 1 to 10. Which 
+action is most important for the nurse to perform?  
+A. Teach the client to wiggle the fingers.  
+B. Contact provider for a different analgesic.  
+C. Elevate the extremity on two pillows.  
+D. Assess for distal paresthesia.  < 
+ 
+76. Which assessment finding cont raindicates removal of staples from a surgical incision?  
+A. Incision edges are well approximated.  
+B. Client complains of incisional itching and discomfort.  
+C. No evisceration present entire length of incision.  
+D. Partial dehiscence not ed at incision’s distal end. <  
+ 
+77. A client is admitted to the Emergency Department with acute abdominal pain and a provisional 
+diagnosis of pancreatitis. The nurse assesses the client and results from laboratory studies are 
+obtained. Which information is mos t valuable in reporting the clien t’s status to the healthcare 
+provider?  
+A. Severity of nausea and vomiting and serum amylase results. <  
+B. Presence of bowel sounds and degree of abdominal pain.  
+C. Serum H. pylori antibody results and urine output amounts.  
+D. Complaint s of chronic constipation and ser um gastrin levels.  
+ 
+78. A client with dementia describes imagined experiences that have no basis in fact, and a nursing 
+diagnosis of “Altered thought processes related to confabulation” is formulated. What main function 
+does co nfabulation serve for client with  dementia?  
+A. Increase self -esteem.  
+B. Decrease anxiety. <  
+C. Keep the conversation going.  
+D. Impress others.  
+ 
+79. A man who was trapped for 2 days on the roof of his home awaiting rescue during a weather -related 
+disaster spent several wee ks in a shelter. During this time , he says he wondered if he was going to die 
+like many of his friends and relatives had. Now, several months later, he reports feeling numb and 
+cannot relate well with others. He sometimes relives the isolation and anxiety associated with the 
+ordeal. Nursi ng care should be directed toward which outcome?  
+A. Uses time productively when conducting activities of daily living and during social or recreational 
+activities.  
+B. Exhibits a more positive self -evaluation when describing himse lf. 
+C. Responds to his name when add ressed by a member of the treatment team.  
+D. Implements anxiety -control strategies such as progressive relaxation and thought substitution. <  
+ 
+80. While assessing a client who had a laparotomy the previous day, the nurse notices t hat 300 ml of dark 
+red fluid has drained from the nasogastric tube in the last hour. What action should the nurse take first?  
+A. Monitor urinary output hourly.  
+B. Determine the client’s vital signs. <  
+C. Assess the client’s level of pain.  
+D. Notify the surgeon immedia tely. 
+ 
+81. After administering an inj ection, the nurse observes bleeding at the site. In what sequence should the 
+nurse perform these actions? (Arrange with the first step on top and the last step on the bottom.)  
+2 - Apply an adhesive bandage over the injectio n site.  
+3 - Place syringe in a pu ncture -resistant container.  
+1 - Retract the needle into the syringe.  
+4 - Remove disposable exam gloves.  
+ 
+82. The nurse overhears two hospital employees discussing confidential client information in the cafeteria. 
+The nurse deci des to intervene, because this si tuation is a breach of which ethical principle.  
+A. Consistency.  
+B. Autonomy.  
+C. Veracity.  
+D. Fidelity. <  
+ 
+83. The nurse is preparing to administer a liter of IV solution to a toddler with gastroenteritis who is 
+dehydrated. Which action sho uld the nurse implement to preven t fluid overload?  
+A. Ask another nurse to distract the child while spiking the IV bag.  
+B. Use tubing with secondary ports and a macro -drip chamber.  
+C. Attach a volume -control device below the primary infusion. <  
+D. Immobilize the hand with the IV access device to an a rm board.  
+ 
+84. While assessing a 6 -year -old, the nurse notices several elevated 1 to 3 mm white spots on the child’s 
+buccal mucosa. What other signs should the nurse expect this child to exhibit?  
+A. Irregular red macular rash in t he perianal area.  
+B. Red blotchy mac ular rash on the face and neck. <  
+C. Pruritic vesicular skin eruptions on trunk.  
+D. Honey -colored crusted exudate from ruptured skin vesicles.  
+ 
+85. In evaluating teaching of a client about wearing a Holter monitor, which statement ma de by the client 
+would indicate t o the nurse that the client understands the procedure?  
+A. “I must record any symptoms occurring with my activity.” <  
+B. “I am not looking forward to staying in bed for 24 hours.”  
+C. “I really am dreading the frequent blood drawing.”  
+D. “I know that I shouldn’t get clo se to my microwave oven.”  
+ 
+86. A female client diagnosed with major depression was admitted to the psychiatric unit yesterday. Today 
+she refuses to take a bath, dress, or eat, and wants to sleep during the day. Which interventi on has the 
+highest priority for t his client?  
+A. Request a meeting with the family to discuss her behavior.  
+B. Provide and maintain a safe, structured daily routine. <  
+C. Administer the prescribed intramuscular antidepressant medication.  
+D. Assess the client’s ability to communicate with the staff.  
+ 
+87. A client with chronic controlled atrial fibrillation develops symptoms of a pulmonary embolus. What 
+intervention has the highest priority?  
+A. Monitor oxygen saturation via pulse oximeter. <  
+B. Evaluate the client’s most recent INR  result.  
+C. Determine if the client converted to a sinus rhythm.  
+D. Administer PRN IV morphine to control anxiety.  
+ 
+88. A school -aged child with otitis media receives a prescription for azithromycin (Zithromax) 300 mg once, 
+then 150 mg daily for 4 days. The medicati on is available in a solution con taining 200 mg/5 ml. How 
+many ml should the nurse administer on the first day of the treatment regimen? (Enter numeric value 
+only. If rounding is necessary, round to the nearest tenth.) 7.5  
+ 
+89. A nurse is concerned about the t ype of legal consequences that ca n result from breaching client 
+confidentiality. What source states the legal requirements nurses must follow to protect client 
+confidentiality in a nurse -patient relationship?  
+A. Amendments to the Federal Constitution.  
+B. Patient ’s Bill of Rights Acts.  
+C. State Nur se Practice Acts. <  
+D. ANA Code of Ethics for Nurses.  
+ 
+90. The nurse is performing an intake interview at a prenatal clinic. Which planned activity described by the 
+client, who is at 6 -weeks gestation, should be investigated by th e nurse first?  
+A. A scheduled busine ss trip in 3 weeks that includes travel by airplane and train.  
+B. Plans to continue participating in a low -impact aerobics class.  
+C. The 9 -year -old sibling will come with the client to the next prenatal visit.  
+D. Supervision of the renovation of an old house the fa mily just purchased. <  
+ 
+91. A young adult male client is admitted to the psychiatric unit because of a drug overdose. Which nursing 
+intervention is most important when planning prioritized care for this client during the initia l drug 
+withdrawal period?  
+A. Limit v isitors who might bring the client drugs.  
+B. Monitor the client’s physical response to withdrawal. <  
+C. Plan activities to increase the client’s self -esteem.  
+D. Help the client gain insight into his behavior.  
+ 
+92. What area of the body should be palpated to assess for the presence of Heberden’s nodes in the client 
+with osteoarthritis?  
+A. Lower spine.  
+B. Knee and hip joints.  
+C. Face and neck.  
+D. Distal fingers. <  
+ 
+93. An infant is receiving gavage feedings via an orogastric tube. At the beginning of the feeding, the 
+infant’s heart rate drops to 80 beats/minute. What action should the nurse take?  
+A. Slow the feeding and monitor the infant’s response. <  
+B. Immediately clamp and remove the orogastric tube.  
+C. Shift the infant’s position to the right lateral side.  
+D. Continue feeding since this is a typ ical response.  
+ 
+94. A 40 -year -old client with Type 1 diabetes developed chronic kidney disease (CKD) 6 months ago. 
+Because of secondary complications often associated with this illness, the nurse plans to carefully 
+assess for s igns of what condition?  
+A. Anemia. <  
+B. Kidney stones.  
+C. Rheumatoid arthritis.  
+D. Bacterial endocarditis.  
+ 
+95. The nurse is developing the plan of care for a client who is returning from surgery after a total 
+colectomy and ileostomy. Which nursing diagnosis has the highe st priority for this client durin g the 
+immediate postoperative period?  
+A. Risk for impaired skin integrity related to fecal drainage.  
+B. Knowledge deficit related to surgical bowel diversion.  
+C. Risk for electrolyte imbalance related to ileostomy. <  
+D. Risk for sexual  dysfunction related to pelvic ne rve injury.  
+96. Which approach is best for the nurse to use when communicating with a client with amyotrophic lateral 
+sclerosis (ALS)?  
+A. Speak clearly, slowly, and loudly.  
+B. Reorient the client frequently.  
+C. Use visual cues to increa se comprehension.  
+D. Demonstrate a p ositive, caring demeanor. <  
+ 
+97. A client diagnosed with schizophrenia looks frightened and tells the nurse, “I keep hearing the voices 
+telling me to hurt somebody. Don’t you hear them?” Which response is best for the nurse to provide?  
+A. “If you keep taking your  medication the voices will go away.”  
+B. “The voices are not real. They are part of your illness.”  
+C. “I don’t hear the voices, but you seem very frightened.” <  
+D. “Just ignore the voices and pretend they are not there.”  
+ 
+98. A client n ewly diagnosed with Type 1 diabet es received 28 units of Humulin N at 0700. The nurse is 
+making rounds at 1330. Which client statement requires the most immediate follow -up intervention by 
+the nurse?  
+A. “I let my wife eat my lunch since I wasn’t hungry.” <  
+B. “I get so nervous when I have to gi ve my shot.”  
+C. “I didn’t sleep well last night. I am going to take a nap.”  
+D. “I get dizzy when I get up out of the bed too fast.”  
+ 
+99. During breath sound auscultation of a client who is being mechanically ventilated, the nurse hea rs 
+coarse, snoring sounds over th e upper anterior chest with clear breath sounds over the other lung 
+fields. What intervention should the nurse implement at this time?  
+A. Suction the client’s endotracheal tube. <  
+B. Notify respiratory therapy immediately.  
+C. Contin ue to assess the client frequentl y. 
+D. Begin manual resuscitation with ambu bag.  
+ 
+100. At a community health fair, a 50 -year -old woman tells the nurse that she has an annual physical 
+exam that includes a clinical breast exam and an annual mammogram. How should the  nurse respond?  
+A. Ask the woman if she also performs monthly breast self -exams. <  
+B. Advise the woman that mammograms are only needed every two years at her age.  
+C. Encourage the woman to explore her fears about breast cancer.  
+D. Comment the woman for adhering to the  recommended cancer detection gui delines.  
+ 
+101. An adult woman and her live -in boyfriend are seen in the Emergency Department following a 
+motor vehicle collision. Based on which finding should the nurse assess further for the possibility of 
+domestic violence?  
+A. The woman is demanding and argumen tative with staff.  
+B. The couple is vague about how the collision occurred.  
+C. Several old bruises appear on the woman’s chest and neck. <  
+D. Her live -in boyfriend seems unconcerned about her condition.  
+ 
+102. The nurse knows the client w ith a mechanical valve replacemen t understands the discharge 
+teaching when the client makes which statement?  
+A. “I should notify my healthcare provider if I hear a clicking sound near my heart.”  
+B. “I will need to take antibiotics before any type of invasive den tal work.” <  
+C. “I will not have to take any more heart medication since I have a new valve.”  
+D. “I will need to have this valve replaced in about 10 years.”  
+ 
+103. While reporting a client’s blood glucose results to the nurse, the LPN states that the glucometer 
+was n ot calibrated prior to use becaus e the report given by the night shift ran late. What action is most 
+important for the nurse to perform.  
+A. Advise the LPN of the implications involved by not calibrating the glucometer. <  
+B. Complete a variance report describing the inaccurate blood glucose meas urements.  
+C. Discuss the need for a more efficient shift report with the night charge nurse.  
+D. Ask the supervisor to schedule an in -service training on the correct use of glucometers.  
+ 
+104. A female client is instructed to do Kegel e xercises. What statement identifi es to the nurse that 
+the client understands how to perform these exercises?  
+A. “I need to tighten my stomach muscles while sitting and standing, hold for 10 seconds, and repeat 5 
+times.”  
+B. “When I urinate, I should tighten those  muscles and stop the flow of uri ne for 10 seconds and 
+repeat this 5 to 10 times.” <  
+C. “I need to press the small of my back against a chair and hold for 5 seconds, repeating this 10 
+times.”  
+D. While lying on my back, I need to do modified sit -ups at least twic e a day.”  
+ 
+105. The charge nurse shoul d intervene when what behavior is observed?  
+A. A hospital transporter is reading a client’s history and physical while waiting for an elevator. <  
+B. A UAP tells a client, “It’s hard to quit drinking but Alcoholic Anonymous helped  me.”  
+C. Two visitors are discussing  a hospitalized client’s history of drug abuse in the visitor’s lounge.  
+D. Two staff members are overheard talking about a cure for AIDS outside a client’s room.  
+ 
+106. A client who had a left above knee amputation (AKA) two days ag o has a soft stump dressing in 
+place. To prevent the development of a contracture on the left leg, which intervention should the nurse 
+implement?  
+A. Turn the client to the unaffected side only.  
+B. Elevate the client’s left leg on two pillows at all times.  
+C. Instru ct the client to push the stump a gainst a soft pillow.  
+D. Position the client prone 3 to 4 times a day. <  
+ 
+107. An ACE inhibitor is prescribed for a male client with diabetes whose blood pressure is 120/60 
+mm Hg. The client asks the nurse why he is receiving the m edication when his blood pressure  is 
+normal. The nurse’s response should be based on what information?  
+A. It lowers insulin resistance at the cellular level in Type 1 diabetics.  
+B. It helps to prevent gastric reflux and gastroparesis associated with diabetes.  
+C. It helps prevent platelet aggregati on and plaque formation in diabetics.  
+D. It slows the progression of kidney damage often associated with diabetics. <  
+ 
+108. When irrigating an occluded nasogastric tube, what action should the nurse include?  
+A. Check the stomach for t he amount of residual volume.  
+B. Clamp the tube after instilling the normal saline.  
+C. Measure the amount of fluid instilled and returned. <  
+D. Lubricate the tip of the syringe before insertion.  
+ 
+109. The nursing diagnosis, “High risk for infection” is most relevant for  a client with which 
+hematologic problem?  
+A. Agranulocytosis. <  
+B. Thrombocytopenia.  
+C. Erythrocytopenia.  
+D. Polycythemia.  
+ 
+110. Thirty -six hours after delivery, the nurse assesses a client’s fundus just above the umbilicus and 
+displaced to the right of midline. What actio n should the nurse take first?  
+A. Assess the amount of lochia.  
+B. Catheterize the client and record the amount.  
+C. Palpate the bladder for distention. <  
+D. Ask the client when her last bowel movement occurred.  
+ 
+111. In assessing a client diagnosed with left -sided heart fai lure, the nurse observes new find ings of 
+jugular vein distention and pedal edema. What action should the nurse implement?  
+A. Position the client in a left lateral Trendelenburg position.  
+B. Advise the client that thrombolytic therapy will be started immediately.  
+C. Notify the healthcare provider o f the onset of right -sided failure. <  
+D. Prepare to administer an intravenous vasoconstricting agent.  
+ 
+112. Identify the location of the tragus on the outer auricle. (Click the chosen location. To change, 
+click on a new location.)  
+ 
+113. A client has an AV graft for hem odialysis in the left forearm and an infiltrated IV in the right arm. 
+After discontinuing the IV, where should the next IV be started?  
+A. Right arm proximal to the former IV. <  
+B. Use AV graft for IV access.  
+C. Left arm proximal to the graft.  
+D. Left arm distal to the  graft.  
+ 
+114. A 10 -year -old boy reports that the words on his teacher’s power point presentations are blurry even 
+though he sits in the front row of the classroom. Based on this description, the school nurse should 
+suspect which  problem?  
+A. Exotropia.  
+B. Farsightedne ss. 
+C. Myopia. <  
+D. Hyperopia.  
+ 
+115. After administering phenobarbital to an infant with increased intracranial pressure, which response 
+should the nurse expect?  
+A. The infant is sleepy and less irritable. <  
+B. Infant take clear liquids wit hout vomiting.  
+C. Increased heart an d respiratory rate.  
+D. The infant’s urinary output increases.  
+ 
+116. The healthcare provider prescribes etanercept (Enbrel) 50 mg subcutaneously weekly for a client with 
+rheumatoid arthritis. The nurse should evaluate the effectiven ess of this medication within wha t time 
+frame?  
+A. Once every 6 months.  
+B. Daily for one week.  
+C. Every 4 months for one year.  
+D. 2 to 4 weeks. <  
+ 
+117. A male client with a history of generalized tonic -clonic seizures tells the nurse that he feels like he is 
+about to have a seizure. What should the nurse do first?  
+A. Perform a neurological assessment.  
+B. Give a STAT dose of an anticonvulsant medication.  
+C. Check client’s oxygen saturation level.  
+D. Stay with the client and call for assistance. <  
+118. The nurse gives a client the daily dose of a prescription for captopril ( Capoten) 12.5 mg PO every AM. 
+Shortly after administering the medication, the healthcare provider instructs the nurse to give another 
+dose to reach the newly prescribed dose of 50 mg PO daily. The medication is available in  12.5 tablets. 
+How many additiona l tablets should the nurse give? (Enter the numeric value only.) 3  
+ 
+119. A client is receiving an intermittent infusion of erythromycin lactobionate for injection, USP (Erythrocin 
+Lactobionate) 1 gram in 250 ml of normal saline over two hours. The nurse should program the 
+infusion pump to deliver how many ml/hour? (Enter numeric value only.) 125  
+ 
+120. A one -day-old neonate is awaiting surgical correction of a myelomeningocele. During the preoperative 
+period, what is the priority nursi ng intervention?  
+A. Observe for CNS infection related to sac trauma. <  
+B. Position supine to protect the sac from urine and feces.  
+C. Maintain the neonate on a pressure -reducing surface.  
+D. Minimize the neonate’s exposure to latex products.  
+ 
+121. A female client who has ju st completed a full chemotherapy cycle for cancer has lost 15 pounds 
+because of anorexia, nausea, and vomiting. Her BMI is 19. The nurse reinforces nutritional concepts 
+during discharge planning. Which dinner menu selection best indicates that the client u nderstands her 
+nutritional needs?  
+A. Vegetarian spaghetti, garlic bread, Caesar salad, apple pie, and iced tea.  
+B. Lean hamburger patty, tomato and lettuce, sugar -free gelatin, cantaloupe, and diet soda.  
+C. Fried chicken breast, sweet potato, spinach, roll and but ter, and protein milk shake. <  
+D. Grilled chicken breast with no skin, broccoli, fresh fruit, and skin milk.  
+ 
+122. The nurse is caring for a dyspneic client whose oxygen saturation rate is currently 90%. What position 
+is best for this client?  
+A. Sims’ with a pillow u nder the upper leg.  
+B. Any position that is comfortable.  
+C. Supine with the legs slightly elevated.  
+D. Fowler’s with both legs supported. <  
+ 
+123. When obtaining a health history, a male client tells the nurse that he has become impotent. What part 
+of his health informat ion is likely to be most signific ant to the sexual dysfunction he is experiencing? 
+The client  
+A. drinks two to three beers on weekend.  
+B. Was diagnosed with diabetes mellitus 10 years ago. <  
+C. Had a vasectomy five years ago.  
+D. Smokes one pack of cigarettes a day.  
+124. The mother of a hospitalized 2 -year -old boy asks the nurse if her child is ready to be toilet trained. 
+Which response is best for the nurse to provide?  
+A. “Yes, most children are ready when they are 15 -months old.”  
+B. “We have potty chairs here. Would you like to start working with him on it now? ” 
+C. “He will train quicker and more easily if you wait until he is in a familiar environment.”  
+D. “Does he let you know just before or after he soils his diaper?” <  
+ 
+125. A nurse agrees to work a double shift because of a staffing sh ortage, but requests that another  nurse 
+be assigned to care for a demanding client. What response is best for the charge nurse to make?  
+A. “I’m sorry, but you know I cannot allow you to choose your assignments.”  
+B. “I’ll assign the client to another nurse, but y our help may be needed.” <  
+C. “I wou ld appreciate you reconsidering since you are always so good with difficult clients.”  
+D. “You’ll probably need to keep the same assignment so that continuity of care can be provided.”  
+ 
+126. The nurse is evaluating teaching about sh ort-acting insulin coverage to a client newly diagnosed with 
+Type 1 diabetes. Which statement by the client indicates an understanding of short acting insulin 
+coverage?  
+A. “After taking my regular insulin, I need to eat a meal soon to prevent a hypoglycemic e pisode.” <  
+B. “I can eat whatever I want, just as long s I check my blood sugar and cover it appropriately.”  
+C. “When meeting a friend for lunch, it is OK to take my coverage at home before driving to the 
+restaurant.”  
+D. “I need to check my sugar also at bedtime, a nd then give my coverage before g oing to sleep.”  
+ 
+127. A client is admitted to an inpatient psychiatric unit, and the antipsychotic medication clozapine 
+(Clozaril) is prescribed. Which intervention should the nurse include in the client’s plan of care?  
+A. Report f indings from the client’s weekly white blood cell (WBC) counts to the healthcare provider. 
+< 
+B. Inform UAPs that the client will likely complain of a sore throat and fever.  
+C. Offer this medication the client with food to decrease the possibility of gastric upse t. 
+D. Place the client in reverse is olation for the first two weeks of treatment with this medication.  
+ 
+128. The nurse is assessing a client who is eight hours post parathyroidectomy. Assessment findings include 
+a negative Trousseau’s sign. What action should the nurse implement?  
+A. Document the fin dings. <  
+B. Notify the healthcare provider.  
+C. Obtain a serum calcium level.  
+D. Administer IV calcium chloride.  
+ 
+129. The nurse is preparing a Native -American client for surgery in one hour. The client states, “I want to 
+have my medicine  man called before surgery.” How should the nurse respond?  
+A. “Tell me how you believe that your medicine man will be able to help you.”  
+B. “I will be happy to assist you in contacting your medicine man right away.” <  
+C. “The hospital chaplain is available and can meet with you before surgery.”  
+D. “Your medicine man is too far away to visit before your scheduled surgery.”  
+ 
+130. The nurse is calculating the one -minute Apgar score for a newborn male infant, and determines that 
+his heart rate is 150 beats/minute, he has a vigo rous cry, his muscle tone is good  with total flexion, he 
+has quick reflex irritability, and his color is dusky and cyanotic. What Apgar score should the nurse 
+assign to the infant? (Enter the numeric value only.) 8  
+ 
+131. The nurse is administering an IV medicat ion through a central venous cath eter with a heparin loc. 
+Which sequence of medication administration should the nurse follow?  
+A. Saline, heparin, medication, heparin.  
+B. Saline, medication, saline, heparin. <  
+C. Medication, heparin, saline, heparin.  
+D. Heparin, medic ation, heparin, saline.  
+ 
+132. After re ceiving the change of shift report on the psychiatric unit of a general hospital, which client 
+should the nurse assess first?  
+A. A male client with paranoid schizophrenia who thinks his food is poisoned.  
+B. A 20 -year -old client w ho is trying to telephone the Pre sident of the United States.  
+C. A female client who is pacing the hallway and trying to sell her clothes.  
+D. A client with depression who states she is leaving because she feels better. <  
+ 
+133. The nurse is caring for a client who is being treated for fever. What nur sing intervention is most 
+important to prevent chills?  
+A. Assess client’s temperature q4h.  
+B. Offer a cup of hot tea q8h.  
+C. Give prescribed antipyretics around the clock. <  
+D. Provide a sponge bath q8h.  
+ 
+134. To assess a client with mening itis for meningeal irritation, ho w should the nurse position the client’s 
+head?  
+A. The neck and head are twisted toward the shoulder.  
+B. The head and neck are flexed toward the chest. <  
+C. The ear is flexed downward toward the shoulder.  
+D. The head and neck are extend ed toward the back.  
+ 
+135. A client dia gnosed with severe acute diverticulitis is being admitted to the medical unit. Which 
+prescription should the nurse question?  
+A. Bisacodyl (Dulcolax) rectally PRN for constipation. <  
+B. Meperidine (Demerol) ICP PRN for pain.  
+C. Cefox itin (Mefoxin) IVPB q8h.  
+D. 5% dextr ose with 0.45 NS at 125 ml an hour.  
+ 
+136. The nurse notes that a depressed adolescent client’s fluoxetine (Prozac) cannot be given because the 
+mother refuses to sign the consent for medication. What should the nurse do?  
+A. Give the  medication if the client is will ing to take it.  
+B. Obtain two witnesses and ask the client to sign the consent.  
+C. Determine if there is an emergency contact person to notify.  
+D. Wait for the mother to sign the medication consent. <  
+ 
+137. A child is injured at a sporti ng event and a nurse attending th e event evaluates the child. What is the 
+most accurate method to determine if a fracture has occurred?  
+A. Palpate the injured part.  
+B. Send the child for a radiological exam. <  
+C. Observe for decreased range of motion.  
+D. Assess the le vel of swelling and pain on movem ent. 
+ 
+138. The nurse working in a health clinic is assessing clients’ needs for a hepatitis A vaccine. Which client 
+has the greatest risk for contracting Hepatitis A?  
+A. Female client who regularly consumes raw oysters. <  
+B. An adoles cent client who reports illicit I V drug use.  
+C. An elderly client with a large daily alcohol consumption.  
+D. Male client who has received multiple blood transfusions.  
+ 
+139. A client with depression remains in bed for most of the day, declines activities, and refuses meals. 
+Which nursing diagnosis ha s the greatest priority for this client?  
+A. Social isolation.  
+B. Feeding self -care deficit. <  
+C. Situational low self -esteem.  
+D. Deficit diversional activity.  
+ 
+140. Which intervention would the nurse expect to implement to decrease discomfo rt and muscle spasms 
+for an elder ly client with a fractured left hip?  
+A. Prepare the client for application of Buck’s traction. <  
+B. Remove the foam boot to perform range of motion exercises.  
+C. Prepare the client for application of Dunlop’s traction.  
+D. Inspect the p in site at least q8h for signs of  infection.  
+ 
+141. In performing the admission assessment for a client experiencing complications of long -term 
+Parkinson’s disease, which question by the nurse provides the best information about disease 
+progression?  
+A. “Have you ex perienced any stiffness in your n eck or shoulder?”  
+B. “Do you notice any jerky type movements of your arms?”  
+C. “Have you ever been frozen to a spot and unable to move?” <  
+D. “Do you have any problems with your hands shaking?”  
+ 
+142. An 18 -year -old female client with pri mary dysmenorrhea does not want t o take any medication to 
+relieve the symptoms, and asks the nurse which herbal supplement is likely to help alleviate the pain 
+she is experiencing. What herbal supplement is likely to be most helpful for this young woman?  
+A. Chamomile. <  
+B. Ginseng.  
+C. Yarrow.  
+D. Ging er. 
+ 
+143. Which assessment intervention should the psychiatric nurse implement when performing a mental 
+status exam?  
+A. Request the client hold out his/her tongue for one minute.  
+B. Have the client close his/her eyes and count slowly to 100.  
+C. Allow the client to discu ss what brought him/her to the hospital.  
+D. Ask the client to interpret the proverb, “A stitch in time saves nine.” <  
+ 
+144. The nurse is conducting a routine assessment of a 24 -hour -old, African -American infant who was 
+delivered va ginally. At birth the infant’s we ight was 5 pounds 5 ounces, heart rate was 150 
+beats/minute, respiratory rate was 88 breaths/minute, and the axillary temperature was 97.7 F. Which 
+finding requires further assessment?  
+A. Respiratory rate of 59 breaths/minute.  
+B. Edema present along the sagittal  suture.  
+C. Weight loss of 10 ounces since birth. <  
+D. 2 cm bluish purple area on the scrotum.  
+ 
+145. Following the vaginal delivery of a 10 -pound infant, the nurse assesses a new mother’s vaginal 
+bleeding and finds that she has satura ted two pads in 30 minutes and ha s a boggy uterus. What action 
+should the nurse take first?  
+A. Perform fundal massage until firm. <  
+B. Have the client empty her bladder.  
+C. Determine the client’s blood pressure.  
+D. Increase oxytocin (Pitocin) IV rate.  
+ 
+146. A client with a ngina experiences chest pain afte r completing morning care. What action should the 
+nurse take first?  
+A. Administer a nitroglycerin tablet. <  
+B. Place a pulse oximetry probe to index finger.  
+C. Give an 81 mg Aspirin tablet.  
+D. Monitor for premature ventricular contract ions.  
+ 
+147. A gravida 3, para 2 at 31 -weeks gestation is admitted to the hospital with suspected HELLP syndrome. 
+She complains of nausea, vomiting, malaise, and epigastric pain. Her blood pressure is 116/74. What 
+assessment is most important for the nurse to ob tain?  
+A. Confirm gestational age wit h ultrasound.  
+B. Observe for signs of dehydration.  
+C. Evaluate the client for thrombocytopenia. <  
+D. Determine urine protein level.  
+ 
+148. A 60 -year -old male client is admitted to the hospital complaining of right knee pain for the past w eek. 
+His right knee and calf are warm and edematous. He has a history of diabetes and arthritis. During the 
+admission assessment, which information is most important for the nurse to obtain?  
+A. Medication history for the past two weeks.  
+B. Cardiac assessment of heart sounds.  
+C. A 24 -hour recall of  dietary intake.  
+D. Neurovascular status of lower extremities. <  
+ 
+149. The nurse observes a client standing with the use of crutches and notes that the client’s arms are fully 
+extended and the tops of the crutches are securely pres sed in the client’s axillae. Whic h intervention 
+should the nurse initiate first?  
+A. Demonstrate the prescribed gait to the client.  
+B. Reduce the length of the client’s crutches. <  
+C. Make sure that the rubber tips are in place on the crutches.  
+D. Instruct the client i n the use of the tripod position.  
+ 
+150. The parents of a child with cystic fibrosis (CF) ask the nurse about their chances of having another 
+child with CF. Which response is best for the nurse to provide?  
+A. Male children have a greater chance of inheriting the au tosomal recessive gene.  
+B. Since thi s child is affected future children will be carriers and will not be affected.  
+C. 1 in 20 persons in the United States carry the recessive gene for cystic fibrosis.  
+D. There is a 1 in 4 chance that any child of heterozygous paren ts will be affected. <  
+ 
+151. A 12 -year -old male is diagnosed with idiopathic hypopituitarism based on plasma growth hormone 
+studies. Subcutaneous injections of the human growth hormone somatotropin (HGH) are prescribed 
+three times a week. To promote the most na tural physiological release of gr owth hormone, when 
+should the nurse teach the child to administer the injections?  
+A. In the late afternoon.  
+B. Before going to school in the morning.  
+C. Before going to sleep at night. <  
+D. Before breakfast.  
+ 
+152. When planning care for a g roup of clients on a medical unit , which task can the nurse delegate to the 
+unlicensed assistive personnel (UAP)?  
+A. Complete a Braden Scale to predict pressure ulcer risk.  
+B. Prepare a schedule for positioning a bedfast client.  
+C. Use a mechanical lift to transfer  a client to the chair. <  
+D. Determi ne if a client has learned how to use a walker.  
+ 
+153. To administer a saline enema to a client, the nurse inserts the enema tubing 3 inches into the client’s 
+rectum, and elevates the saline container 6 inches above the client’s body. After the nurse opens the 
+clamp, the saline solution does not infuse. What is the best action for the nurse to take?  
+A. Instruct the client to take several slow, deep breaths.  
+B. Raise the saline container 6 more inches above the body. <  
+C. Insert the tubing an additional 3 inches into the r ectum.  
+D. Remove the tubing and check the client for fecal impaction.  
+ 
+154. A client who is receiving chemotherapy for lung cancer with brain metastasis is scheduled for cranial 
+radiation therapy (RT) today. The nurse should provid e which information about the pro cedure to the 
+client?  
+A. Radiation precautions are implemented to limit exposure for everyone who enters the client’s 
+room.  
+B. A high dose beam of radiation may cause a brief tingling sensation but will not cause pain.  
+C. Skin marki ngs and head positioning devices are used to ensure that only the tumor site is radiated. 
+< 
+D. A radioisotope is implanted into the tumor that limits chemotherapy side effects for up to 30 days.  
+ 
+155. While inserting an indwelling catheter for a female client, the  nurse observes that the catheter  is in 
+the vagina. In what order should the nurse perform these actions? (Arrange from first on top to last on 
+the bottom.)  
+5 - Inflate the indwelling catheter’s balloon with sterile water.  
+1 - Leave the catheter in the vag ina. 
+2 - Obtain a new catheteriza tion kit.  
+4 - Insert the catheter and observe for a urinary return.  
+3 - Use forceps and cotton balls to cleanse the urethral meatus.  
+6 - Remove the wrongly placed catheter.  
+ 
+156. When assessing both lower extremities (BLE) of a client who has chronic venous ins ufficiency, the 
+nurse identities bilateral stasis dermatitis and an ulcer on the medial surface of the left ankle. To 
+promote effective self -care, which client teaching should the nurse provide?  
+A. Soak feet to soften nails be fore trimming.  
+B. Keep legs dependen t to promote blood flow.  
+C. Medicate inflamed skin areas with an antibiotic ointment.  
+D. Apply compression stockings before ambulation. <  
+ 
+157. A client at 40 -weeks gestation is admitted in active labor, and laboratory findings indica te that she is 
+HIV positive. What  actions should the nurse plan to perform? (Select all that apply.)  
+A. Administer zidovudine (AZT) intravenously. <  
+B. Establish enteric isolation.  
+C. Place her in a negative pressure room.  
+D. Notify the pediatrician that the mother is  HIV positive. <  
+E. Promote bonding by encouraging breastfeeding.  
+F. Use universal precautions. <  
+ 
+158. A toddler with hemophilia is being discharged from the hospital. Which teaching should the nurse 
+include in the discharge instructions to this child’s mother?  
+A. Place padding on the corners of all f urniture. <  
+B. Give the child only one baby aspirin for pain relief.  
+C. Ensure that dental hygiene is done frequently.  
+D. Do not allow the child run inside the house.  
+ 
+159. The nurse is preparing a male client for a bilateral adrenalecto my. Which explanation should the nurse 
+include in this client’s preoperative teaching?  
+A. It will be necessary to take desmopressin acetate (DDAVP) for the rest of his life.  
+B. Replacement therapy with corticosteroids will be needed for the rest of his life. <  
+C. It will be necessary to take the p rednisone for at least 6 weeks after surgery.  
+D. The surgery should relieve symptoms, so that no medication will be needed after the adrenal 
+glands are removed.  
+ 
+160. When a nurse with a history of drug impairment returns from a dr ug rehabilitation program, what i s 
+the best initial action by the charge nurse?  
+A. Request that the nurse be transferred to another nursing unit.  
+B. Assign another staff person to observe the nurse administering medications.  
+C. Establish a contract with the nurse a bout role limitations. <  
+D. Assign t he nurse to clerical responsibilities only.  
+ 
+ 

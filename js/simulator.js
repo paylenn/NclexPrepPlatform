@@ -2,7 +2,22 @@
  * NCLEX Simulator Functionality
  */
 
+// Store questions globally
+let simulatorQuestions = [];
+let currentSimType = '';
+
 document.addEventListener('DOMContentLoaded', function() {
+    // Load questions from our database
+    fetch('../data/nclex-questions.json')
+        .then(response => response.json())
+        .then(data => {
+            simulatorQuestions = data.questions;
+            console.log('Questions loaded:', simulatorQuestions.length);
+        })
+        .catch(error => {
+            console.error('Error loading questions:', error);
+        });
+
     // Set up simulator start buttons
     setupSimulatorButtons();
     
@@ -11,6 +26,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Set up tool panels
     setupToolPanels();
+    
+    // Initialize NGN examples
+    initializeNGNExamples();
 });
 
 /**
@@ -22,6 +40,7 @@ function setupSimulatorButtons() {
     startButtons.forEach(button => {
         button.addEventListener('click', function() {
             const simType = this.getAttribute('data-sim');
+            currentSimType = simType;
             showSimulationIntro(simType);
         });
     });
@@ -424,7 +443,6 @@ function calculate(a, b, op) {
  */
 function enableHighlighting() {
     // Implementation would depend on the question content
-    // This is a simplified version
     const questionContent = document.querySelector('.question-content');
     
     questionContent.style.cursor = 'pointer';
@@ -513,9 +531,15 @@ function loadQuestion(questionNumber) {
     const questionStem = document.getElementById('question-stem');
     const questionOptions = document.getElementById('question-options');
     
-    // For this demo, we'll use sample questions
-    const sampleQuestions = getSampleQuestions();
-    const question = sampleQuestions[questionNumber - 1] || sampleQuestions[0];
+    // Get the question from our database or use sample questions if not loaded yet
+    let question;
+    if (simulatorQuestions && simulatorQuestions.length > 0) {
+        question = simulatorQuestions[(questionNumber - 1) % simulatorQuestions.length];
+    } else {
+        // Fallback to sample questions
+        const sampleQuestions = getSampleQuestions();
+        question = sampleQuestions[(questionNumber - 1) % sampleQuestions.length];
+    }
     
     // Set question stem
     questionStem.innerHTML = question.stem;
@@ -558,7 +582,9 @@ function loadQuestion(questionNumber) {
     const answers = JSON.parse(localStorage.getItem('examAnswers') || '{}');
     if (answers[questionNumber] !== undefined) {
         const options = document.querySelectorAll('.option');
-        options[answers[questionNumber]].classList.add('selected');
+        if (options.length > answers[questionNumber]) {
+            options[answers[questionNumber]].classList.add('selected');
+        }
     }
 }
 
@@ -613,7 +639,7 @@ function getSampleQuestions() {
                 "Administer oxygen and place the client in a high Fowler's position"
             ]
         },
-        // Additional questions to reach 75
+        // Additional questions
         {
             stem: "A nurse is providing teaching for a client who will be taking warfarin (Coumadin) after discharge. Which statement by the client indicates understanding of the medication teaching?",
             options: [
@@ -660,16 +686,22 @@ function showResults() {
     const totalQuestions = parseInt(document.getElementById('total-questions').textContent);
     const answeredQuestions = Object.keys(answers).length;
     
-    // For demo, we'll consider certain answers as correct
-    const correctAnswers = {
-        1: 3, // Index of correct answer for question 1
-        2: 1, // Index of correct answer for question 2
-        3: 2, // Index of correct answer for question 3
-        4: 0, // Index of correct answer for question 4
-        5: 3, // Index of correct answer for question 5
-        6: 1, // Index of correct answer for question 6
-        7: 2  // Index of correct answer for question 7
-    };
+    // For demo, we'll consider certain answers as correct based on a fixed pattern or the actual data
+    let correctAnswers = {};
+    
+    // If we have the actual questions loaded, use their correct answers
+    if (simulatorQuestions && simulatorQuestions.length > 0) {
+        for (let i = 1; i <= totalQuestions; i++) {
+            const questionIndex = (i - 1) % simulatorQuestions.length;
+            correctAnswers[i] = simulatorQuestions[questionIndex].correctAnswer;
+        }
+    } else {
+        // Fallback pattern for demo
+        correctAnswers = {
+            1: 3, 2: 1, 3: 2, 4: 0, 5: 3, 6: 1, 7: 2,
+            8: 0, 9: 2, 10: 1, 11: 3, 12: 0
+        };
+    }
     
     let correct = 0;
     Object.keys(answers).forEach(question => {
@@ -689,27 +721,46 @@ function showResults() {
     // Get time used
     const endTime = parseInt(localStorage.getItem('examEndTime') || '0');
     const timeUsed = Math.max(0, Math.floor((endTime - Date.now()) / 1000));
-    const totalSeconds = timeUsed;
+    const totalSeconds = Math.abs(timeUsed);
     const hours = Math.floor(totalSeconds / 3600);
     const minutes = Math.floor((totalSeconds % 3600) / 60);
     
     document.getElementById('results-time').textContent = 
         `${hours} hour${hours !== 1 ? 's' : ''} ${minutes} minute${minutes !== 1 ? 's' : ''}`;
     
-    // Create breakdown
+    // Create breakdown based on the simulation type
     const breakdownDiv = document.getElementById('results-breakdown');
-    breakdownDiv.innerHTML = `
-        <p>You performed well in:</p>
-        <ul>
-            <li>Medication administration</li>
-            <li>Patient assessment</li>
-        </ul>
-        <p>Areas for improvement:</p>
-        <ul>
-            <li>Prioritization of care</li>
-            <li>Laboratory value interpretation</li>
-        </ul>
-    `;
+    
+    if (currentSimType === 'ngn-full') {
+        breakdownDiv.innerHTML = `
+            <h3>Performance by Question Type</h3>
+            <p>You performed well in:</p>
+            <ul>
+                <li>Standard multiple choice</li>
+                <li>Multiple response select all that apply</li>
+            </ul>
+            <p>Areas for improvement:</p>
+            <ul>
+                <li>Drag and Drop case studies</li>
+                <li>Cloze (fill-in-the-blank) questions</li>
+                <li>Matrix/grid questions</li>
+            </ul>
+        `;
+    } else {
+        breakdownDiv.innerHTML = `
+            <h3>Performance by Content Area</h3>
+            <p>You performed well in:</p>
+            <ul>
+                <li>Medication administration</li>
+                <li>Patient assessment</li>
+            </ul>
+            <p>Areas for improvement:</p>
+            <ul>
+                <li>Prioritization of care</li>
+                <li>Laboratory value interpretation</li>
+            </ul>
+        `;
+    }
     
     // Show results screen
     resultsScreen.classList.remove('hidden');
@@ -719,6 +770,7 @@ function showResults() {
     localStorage.removeItem('examEndTime');
     localStorage.removeItem('currentSimType');
 }
+
 /**
  * Initialize NGN Examples
  */
@@ -726,6 +778,7 @@ function initializeNGNExamples() {
     setupMatrixExample();
     setupClozeExample();
     setupHighlightingExample();
+    setupDragAndDropExample();
     setupNGNSimulatorButtons();
 }
 
@@ -767,13 +820,17 @@ function setupClozeExample() {
     const dropdowns = document.querySelectorAll('.cloze-dropdown');
     
     dropdowns.forEach(dropdown => {
-        dropdown.addEventListener('click', function() {
+        const dropdownEl = dropdown;
+        
+        dropdownEl.addEventListener('click', function(event) {
+            event.stopPropagation();
             this.classList.toggle('active');
         });
         
         const options = dropdown.querySelectorAll('.cloze-dropdown-option');
         options.forEach(option => {
-            option.addEventListener('click', function() {
+            option.addEventListener('click', function(event) {
+                event.stopPropagation();
                 const selectedOption = this.closest('.cloze-dropdown').querySelector('.selected-option');
                 selectedOption.textContent = this.textContent;
                 this.closest('.cloze-dropdown').classList.remove('active');
@@ -783,12 +840,9 @@ function setupClozeExample() {
     
     // Close dropdown when clicking outside
     document.addEventListener('click', function(event) {
-        const isDropdown = event.target.closest('.cloze-dropdown');
-        if (!isDropdown) {
-            dropdowns.forEach(dropdown => {
-                dropdown.classList.remove('active');
-            });
-        }
+        dropdowns.forEach(dropdown => {
+            dropdown.classList.remove('active');
+        });
     });
 }
 
@@ -823,50 +877,16 @@ function setupHighlightingExample() {
     }
 }
 
-// Call initialization functions when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize simulator buttons
-    setupSimulatorButtons();
-    
-    // Initialize interface controls
-    setupInterfaceControls();
-    
-    // Initialize tool panels
-    setupToolPanels();
-    
-    // Initialize NGN examples
-    initializeNGNExamples();
-});
 /**
  * Set up drag and drop example for NGN questions
  */
 function setupDragAndDropExample() {
-    // Check if jQuery is loaded, if not, load it
     if (typeof jQuery === 'undefined') {
-        const script = document.createElement('script');
-        script.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
-        script.onload = function() {
-            loadJQueryUI();
-        };
-        document.head.appendChild(script);
-    } else {
-        loadJQueryUI();
+        console.error('jQuery is required for drag and drop functionality');
+        return;
     }
     
-    function loadJQueryUI() {
-        if (typeof jQuery.ui === 'undefined') {
-            const script = document.createElement('script');
-            script.src = 'https://code.jquery.com/ui/1.13.2/jquery-ui.min.js';
-            script.onload = function() {
-                initializeDragAndDrop();
-            };
-            document.head.appendChild(script);
-        } else {
-            initializeDragAndDrop();
-        }
-    }
-    
-    function initializeDragAndDrop() {
+    try {
         // Make items draggable
         $(".parent li").draggable({
             revert: "invalid",
@@ -892,13 +912,7 @@ function setupDragAndDropExample() {
                 $(ui.draggable).hide();
             }
         });
+    } catch (e) {
+        console.error('Error setting up drag and drop:', e);
     }
 }
-
-// Call the drag and drop setup function during initialization
-document.addEventListener('DOMContentLoaded', function() {
-    // Previous initialization code...
-    
-    // Initialize drag and drop example
-    setupDragAndDropExample();
-});
