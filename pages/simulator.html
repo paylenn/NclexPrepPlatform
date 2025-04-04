@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCLEX Simulator | Authentic Pearson VUE Experience</title>
+    <meta name="description" content="Experience the NCLEX exam with our authentic Pearson VUE simulator that replicates the actual testing environment.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="../css/simulator.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="simulator-body">
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <h1>PayLeNN.tech</h1>
+                <p class="tagline">Your NCLEX Success Partner</p>
+            </div>
+            <nav class="main-nav">
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="practice.html">Practice Questions</a></li>
+                    <li><a href="ngn-types.html">NGN Question Types</a></li>
+                    <li><a href="simulator.html" class="active">NCLEX Simulator</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="sim-intro">
+            <div class="container">
+                <h2>NCLEX Exam Simulator</h2>
+                <p>Experience the most authentic Pearson VUE NCLEX simulation available. This simulator replicates the exact look, feel, and functionality of the actual NCLEX testing interface.</p>
+
+                <div class="sim-features">
+                    <div class="feature">
+                        <i class="fas fa-desktop"></i>
+                        <h3>Authentic Interface</h3>
+                        <p>Identical look and feel to the Pearson VUE testing experience</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-tools"></i>
+                        <h3>Exam Tools</h3>
+                        <p>Calculator, highlight, strikethrough, and note-taking functions</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-question-circle"></i>
+                        <h3>All Question Types</h3>
+                        <p>Traditional and Next Generation NCLEX question formats</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-clock"></i>
+                        <h3>Realistic Timing</h3>
+                        <p>Accurate exam timing with breaks and notifications</p>
+                    </div>
+                </div>
+
+                <div class="sim-options">
+                    <h3>Choose Your Simulation</h3>
+                    <div class="options-grid">
+                        <div class="option-card">
+                            <h4>75-Question NCLEX-RN Simulation</h4>
+                            <p>Standard NCLEX adaptive test with 75 questions</p>
+                            <p class="option-time">Time: 2 hours</p>
+                            <button class="btn btn-primary start-sim" data-sim="rn-75">Start Simulation</button>
+                        </div>
+                        <div class="option-card">
+                            <h4>Next Generation NCLEX Simulation</h4>
+                            <p>Full NGN experience with case studies and standalone items</p>
+                            <p class="option-time">Time: 5 hours</p>
+                            <button class="btn btn-primary start-sim" data-sim="ngn-full">Start Simulation</button>
+                        </div>
+                        <div class="option-card">
+                            <h4>Practice Mode (30 Minutes)</h4>
+                            <p>Short practice session to get familiar with the interface</p>
+                            <p class="option-time">Time: 30 minutes</p>
+                            <button class="btn btn-primary start-sim" data-sim="practice-30">Start Simulation</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Simulator Interface (initially hidden) -->
+        <section id="simulator-interface" class="hidden">
+            <div class="simulator-header">
+                <div class="exam-info">
+                    <span id="exam-name">NCLEX-RN® Examination</span>
+                </div>
+                <div class="timer-container">
+                    <span class="timer-label">Time Remaining:</span>
+                    <span id="exam-timer">00:00:00</span>
+                </div>
+                <div class="header-actions">
+                    <button id="pause-exam" class="header-btn">
+                        <i class="fas fa-pause"></i> Pause
+                    </button>
+                    <button id="end-exam" class="header-btn">
+                        <i class="fas fa-power-off"></i> End
+                    </button>
+                </div>
+            </div>
+
+            <div class="simulator-content">
+                <div class="tools-panel">
+                    <button class="tool-btn" id="calculator-btn" title="Calculator">
+                        <i class="fas fa-calculator"></i>
+                    </button>
+                    <button class="tool-btn" id="highlight-btn" title="Highlight Text">
+                        <i class="fas fa-highlighter"></i>
+                    </button>
+                    <button class="tool-btn" id="strikethrough-btn" title="Strikethrough">
+                        <i class="fas fa-strikethrough"></i>
+                    </button>
+                    <button class="tool-btn" id="notes-btn" title="Notes">
+                        <i class="fas fa-sticky-note"></i>
+                    </button>
+                </div>
+
+                <div class="question-panel">
+                    <div class="question-content">
+                        <div id="question-stem">
+                            <!-- Question content will be inserted here by JavaScript -->
+                        </div>
+                        <div id="question-options">
+                            <!-- Answer options will be inserted here by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="navigation-panel">
+                    <div class="question-counter">
+                        <span>Question</span>
+                        <span id="current-question">1</span>
+                        <span>of</span>
+                        <span id="total-questions">75</span>
+                    </div>
+                    <div class="nav-buttons">
+                        <button id="previous-btn" class="nav-btn" disabled>
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </button>
+                        <button id="next-btn" class="nav-btn">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>PayLeNN.tech</h2>
+                    <p>Your NCLEX Success Partner</p>
+                </div>
+                <div class="footer-nav">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="practice.html">Practice Questions</a></li>
+                        <li><a href="ngn-types.html">NGN Question Types</a></li>
+                        <li><a href="simulator.html">NCLEX Simulator</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p>Email: support@paylenn.tech</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 PayLeNN.tech. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/simulator.js"></script>
+</body>
+</html>
