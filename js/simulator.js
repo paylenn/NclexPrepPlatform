@@ -110,6 +110,23 @@ function startExamSimulation() {
             simIntro.classList.add('hidden');
         }
         
+        // Hide all content on the page to create a clean exam environment
+        const mainContent = document.querySelector('main');
+        if (mainContent) {
+            mainContent.style.display = 'none';
+        }
+        
+        // Hide header and footer too
+        const header = document.querySelector('header');
+        if (header) {
+            header.style.display = 'none';
+        }
+        
+        const footer = document.querySelector('footer');
+        if (footer) {
+            footer.style.display = 'none';
+        }
+        
         // Check if simulator interface exists, create it if it doesn't
         let simulatorInterface = document.getElementById('simulator-interface');
         if (!simulatorInterface) {
@@ -117,7 +134,7 @@ function startExamSimulation() {
             simulatorInterface = document.createElement('div');
             simulatorInterface.id = 'simulator-interface';
             // Don't add hidden class here so it shows immediately
-            simulatorInterface.className = 'simulator-interface'; // Add a regular class for styling
+            simulatorInterface.className = 'simulator-interface simulator-full-environment'; // Added class for full environment
             simulatorInterface.innerHTML = `
                 <div class="exam-container">
                     <div class="exam-header">
@@ -699,7 +716,8 @@ function loadQuestion(questionNumber) {
         // Add click handler for option selection
         optionElement.addEventListener('click', function(event) {
             // If strikethrough mode is active, don't select
-            if (document.getElementById('strikethrough-btn').classList.contains('active')) {
+            const strikethroughBtn = document.getElementById('strikethrough-btn');
+            if (strikethroughBtn && strikethroughBtn.classList.contains('active')) {
                 console.log('Strikethrough mode active, not selecting option');
                 return;
             }
@@ -817,6 +835,22 @@ function endExam() {
         const simulatorInterface = document.getElementById('simulator-interface');
         if (simulatorInterface) {
             simulatorInterface.classList.add('hidden');
+        }
+        
+        // Restore main content, header, and footer visibility
+        const mainContent = document.querySelector('main');
+        if (mainContent) {
+            mainContent.style.display = '';
+        }
+        
+        const header = document.querySelector('header');
+        if (header) {
+            header.style.display = '';
+        }
+        
+        const footer = document.querySelector('footer');
+        if (footer) {
+            footer.style.display = '';
         }
         
         // Show results
@@ -1206,8 +1240,14 @@ function setupDragAndDropExample() {
                 }
                 
                 // Update references to the new elements
-                dragItems = $(".parent li");
-                dropTarget = $(".action_inner_center .action_box_first, .drop-target");
+                try {
+                    const newDragItems = $(".parent li");
+                    const newDropTarget = $(".action_inner_center .action_box_first, .drop-target");
+                    if (newDragItems.length > 0) dragItems = newDragItems;
+                    if (newDropTarget.length > 0) dropTarget = newDropTarget;
+                } catch (error) {
+                    console.error('Error updating drag and drop references:', error);
+                }
             }
             
             // Make items draggable
