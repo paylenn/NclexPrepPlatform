@@ -174,22 +174,6 @@
 
     <script src="../js/main.js"></script>
     <script src="../js/questions.js"></script>
-    <script>
-        // Show practice container if URL has exam parameter
-        document.addEventListener('DOMContentLoaded', function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const examType = urlParams.get('exam');
-            
-            if (examType) {
-                document.querySelector('.practice-overview').style.display = 'none';
-                document.querySelector('.practice-tips').style.display = 'none';
-                document.querySelector('.practice-container').style.display = 'block';
-            } else {
-                document.querySelector('.practice-container').style.display = 'none';
-                document.querySelector('.practice-overview').style.display = 'block';
-                document.querySelector('.practice-tips').style.display = 'block';
-            }
-        });
-    </script>
+    <!-- Note: The display logic is now handled in the initializePracticeExam function in questions.js -->
 </body>
 </html>
