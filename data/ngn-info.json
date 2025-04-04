@@ -1,0 +1,272 @@
+{
+  "ngn_types": [
+    {
+      "name": "Extended Multiple Response",
+      "description": "These questions require you to select all applicable options from a list that may contain 5-10 options. Unlike traditional 'select all that apply' questions, NGN may include more options.",
+      "tips": [
+        "Read each option carefully and independently",
+        "Don't assume a specific number of correct answers",
+        "Consider each option as either correct or incorrect based on the scenario",
+        "Be aware of the +/- scoring method, which awards points for correct selections and deducts points for incorrect selections"
+      ],
+      "example": {
+        "scenario": "A nurse is assessing a client diagnosed with sepsis. Which clinical manifestations would the nurse expect to find? Select all that apply.",
+        "options": [
+          "Temperature of 101.8°F (38.8°C)",
+          "Heart rate of 118 beats per minute",
+          "Respiratory rate of 24 breaths per minute",
+          "Systolic blood pressure of 85 mmHg",
+          "White blood cell count of 14,500/mm³",
+          "Urine output of 80 mL in 4 hours",
+          "Capillary refill of 1 second"
+        ],
+        "correct_answers": [0, 1, 2, 3, 4, 5]
+      }
+    },
+    {
+      "name": "Drag-and-Drop/Bowtie",
+      "description": "These items require moving options (tokens) to appropriate placeholders. The bowtie format specifically asks you to identify a client condition, related nursing actions, and evaluation parameters.",
+      "tips": [
+        "First identify the central client problem based on the scenario",
+        "Consider which interventions specifically address that problem",
+        "Think about what parameters would indicate improvement or deterioration",
+        "Remember that options can typically only be used once",
+        "Look for clear connections between the condition, actions, and evaluation parameters"
+      ],
+      "example": {
+        "scenario": "A client is admitted with severe dehydration following three days of vomiting and diarrhea. The client has dry mucous membranes, poor skin turgor, and a heart rate of 124 beats per minute.",
+        "format": "Identify the client's most likely condition, two nursing actions to address this condition, and two parameters to monitor the client's progress.",
+        "options_conditions": [
+          "Hypovolemic shock",
+          "Septic shock",
+          "Heart failure",
+          "Diabetic ketoacidosis"
+        ],
+        "options_actions": [
+          "Administer IV fluids as ordered",
+          "Monitor vital signs",
+          "Administer insulin",
+          "Apply oxygen via nasal cannula",
+          "Monitor intake and output"
+        ],
+        "options_parameters": [
+          "Blood pressure",
+          "Skin turgor",
+          "Glucose level",
+          "Respiratory effort",
+          "Urine output"
+        ],
+        "correct_condition": "Hypovolemic shock",
+        "correct_actions": ["Administer IV fluids as ordered", "Monitor intake and output"],
+        "correct_parameters": ["Blood pressure", "Urine output"]
+      }
+    },
+    {
+      "name": "Cloze (Drop-down)",
+      "description": "These questions require you to complete sentences by selecting the correct options from drop-down menus within the text. This format tests your understanding of relationships between concepts.",
+      "tips": [
+        "Read the entire sentence or paragraph first to understand the context",
+        "Consider the relationships between the different drop-down selections",
+        "Remember that all parts must be correct to receive full credit",
+        "Pay attention to qualifiers and time-sequence words that might affect your choices"
+      ],
+      "example": {
+        "scenario": "A client is admitted with suspected heart failure. The nurse would expect to find which assessment findings?",
+        "format": "Complete the sentence by selecting the correct options:",
+        "sentence": "The client with heart failure would likely present with [dropdown1] and [dropdown2] due to [dropdown3], requiring the nurse to monitor [dropdown4].",
+        "options_dropdown1": ["dyspnea", "fever", "rash"],
+        "options_dropdown2": ["peripheral edema", "jaundice", "seizures"],
+        "options_dropdown3": ["fluid retention", "allergic reaction", "bacterial infection"],
+        "options_dropdown4": ["lung sounds", "blood glucose", "skin integrity"],
+        "correct_answers": {
+          "dropdown1": "dyspnea",
+          "dropdown2": "peripheral edema",
+          "dropdown3": "fluid retention",
+          "dropdown4": "lung sounds"
+        }
+      }
+    },
+    {
+      "name": "Highlight",
+      "description": "These questions require you to identify relevant information by highlighting sections of a medical record or scenario. This tests your ability to recognize important cues in complex clinical documentation.",
+      "tips": [
+        "Carefully read the question to understand what you're being asked to identify",
+        "Review the entire document before making your selections",
+        "Look for abnormal values, relevant symptoms, or risk factors related to the question",
+        "Be selective - highlighting too much information may count against you"
+      ],
+      "example": {
+        "scenario": "A client presents to the emergency department with chest pain. Review the following section of the client's medical record and highlight the findings that suggest acute coronary syndrome.",
+        "medical_record": "Medical History: Hypertension for 10 years, Type 2 diabetes diagnosed 5 years ago, Hyperlipidemia\n\nCurrent Medications: Metformin 1000 mg BID, Lisinopril 20 mg daily, Atorvastatin 40 mg daily\n\nPresenting Symptoms: Client reports crushing substernal chest pain radiating to left arm and jaw that began 2 hours ago while walking. Pain is rated 8/10. Client also reports shortness of breath, nausea, and diaphoresis.\n\nVital Signs: BP 162/94, HR 102, RR 24, Temp 98.6°F, O2 sat 94% on room air\n\nLabs: Troponin I: 0.09 ng/mL (normal range: <0.04 ng/mL), CK-MB: 8.2 ng/mL (normal range: <6.0 ng/mL)",
+        "highlights": [
+          "crushing substernal chest pain radiating to left arm and jaw",
+          "shortness of breath, nausea, and diaphoresis",
+          "BP 162/94, HR 102, RR 24",
+          "Troponin I: 0.09 ng/mL (normal range: <0.04 ng/mL)",
+          "CK-MB: 8.2 ng/mL (normal range: <6.0 ng/mL)"
+        ]
+      }
+    },
+    {
+      "name": "Matrix/Grid",
+      "description": "These questions require you to complete tables by selecting appropriate cells. This format tests your ability to identify relationships between multiple concepts or variables.",
+      "tips": [
+        "Read the question carefully to understand if you need to select one option per row/column or multiple options",
+        "Analyze each row and column intersection independently",
+        "Consider the relationships between the concepts in the rows and columns",
+        "Look for patterns in the information to help organize your thinking"
+      ],
+      "example": {
+        "scenario": "A nurse is caring for clients with various cardiovascular conditions. Match each condition with its characteristic assessment findings and priority interventions.",
+        "format": "For each cardiovascular condition, select the characteristic assessment finding and the priority nursing intervention.",
+        "rows": [
+          "Hypertensive Crisis",
+          "Acute Myocardial Infarction",
+          "Heart Failure"
+        ],
+        "columns_assessment": [
+          "Blood pressure 220/118 mmHg with headache",
+          "Crushing substernal chest pain with radiation to left arm",
+          "Bilateral crackles, JVD, and peripheral edema"
+        ],
+        "columns_interventions": [
+          "Administer antihypertensive medication as ordered",
+          "Administer oxygen and aspirin as ordered",
+          "Position client in high Fowler's position"
+        ],
+        "correct_answers": {
+          "Hypertensive Crisis": {
+            "assessment": "Blood pressure 220/118 mmHg with headache",
+            "intervention": "Administer antihypertensive medication as ordered"
+          },
+          "Acute Myocardial Infarction": {
+            "assessment": "Crushing substernal chest pain with radiation to left arm",
+            "intervention": "Administer oxygen and aspirin as ordered"
+          },
+          "Heart Failure": {
+            "assessment": "Bilateral crackles, JVD, and peripheral edema",
+            "intervention": "Position client in high Fowler's position"
+          }
+        }
+      }
+    },
+    {
+      "name": "Trend Item",
+      "description": "These items present client data at different time points, requiring you to analyze changes and make clinical judgments based on trends. This tests your ability to recognize deterioration or improvement in a client's condition.",
+      "tips": [
+        "Compare data across all time points to identify patterns or trends",
+        "Look for values that are moving toward or away from normal ranges",
+        "Consider the clinical significance of the changes, not just the numerical differences",
+        "Focus on how the trends relate to the client's overall condition or diagnosis"
+      ],
+      "example": {
+        "scenario": "A nurse is caring for a postoperative client who had abdominal surgery 12 hours ago. Review the client's vital signs and assessment data over time and identify concerning trends.",
+        "time_points": ["8:00 AM", "12:00 PM", "4:00 PM"],
+        "vital_signs": {
+          "8:00 AM": {
+            "Temperature": "98.6°F (37°C)",
+            "Heart Rate": "86 beats/min",
+            "Blood Pressure": "124/76 mmHg",
+            "Respiratory Rate": "18 breaths/min",
+            "Pain Level": "4/10",
+            "Wound": "Dressing dry and intact"
+          },
+          "12:00 PM": {
+            "Temperature": "99.2°F (37.3°C)",
+            "Heart Rate": "98 beats/min",
+            "Blood Pressure": "118/74 mmHg",
+            "Respiratory Rate": "20 breaths/min",
+            "Pain Level": "5/10",
+            "Wound": "Small amount of serosanguineous drainage noted"
+          },
+          "4:00 PM": {
+            "Temperature": "101.2°F (38.4°C)",
+            "Heart Rate": "112 beats/min",
+            "Blood Pressure": "110/68 mmHg",
+            "Respiratory Rate": "24 breaths/min",
+            "Pain Level": "7/10",
+            "Wound": "Moderate amount of purulent drainage, redness around incision"
+          }
+        },
+        "concerning_trends": [
+          "Increasing temperature from 98.6°F to 101.2°F",
+          "Increasing heart rate from 86 to 112 beats/min",
+          "Increasing respiratory rate from 18 to 24 breaths/min",
+          "Increasing pain level from 4/10 to 7/10",
+          "Change in wound drainage from dry to purulent with redness"
+        ]
+      }
+    }
+  ],
+  "clinical_judgment_model": {
+    "description": "The NCSBN Clinical Judgment Measurement Model (NCJMM) is the framework used for developing Next Generation NCLEX questions. It consists of six cognitive skills that nurses use when making clinical decisions.",
+    "skills": [
+      {
+        "name": "Recognize Cues",
+        "description": "Identifying relevant information from the situation",
+        "example": "Identifying that a client's elevated temperature, heart rate, and respiratory rate are signs of infection"
+      },
+      {
+        "name": "Analyze Cues",
+        "description": "Making sense of the recognized cues by comparing them to standards, protocols, or normal findings",
+        "example": "Determining that a blood glucose of 46 mg/dL is significantly below the normal range and requires intervention"
+      },
+      {
+        "name": "Prioritize Hypotheses",
+        "description": "Evaluating and ranking potential client problems or health concerns",
+        "example": "Determining that hypoglycemia is the most urgent concern for a client with confusion and a blood glucose of 46 mg/dL"
+      },
+      {
+        "name": "Generate Solutions",
+        "description": "Identifying potential actions to address the prioritized client problems",
+        "example": "Considering options such as administering glucose orally, IV dextrose, or glucagon for a hypoglycemic client"
+      },
+      {
+        "name": "Take Action",
+        "description": "Implementing the selected interventions in a prioritized sequence",
+        "example": "Administering 15g of fast-acting carbohydrate to a conscious client with hypoglycemia"
+      },
+      {
+        "name": "Evaluate Outcomes",
+        "description": "Comparing the client's response to the expected outcomes of interventions",
+        "example": "Reassessing blood glucose 15 minutes after intervention to determine if it has returned to a safe range"
+      }
+    ]
+  },
+  "case_study_format": {
+    "description": "Case studies on the NGN present an unfolding clinical scenario with six questions that align with the six steps of the Clinical Judgment Measurement Model.",
+    "structure": "Each case study begins with a client scenario, then presents six questions in sequence. As the case unfolds, new information may be added to the scenario.",
+    "question_sequence": [
+      "Question 1: Recognize Cues - Identify relevant information",
+      "Question 2: Analyze Cues - Interpret the meaning of the cues",
+      "Question 3: Prioritize Hypotheses - Rank potential client problems",
+      "Question 4: Generate Solutions - Identify potential interventions",
+      "Question 5: Take Action - Select and implement interventions",
+      "Question 6: Evaluate Outcomes - Determine effectiveness of interventions"
+    ],
+    "tips": [
+      "Read the scenario carefully before answering each question",
+      "Focus on the specific cognitive skill being tested in each question",
+      "Pay attention to new information added as the case unfolds",
+      "Consider how each question builds upon previous questions in the sequence",
+      "Apply the nursing process throughout the case study"
+    ]
+  },
+  "scoring_methods": [
+    {
+      "name": "+/- Scoring",
+      "description": "Used when candidates may select unlimited options. Points are awarded for each correct selection and deducted for each incorrect selection. The minimum score is 0.",
+      "example": "If a question has 3 correct answers out of 7 options, and you select 2 correct and 1 incorrect, your score would be: +2 (correct) - 1 (incorrect) = 1 point out of 3 possible points."
+    },
+    {
+      "name": "0/1 Scoring",
+      "description": "Used when candidates are instructed to select a specific number of options. Points are awarded for each correct selection, but no points are deducted for incorrect selections.",
+      "example": "If a question asks you to select the 3 best interventions, and you select 2 correct and 1 incorrect, your score would be: +2 points out of 3 possible points."
+    },
+    {
+      "name": "Rationale Scoring",
+      "description": "Used for items that link a concept with its justification (like cloze items). Both parts must be correct to receive full credit.",
+      "example": "In a sentence completion question where you must select both a condition and its cause, you only receive credit if both selections are correct."
+    }
+  ]
+}

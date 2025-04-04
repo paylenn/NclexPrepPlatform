@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice Questions | NCLEX Exam Preparation</title>
+    <meta name="description" content="Practice NCLEX exam questions with detailed rationales and explanations.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">
+                <h1>PayLeNN.tech</h1>
+                <p class="tagline">Your NCLEX Success Partner</p>
+            </div>
+            <nav class="main-nav">
+                <button class="menu-toggle" aria-label="Toggle menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="practice.html" class="active">Practice Questions</a></li>
+                    <li><a href="ngn-types.html">NGN Question Types</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h2>NCLEX Practice Questions</h2>
+                <p>Test your knowledge with our comprehensive collection of practice questions.</p>
+            </div>
+        </section>
+
+        <section class="practice-overview">
+            <div class="container">
+                <div class="overview-content">
+                    <h3>About Our Practice Questions</h3>
+                    <p>Our practice questions are designed to mimic the format and difficulty level of the actual NCLEX exam, including both traditional formats and Next Generation NCLEX (NGN) question types. Each question includes detailed rationales to help you understand the correct answer and strengthen your clinical judgment skills.</p>
+                    
+                    <div class="exam-types">
+                        <h3>Choose a Practice Exam</h3>
+                        <div class="exam-grid">
+                            <div class="exam-card">
+                                <div class="exam-icon">
+                                    <i class="fas fa-clipboard-list"></i>
+                                </div>
+                                <h4>Standard NCLEX Practice</h4>
+                                <p>Traditional NCLEX question formats covering essential nursing knowledge across all domains.</p>
+                                <a href="practice.html?exam=exam1" class="btn btn-primary">Start Practice</a>
+                            </div>
+                            
+                            <div class="exam-card">
+                                <div class="exam-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h4>Next Generation NCLEX</h4>
+                                <p>Practice with new NGN question types that focus on clinical judgment and decision-making.</p>
+                                <a href="practice.html?exam=exam2" class="btn btn-primary">Start Practice</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="practice-container" style="display: none;">
+            <div class="exam-header">
+                <!-- Exam title and description will be inserted here by JavaScript -->
+            </div>
+            
+            <div class="questions-container">
+                <!-- Question content will be inserted here by JavaScript -->
+            </div>
+        </section>
+
+        <section class="practice-tips">
+            <div class="container">
+                <h3>Tips for NCLEX Success</h3>
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="fas fa-book-reader"></i>
+                        </div>
+                        <h4>Read Carefully</h4>
+                        <p>Pay close attention to what each question is asking. Look for key words like "priority," "first," "best," and "most important."</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4>Apply Clinical Judgment</h4>
+                        <p>Focus on recognizing cues, analyzing information, and making decisions based on sound nursing judgment rather than memorizing facts.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h4>Remember ABC's</h4>
+                        <p>When prioritizing, remember the hierarchy: Airway, Breathing, and Circulation come first, followed by safety concerns.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <div class="tip-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h4>Practice Regularly</h4>
+                        <p>Consistent practice with various question types will build your confidence and improve your test-taking skills over time.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>PayLeNN.tech</h2>
+                    <p>Your NCLEX Success Partner</p>
+                </div>
+                <div class="footer-nav">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="practice.html">Practice Questions</a></li>
+                        <li><a href="ngn-types.html">NGN Question Types</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="about.html">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact</h3>
+                    <p>Email: support@paylenn.tech</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 PayLeNN.tech. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/questions.js"></script>
+    <script>
+        // Show practice container if URL has exam parameter
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const examType = urlParams.get('exam');
+            
+            if (examType) {
+                document.querySelector('.practice-overview').style.display = 'none';
+                document.querySelector('.practice-tips').style.display = 'none';
+                document.querySelector('.practice-container').style.display = 'block';
+            } else {
+                document.querySelector('.practice-container').style.display = 'none';
+                document.querySelector('.practice-overview').style.display = 'block';
+                document.querySelector('.practice-tips').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
