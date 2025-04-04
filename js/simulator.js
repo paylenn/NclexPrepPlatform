@@ -719,3 +719,186 @@ function showResults() {
     localStorage.removeItem('examEndTime');
     localStorage.removeItem('currentSimType');
 }
+/**
+ * Initialize NGN Examples
+ */
+function initializeNGNExamples() {
+    setupMatrixExample();
+    setupClozeExample();
+    setupHighlightingExample();
+    setupNGNSimulatorButtons();
+}
+
+/**
+ * Set up the NGN simulator buttons
+ */
+function setupNGNSimulatorButtons() {
+    const ngnSimButton = document.querySelector('.simulator-cta .start-sim');
+    if (ngnSimButton) {
+        ngnSimButton.addEventListener('click', function() {
+            const simType = this.getAttribute('data-sim');
+            showSimulationIntro(simType);
+        });
+    }
+}
+
+/**
+ * Set up matrix example
+ */
+function setupMatrixExample() {
+    const matrixCells = document.querySelectorAll('.matrix-cell.selectable');
+    
+    matrixCells.forEach(cell => {
+        cell.addEventListener('click', function() {
+            this.classList.toggle('selected');
+            if (this.classList.contains('selected')) {
+                this.innerHTML = '<i class="fas fa-check"></i>';
+            } else {
+                this.innerHTML = '';
+            }
+        });
+    });
+}
+
+/**
+ * Set up cloze (dropdown) example
+ */
+function setupClozeExample() {
+    const dropdowns = document.querySelectorAll('.cloze-dropdown');
+    
+    dropdowns.forEach(dropdown => {
+        dropdown.addEventListener('click', function() {
+            this.classList.toggle('active');
+        });
+        
+        const options = dropdown.querySelectorAll('.cloze-dropdown-option');
+        options.forEach(option => {
+            option.addEventListener('click', function() {
+                const selectedOption = this.closest('.cloze-dropdown').querySelector('.selected-option');
+                selectedOption.textContent = this.textContent;
+                this.closest('.cloze-dropdown').classList.remove('active');
+            });
+        });
+    });
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+        const isDropdown = event.target.closest('.cloze-dropdown');
+        if (!isDropdown) {
+            dropdowns.forEach(dropdown => {
+                dropdown.classList.remove('active');
+            });
+        }
+    });
+}
+
+/**
+ * Set up highlighting example
+ */
+function setupHighlightingExample() {
+    const paragraph = document.querySelector('.highlight-paragraph');
+    
+    if (paragraph) {
+        paragraph.addEventListener('mouseup', function() {
+            const selection = window.getSelection();
+            
+            if (selection.rangeCount > 0) {
+                const range = selection.getRangeAt(0);
+                
+                if (range.toString().trim() !== '') {
+                    const span = document.createElement('span');
+                    span.style.backgroundColor = 'yellow';
+                    span.className = 'highlighted-text';
+                    
+                    try {
+                        range.surroundContents(span);
+                    } catch (e) {
+                        console.error('Error highlighting text:', e);
+                    }
+                    
+                    selection.removeAllRanges();
+                }
+            }
+        });
+    }
+}
+
+// Call initialization functions when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize simulator buttons
+    setupSimulatorButtons();
+    
+    // Initialize interface controls
+    setupInterfaceControls();
+    
+    // Initialize tool panels
+    setupToolPanels();
+    
+    // Initialize NGN examples
+    initializeNGNExamples();
+});
+/**
+ * Set up drag and drop example for NGN questions
+ */
+function setupDragAndDropExample() {
+    // Check if jQuery is loaded, if not, load it
+    if (typeof jQuery === 'undefined') {
+        const script = document.createElement('script');
+        script.src = 'https://code.jquery.com/jquery-3.6.0.min.js';
+        script.onload = function() {
+            loadJQueryUI();
+        };
+        document.head.appendChild(script);
+    } else {
+        loadJQueryUI();
+    }
+    
+    function loadJQueryUI() {
+        if (typeof jQuery.ui === 'undefined') {
+            const script = document.createElement('script');
+            script.src = 'https://code.jquery.com/ui/1.13.2/jquery-ui.min.js';
+            script.onload = function() {
+                initializeDragAndDrop();
+            };
+            document.head.appendChild(script);
+        } else {
+            initializeDragAndDrop();
+        }
+    }
+    
+    function initializeDragAndDrop() {
+        // Make items draggable
+        $(".parent li").draggable({
+            revert: "invalid",
+            helper: "clone",
+            cursor: "move"
+        });
+        
+        // Make center box droppable
+        $(".action_inner_center .action_box_first").droppable({
+            accept: ".parent li",
+            hoverClass: "active",
+            drop: function(event, ui) {
+                // Clone the dropped item
+                const droppedItem = $(ui.draggable).clone();
+                
+                // Remove the UI draggable classes and behavior
+                droppedItem.removeClass("ui-draggable ui-draggable-handle");
+                
+                // Add to droppable area
+                $(this).append(droppedItem);
+                
+                // Hide the original item
+                $(ui.draggable).hide();
+            }
+        });
+    }
+}
+
+// Call the drag and drop setup function during initialization
+document.addEventListener('DOMContentLoaded', function() {
+    // Previous initialization code...
+    
+    // Initialize drag and drop example
+    setupDragAndDropExample();
+});
