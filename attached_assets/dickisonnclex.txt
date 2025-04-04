@@ -1,0 +1,191 @@
+Next Generation NCLEX Update
+Phil Dickison, Ph.D., RN
+Chief Operating Officer, NCSBN
+Overview
+•Where are we
+•Item development update
+•Scoring update
+•Test design update
+•Beta testing update
+Where Are We?
+
+Item Development
+Measuring Clinical Judgment
+Clinical judgment will be measured two ways on the NGN
+1.Case Studies: A real -world nursing scenario accompanied by 
+multiple test items
+2.Standalone Items: Individual items not part of a case study 
+Measuring Clinical Judgment
+•Standalone items target one or more of the six “Layer 3” 
+clinical judgment elements
+•Case Studies target multiple elements using a scenario and 
+multiple items
+
+Sample NGN Case Study
+
+Close -up view of left -hand side of screen –Scenario
+Close -up view of right -hand side of screen –First item
+Close -up view of second item
+Initial close -up view of third item 
+Final close -up view of third item –options visible 
+Close -up view of left -hand side of screen –UPDATED Scenario
+Close -up view of right --hand side of screen –Fourth item
+Close -up view of right -hand side of screen –Fifth item (initial view)
+Close -up view of right -hand side of screen –Fifth item (showing candidate response)
+
+Close -up view of sixth and final item
+New Item Types
+Case studies and standalone items will include several new item 
+types introduced specifically for the NGN —
+•Highlighting
+•Cloze (Pull -Down Menu)
+•Matrix/Grid
+•Extended Multiple Response
+•Trend Item
+•Extended Drag and Drop, including Bowtie
+Summary –Sample NGN Case Study
+Item Clinical Judgement 
+FocusItem Type
+1 Recognize Cues Multiple Response
+2 Analyze Cues Matrix/Grid –Select All
+3 Prioritize Hypotheses Cloze (Pull -Down Menu)
+4 Generate Solutions Matrix/Grid –Select One
+5 Take Action Highlighting
+6 Evaluate Outcomes Matrix/Grid –Select One
+Sample NGN Standalone Item
+“Bowtie” Item
+Status of Item Development
+•Clinical judgment item sets.
+•RN work began in 2017. Nearing launch goal.
+•PN work began in Jan 2020. Primary focus of current efforts.
+•Clinical judgment standalone items.
+•In progress for RN and PN.
+•Item development is on track to support a 2023 launch.
+Scoring
+A New Approach to Scoring
+•NCLEX Today : A candidate response to an item is either correct or incorrect —
+i.e., dichotomous scoring
+•Points possible: 0 or 1
+•NGN: A candidate response may be partially correct and receive partial 
+credit— i.e., polytomous scoring
+•Points possible: 0, 1, 2, 3, etc.
+Different Types of Polytomous Scoring
+Partial credit can be assigned in three 
+different ways
+•Candidates receive a point for correct 
+responses and lose a point for incorrect 
+responses. We call this +/-scoring. 
+•See example Which of these countries is in North America? 
+Select all that apply.
+qFrance                      incorrect       -1 point
+qMexico                     correct          +1 point
+qCanada                     correct          +1 point
+qNew Zealand
+qUnited States
+Using +/-scoring this candidate earns 2 –1 = 1 point 
+out of a maximum of 3 points possible (Mexico, 
+Canada, United States).
+Different Types of Polytomous Scoring
+Partial credit can be assigned in three 
+different ways
+•Candidates receive a point for correct 
+responses and lose a point for incorrect 
+responses. We call this +/-scoring. 
+•Candidates receive a point for correct 
+responses but do not lose points for incorrect 
+responses. We call this 0/1scoring. 
+•See example Which three of these countries are in North America? 
+qFrance                      incorrect         0 points
+qMexico                     correct          +1 point
+qCanada                     correct          +1 point
+qNew Zealand
+qUnited States
+Using 0/1scoring this candidate earns 2 points out of 
+a maximum of 3 points possible (Mexico, Canada, 
+United States).
+Different Types of Polytomous Scoring
+Partial credit can be assigned in three 
+different ways
+•Candidates receive a point for correct 
+responses and lose a point for incorrect 
+responses. We call this +/-scoring. 
+•Candidates receive a point for correct 
+responses but do not lose points for incorrect 
+responses. We call this 0/1scoring. 
+•Candidates receive “all or nothing” credit for 
+linked units within an item.
+•See exampleDrag and drop the tokens below to complete the 
+paragraph correctly.
+TOKENS
+PARAGRAPH
+The capital of                                 is                                . 
+The capital of                                 is                                .
+The candidate earns 1 point for France/Paris pair but 
+no points for Egypt/Japan. In this example country 
+and city are linked for scoring. Total score: 1 point.Paris Okinawa TokyoJapan Cairo Egypt
+France ParisRome France Madrid
+Egypt Japan
+Benefits of Partial Credit Scoring
+•Partial credit scoring allows for more precise measurement and is 
+appropriate to the complexity of the new item types
+•Having multiple ways to assign partial credit, such as +/ -, reduces 
+impact of random guessing or “gaming the items”
+Test Design
+NGN Test Design
+What is meant by NGN Test Design?
+•How long is the exam (hours/minutes)?
+•How long is the exam (items)?
+•What is the mix of current knowledge items and new Clinical Judgment 
+items?
+•How will items and case studies be selected for delivery?
+NGN Test Design
+Length of exam will vary by candidate ability
+•Minimum Length Exam –Candidates with very low or very high ability estimates
+•3 scored case studies (18 items)
+•52 scored knowledge items
+•TOTAL: 70 scored items + 15 unscored (pretest) items
+•Maximum Length Exam –Candidates with ability estimates very close to cut score
+•3 scored case studies (18 items)
+•117 other scored items –Most will be knowledge items but ~10% will be Clinical Judgement standalone 
+items
+•TOTAL: 135 scored items + 15 unscored (pretest) items
+•Candidates will have up to 5 hours (more if time accommodations apply) to complete the exam
+NGN Test Design
+Design Specification NCLEX Today NGN Minimum 
+Length ExamNGN Maximum 
+Length Exam
+Time Allowed 5 hours 5 hours 5 hours
+Case Studies N/A 3 (i.e., 18 items) 3 (i.e., 18 items)
+Clinical Judgment 
+StandalonesN/A 0 Approx. 7 *
+Knowledge Items 60-130 52 Approx. 110
+Total Scored Items 60-130 70 135
+Unscored (Pretest) Items 15 15 15
+Delivery method CAT CAT ** CAT **
+* Approximately 10% of the final 65 items on the exam
+** Items within a Case Study are static, not adaptive
+Beta Testing
+Beta Testing
+•End- to-end testing of all elements of NGN prior to launch
+•Registration/scheduling
+•Test publication and administration
+•Functioning of items and case studies (e.g., presentation, scoring)
+•Functioning of CAT algorithm (selection, stopping rules)
+•Pass/fail decision
+•Data and reports
+•Follows the “alpha testing” of individual elements that occurs as they are 
+developed
+Two phases
+•“Friends and Family” (est. April 2022)
+•Participants selected by NCSBN
+•Will include NRB staff and other stakeholders but not actual students/candidates
+•Administered at PPCs similar to today’s Member Board Reviews
+•Review of maximum length exam
+•“Live” Beta Test (est. December 2022)
+•Participants will be nursing students expecting to graduate after April 2023
+•Fully functional exam but scoring/results will not count
+•Reports generated but for internal NCSBN QC only
+Thank You.
+If you have questions, please share those with us 
+during the live Next Generation NCLEX Q&A session at 
+the NCSBN Midyear Meeting.

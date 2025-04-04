@@ -1,0 +1,2363 @@
+NCLEX®
+Administration Website
+Boards of Nursing/
+Regulatory Body Guide
+Version 14.8.1
+Pearson is a trademark of Pearson Education, Inc. 
+© 2003-2014 Pearson Education, Inc. All rights reserved.
+Candidate contact information
+Please refer to the NCLEX Candidat e Bulletin for candidate contact 
+information. The bulletin is located on the NCSBN website at 
+ncsbn.org .NCLEX Administration website iiiTable of Contents
+Chapter 1:Introduction ..............................................................1-1
+About this guide ..................................................................................... 1-2
+About the NCLEX® Administration website ................................................. 1-3Board of Nursing/Regulatory Body user tasks ............................................. 1-4
+Chapter 2:Basics........................................................................2-1
+Logging in.............................................................................................. 2-1Logging out............................................................................................ 2-3Navigation overview................................................................................ 2-3Searching for candidates.......................................................................... 2-5
+Using the quick search method ............................................................ 2-6Using the Candidate Search page......................................................... 2-8
+Viewing educational programs ................................................................ 2-11
+Search by Location........................................................................... 2-11Search by Code ............................................................................... 2-14
+Locating a testing center........................................................................ 2-16
+Chapter 3:Viewing and Changing Candidate Data ......................3-1
+How registrations move through the exam process ................................................................................................. 3-2Viewing and editing candidates by processing status.................................... 3-5
+Managing incoming registrations .......................................................... 3-9Approving or denying eligibility .......................................................... 3-11Viewing eligible registrations ............................................................. 3-13Managing registration for exams not taken.......................................... 3-15Viewing processed registrations ........... .............................................. 3-17
+Viewing denied registrations.............................................................. 3-19Viewing expired registrations............................................................. 3-21
+Working with candidate results ............................................................... 3-24
+Printing results and closing registration s ............................................. 3-25
+Viewing registrations placed on hold for results.................................... 3-30
+Viewing and changing individual candidate records .................................... 3-33
+Viewing and editing candidate details.................................................. 3-35Viewing and editing registration details ............................................... 3-38Viewing a candidate’s exam history .................................................... 3-42Viewing a candidate’s name changes .................................................. 3-44Viewing a candidate’s address changes . .............................................. 3-45
+Viewing a candidate’s identification in formation.................................... 3-46
+Viewing registration events ............................................................... 3-47
+Chapter 4:Candidate 
+Accommodations ................................................. .......................4 -1
+Accommodations process ......................................................................... 4-2
+Special cases..................................................................................... 4-4
+Batch Processing Jurisin files ............................................................... 4-6Important points about accommodations............................................... 4-6
+Supported accommodations ..................................................................... 4-9ivRegulatory Body Guide version 14 .8.1 NCLEX Administration websiteAdditional testing time........................................................................ 4-9
+Special equipment or assistance ........................................................ 4-11
+Working with accommodations ............................................................... 4-12Adding accommodations requests ........................................................... 4-16Revoking accommodations ..................................................................... 4-19Viewing or editing the list of readers (a ssistive personnel).......................... 4-21
+Adding a reader............................................................................... 4-25Editing or deleting a reader ............................................................... 4-27
+Chapter 5:Reports ..................................................................... 5-1
+About reports......................................................................................... 5-2Report descriptions and examples ............................................................. 5-3
+Candidate Report............................................................................... 5-3
+Chapter 6:Incidents................................................................... 6-1
+Incident overview ................................................................................... 6-1Viewing Incident Reports for candidate registrations........................................................................................... 6-2
+Chapter 7:Administration .......................................................... 7-1
+Changing your jurisdiction’s profile............................................................ 7-2Managing user accounts........................................................................... 7-5
+User permissions ............................................................................... 7-6Displaying the Manage Users page ....................................................... 7-7Editing a user account ........................................................................ 7-8
+Chapter 8:Batch Proces sing....................................................... 8-1
+Batch processing jurisin/jurisout files......................................................... 8-2
+Downloading a jurisout file.................................................................. 8-3Uploading a jurisin file ........................................................................ 8-5
+Jurisin and jurisout file formats................................................................. 8-6NCLEX Administration website  1-1Introduction
+This chapter covers the following topics:
+About this guide
+About the NCLEX® Administration website
+Board of Nursing/Regulatory Body user tasks11-2Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteAbout this guide
+This guide describes how to use the NCLEX® Administration website. 
+This guide is directed towards a Boar d of Nursing/Regulatory Body user.
+Please note that all screen shots within this guide were 
+created from a test environmen t and do not represent real 
+candidate data. Further, screenshots contained in the guide may show functionality that is not available to boards of nursing/regulatory bodies.
+This guide contains the following chapters:
+Chapter 1 , “Introduction,” describes the website, its purpose and 
+the tasks you’ll perform using the site.
+Chapter 2 , “Basics,” explains how to access the website and log in, 
+navigate throughout the site, search for candidates and perform 
+other general tasks.
+Chapter 3 , “Viewing and Changing Candidate Data,” explains how 
+registrations move through the exam  process, how to view and edit 
+candidate records according to their status, how to work with candidate results, and how to view and edit candidate’s detailed information.
+Chapter 4 , “Candidate Accommodations,” lists supported 
+accommodations and explains how the accommodations process works. It explains how to add and revoke accommodations requests, add comments, and view or edit the list of readers/assistive personnel. 
+Chapter 5 , “Reports,” provides information about the types of 
+reports available such as operational reports, quarterly reports and candidate performance reports.
+Chapter 6 , “Incidents,” explains how to  view a list of incidents 
+associated with registrations in yo ur jurisdiction and view details 
+about selected incidents.
+Chapter 7 , “Administration,” explains how, if you’re assigned 
+certain permissions, you can edit your jurisdiction’s profile settings, and edit user permissions.
+Chapter 8 , “Batch Processing,” describes how some Board of 
+Nursing/Regulatory Body users work with candidate data using batch files that are transferred to and from Pearson VUE. It explains how to send files (called jurisin files) to Pearson VUE and receive files (called jurisout files) from Pearson VUE, and the file format these files must use. (This chapter applies ONLY to jurisdictions that use jurisin and jurisout files to transmit data to Pearson VUE.) 
+NCLEX Administration website Introduction 1-3About the NCLEX® Administration website
+The NCLEX Administration website allows users to process and manage 
+records for candidates who register for and take the NCLEX. The website provides a secure, centralized location for Board of Nursing/Regulatory Body members to view candidate records and to quickly update them, set eligibility statuses and enter accommodations requests.Your Board of Nursing/Regu latory Body can see at a glance 
+how many candidates are at the various stages of the examination process and can perform additional tasks such as generating reports 
+based on candidate data.
+Although Board of Nursing/Regulato ry Body members are the primary 
+users of the website, other types of users also use the site to perform 
+specific tasks. Only Boards of Nurs ing/Regulatory Body users, however, 
+can edit candidate information.
+Below is an overview of th e website’s main features:
+Users  log in through NCSBN Passport (the portal through which you 
+will access the NCLEX Administration Website) using their assigned 
+usernames and passwords. When your user account was created by your administrator, you were assigned a set of permissions  for the 
+NCLEX Administration Website, which allows you to perform tasks such as viewing reports, changing  eligibility status or editing 
+candidate data.
+Your jurisdiction’s profile  contains a variety of settings. 
+For example, one profile setting determines whether candidates’ 
+photos appear on reports. If you are assigned a specific permission, you can edit the profile; otherwise, you can view the profile’s settings.
+The Flowchart page provides a high level view of the exam process 
+and the number of registrations at each stage. If you’re assigned a specific permission, you can use this page to edit candidate registrations by their status.
+Use the website’s search  features to locate candidates by their 
+Name , Social Security Number (if applicable), NCLEX Candidate ID 
+number , Date of Birth , or Phone Number . After selecting a 
+candidate, you can view the candidate’s detailed information (including accommodations inform ation). If you’re assigned a 
+specific permission, you can edit a selected candidate’s information.
+Using the website, you can add and revoke accommodations requests you receive from candidates. You can also enter comments.
+You can generate a variety of reports.
+Board of Nursing/Regulatory Body members who mark eligibility status for candidates on a different system use batch files that they transfer to and from Pearson VUE. When batch processing is used, you send import files to Pearson VUE called jurisin files and receive 1-4Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteexport files from Pearson VUE called jurisout files.
+The Incidents page allows you to view a list of all Incident Reports 
+associated with registrations in your jurisdiction. You can click 
+an incident to view and print detailed information about it.
+Use the Lists  page to view a listing of all educational programs, 
+locate a testing center or view a listing of available exam readers 
+and other assistive personnel. If  you’re assigned a specific 
+permission, you can add to or edit the list of readers and assistive personnel.
+Board of Nursing/Regulatory Body user tasks
+The tasks you can perform are based on your assigned permissions.
+We highly recommend that one or two people at your Board of Nursing/Regulatory Body jurisdiction be designated as administrators for your team with the Users  (may edit user logins and permissions) 
+permission. These administra tors should be the only 
+users allowed to edit other user accounts. We recommend that this be th e same person who manages 
+the NCSBN Passport access for your jurisdiction. Additional information can be found in Chapter 7.
+To perform tasks, click one of the links displayed in the NCLEX 
+Administration website’s blue navigation bar that appears at the top of each page.
+Typically, you’ll focus on setting candidates’ eligibility status, editing 
+candidate information, requesting  accommodations and viewing exam 
+results.
+Listed below are the tasks you may perform on the website, depending 
+on your assigned permissions. 
+Perform tasks by clicking links
+in the blue navigation bar.NCLEX Administration website Introduction 1-5General
+Search for candidates
+View Incident Reports associated with candidate registrations
+View the list of educational programs
+Locate a testing center
+Seat availability search
+Eligibility status
+Receive incoming candidate registrations
+Grant or deny candidate eligibility
+View eligible candidates
+View and print candidate exam results
+View candidates whose results are on hold
+View candidates who did not take their exam as scheduled
+Mark completed registrations as processed (closed)
+View processed or denied registrations
+Candidate information
+Change a candidate’s personal in formation (such as name, address 
+and email address)
+Change a candidate’s education program code
+View a candidate’s ID information (photo and signature)
+View information about NCLEX exams a candidate has taken 
+previously
+View a history of changes made to a candidate’s name or address
+View an audit trail of changes made to a candidate’s registration
+Accommodations
+Add, change and delete accommodations requests for candidates
+View accommodations status for registrations
+View or edit the list of available readers/assistive personnel1-6Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteReports
+You may access the reporting portal from the NCLEX Admin website
+Batch processing
+Export candidate data, so eligibility status and other information 
+can be edited using another system
+Upload new or updated candidate registrations for importing into the Pearson VUE database
+Jurisdiction Profile and Administration
+Edit other accounts, including assigning permissions to use the NCLEX Administration website
+Change your jurisdiction’s profile settingsNCLEX Administration website  2-1Basics
+This chapter covers the following topics:
+Logging in
+Logging out
+Navigation overview
+Searching for candidates
+Viewing educational programs
+Locating a testing center
+Logging in
+To start using the NCLEX Administration website, you’ll need 
+the following:
+a supported browser
+an NCSBN Passport username and password . All users will 
+access the NCLEX Admin website from the NCSBN Passport portal. 
+A designated person at each Board of Nursing/Regulatory body will 
+assign each user specific permissions with the NCLEX Admin website.
+the Adobe Acrobat Reader . If you don’t have it installed on your 
+system, you can download it for free from Adobe’s website. You will need the Reader to view and prin t reports such as the Candidate 
+Report, which is provided in PDF format.22-2Regulatory Body Guide version 14 .8.1 NCLEX Administration website1. In your browser, start from the NCSBN Passport portal  
+at http://passport.ncsbn.org.
+2. Enter Passport login information and click the Sign In  button.
+3. Open the NCLEX Administration Website application.
+The Home page is displayed, as shown below. This page provides 
+access to all of the NCLEX Administration website’s features. 
+The message board is updated with important information from NCSBN.
+ 
+NCLEX Administration website Basics 2-3Logging out
+Each time you use the NCLEX Administration website, it’s important 
+to log out when you are finished. Leaving the website active without 
+logging out could leave your data vulnerable to unauthorized use.
+After 30 minutes of inactivity, the system will automatically log you out.
+Navigation overview
+After you log in, the Home page displays.
+The blue navigation bar appears at the top of all pages. Use it to select 
+the area of the website in which you want to work.
+At the bottom of most pages is a link that you can click to return to the previous page. To move to another page, either click this link or click a link on the blue navigation bar. (Using your browser’s Back  button to return to the 
+previous page may display outdated information, and you’ll need to refresh the page.) 
+Areas of the website are described below the blue navigation bar and 
+include:
+Home:  Provides a launching point for all areas of the site. Click this 
+option to return to this page from any other page on the site.
+Contact Pearson VUE:  Provides a means of sending an email to 
+Pearson VUE.
+Log out:  Click this link to log out of the site. Logging out closes all 
+of your settings. Make sure your changes are saved prior to logging 
+out. If you have not saved your changes, there is no warning and 
+the site closes down without saving your changes. 
+Navigation bar 
+linksIdentifies the 
+selected area
+Search for a 
+candidate by first/
+last name or Social Security number.
+ 
+2-4Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteCandidate Search:  Click this link to search for a specific candidate 
+record by entering information such as the candidate’s Name  (full or 
+partial), NCLEX Candidate ID , Social Security number  (if 
+applicable), Date of Birth , and Phone Number . From the search 
+results, you can view a selected candidate’s details, and if you are 
+assigned the appropriate permi ssions, edit the candidate’s 
+information or registration status.
+Flowchart: Select this option to vi ew the Flowchart page, which 
+displays the statuses registrations are assigned in the exam process and the number of registrations with each status. From this page, you can select candidates’ registrations according to their status and, with the appropriate permissi ons, edit their information or 
+status.
+Batch Processing:  If your Board of Nursing/Regulatory Body 
+processes candidate data using its own system and uses batch processing to transfer candidate data files, use this area to upload and download the files. (This li nk applies ONLY to Boards of 
+Nursing/Regulatory Bodies that use jurisin and jurisout files to transmit data to Pearson VUE.)
+Requests: Select this option to view a list of Candidate reports that have been requested. Click a link to view the Candidate report.
+Incidents:  View a list of all Incident Reports associated 
+with NCLEX registrations in your jurisdiction. (Incident Reports are based on NCLEX registration even ts, which are tied to candidate 
+records.) For example, an Incident Report may have been filed if there was an issue with the candidate’s identification. From this list, select an Incident Report to view detailed information about the incident.
+Lists:  View a listing of all educational programs, locate a testing 
+center and view the listing of available exam readers/assistive 
+personnel. (With the appropriate permission, you can add or edit 
+the Readers list.) 
+Users:  If you are assigned a specific permission, you can edit user 
+accounts for this website for your  jurisdiction. These permissions 
+can also be edited in the NCSBN Passport.
+Profile:  Change your jurisdiction’s settings.
+Seat Availability Search:  Select this option to locate a test center 
+and register a candidate for a specific exam.NCLEX Administration website Basics 2-5Searching for candidates
+Use these search options to search  for information about a specific 
+candidate in your jurisdiction.
+You can search in two ways:
+Using the quick search method.
+Using the Candidate Search page.
+Important points about searching:To narrow your search, you can type entries in more than one 
+search field, and the system w ill search for a candidate who 
+matches ALL entries. For example, if you type the candidate’s name in the First Name  and Last Name  fields and the first three digits 
+of his or her Social Security number in the SSN field (if applicable), 
+the system will find candidates with the name you specified whose 
+Social Security number (if provid ed) also begins with the three 
+numbers you specified.
+Searching is not case-sensitive.
+When entering a Social Security number, including dashes is optional. Note that candidates can choose not to provide a Social Security number when they re gister, which means you won’t 
+be able to locate those candidates using Social Security numbers. 
+Social Security Numbers are not applicable to Canadian or international candidates.
+If your search yields more resu lts than can be displayed on the 
+page, a message asks you to enter more specific criteria to narrow your search. 
+2-6Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteUsing the quick search method
+The blue navigation bar contains First Name , Last Name  and SSN  
+fields that you can use to search for a candidate from any page.
+1. In the First Name  and Last Name  fields (both are required 
+if searching by name), type the candidate’s first and last name; 
+and/or type the Social Security Number  in the SSN field (if 
+applicable).
+You can type partial entries, and the system finds all candidates 
+whose name or Social Security number (if provided) starts  with 
+the characters you enter.
+Type entries in both 
+First Name and Last 
+Name fields OR SSN field and then click 
+the Search  buttonNCLEX Administration website Basics 2-72. Click the Search  button.
+The Search Results page is displayed. It lists all candidates 
+who meet the criteria you specified. If no matching records were found or more than forty ca ndidates were found, a message 
+is displayed, prompting you to enter new search criteria.
+3. Click a candidate’s name in the Name  column to display his or her 
+candidate details, or click an exam type in the Exam  column 
+to display the candidate’s registration details.
+On the Candidate Details page, you can edit the candidate’s information if you have the appropriate permission.
+On the Registration Details page , you can edit the candidate’s 
+registration status if you have the appropriate permission.
+There is a difference between the Candidate Record and the Registration Record.
+The candidate record contains the candidate’s 
+demographics and profile information.
+The registration record cont ains information that is 
+unique to each registration for a given examination 
+attempt.
+Click a column heading’s 
+link to sort the list by that column.
+Click the link in the Status  
+column to display all candidates with that status. For example, click the Eligible  
+link to display a list of all eligible candidates in the jurisdiction.Click the link in the Exam  
+column to display the 
+candidate’s registration 
+information on the Registration Details page.Click the link in the Name  
+column to display the candidate’s information on the Candidate Details 
+page.
+ 
+2-8Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteUsing the Candidate Search page
+1. Click Candidate Search  in the blue navigation bar.
+The Candidate Search page appears, as shown below. It lists fields 
+into which you can enter search criteria.
+2. Specify search criteria for the candidate you want to find.
+Type entries into one or more of the search fields. Follow these 
+guidelines:
+You can type partial entries (for all fields except the Cand ID 
+field), and the system finds all candidates who match the characters you enter. Note  that candidates can choose 
+not to provide a Social Security number when they register, which means you won’t be able to  locate those candidates using 
+Social Security numbers.
+You can type entries in one or more fields. Records must meet ALL of the criteria you specify in order to be found.
+If you choose to search for a candidate using the name fields, you must enter information into both the first and last name fields.
+ 
+NCLEX Administration website Basics 2-9The Cand ID field refers to the eight-digit ID that uniquely 
+identifies candidates.
+When entering a phone number in the Phone  field, begin with 
+the area code, and do NOT includ e dashes or parentheses. For 
+example, type (612) 600-6000 as 6126006000. 
+When entering a birth date in the Date of Birth  field, use the 
+format 08/12/1959 (or type the numbers only, as in 08121959).
+The website enforces a date format of mm/dd/yyyy  
+when searching by date of birth. 
+In this search, 
+the system will look for candidates with 
+the last name DOE and 
+a birth date of Jan 1, 1970.2-10Regulatory Body Guide version 14 .8.1 NCLEX Administration website3. Click the Search  button.
+The Search Results page is displayed. It lists all candidates who 
+meet the criteria you specified. If no matching records were found or more than forty candidates we re found, a message is displayed, 
+prompting you to enter new search criteria.
+4. Click a candidate’s name in the Name  column or exam type 
+in the Exam  column to display detailed information.
+On the Candidate Details page, you can edit the candidate’s information if you have the appropriate permission.
+On the Registration Details page , you can edit the candidate’s 
+NCLEX registration status if you have the appropriate permission.
+Click a column heading’s 
+link to sort the list by 
+that column.
+Click the link in the Status  
+column to display all 
+candidates with that status. For example, click 
+the Eligible  link to display 
+a list of all eligible 
+candidates in the 
+jurisdiction.Click the link in the Exam  
+column to display the 
+candidate’s registration information on the 
+Registration Details page.Click the link in the Name  
+column to display the 
+candidate’s information 
+on the Candidate Details 
+page.NCLEX Administration website Basics 2-11Viewing educational programs
+Use this area to view a comprehensive list of educational programs.
+This list displays all active programs, not only those 
+available in your jurisdiction. The list is maintained by NCSBN.
+Search by Location
+1. Click Lists on the blue navigation bar.
+The Lists page is displayed.
+2. Click the NCSBN Education Programs  link. 
+2-12Regulatory Body Guide version 14 .8.1 NCLEX Administration website3. Select the Country and State/Province (if applicable) search 
+options, and click Search by Location .
+When you search for a non-United States jurisdiction, the list is 
+filtered by the selected Country and the program code information 
+is displayed.
+NCLEX Administration website Basics 2-13When you search for jurisdictions wi thin the United States, the list 
+is filtered by State and Country.  The Domestic codes are displayed.
+4. Click the desired Program  link.
+5. You may also locate a program by Education Program Code .
+Each nursing program approved by a board of nursing is identified 
+by a unique code assigned by NCSBN. 
+2-14Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteSearch by Code
+1. Enter the Education Program Code  and click Search by Code .
+NCLEX Administration website Basics 2-15The Program Details page is displayed.
+2-16Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteLocating a testing center
+Use this area to locate a Pearson Professional Center that offers 
+the NCLEX. Testing centers are grou ped by country and state/province.
+1. Click Lists on the blue navigation bar.
+The Lists page is displayed.
+2. Click the Test Center Locator  link.
+The Select Country page appear s, prompting you to select 
+the country in which you want to locate a testing center.
+3. Click a country  in the list and click Next .
+NCLEX Administration website Basics 2-17The Select State page appears, pr ompting you to select the state 
+in which you want to locate a testing center. (If you chose a country 
+with no states or provinces, the Testing Center Locator page shown below is displayed.)
+4. Click a state/province  in the list and click Next .
+In addition to State, a Province may also be selected from this list even though the label says State.
+ 
+2-18Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteThe Testing Center Locator page appears, displaying a list of testing 
+centers in the location you selected, along with their phone numbers and addresses. The list is sorted by city.
+5. If needed, click a center’s Directions  button to display driving 
+directions to the center. (Click the close  window link to close 
+the Directions window.)
+NCLEX Administration website  3 -1Viewing and Changing 
+Candidate Data
+This chapter covers the following topics:
+How registrations move through the exam process
+Viewing and editing candidates by processing status
+Working with candidate results
+Viewing and changing individual candidate records33-2Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteHow registrations move through the exam 
+process
+The Flowchart page shown below ill ustrates the flow of candidate 
+registrations in a jurisdiction as th ey move through the NCLEX process. 
+(This process is described in detail on the following pages.) Use the 
+flowchart to view and edit candidates by their status.
+This section describes how registrations move through the exam process.
+Registrations are rece ived by Pearson VUE.
+Candidates submit their registrations: by NCLEX Candidate website, 
+or by calling NCLEX Candidate Services. When submitting registrations, candidates specify the jurisdiction in which they are seeking licensure/registration.
+Display newly-received registrations by clicking the New 
+Registrations  status at the top of  the diagram shown on 
+the previous page. Typically, you change the status of new 
+registrations to Awaiting Eligibility  to move them from the New 
+Registrations inbox.
+NCLEX Administration website Viewing and Changing Candidate Data 3-3Some candidates request accommodations.
+In the process of registering,  candidates are instructed 
+in the NCLEX Examination Candidate Bulletin  to request any 
+accommodations they require as soon as possible (preferably before 
+registering for the exam). Once you receive a candidate’s accommodations request, add the request(s) to the candidate’s registration using the NCLEX Administration website.
+Mark the registrations as  eligible or denied.
+Before a candidate can schedule an  appointment to take the NCLEX, 
+the Board of Nursing/Regulatory Body to which the candidate has 
+applied must mark the registration as eligible.
+When you select an NCLEX registration to review, all data from 
+the registration and the candidate’s testing history are available on the Candidate Details and Registration Details pages. If the candidate was ever denied eligibility, information about the denied registration and the denying Board of Nursing/Regulatory Body (if available) is displayed in the candidate’s exam history.
+After reviewing a registration, mark it  as either eligible or ineligible 
+(denied).
+If you mark the registration as Eligible , Pearson VUE 
+automatically generates and sends the candidate an ATT 
+(Authorization to Test) email, which allows him or her to 
+schedule an exam appointment. (The ATT email is sent.)
+If you mark the registration as Denied, the Board of Nursing/Regulatory Body is responsibl e for notifying the candidate; 
+Pearson VUE does not notify candidates that they have been denied eligibility. Denied candidates do not receive a refund if their registrations are marked ineligible. The candidate’s registration remains in the database as a denied registration.
+Important points about marking regi strations as eligible or denied:
+You can mark registrations with accommodations  as eligible 
+any time after entering the accommodations requests. 
+The candidate will not receive his or her ATT email (and cannot schedule an appointment) un til all pending accommodations 
+requests have been granted or denied by NCSBN.
+Board of Nursing/Regula tory Body users who manage their 
+eligibility offline  export all registrations awaiting eligibility to a 
+standard formatted file. After you mark candidate eligibility using your own system, upload the records to the NCLEX Administration website for importing into the Pearson VUE system.3-4Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteCandidates schedule appointm ents and take their exams.
+Candidates can schedule exam appointments on the NCLEX 
+Candidate website or by calli ng NCLEX Candidate Services. 
+They must take their exam with in the eligibility dates shown 
+on their ATT email. (Eligibility dates are based on ATT settings 
+in the Board of Nursing/Regulatory Body’s profile.)
+If, for some reason, a candidate does not take the exam, he or she 
+must start the registration process over again. You can view a list 
+of candidates who did not take their exams by clicking the Exam 
+Not Taken  status on the Flowchart page.
+Exam results are processed and made available.
+Typically, the candidate’s exam is quickly scored and his or her 
+status is automatically changed to Result Available. You can view and print exam scores for candidates  with a Result Available status 
+at any time.
+Occasionally, Pearson VUE places a hold on a candidate’s exam 
+results based on a set of defi ned rules. When this occurs, 
+a designated person at Pearson VUE investigates the issue and, if necessary, consults with NCSBN. After the issue is resolved, Pearson VUE takes the necessary action, which may involve removing the hold or revoking the results.
+Mark completed registrations as processed.
+The Processed Registrations  status represents the last step 
+in the registration process. After sending exam results 
+to candidates, you can close the candidates’ registrations to move them to the Processed Registrations status. This step is not required, but doing so regularly prevents the Result Available list from growing increasingly longer.NCLEX Administration website Viewing and Changing Candidate Data 3-5Viewing and editing candidates by processing 
+status
+The Flowchart page provides a view of all active candidate registrations 
+in your jurisdiction.
+Use the Flowchart page to:
+view the overall status of registrations in your jurisdiction
+select candidates according to their status, and change statuses 
+individually or as a group
+select candidates according to their status, then change their detailed information individually
+You must be assigned the RegStatus (may edit 
+registration status) permission to change a candidate’s registration status, and the CandData  (may edit 
+candidate data) permission to edit candidates’ information.
+1. Click Flowchart  on the blue navigation bar.
+The Flowchart page is displayed, as shown below.
+This page gives a summary view of the candidates currently 
+in process for your jurisdiction. It  shows the number of candidates 
+at each stage of processing. 
+3-6Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteThe table below describes the possible candidate statuses.
+Status DescriptionCan change this status 
+to ...
+New Registrations Pearson VUE has received the candidate 
+registration, but the Board of Nursing/
+Regulatory Body has not yet begun to process it.•Awaiting Eligibility
+•E li gib le
+•D e nie d
+Awaiting Eligibility Candidate registrations remain in this holding 
+area until a decision is made about their 
+eligibility.•E li gib le
+•D e nie d
+Eligible Candidate registration has been made 
+eligible and awaits scheduling of the exam. 
+(Candidates can schedule appointments after receiving an ATT email, and ATT emails are sent out as soon as all accommodations requests have been resolved.)•Typically changes 
+automatically to 
+Result Available 
+after the candidate 
+takes the exam
+•Awaiting Eligibility 
+(if registration was marked eligible by mistake)
+Exam Not Taken Candidate registration was made eligible and 
+scheduled, but the exam was never taken.•Processed (closed)
+On Hold for Results Exam has been completed, but for some 
+reason, results were placed on hold.
+Result Available Exam has been completed, and its results are 
+available.•Processed (closed)
+Processed 
+RegistrationsCandidate registration was closed after exam result processing.•n o ne
+Denied Registrations Candidate registration was denied eligibility. •Awaiting Eligibility 
+(if denial was made 
+in error)
+Expirations The ATT or registration is no longer valid. • noneNCLEX Administration website Viewing and Changing Candidate Data 3-72. Click a status  on the diagram.
+For example, to view new registrations, click the New Registrations 
+status. A page displaying a list of candidates with the selected status appears, as shown for the New Registrations status below.
+3. Use the list controls to display the candidate information 
+you want.
+Candidate list pages display up to 30 candidate names on the page 
+at a time. This increases the speed at which information is displayed on the screen. When the list exceeds 30, options appear at the bottom of the page as shown in the illustration below.
+Click the Next  or Previous  button to display the next or 
+previous page of candidates.
+In the Go field, enter the page number you want to display and 
+click Go. You can also type the first letter or two of a candidate’s 
+last name in the Go field and click Go to move to names starting 
+with that letter.
+Click a column 
+heading to sort 
+the list by it.
+Click a candidate name 
+to view or edit the candidate’s details.
+Select one or more candidates ...
+... choose an action to perform ...
+... and click Take 
+Action .3-8Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteCandidate lists are sorted by last name by default. To sort by 
+a different column, click the colu mn’s header. Note that you can 
+enter page numbers in the Go field only if the list is sorted by name.
+4. Perform tasks using the Flowchart page.
+You can perform the following tasks through the Flowchart page.
+Manage incoming registrations
+Approve or deny eligibility
+View eligible registrations
+Manage registrations for exams not taken
+View processed registrations
+View denied registrations
+Viewing expired registrations
+Print results and close registrations
+View registrations placed on hold for results
+On most of the status pages, you can view or take actions on registrations, both individually and in groups. You can also select 
+a candidate’s name on each status page and view or edit his or her 
+detailed information.
+Enter the page number 
+you want to display or 
+the first letter or two of 
+a candidate’s last name 
+and click Go.NCLEX Administration website Viewing and Changing Candidate Data 3-9Managing incoming registrations
+The New Registrations page functions as your inbox, lis ting candidates 
+who have submitted registrations to Pearson VUE that have not yet 
+begun to be processed by your Bo ard of Nursing/Regulatory Body.
+Use this page to change one or mo re candidate’s status to Eligible, 
+Denied or Awaiting Eligibility. You can also select a candidate to view or change his or her information.
+If you aren’t going to make an immediate eligibility decision, it’s a good idea for Board of Nursing/Regulatory Body users to change the status of new registrations to Awaiting Eligibility. Although that status does not have any effect on the registration, it does cause the registration to be moved to the Awaiting Eligibility area on the Flowchart page. If you don’t set eligibility and don’t set the status to Awaiting Eligibility, the registration will continue to be displayed on the New Registrations page.
+Candidates can be assigned the New or Awaiting 
+Eligibility status for a maximum of 365 days from the date on which the registration was received.
+1. Click New Registrations  on the Flowchart page. 
+3-10Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteThe New Registrations page is displayed. It lists all new 
+registrations in your jurisdiction.
+The columns display summary information about the candidate (if 
+provided), including name, date of birth (DOB), Social Security number (SSN) (if applicable), candidate ID number, education program, graduation date, exam type and notes. In the Notes  
+column, Retake  appears if the candidate has registered to retake 
+the same type of NCLEX exam, ADA Pending appears if the 
+registration has one or more pending accommodations requests, and ADA Resolved  appears if the registra tion has accommodations 
+requests and none of them are pending.
+To view or edit a candidate’s information, click the candidate’s name in the Name  column and make changes on the Candidate 
+Details page.
+To view or edit a candidate’s registration information, click the exam type in the Exam  column and make changes 
+on the Registration Details page.
+The Social Security Number is a field that is unique to candidates seeking licensure/ registration in the United 
+States. It is not a required field and may not be present on all candidate records.
+ 
+NCLEX Administration website Viewing and Changing Candidate Data 3-112. Select one or more candidates  whose status you want to change.
+Select candidates by clicking the box next to their names so that 
+a checkmark appears. To se lect all candidates, choose All in 
+the Select  field.
+3. In the Action  field, select the status you want to apply 
+to the selected candidates ( Eligible , Denied Eligibility  or 
+Awaiting Eligibility ).
+4. Click the Take Action  button.
+A message confirms that the change was saved.
+Approving or denying eligibility
+You can mark registrations with a status of New or Awaiting Eligibility 
+as Eligible or Denied.
+When completing the FAIR (Free And Immediate Retest) process, Pearson VUE may need to mark a candidate as eligible in order to allow the candidate to retake the exam at no charge. This is the only case in which Pearson VUE can change a candidate’s status to eligible, and can be done only with NCSBN approval.
+The Awaiting Eligibility page shows a ll registrations that your Board of 
+Nursing/Regulatory Body has set to the Awaiting Eligibility status. Consider these the regist rations your Board of Nursing/Regulatory Body 
+has taken out of its inbox to begin determining eligibility. This status is a holding area for candidate registrations until you or another Board of Nursing/Regulatory Body user marks them as eligible or denied. You can also select a candidate on this page to change his or her information.
+To check whether a candidate has ever been denied eligibility, view his or her exam history.
+1. Click Awaiting Eligibility  on the Flowchart page. 
+ 
+3-12Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteThe Awaiting Eligibility page is displayed.
+The columns display summary information about the candidate, 
+including name, date of birth (DOB), Social Security number (SSN), candidate ID number, education program, graduation date, exam type and notes. In the Notes  column, Retake  appears 
+if the candidate has registered to retake the same type of NCLEX exam, ADA Pending appears if the registration has one or more 
+pending accommodations requests, and ADA Resolved appears 
+if the registration has accommodations requests and none of them are pending.
+To view or edit a candidate’s information, click the candidate’s name in the Name  column and make changes on the Candidate 
+Details page. 
+To view or edit a candidate’s registration information, click the exam type in the Exam  column and make changes 
+on the Registration Details page.
+2. Select candidates  whose status you want to change.
+Select candidates by clicking the box next to their names so that 
+a checkmark appears. To se lect all candidates, choose All 
+in the Select  field.
+3. In the Action  field, select a status of Eligible  or Denied 
+Eligibility .
+4. Click the Take Action  button.
+A message confirms that the change was made.
+The ATT email is sent afte r a candidate is marked 
+eligible.
+  
+NCLEX Administration website Viewing and Changing Candidate Data 3-13Viewing eligible registrations
+The Eligible Registrations page shows all registrations in your 
+jurisdiction that have been marked eligible, and are awaiting scheduling or taking of the exam, and those that have been made eligible but an ATT email has not been sent because there are unresolved accommodations requests.
+Use this page to view the li st of eligible registrations.
+1. Click Eligible  on the Flowchart page.
+The Eligible Registrations page is displayed.
+The columns display information about the candidate, including 
+name, Social Security number (S SN), candidate ID number, exam 
+type, date on which the ATT email was sent, exam date and testing 
+center (if scheduled) and notes. In the Notes column, Retake 
+appears if the candidate has registered to retake the same type of NCLEX exam, ADA Pending appears if the registration has one 
+or more pending accommodations requests, and ADA Resolved  
+appears if the registration has accommodations requests and none 
+of them are pending.
+3-14Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteTo view or edit a candidate’s information, click the candidate’s 
+name in the Name  column and make changes on the Candidate 
+Details page. 
+To view or edit a candidate’s registration information, click the exam type in the Exam  column and make changes on the 
+Registration Details page.NCLEX Administration website Viewing and Changing Candidate Data 3-15Managing registration for exams not taken
+The Exam Not Taken page displays registrations that were marked 
+eligible and appointments were scheduled, but the exam was never taken. In almost all such cases, the candidate can only retake the exam by reregistering and repaying for it.
+On the Exam Not Taken page, you can view registrations 
+(and candidate details) and close them. Closing a registration moves it 
+to the Processed Registrations stat us, where it remains indefinitely. 
+Candidate registrations are assigned the Exam Not Taken status until you close them.
+1. Click Exam Not Taken  on the Flowchart page.
+The Exam Not Taken page is displayed.
+3-16Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteThe columns display information about the candidate, including 
+name, date of birth (DOB), exam type, reason the exam was not taken and notes. The following reasons might appear in the Reason  
+column: Expired , No Show , Canceled  or Error . In the Notes  
+column, Retake  appears if the candidate was registered to retake 
+the same type of NCLEX exam, and ADA Resolved  appears 
+if the registration had accommodati ons requests that were resolved. 
+The Exam Not Taken page also displays registrations that have been revoked. (NCSBN may ask Pearson VUE to revoke an exam result—for example, when the FAIR process is  used.) You can change 
+a revoked registration’s status to Closed .
+The names of no-show candidates are displayed on the NCLEX Administration website the day after their scheduled appointments.
+Click a candidate’s name in the Name  field to view his or her 
+candidate information on the Candidate Details page.
+Click a candidate’s exam type in the Exam  field to view his or 
+her registration details on the Registration Details page.
+2. Select candidates  whose registrations you want to close.
+Select candidates by clicking the box next to their names so that 
+a checkmark appears. You can also click the Select  field and select 
+candidates according to the reason they did not take the exam, assigned by Pearson VUE. You can select All, None (default), 
+Expired , No Show , Canceled  or Error .
+3. Select Change Status to Closed  in the Action  field.
+4. Click the Take Action  button.
+A message confirms that your changes were made. The registration(s) are moved from the Exam Not Taken list to the Processed Registrations list. 
+NCLEX Administration website Viewing and Changing Candidate Data 3-17Viewing processed registrations
+After registrations are closed, their status is set to Processed. 
+On the Processed Registrations page, you can view a list of closed registrations.
+1. Click Processed Registrations  on the Flowchart page.
+The Processed Registrations page is displayed, listing closed 
+registrations for the last two days.
+Candidate registrations are displayed based on their exam 
+appointment dates. If no exam was scheduled, registrations are displayed based on the date on which they were created. A message appears if there ar e no processed registrations 
+for the selected date range.
+2. If needed, select a new date range for which to display processed 
+registrations.
+Select new dates in the Start Date and End Date  fields. You can 
+specify a range of up to 120 days.
+Processed registrations remain available through 
+the NCLEX Administration website for at least three years. Registrations for candidates who failed are always available.
+ 
+3-18Regulatory Body Guide version 14 .8.1 NCLEX Administration website3. Click the Refresh  button.
+Processed registrations for th e date range you selected 
+are displayed.
+The columns display information about the candidate, including 
+name, Social Security number (S SN), exam type, date on which 
+the exam was taken, Result (Pass or  Fail), reason the exam was not 
+taken and notes. The following reasons might appear in the Reason  
+column: Expired , No Show , Canceled  or Error . In the Notes  
+column, Retake  appears if the candidate was registered to retake 
+the same type of NCLEX exam, and ADA Resolved  appears 
+if the registration had accommodations requests that were resolved.
+Click a candidate’s name in the Name  field to view his or her 
+candidate information.
+Click a candidate’s exam type in the Exam  field to view his or 
+her registration information.
+Click a candidate’s result in the Result  field to view his or her 
+exam history.
+NCLEX Administration website Viewing and Changing Candidate Data 3-19Viewing denied registrations
+When a registration is denied, its status is set to Denied Eligibility. 
+On the Denied Registrations page, you can view a list of denied registrations, and, if a registration was denied in error, change its status to Awaiting Eligibility.
+1. Click Denied Registrations on the Flowchart page.
+The Denied Registrations page is displayed, listing denied 
+registrations for the last two days.
+Candidate registrations are displayed based on their exam 
+appointment dates. If no exam was scheduled, registrations are 
+displayed based on the date on which they were created. A message appears if there are no denied registrations for the selected date range.
+2. If needed, select a new date range  for which to display denied 
+registrations.
+Select new dates in the Start Date and End Date fields. You can 
+specify a range of up to 120 days.
+Denied registrations remain available through the NCLEX 
+Administration website for at least three years.
+ 
+3-20Regulatory Body Guide version 14 .8.1 NCLEX Administration website3. Click the Refresh  button.
+Denied registrations for the date range you selected are displayed.
+The columns display information about the candidate, including 
+name, date of birth (DOB), Social Security number (SSN), candidate ID number (Cand ID ), exam type and notes. 
+In the Notes  column, Retake  appears if the candidate was 
+registered to retake the same type of NCLEX exam, and ADA 
+Resolved appears if the registration had accommodations requests 
+that were resolved.
+Click a candidate’s name in the Name  field to view his or her 
+candidate information.
+Click a candidate’s exam type in the Exam  field to view his or 
+her registration information.
+4. If needed, change a candidate’s status from Denied  to Eligible .
+Click the box next to a candidate’s name so that a checkmark appears.
+In the Action  field, select Change Status  to Awaiting 
+Eligibility .
+5. Click the Take Action button.
+A message confirms that the change was made.
+NCLEX Administration website Viewing and Changing Candidate Data 3-21Viewing expired registrations
+Pearson VUE identifies ATTs and registrations that are no longer valid 
+and separates them from other candidate records in the database. A software utility searches the data base each evening and flags expired 
+registrations.
+Expired ATTs
+An ATT expires if a candidate was declared eligible to take an exam, but the ATT end date has passed.
+An ATT remains valid until midnight  on the ATT end date. After that, 
+the candidate cannot schedule an appointment.
+If a candidate’s ATT expires, the registration is moved 
+to the Expirations box on the Flow chart page on the Administration 
+website.
+If a candidate’s ATT expires, the Candidate website indicates this.
+If a Board of Nursing/Regulatory Body uses batch processing and has asked to receive expired ATTs in the jurisout file, the jurisout file will contain a Service Order Ca ncel for expired ATTs. The Service 
+Order Cancel Reason is 5 (Error/Registration Expired).
+Expired registrations
+According to NCSBN policy, candidate registrations expire if one year has passed since the registration was created, and the registration is still in the New or Awaiting Eligibility stage (meaning the candidate was never declared eligible to take an exam and was never denied eligibility).
+Registrations remain valid until midnight on the 365th day after 
+they are created. Candidates with expired registrations who want to take an exam must re-register, pay the examination fee again and be declared eligible by a Bo ard of Nursing/Regulatory Body.
+The candidate registration confirmation letter informs candidates that registrations expire in 365 da ys. If a candidate’s registration 
+expires, the Candidate website indicates why the registration expired.
+If a candidate’s registration expires, the registration is moved to the Expirations box on the Flow chart page on the Administration 
+website.
+If a Board of Nursing/Regulatory Body uses batch processing and has asked to receive expired regist rations in the jurisout file, the 
+jurisout file will contain a Se rvice Order Cancel for expired 
+registrations. The Service Orde r Cancel Reason is 5 (Error/
+Registration Expired).3-22Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteViewing expiration info rmation on the website
+The Expirations status separates expired registrations from other 
+registrations and allows you to view expired registrations.
+1. Click Expirations  on the Flowchart page.
+The Expirations page is displayed, listing candidates with ATTs and 
+registrations that expired within  the last two weeks. A message 
+appears if there are no expired registrations for the last two weeks.
+2. If needed, select a new date range  for which to display expired 
+registrations.
+Select new dates in the Start Date and End Date  fields. You can 
+specify a range of up to 120 days.
+NCLEX Administration website Viewing and Changing Candidate Data 3-233. Click the Refresh  button.
+Expired registrations for the date range you selected are displayed.
+Columns on the Expirations page display information about 
+the candidate, including name, date of birth (DOB), exam type, notes and Board of Nursin g/Regulatory Body. The Reason  column 
+contains either “ ATT Expired ” or “Registration Expired .” You can 
+click this column heading to sort registrations by reason.
+Click a candidate’s name in the Name  field to view his or her 
+candidate information.
+Click a candidate’s exam type in the Exam  field to view his or 
+her registration information. If you view the Registration Details page for an expired registration, “Expired” will be displayed in the Status field. The Reas on field will contain either 
+“ATT expired” or “Registration Expired on [date].”
+3-24Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteWorking with candidate results
+Once the candidate completes the ex am, the results are automatically 
+scored at the testing center. They  are then sent to Pearson VUE 
+for rescoring and verification. Once that process is complete, 
+the results are posted to the NCLEX Administration website. Results may be available on the same day on which the exam was taken; however, Pearson VUE has 48 hours to  distribute results to the NCLEX 
+Administration website.
+You can view a candidate’s exam results in one of two ways:
+By clicking the Result Available  status on the Fl owchart page and 
+selecting a candidate from the list. With the appropriate permission, 
+you can also print candidate results reports and mailing labels and generate a summary report from the Result Available page.
+By searching for the candidate and clicking the Exam History  link 
+at the bottom of the Candidate Details or the Registration Details page.
+To display registrations for which the exam has been completed but the results have been placed on hold , see “Viewing registrations placed 
+on hold for results”.
+If your Member Board subscribes to the Quick Results service, candidates can receive an unofficial pass/fail result via the NCLEX Candidate website.
+Regulatory Bodies do not subscribe to the Quick Results 
+service.
+After viewing and printing results, you can close candidates’ registrations, which changes their status from Result Available to Processed.
+You must be assigned the RegStatus  (may edit 
+registration status) permission to change a candidate’s registration status. 
+ 
+NCLEX Administration website Viewing and Changing Candidate Data 3-25Printing results and closing registrations
+As soon as a candidate’s exam is scored, the candidate’s registration 
+status automatically changes from E ligible to Result Available. When 
+a registration’s status is Result Available, you can view and print exam 
+results. Printing results generates a Candidate Report for those who passed and a Candidate Performanc e Report for those who failed.
+After you have completed your own exam results processing (for example, notifying candidates and mailing certificates), you can 
+change the registrations’ status to Closed. This moves them to the Processed Registrations status, where they remain. Closing registrations keeps the Result Available list from growing too large, and ensures that the Result Available status contains new results only.
+You can generate candidate reports in several ways:
+On the Result Available  page, as described below. After selecting 
+candidates, you can generate candidate reports for them, close 
+their registrations, or generate candidate reports AND close their registrations at the same time.
+Click the Generate Candidate Report  link on the Candidate 
+Details page. Clicking this link generates a candidate report but does not close the candidate’s registration.
+1. Click Result Available  on the Flowchart page.
+The Result Available page is displayed, listing candidates who have completed their exams and whose re sults are available. (If there 
+are more than 30 candidates in the list, the results are listed on multiple pages.) On this page , you can select the candidates 
+for whom you want to print results, then either generate the reports and close the registrations or gene rate the reports without changing 
+registration status.3-26Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteThe columns on this page display information about the candidate, 
+including name, Social Security number (SSN), candidate ID number (Cand ID), ATT number , exam type, date on which 
+the exam was taken, testing center at which it was taken, exam result (Pass/Fail) and notes. In the Notes  column, Retake appears 
+if the candidate retook the sa me type of NCLEX exam and ADA 
+Resolved  appears if the registration has accommodations requests 
+that were resolved.
+In addition to the NCLEX exam, a second exam type 
+known as NCLEX-R&C  may appear in the Exam  
+column. NCLEX-R&C refers to a Review & Challenge exam, where a candidate who fails can question his or her results. After paying another fee, the candidate schedules an NCLEX-R&C exam, which shows the answers the candidate gave for items he or she answered incorrectly. Since a Review and Challenge exam is not scored, Taken  appears 
+in the Result column instead of Pass or Fail. The Review & Challenge exams are only available to Member Boards. Regulatory Bodies do not offer Review & Challenge exams.
+ 
+NCLEX Administration website Viewing and Changing Candidate Data 3-272.View  selected candidate results.
+Click the Pass or Fail link in the Result column for the candidate 
+whose results you want displayed. The Exam History page displays, 
+showing exam or event date (Appt), exam type, testing center, exam status, result and accommodations granted.
+Only the Boards of Nursing/Regulatory Body where candidates have applied for licensure can see the exam 
+history. Accommodations and Pass/Fail information will only be available to the registration where the candidate applied for licensure.
+The Status  column indicates the exam’s current status.
+If the candidate was previously denied eligibility, the jurisdiction 
+in which he or she was denied is displayed (if available). Click the Return to Previous  Page  link to return to the Result Available 
+page.
+3. On the Result Available  page, select candidates whose 
+registrations you want to close and/or for whom you want to print candidate results.
+You can select candidates in one of two ways:
+Click the box next to the name of each candidate so 
+a checkmark appears.
+Choose an option from the Select  field. You can choose All, 
+None (default), Passed  or Failed .
+ 
+3-28Regulatory Body Guide version 14 .8.1 NCLEX Administration website4. In the Action  field, select an option.
+Choose Generate Reports and Ch ange Status to Closed  
+to print candidate reports and change the status of the selected 
+registrations to Processed.
+Choose Generate Reports and Clos e for Results Across All 
+Pages  to print candidate reports for all pages, and change 
+the registrations’ status to Processed. (This option works the same as the Generate Reports and Change Status 
+to Closed  option, but applies to ALL candidates whose names 
+are listed in the current set of results, regardless of whether 
+they are shown on the pa ge that is displayed.)
+Choose Generate Candidate Reports  to print candidate 
+reports without changing the status of the selected registrations.
+Choose Generate Candidate Report s for Results Across All 
+Pages  to print candidate reports for all pages, without changing 
+registration status. (This option works the same as the Generate Candidate Reports option, but applies to ALL 
+candidates whose names are listed in the current set of results, regardless of whether they are shown on the page that is displayed.)
+Choose Change Status to Closed  to change the status 
+of the selected registrations to Processed without printing 
+reports.
+If your Board of Nursing/Regulato ry Body prints its own results 
+reports, it is best to choose the Generate and Change Status to 
+Closed  or the Generate Reports and Close for Results Across 
+All Pages  option; this way, the regist ration will be removed from 
+the Result Available page, and you will know that you have already sent the results to the candidate.
+If you closed one or more regi strations, a message confirms 
+that the changes were made. If yo u generated a report, the Report 
+Requests page is displayed, with the candidate report listed at the 
+top of the page.
+NCLEX Administration website Viewing and Changing Candidate Data 3-295. Click the Take Action  button.
+6.View  the reports.
+All report requests are listed. Loca te the desired report and click the 
+link.
+The candidate report opens in a new tab. If multiple candidates 
+were selected, each candidate report is printed on a separate page within the document.
+3-30Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteViewing registrations placed on hold for results
+Occasionally, a candidate’s results are placed on hold. This usually 
+occurs automatically. For example, results are placed on hold if a certain type of Incident Report has been filed against 
+the registration, if something un usual occurred during the exam 
+(such as the candidate spent a great deal of time on the tutorial), 
+or if an irregularity appeared in the exam results.
+Pearson VUE works to resolve all holds as quickly as possible. While 
+the majority of holds are released quickly, some may take longer to resolve. Use the On Hold for Results page to display registrations for which the exam has been comple ted, but the results have been 
+placed on hold. You can also select candidates on this page to change 
+their information.
+1. Click On Hold For Results  on the Flowchart page.
+The On Hold for Results page is displayed.
+NCLEX Administration website Viewing and Changing Candidate Data 3-31The columns on this page display information about the candidate, 
+including name, date of birth (DOB),  exam type and notes. (If there 
+are more than 30 candidates in the list, the results are listed on multiple pages.) In the Notes  column, Retake appears 
+if the candidate retook the sa me type of NCLEX exam and ADA 
+Resolved  appears if the registration has accommodations requests 
+that were resolved.
+Click a candidate’s name in the Name  field to view his or her 
+candidate information.
+Click a candidate’s exam type in the Exam  field to view his or 
+her registration information.
+2. Select candidates  for whom you want to print candidate results.
+You can select candidates by clicking the box next to the name of each candidate so a checkmark appears. To select all candidates, choose All in the Select  field.
+Proxy users will not see check boxes next to candidate names.
+3. In the Action  field, select an option.
+Choose Generate Candidate Reports  to print candidate 
+reports for candidates displayed on the page.
+Choose Generate Candidate Re ports Across All Pages 
+to print candidate reports for all pages. (This option works the same as the Generate Candidate Reports option, but 
+generates reports for candidates whose names are listed in the current set of results, but are not shown on the page 
+that is displayed.)
+If you generated a report, the Report Requests page is displayed, with the candidate report listed at the top of the page. 
+3-32Regulatory Body Guide version 14 .8.1 NCLEX Administration website4.View  the reports.
+All report requests are listed. Loca te the desired report and click the 
+link.
+The candidate report opens in a new tab. If multiple candidates 
+were selected, each candidate report is printed on a separate page within the document.
+NCLEX Administration website Viewing and Changing Candidate Data 3-33Viewing and changing individual candidate 
+records
+You can view records for candidates  who have registered with your 
+jurisdiction. To edit candidate records, you must have the CandData  
+(may edit candidate data) permission.
+Once a registration is entered or imported into 
+the Pearson VUE system, Pearson VUE employees may make changes to candidate data up until eligibility is reached. Once eligibility is  reached no one at Pearson 
+VUE can change the candidate’s name or demographic data, and candidates cannot change information via the NCLEX Candidate website. Cand idates are instructed to 
+call the Board of Nursing/Regulatory Body for any changes that need to be made.
+Candidate data is displayed on two pages:
+Name and demographic information appears on the Candidate 
+Details page.
+The candidate’s ethnicity is moving from the Candidate Details page to the Registration Details page. The candidate will choose an ethn icity each time he/she 
+registers for an exam.
+Registration status, accommodatio ns and authorization information 
+appears on the Registration Details page.
+You can locate candidate records in several ways:
+by searching for them individually.
+by displaying candidates according to their status, as described 
+below.
+1. Click Flowchart  on the blue navigation bar.
+The Flowchart page is displayed. 
+ 
+3-34Regulatory Body Guide version 14 .8.1 NCLEX Administration website2. Select the status  for which you want to view registrations.
+The status page is displayed.  (In the example shown below, 
+the Result Available status page is displayed.)
+Click a link in the Name  column to display the Candidate Details 
+page, or click a link in the Exam  column to display the Registration 
+Details page.
+Click a 
+candidate’s name 
+in this column to display the 
+Candidate Details 
+page.
+Click a candidate’s exam type in this 
+column to display the 
+Registration Details page.NCLEX Administration website Viewing and Changing Candidate Data 3-35Viewing and editing candidate details
+The Candidate Details page displays name and demographic 
+information.
+If you are assigned the CandData  (may edit candidate data) 
+permission, you can make changes to a candidate’s information 
+on this page at any point in th e NCLEX exam process, even after 
+the registration is closed.
+1. Display the Candidate Details  page for a selected candidate by 
+clicking the candidate’s name.
+Click these links to view 
+related information for 
+the candidate.3-36Regulatory Body Guide version 14 .8.1 NCLEX Administration website2.Edit fields as needed.
+Candidate ID:  Displays the NCLEX Candidate ID that uniquely 
+identifies candidates in the Pearson VUE system. NCLEX 
+Candidate IDs consist of an eight-digit number. This field cannot be edited.
+Candidates are asked to provide all of the following information when they register. However, the only required  fields are the first and last name , date of 
+birth, address and phone  fields. If the candidate 
+did not provide all requested information, the other fields may be blank.
+Last Name, First Name and Middle Name:  Display 
+the candidate’s name.
+Maiden Name and Mother’s Maiden Name:  Display a maiden 
+name and the candidate’s mother’s maiden name.
+Other Last Name  and Date Used:  Display other last names 
+used by the candidate and when  they were used. Enter dates 
+using the format MM/DD/YYYY (as in 01/01/2002).
+Date of Birth:  Displays the candidate’s date of birth. Enter 
+dates using the format MM/D D/YYYY (as in 05/15/1962).
+Gender: Identifies the candidate’s gender.
+SSN:  Displays the candidate’s Social Security number. Typing 
+dashes when entering th e number is optional.
+SSN is only used by candidates seeking licensure/registration in the United Stat es or a US Territory. It is 
+not a required field and is not used for licensure/registration outside of the US or US Territories.
+Reason No SSN: Displays the reason (if any) the candidate 
+did not provide a Social Security  number on the registration. 
+Selections include: Not a U.S. citizen, Applied for but have not received SSN, and Choose not to provide SSN.
+CGFNS:  Displays the candidate’s answer to the question, 
+“Do you have a CGFNS certification?” (Yes, No or Not Applicable). CGFNS refers to The Commission on Graduates of Foreign Nursing Schools. Some  jurisdictions require non-US 
+educated candidates to provid e a CGFNS certification number 
+when registering for an NCLEX exam.
+CGFNS Number:  Displays the candidate’s CGFNS number, 
+if it was provided. 
+ 
+NCLEX Administration website Viewing and Changing Candidate Data 3-37Taken Pre 1994:  Displays whether or not a candidate had 
+taken an exam before January 1, 1994 (it does not, however, 
+specify for what Board of Nu rsing/Regulatory Body the 
+candidate took the exam). If either  RN or PN are listed as “Yes”, 
+the candidate will be designated as  a repeater in the system and 
+this information will be reflected throughout the website (e.g., Exam History). This information can be viewed on the Candidate 
+Details and Registration Detail s pages by Board of Nursing/
+Regulatory Body and NCSBN user s of the website, but only 
+Pearson VUE can change values in this field.
+Address, City, State, Country and ZIP code: Display 
+the candidate’s mailing address.  Change or complete these 
+fields as needed.
+Language:  Indicates the language the candidate identified 
+on the application.
+Home Phone, Work Phone and Email:  Display 
+the candidate’s contact information.
+3. Click the links in the Related Information  area to display other 
+candidate information, as needed.
+Exam History:  Displays information about all NCLEX exams 
+for which the candidate has regi stered and taken within or 
+outside of the jurisdiction. Only boards where candidates have applied for licensure can see the exam history. Accommodations and Pass/Fail information will only be available to the registration where the ca ndidate applied for licensure.
+Name History:  Displays changes made to the candidate’s name 
+by a Board of Nursing/Regulatory Body user.
+Contact History: Displays changes made to the candidate’s 
+address by a Board of Nurs ing/Regulatory Body user.
+4. Click the Save  button to save your changes.3-38Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteViewing and editing registration details
+The Registration Details page displays registration status, 
+accommodations and auth orization information.
+You can change the candidate’s status on this page if you are assigned the RegStatus  (may edit registration status) permission. You can 
+make changes to a candidate’s registration details up to the time the candidate takes the exam.
+1. Display the Registration Details  page for a selected candidate by 
+clicking the Exam  link for the candidate.
+Click these links to view 
+related information for 
+the candidate.NCLEX Administration website Viewing and Changing Candidate Data 3-392. In the Basic Information area, edit fields as needed.
+Candidate:  Click the candidate’s name link in this field 
+to display his or her candidate details.
+Status: Displays the candidate’s current status. This field 
+cannot be edited. (A Status  field also appears 
+in the Authorization Information area below for users who have 
+permission to edit candidate’s eligibility status.)
+Program  and Change Program: Displays the candidate’s 
+educational program. If the program was selected in error, you can select another program by clicking the Change Program  
+link and choosing another program from the list of educational programs maintained by NCSBN.
+Accommodations:  Displays the overall status 
+of accommodations requests, which can be None  (no requests), 
+Pending  (one or more requests are pending), or Resolved  
+(all requests have been granted or denied). Below the status, accommodations requested and their status are displayed, which can be Open , Granted , Denied or Revoked. Below 
+the requests is a Manage Accommodations link you can click 
+to add, edit or delete accommodations requests.
+Exam: Displays the exam type fo r which the candidate has 
+registered (NCLEX-RN, NCLEX-RN  1, NCLEX-PN or NCLEX-R&C). 
+This field cannot be edited.
+Exam Language: Displays the language for which 
+the candidate registered to take the exam. This field cannot be edited.
+Graduation Date: Displays the date on which the candidate graduated from the program selected in the Program  field 
+at left. (If the candidate hadn’t yet graduated when he or she registered, the date on which he  or she finished the program’s 
+coursework may have been entered instead.)
+Member Board: Displays the member board under which the candidate registered for the exam.
+Registration Source: Displays how the registration entered 
+the Pearson VUE database. Valid sources include:
+VUE Registration Center (registration taken by phone through the Call Center)
+VUE website (registration via the Candidate website)
+3.Add, edit or delete  the candidate’s accommodations requests, 
+if needed.
+Click the Manage Accommodations  link under the Basic 
+Information heading. The Manage Accommodations page 
+is displayed.3-40Regulatory Body Guide version 14 .8.1 NCLEX Administration website4. In the Authorization Information  area, edit fields as needed.
+Center:  Displays the Pearson Professional Center at which 
+the candidate has chosen to take the exam, if the exam has 
+been scheduled. This field cannot be edited.
+ATT Start  and ATT End:  Display the dates between which 
+the candidate must take the exam. These dates are based on settings in your jurisdiction’s profile. The ATT Start date 
+is derived by adding the number of days in your profile’s Delay 
+in ATT Dates (in Days)  field (if specified) to the ATT Sent 
+date. The ATT End  date is then derived by adding the number 
+of days in your profile’s Days ATT is Valid field to the ATT 
+Start date. These fields cannot be edited.
+Status: See the next step for more information.
+Appt: Displays the date and time of the exam appointment (for example, Mar 12 at 6:45 AM) if the exam has been scheduled or taken.
+MB ID:  Displays the ID assigned by your Board of Nursing/
+Regulatory Body, if applicable. (Some members assign their own 
+internal IDs to candidates.)
+Candidates answer the following three questions when they register. However, when a candidate’s record is imported into the Pearson VUE database, the software checks if the candidate has an existing record showing he or she has previously taken the exam. If so, the answers 
+to these questions will be automatically changed using the information in the database.
+Taken NCLEX:  Displays the candidate’s answer to the question, 
+“Have you ever taken an NCLEX exam?” on the registration 
+form.
+For Same License:  Displays the candidate’s answer to 
+the question, “Have you ever taken an NCLEX exam to qualify for the same license?” on the registration form.
+For Different License:  Displays the candidate’s answer to 
+the question, “Have you ever taken an NCLEX exam to qualify for a different license?” on  the registration form.
+Taken Pre 1994:  Displays whether or not the candidate has 
+taken any NCLEX exams before January 1, 1994. This information can be entered into the candidate record on the Profile page. 
+NCLEX Administration website Viewing and Changing Candidate Data 3-415. Change the candidate’s status  if needed, or print a Candidate 
+Report  if the candidate has taken the exam.
+If needed, select a new status  for the candidate from the Status  
+field (in the Authorization Information section). This field 
+is displayed to users who have been assigned the RegStatus  
+(may edit registration status) permission, which allows users to edit candidate’s eligibility status. Refer to the following table.
+If the candidate’s status is Result Available, print a candidate report 
+for the candidate by clicking the Generate Candidate Report  link. 
+This link is displayed to users who are assigned the RegStatus  
+(may edit registration status) permission.
+6. Click the links in the Related Information  area to display other 
+candidate information, as needed.
+Exam History:  Displays information about all NCLEX exams 
+for which the candidate ha s registered and taken.
+ID Files:  Displays identification for the candidate (photo and 
+signature).
+Audit Trail:  Displays all changes made to the candidate’s 
+record and by whom they were made.
+Incidents:  If one or more incidents is associated with 
+the candidate’s registration, an Incidents link is displayed, along with the number of asso ciated incidents. (The words 
+“No Incidents” appear if there are no associated incidents.) Click the link to display the Incident Details page, listing the incident(s) that occurred for the candidate registration.
+7. Click the Save  button to save your changes.Current Status Can change to ...
+New Awaiting Eligibility
+EligibleDenied
+Awaiting Eligibility Eligible
+Denied
+Eligible Awaiting Eligibility
+Result Available Closed
+Exam Not Taken ClosedOn Hold None
+Denied Closed
+Closed NoneExpired None3-42Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteViewing a candidate’s exam history
+Use the Exam History  link to view information about exams for which 
+the candidate is currently or has previously registered.
+The candidate’s full exam history for the NCLEX is 
+displayed (except for pre-1994 data). Only the board where the candidate applied for licensure can see the accommodations and pass/fail information. This provides more information about why Pearson denoted the candidate as a repeat test taker.
+1. At the bottom of the Candidate Details  or Registration Details  
+page, click the Exam History link.
+The Exam History page is displayed. This page displays a status for all of a candidate’s current and previous registrations. If the candidate previously t ook an exam or has an exam 
+scheduled, the appointment date , testing center and result 
+are listed. The exam type and information about granted accommodations are shown for all registrations, along with the status. 
+NCLEX Administration website Viewing and Changing Candidate Data 3-43If a candidate was designated as a pre-1994 repeater 
+(i.e., if the candidate took an exam before January 1, 1994 as designated on the Candidate Details page), their exam history will always display an exam with an appointment date of 12-31-1993. For pre-1994 exams, the Exam column indi cates what exam was taken 
+and the Status column indicates that the exam was delivered successfully. The Result column displays “Exam complete. Score unavailable.”
+The status depends on where the registration is in the exam 
+process:
+If the registration is in a final state, the status can be one of the following: Canceled , Result Voided by Client , Delivery 
+Successful , Client Denied Eligibility , Delivery Failed , or No Show .
+If the registration is not in a final state, the status can be one of the following: New, Eligibility Pending , Approved for Scheduling , 
+Appointment Scheduled , or Ready for Delivery .
+If a candidate previously registered under another 
+jurisdiction, information about the registration 
+is displayed only if the candidate was denied.
+2. Click the Return to Previous Page  link.
+You return to the Candidate Details or Registration Details page. 
+ 
+3-44Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteViewing a candidate’s name changes
+Use the Name History  link to view name changes recorded for 
+the candidate. For example, you mi ght want to examine a candidate’s 
+name history if the candidate is re taking an exam using a different 
+name.
+1. At the bottom of the Candidate Details  page, click the Name 
+History  link.
+The Name History page is displayed. All name changes for 
+the candidate are displayed, includ ing those made by other Boards 
+of Nursing/Regulatory Bodies.
+2. Click the Return to Candidate Details link.
+You return to the Candidate Details page.
+NCLEX Administration website Viewing and Changing Candidate Data 3-45Viewing a candidate’s address changes
+Use the Contact History  link to view address changes recorded 
+for the candidate. For example, you might examine a candidate’s 
+address history for identification purposes.
+1. At the bottom of the Candidate Details  page, click the Contact 
+History  link.
+The Contact History page is displayed. All address changes for 
+the candidate are displayed, includ ing those made by other Boards 
+of Nursing/Regulatory Bodies.
+2. Click the Return to Candidate Details  link.
+You return to the Candidate Details page.
+3-46Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteViewing a candidate’s identification information
+When candidates arrive at a test ing center, they are photographed 
+and must provide a digital signature and a palm vein scan. Use the ID 
+Files link to view this information.
+1. At the bottom of the Registration Details page, click the ID Files  
+link.
+The Identification page is displayed. This page displays the photo 
+and signature that were collected at the time of the exam.
+2. Click the Return to Registration Details link.
+You return to the Registration Details page.
+Identifies the date on 
+which the identification data was collected, the 
+testing center’s code and 
+the type of exam the candidate took.
+Fingerprints are no longer 
+collected, so this screen 
+will say “No fingerprint file available”.NCLEX Administration website Viewing and Changing Candidate Data 3-47Viewing registration events
+When a registration’s status is changed, the date  and time and 
+the name of the user who made the change are recorded. Use 
+the Audit Trail  link to view information about all changes that have 
+been made to a candidate’s registration, including eligibility denials.
+1. At the bottom of the Registration Details page, click the Audit 
+Trail link.
+The Registration Audit Trail page is displayed, as shown below.
+The Registration Audit Trail page lists all events related to 
+the candidate’s registration, including Registration, Accommodations, Eligibility, Scheduling Details and Results. Name and address changes are not included on this page.
+The User Name column displays the username of the person 
+who made the change, and in pare ntheses, indicates if it was 
+an NCLEX Candidate Servic es person or an NCLEX 
+Administration website user.
+The User Name is listed only if applicable. Some of the events are handled auto matically by the system, 
+so there isn’t a specific person associated with the event.
+ 
+3-48Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteThe Description  column provides information about the event. 
+Any additional information is displayed in the Details  column.
+The description “Result ackn owledged” indicates that 
+the registration was closed via the website.
+The Details  column provides information about the action 
+performed.
+2. Click the Return to Registration Details  link.
+You return to the Registration Details page. 
+NCLEX Administration website 4-1Candidate 
+Accommodations
+This chapter covers the following topics:
+Accommodations process
+Supported accommodations
+Working with accommodations
+Adding accommodations requests
+Revoking accommodations
+Viewing or editing the list of readers (assistive personnel)44-2Regulatory Body Guide version 14.8.1Accommodations process
+This section describes the steps involved in the accommodations 
+process and the tasks Board of Nursing/Regulatory Body users, NCSBN users and Pearson VUE Accommodations Coordinators perform.
+It’s important  to enter the accommodations requests 
+BEFORE a candidate’s status is set to Eligible, whenever possible. When a status is set to Eligible, an ATT email is automatically generated and sent to the candidate. However, if the record has any pending accommodations requests, an ATT email will not be sent until those requests are resolved. Although the system allows accommodations to be entered after a candidate has been made eligible, this may require unscheduling a candidate’s exam appointment. It also means the candidate will receive multiple ATT emails, which can be confusing.
+A candidate contacts a Board of  Nursing/Regulatory Body to 
+request accommodations.
+Candidates who require special accommodations register for 
+the NCLEX exam using standard procedures, but also submit an accommodations request in wr iting to the Board of Nursing/
+Regulatory Body in the jurisdic tion in which they are seeking 
+licensure/registration. Once the registration is entered in the 
+system, the registration appear s on the NCLEX Administration 
+website and is assigned the New Registration status.
+The Board of Nursing/Regulatory Body adds the accommodations request to th e candidate’s registration.
+When the Board of Nursing/Regulatory Body receives a candidate’s accommodations request, use the NCLEX Administration website to add the request(s) to the candidate’s registration. After candidate registrations are processed, they are displayed on the NCLEX Administration website and accommodations requests can then be entered. Select the accommod ation type, choose options or 
+provide additional information (if required) and enter comments or recommendations to NCSBN.
+The Accommodation Place Holder accommodation is revoked.
+You MUST revoke this accommodation after entering a candidate’s 
+accommodations request(s). (If the Board of Nursing/Regulatory Body doesn’t revoke it, the ATT email will not be sent to the candidate.) 
+NCLEX Administration website Candidate Accommodations 4-3The Board of Nursing/Regulatory Body marks the candidate 
+eligible.
+The registration can be marked eligible any time after 
+the accommodations request is added. The candidate will not 
+receive his or her ATT email (and cannot schedule an appointment) until all pending accommodations re quests have been granted by 
+NCSBN in the NCLEX Administration website.
+An NCSBN user reviews the request.
+Immediately after an accommodations request is saved, NCSBN can 
+review the request on the NCLEX Ad ministration website, including 
+the Board of Nursing’s/Regulato ry Body’s recommendations and 
+comments. NCSBN may work with the Board of Nursing/Regulatory Body to reach a mutually agreeabl e decision regarding the request.
+NCSBN then either:
+Grants  the request in the NCLE X Administration website.
+Denies  the request: If NCSBN determines the accommodations 
+request should not be granted, they will contact the Board of Nursing/Regulatory Body to deny the request in the website. It 
+is the Board of Nursing’s/Regulatory Body’s responsibility to inform the candidate that his or her accommodations request 
+has been denied. Information about which accommodations have been granted or denied does  not appear in the candidate’s 
+ATT email.
+Replaces the accommodation: If a Board of Nursing/Regulatory Body and NCSBN determine that  an alternate accommodation 
+should be granted rather than th e one originally requested, the 
+original request must be revoked and a new request should be entered. It is the Board of Nursing/Regulatory Body’s responsibility to inform the candidate that his or her accommodations request has been replaced.
+The ATT (Authorization to Test) email is sent to the candidate.
+Once NCSBN has granted all a ccommodations requests for a 
+particular registration and the registration is marked eligible, the 
+ATT email is generated and sent. (If a registration has pending accommodations requests, the ATT email cannot be sent and the exam cannot be scheduled.) The ATT email specifies that 
+candidates with granted accommodations must schedule an appointment by calling the Pearson VUE Accommodations Coordinator at NCLEX Candidate Services. (The candidate will automatically be prevented from scheduling via the NCLEX 
+Candidate website.)4-4Regulatory Body Guide version 14.8.1The candidate schedules an appointment with the Pearson 
+VUE Accommodations Coordinator.
+The Pearson VUE Accommodations Coordinator schedules 
+appointments for all NCLEX registrations that have accommodations. The coordinator is trained to handle special condition testing situations in cluding scheduling multiple-day 
+appointments. If necessary, he or she also works with the testing 
+center the candidate chooses to ensure that the accommodation is set up properly before the candidate arrives for the exam.
+Some accommodations require special personnel to assist 
+the candidate during exam delive ry. For example, sight-impaired 
+candidates may require a reader to assist them during the exam. Pearson VUE is responsible for scheduling personnel according to guidelines provided by Boards of Nursing/Regulatory Bodies and NCSBN. A Pearson VUE Accommodations Coordinator sends assistive personnel a packet of pertinent information, including the Assistive Personnel Agreement and a confirmation email.
+The candidate takes the NCLEX exam with accommodations.
+The test administrator checks th e center’s exam schedule in the 
+Pearson VUE Testing System to find out which candidates have 
+approved accommodations. Accommodations for extra time and adjustable font size and contrast are built into the exam delivery 
+software, and the administrator doesn’t need to intervene. The Pearson VUE Accommodations Coordinator will have already informed the administrator abou t any nonstandard accommodation 
+and provided instructions if necessary. If an assistive person was approved for the candidate, the test administrator follows a standard procedure for checking in the person.
+When the test administrator starts the exam for the candidate, 
+the software displays a list of the accommodations for which the candidate has been approved , as an additional reminder.
+Test administrators are not permitted to rescind or change accommodations for NCLEX exams at the testing center.
+Special cases
+This section describes how special accommodations cases are handled.
+If there are accommodations changes after an appointment has been scheduled, the Board of Nursing/Regulatory Body must contact NCSBN, who will contact the Pearson VUE Accommodations Coordinator. This is because the coordinator may have already made arrangements for a granted accommodation or may need 
+to make arrangements for a new or changed accommodation. 
+ 
+NCLEX Administration website Candidate Accommodations 4-5A candidate contacts a Board of Nursing/Regulatory Body 
+and says he or she no longer requires a granted 
+accommodation, or the Board of  Nursing/Regulatory Body 
+decides that a granted accommodation should be denied instead.
+If an appointment has not been scheduled , the Board of 
+Nursing/Regulatory Body or an  NCSBN user can revoke the 
+accommodation on the NCLE X Administration website 
+(regardless of whether or not the request has already been granted).
+If an appointment has already been scheduled , the Board of 
+Nursing/Regulatory Body must contact NCSBN, who must ask the Pearson VUE Accommodations Coordinator to revoke the accommodation in the system. If  the accommodation extended 
+the candidate’s testing time, the appointment reverts to a normal exam time.
+A candidate requests an acco mmodation or accommodation 
+change after being made eligib le, or the Board of Nursing/
+Regulatory Body decides that a denied accommodation should be granted instead.
+The Board of Nursing/Regulatory Body or NCSBN may need to add 
+an accommodations request after the ATT email has been sent. 
+For example, a candidate may request an accommodation after the Board of Nursing/Regulatory Body  has already made him or her 
+eligible.
+If the ATT email has been sent but the appointment has not yet been scheduled , you can enter the request for the new 
+accommodation, which automatically prevents the candidate from scheduling an appointment.
+If the candidate has already scheduled the exam , the Board of 
+Nursing/Regulatory Body cannot add or change 
+accommodations via the NCLEX Administration website. The Board of Nursing/Regulatory Bo dy must contact NCSBN, who 
+contacts the Pearson VUE Accommodations Coordinator to unschedule the appointment. (Pearson VUE will send an email to the candidate, notifying him or her that the appointment has been unscheduled.) The Board of Nursing/Regulatory Body can 
+then enter the new accommodat ions request and NCSBN can 
+grant the request in the website. Pearson VUE sends a new ATT email to the candidate, and the candidate can then reschedule 
+his or her appointment.
+In both of the above cases, eligibility dates are adjusted 
+in the updated ATT email so that the candidate receives the same amount of time as in the original ATT email.4-6Regulatory Body Guide version 14.8.1Batch Processing Jurisin files
+When a Board of Nursing/Regulatory Body uses batch processing 
+(jurisin files), accommodations are handled in a slightly different way than when they do not use batch processing. This section describes the steps involved in the accommodations process for batch processing and the tasks Board of Nursing/Regulato ry Body users, NCSBN users and 
+Pearson VUE Accommodations Coordinators perform.
+Your Board of Nursing/Regula tory Body sets the Special 
+Conditions flag in the ju risin.dat file to True.
+Setting this flag in the jurisin file automatically sets 
+the accommodations placeholder named Accommodation Place 
+Holder . (If you don’t do this and then set a registration to Eligible, 
+the ATT email will be sent without the accommodations information as noted above once the candidate registers with Pearson VUE for the NCLEX.)
+Important points about accommodations
+How does the Board of Nursing/Regulatory Body know when NCSBN has granted or denied a request?
+As stated in the NCSBN’s NCLEX® Administration Manual, NCSBN 
+may work with Boards of Nursing/Regulatory Bodies to make accommodations decisions. Use one of these methods to check that accommodations have been resolved and an ATT email has been sent to a candidate:
+Search for the candidate’s record on the NCLEX Administration website. (Regulatory Bodies do  not require SSN.) When the 
+record is found, click the ca ndidate’s exam type in the Exam  
+column to display the Registration Details page. The status of each requested accommodation is shown in the Basic Information section of the page. If there are dates entered in the ATT Start  and ATT End  fields (in the Authorization 
+Information section), then an AT T email has been sent to the 
+candidate.
+If the candidate has already been made Eligible, click 
+the Flowchart  link and click the Eligible  status on the diagram. 
+In the list of candidates that appears, the ATT Sent column lists the date on which the ATT email was sent to the candidate, and the Notes column indicates whether or not all accommodations have been resolved for a registration.NCLEX Administration website Candidate Accommodations 4-7How does a candidate know abou t the status of his or her 
+accommodations requests?
+The Board of Nursing/Regulatory Bo dy is responsible for informing 
+candidates of the status of their accommodations requests. This 
+includes informing them when re quests are denied, revoked or 
+replaced.
+If a candidate calls to check on an accommodation’s status, locate 
+the record on the NCLEX Administra tion website by either searching 
+for the candidate or clicking the appropriate registration status on the Flowchart page and then clicking the candidate’s exam type in the Exam  column. The Registration Details page displays 
+the current status of all accommodation requests in the Basic Information section as noted above.
+When does Pearson VUE send candidates the ATT emails?
+ATT emails are automatically sent to candidates when BOTH of 
+the following conditions are true:
+The candidate’s registration status is set to Eligible.
+AND
+The candidate’s registration contains no accommodations requests OR all accommodations requests have been resolved 
+(either granted or denied in the website) by NCSBN.
+This means that if a candidate’s st atus is set to Eligible before 
+entering accommodations requests, the candidate will receive one 
+ATT email after eligibility is granted and another ATT email after NCSBN resolves the accommodations requests. To avoid this, enter accommodations information before granting eligibility whenever possible; the candidate will then receive only one ATT email, after NCSBN resolves the requests.
+What if a Board of Nursing/Re gulatory Body or a candidate 
+wants to make changes to accommodations after the 
+candidate has received an ATT email?
+The process depends on the kind of  a change that is required and 
+whether or not the candidate ha s already scheduled an exam 
+appointment.
+What to tell candidates that have received multiple ATT 
+emails?
+If a candidate calls and says he or she has received multiple ATT 
+emails, tell the candidate to alwa ys use the email received most 
+recently.4-8Regulatory Body Guide version 14.8.1How can candidates with acco mmodations schedule exam 
+appointments?
+Like other candidates, candid ates who have been granted 
+accommodations can schedule exam  appointments only after 
+receiving an ATT email. However, candidates with accommodations 
+can schedule only by calling NCLEX Candidate Services and asking 
+to speak with the Pearson VUE Accommodations Coordinator. 
+Candidates with accommodations must also reschedule or unschedule appointments through the Coordinator.
+Note that a candidate cannot schedu le an exam appointment if his 
+or her registration has unresolved accommodations requests even if 
+he or she has already received an ATT email . If a request is added 
+after making a candidate eligible , and the candidate has already 
+received an ATT email, he or sh e will not be able to schedule 
+an appointment until NCSBN grants  or denies the new request in 
+the website.
+Can a candidate change his or her mind about accommodations after arriving at the testing center?
+Candidates who have been granted accommodations are required 
+to test with those accommodations, unless they have the accommodations revoked in advance. The test administrator and the staff at NCLEX Candidate Se rvices cannot revoke or change 
+accommodations requests without approval from NCSBN. The candidate can either test wi th the accommodations or choose 
+not to test (and then register and repay the examination fee).
+Likewise, a candidate cannot arrive at the testing center and expect 
+to receive accommodations that were not requested and granted 
+in advance. The candidate can either test without 
+the accommodations or choose not to  test (and then register and 
+repay the examination fee).
+What happens if a candidate arrives for an exam and 
+the accommodations are not prepared?
+If a candidate arrives at a testing center and the accommodations 
+are not ready or cannot be provided, the test administrator will contact the Pearson VUE Accommodations Coordinator to verify that the accommodations were requested and granted. The coordinator will work with the testing center to try to arrange the accommodations; if arrangemen ts cannot be made within 30 
+minutes, the candidate can re schedule the exam appointment
+with the Pearson VUE Accommodations Coordinator at no additional cost. An Incident Report will be filed to document why the accommodations were not provided to the candidate.NCLEX Administration website Candidate Accommodations 4-9Supported accommodations
+NCLEX candidates can request and be granted the accommodations 
+listed in this section.
+Temporary Test Centers may not be able to accommodate all accommodations in the list.
+Additional testing time
+The standard NCLEX-RN exam involves six hours of testing time, while the standard NCLEX-PN exam involves five hours. In both exams, candidates are granted two schedu led breaks that are built into
+the exam software: an optional brea k two hours after the exam begins 
+and an optional break 3.5 hours after the exam begins. In addition, candidates can take an unlimited number of unscheduled breaks. For each of these, the amount of brea k time that is taken is subtracted 
+from the total available testing time. In other words, for every minute of break time a candidate takes, he or she loses that amount of testing time.
+The exam time and break times are ca lculated from the time at which 
+the candidate is seated for the exam and the test administrator 
+launches the exam on the candidate’s workstation. Candidates must 
+leave the testing room for all breaks . After a break, the administrator 
+must escort each candidate to hi s or her workstation and resume 
+the exam.
+Scheduled and unscheduled brea ks differ as described below.
+Scheduled  breaks are programmed in the system so that 
+the candidate is offered a break at a time predetermined by NCSBN. 
+When the time for a break arrives, a message appears on the candidate’s computer screen. The candidate clicks Yes to take 
+the break or No to decline the break and continue with the exam. 
+If the candidate clicks Yes, the exam is put into break mode until 
+the administrator resumes it for the candidate. The exam clock 
+is NOT stopped during these breaks.
+Unscheduled  breaks are not automatic. If a candidate wants to take 
+a break at an unscheduled time, he or she raises a hand to get the administrator’s permission to le ave. The exam is put into break 
+mode until the administrator resumes it for the candidate. The exam clock is NOT stopped during these breaks. 
+4-10Regulatory Body Guide version 14.8.1The following table lists the accommodations that give candidates 
+additional exam time. Note that cand idates can also take an unlimited 
+number of unscheduled breaks in addi tion to the scheduled breaks that 
+are listed.
+Accommodation Details
+Extra Time - 2 hours A RN candidate will be given a total of 8 
+hours to complete the exam over 1 day.
+A PN candidate will be given a total of 7 
+hours to complete the exam over 1 day.
+For both RN and PN exams, scheduled, 
+optional breaks will be offered after 2hrs, 4hrs, and 6hrs of exam time.
+Extra Time - 3 hours A RN candidate will be given a total of 9 hrs 
+to complete the exam over 1 day. For the RN exam, scheduled, optional breaks will be offered after 2, 4, 6 and 8 hours of exam time.
+A PN candidate will be given a total of 8 hrs 
+to complete the exam over 1 day. For the PN exam, scheduled, optional breaks will be offered after 2, 4 and 6 hours of exam time.
+Extra Time - Double Time 2 DaysA RN candidate is allotted 12 hours over 2 days, with 6 hours of exam time on each day.
+A PN candidate is allotted 10 hours over 2 
+days, with 5 hours of exam time on each day.
+For both RN and PN exams, scheduled, 
+optional breaks will be offered after 2 hours 
+and 3.5 hours of exam time on each day.
+Extra Time - Other Candidate is given a custom amount of extra 
+testing time along with optional breaks 
+scheduled as indicated by testing time.
+No more than nine hours of testing time is 
+allowed per day. The Board of Nursing/Regulatory Body must specify, in minutes, the additional time being requested (e.g., an additional one hour of possible testing time is indicated in the NCLEX Administration website as 60; this is the minimum additional time permitted).NCLEX Administration website Candidate Accommodations 4-11Special equipment or assistance
+The accommodations options that do not involve extra testing time 
+are listed below.Multi Day Appt - Double TimeCandidate is given 2 days to complete the exam along with optional breaks scheduled as indicated by testing time.
+The candidate is scheduled for double time 
+on 2 consecutive days. The actual testing procedure allows the exam to be stopped on the first day, and then resumed on the second day where the candidate left off in the exam.
+Accommodation Details
+Aid Candidate is permitted to bring and use 
+an aid specified by the Board of Nursing/Regulatory Body. The candidate provides the aid.
+Adjustable Font Size The exam automatically displays in a larger 
+font size. The candidate may need to scroll (using arrow keys) within the test question.
+Adjustable Contrast The candidate can change the text and 
+background colors so that exam items display in a higher or lower contrast.
+Equipment Candidate is permitted to use specified 
+equipment during the exam. The testing center provides the equipment. Options available are: adjustable height table , 
+adjustable swivel arm for the keyboard , 
+anti-glare overlay for the monitor , color 
+overlay for the monitor , enlarged keyboard , 
+or other.
+The Board of Nursing/Regulatory Body must specify the type of equipment.
+Other A non-standard accommodation is requested.
+The Board of Nursing/Regulatory Body must provide details in the Comments field.
+Screen Magnifier The candidate can use a device to magnify 
+the screen.Accommodation Details4-12Regulatory Body Guide version 14.8.1*The candidate must either take the exam in a separate room or must 
+be the only person taking an exam in the main testing room.
+Working with accommodations
+Accommodations are processed on an individual candidate basis, 
+by displaying a candidate’s Registration Details page and clicking the Manage Accommodations link, as described below. The Board of 
+Nursing/Regulatory Body can:
+view  accommodations requests  that were previously added, 
+along with any comments entered for them.
+display , enter  and edit diagnosis  information for the candidate.
+add accommodations requests , selecting from a comprehensive 
+list of supported accommodations, entering details about 
+the request if needed, and entering recommendations to NCSBN about whether the accommodation should be granted or denied.
+To add accommodations reques ts, the Board of Nursing/
+Regulatory Body must be assigned the RegStatus  (may 
+edit registration status) permission.Separate Room The exam must be delivered in a private 
+testing environment.*
+Separate Room & ReaderA reader is approved to assist the candidate.
+The exam must be delivered in a private 
+testing environment.*
+Separate Room & RecorderA recorder is approved to assist the candidate. If a reader has been approved, this person will also serve as the recorder.
+The exam must be delivered in a private 
+testing environment.*
+Separate Room & Sign Lang InterpA sign language interpreter is approved to assist the candidate in communicating with the test administrator.
+The exam must be delivered in a private 
+testing environment.*
+Accommodation Place HolderThis selection to be used only by batch processing Boards.Accommodation Details
+ 
+NCLEX Administration website Candidate Accommodations 4-13add comments .
+revoke accommodations .
+Accommodations requests cannot be edited. If required 
+to make changes to a request, revoke it and add a new one.
+1. Display the Registration Details  page for a selected candidate.
+The page can be opened in one of two ways:
+Click Candidate Search  on the blue navigation bar, search for 
+a candidate, and then click th e candidate’s exam type link 
+in the Exam  column on the Search Results page.
+Click Flowchart  on the blue navigation bar, select a status 
+on the Flowchart page, and then click the candidate’s exam type link in the Exam  column on the status page displayed. 
+4-14Regulatory Body Guide version 14.8.1The Registration Details page is displayed. Accommodations-related 
+fields are described below.
+Under the Basic Information  heading, accommodations 
+information is displayed, including:
+overall accommodations status for the candidate. 
+The accommodations status can be None (when there are 
+no requests), Pending  (when one or more requests are pending 
+review by NCSBN), or Resolved  (when all requests have been 
+granted or denied in the website).
+Specific accommodations requests and their statuses. A request’s status can be Open , Granted , Denied  or Revoked .
+Accommodations 
+status
+Click this link to view, add 
+or revoke accommodations, and add comments to 
+them.Individual requests and 
+their statusesNCLEX Administration website Candidate Accommodations 4-152. Click the Manage Accommodations  link.
+The Manage Accommodations page is displayed (as shown below), 
+listing any accommodations that have already been selected for the candidate, along with their statuses. The words “No Accommodations Found” are displayed if there are no accommodations associated with this registration.
+Click the Add Accommodation  link to add accommodations 
+requests and enter or edit the candidate’s diagnosis.
+Click the Display Diagnosis  link to view the candidate’s 
+diagnosis.
+Do not use this field. NCSBN has asked that this field be removed. Until the field can be removed, please do not use this field.
+Accommodations 
+previously added for 
+the candidate
+Comments previously added, ordered 
+chronologically
+Name of user who 
+entered the comment 
+(first initial, last name)
+Add comments in 
+these fields.
+ 
+4-16Regulatory Body Guide version 14.8.1To add comments  to an accommodation request, click 
+the Comments  field and type. There is no limit to the number 
+of characters in a comment.
+Comments provide a way to view and add information 
+to accommodations requests. Bo ards of Nursing/Regulatory 
+Bodies and NCSBN users can add multiple comments to an accommodation, providing information or clarification as needed. The Board of Nursin g/Regulatory Body can add 
+comments to requests when ente ring the requests or at any 
+time from the Manage Accommodations page.
+Once saved, comments cannot be edited or deleted. Comments remain listed for an accommodation, regardless of any change in status.
+3. After changes are made, click the Make Changes  button 
+at the bottom of the page.
+A message confirms that the changes were saved.
+4. Click Return to Registration Details to return to the Registration 
+Details page. 
+Adding accommodations requests
+Whenever possible, add accommodations requests to 
+a candidate’s registration BEFORE making candidates eligible. Otherwise, it may be necessary to unschedule a candidate’s appointment. In addition, the candidate will receive multiple ATT emails.
+1. On the Registration Details page, click the Manage 
+Accommodations  link.
+The Manage Accommodations page is displayed.
+2. Click the Add Accommodations  link.
+The NCLEX Testing - Diagnosis page is displayed, where the Board of Nursing/Regulatory Body can add or edit diagnosis information for the candidate. Please do not use the Diagnosis page. NCSBN has requested to remove this field.
+3. Complete or edit the diagnosis fields and click the Save Diagnosis  
+button. 
+ 
+ 
+NCLEX Administration website Candidate Accommodations 4-17The Add Accommodations page is displayed. It lists all supported 
+accommodations types.
+Lists all supported 
+accommodations types, 
+including any that may have already been 
+requested for this 
+registration4-18Regulatory Body Guide version 14.8.14. Check the boxes corresponding to the accommodations 
+the candidate is requesting.
+If the candidate is requesting an accommodation that is not listed, 
+check the Other  box. In the next step, you’ll be prompted to type 
+a description of the accommodation in the Comments field.
+5. Click the Next Step  button.
+A page similar to the one shown below is displayed. A section is provided for each accommodation. (If the accommodation requires additional clarification, a field or question related to the accommodation is displayed.) Use the Comments  field to enter 
+comments or recommendations for the request.
+Any accommodations request that conflicts with a previously selected request will automatically display an error message. For example, the system will not allow a request for Extra Tim - 3 hours if a request for Extra Time - 4 hours has already been selected. To replace an accommodation request, the original request must be 
+revoked and a new request entered.
+Enter comments or recommendations 
+to NCSBN for the accommodation.One or more questions or fields may require additional 
+information about the request.First accommodation 
+requested
+Second accommodation requested
+ 
+NCLEX Administration website Candidate Accommodations 4-196. Complete any fields or questions that appear about 
+the accommodation. In the Comments  field, provide required 
+details and notes about each accommodation.
+7. Click the Add Accommodations  button.
+A message at the top of the page confirms that 
+the accommodations request(s) was added.
+After clicking Add Accommodations , the request is sent 
+to NCSBN for approval or denial. If needed, proceed to the next 
+step and enter additional accommodations requests before making the candidate eligible, so that NCSBN receives all requests for this candidate before the ATT email is generated.
+8. Add other accommodations, if needed.
+To attach another accommodation to the registration, repeat steps 4 through 7.
+9. Click the Return to Manage Accommodations  link at the bottom 
+of the page.
+The Manage Accommodations page is displayed. 
+The accommodation(s) just added are shown, with a status of Open.
+Revoking accommodations
+Occasionally, the Board of Nursing/Regulatory Body may need to revoke a granted accommodation or an accommodations request. For example, a candidate may decide to change a request, in which case 
+the original request must be revoked and a new request must be added.
+The Board of Nursing/Regulatory Body cannot use the NCLEX 
+Administration website to revoke granted accommodations if the candidate has already scheduled an appointment. The Board of 
+Nursing/Regulatory Body will need to contact NCSBN, who will ask the Pearson VUE Accommodations Coordinator to revoke the accommodation. This is so the Coordinator is aware of any arrangements that he or she may ne ed to cancel (such as assistive 
+personnel or special equipment).
+After an accommodation has been revoked, the status cannot be 
+changed. A new accommodation  request must be entered.
+1. On the Registration Details page, click the Manage 
+Accommodations link.
+The Manage Accommodations page is displayed.4-20Regulatory Body Guide version 14.8.12. Choose Revoked  in the Select Status  field for the accommodation 
+that needs to be revoked.
+3. In the Reason  field, choose a reason for revoking 
+the accommodation from the list of available reasons:
+Another reason as described in the comment.
+The accommodations request is to be replaced with a different 
+request.
+The accommodation type is incorrect.
+The accommodation was associated with the incorrect 
+candidate.
+The candidate requested that the accommodation be revoked.
+The client requested that the accommodation be revoked.
+4. Enter a comment in the request’s Comments  field (optional).
+It is good practice to provide detailed information about the reason for revoking the accommodation.
+Choose Revoked from this 
+field for the accommodation 
+to be revoked...
+... and select a Reason 
+from this field.NCLEX Administration website Candidate Accommodations 4-215. Click the Make Changes  button.
+A message confirms that the accommodation was revoked, and 
+the accommodation’s status is shown as Revoked.
+Viewing or editing the lis t of readers (assistive 
+personnel)
+Pearson VUE uses a vendor to provide assistive personnel services including readers. We will use the jurisdiction reader list as a last resort.
+Use the Readers function to view or edit the list of available readers, 
+recorders, sign language interpreters or other assistive personnel in the Board of Nursing’s/Regulatory Bo dy’s jurisdiction. This list is used 
+primarily by the Pearson VUE Accommodations Coordinator, who will refer to it when making arrangemen ts for candidates who have been 
+granted assistive personnel accommodations.
+The Board of Nursing/Regulatory Body user must be assigned the Readers  (may edit the Readers list) 
+permission to add, edit or de lete assistive personnel from 
+the Readers list.
+Follow these steps to view assistiv e personnel for the Board of Nursing/
+Regulatory Body.
+1. Click Lists on the blue navigation bar.
+The Lists page is displayed. 
+ 
+4-22Regulatory Body Guide version 14.8.12. Click the Readers  link.
+The Readers page is displayed. Assistive personnel are listed 
+alphabetically by last name.
+Although this page is titled “Readers,” it can be used to enter information for any type of assistive personnel associated with the Board of Nursing/Regulatory Body. The term “reader” here applies to all assistive personnel.
+If the Board of Nursing/Regulatory Body user is assigned the Readers  (may edit the Readers list) permission, the New Reader  
+button is displayed on this page . Click it to add a new reader.
+ 
+NCLEX Administration website Candidate Accommodations 4-233. Click a name in the Name  column.
+The Reader Details page is displayed, as shown on the next page.
+4-24Regulatory Body Guide version 14.8.1In addition to the person’s na me and work and home contact 
+information, this page lists the type  of assistance he or she provides 
+(Reader, Recorder, Sign Language Interpreter or Other).
+If the Board of Nursing/Regulato ry Body user is NOT assigned 
+the Readers  (may edit the Readers li st) permission, he or she 
+can view the information on this page but cannot make any 
+changes.
+If the Board of Nursing/Regulatory Body user is assigned the Readers  (may edit the Read ers list) permission, Save  and 
+Delete Reader  buttons are displayed at the bottom of the 
+Reader Details page and can be used to edit or delete the selected reader.
+4. Click the Return to Reader List  to return to the Readers page.NCLEX Administration website Candidate Accommodations 4-25Adding a reader
+1. On the Readers page, click the New Reader button at the bottom 
+of the list. 
+The Add New Reader page is displayed.
+4-26Regulatory Body Guide version 14.8.12. Complete the fields.
+In addition to the person’s na me and address fields, complete 
+the following fields:
+Type:  Select the type of assistance the person provides by 
+choosing Reader , Recorder , Sign Language Interpreter , 
+Other , or Translator .
+Start Date  and End Date:  Specify the start and end date 
+of the person’s availability.
+Comments:  Type any recommendations or comments as 
+needed about the person or his or her services. For example, 
+include the locations at which the person is available to provide 
+the service.
+3. Click the Save  button.
+A message confirms that the reader was saved.
+4. Click the Return to Reader List  to return to the Readers page. 
+The reader added is displayed in the list.NCLEX Administration website Candidate Accommodations 4-27Editing or deleting a reader
+1. On the Readers page, click name of the reader in the Name  column 
+to edit or delete.
+The Reader Details page is displayed.
+4-28Regulatory Body Guide version 14.8.12.Edit or delete  the reader.
+To edit the reader, chan ge fields as needed.
+To delete the reader, click the Delete Reader  button. Deleting 
+a reader removes the reader from the Readers page, but 
+does not affect any scheduled appointments candidates have 
+with him or her. The system will prompt the Board of Nursing/
+Regulatory Body user to confirm to delete the reader. Click OK 
+or Cancel.
+3. Click the Save  button.
+A message confirms that the changes were saved.
+4. Click the Return to Reader List  link.
+The Readers page is displayed.NCLEX Administration website 5-1Reports
+This chapter covers the following topics:
+About reports
+Report descriptions and examples55-2Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteAbout reports
+The reporting portal allows Boards of Nursing/Regulatory Bodies to 
+view operational reports, quarterly reports and access Candidate 
+Performance Reports. 
+Operational ReportsThere are several operational reports that you may run related to 
+candidates who have registered fo r the NCLEX in your jurisdiction.
+Quarterly Reports
+Each quarter (Jan, Apr, Jul, Oct) a set of reports are made available 
+that provide data on educationa l program information for your 
+jurisdiction. NCSBN will notify you when these reports are ready 
+for you to view.
+Candidate Performance ReportsYour jurisdiction may choose to provide candidates with information 
+about the exam they have taken. These are optional reports that 
+you may make available to the cand idate. Some jurisdictions print 
+the Candidate Performance Reports for candidates who have failed so that they can review the diagnostic information.
+The reporting portal can be accesse d through the Reports link in the 
+blue navigation bar at the top of the NCLEX Administration web page. The Boards of Nursing/Regulatory Bo dies are the only entities with 
+access to the reporting portal. It is through this portal that Boards of Nursing/Regulatory Bodies can access quarterly reports detailing candidate results listed by education programs in their jurisdiction.
+If you have questions about reports, please use the online-help within th e reporting system. The 
+reporting portal can be accessed through the Reports  
+link in the blue navigation bar at the top of the NCLEX 
+Administration web page.
+You must have the MBReports  (may run Member Board 
+reports) permission to request and view reports for your 
+jurisdiction. Only Boards of  Nursing/Regulatory Bodies 
+can access quarterly reports detailing candidate results listed by education programs by jurisdiction.
+In addition to the information availa ble to you in the reporting portal, 
+Candidate Reports (score reports) are also available via the NCLEX Admin website. See below for further details.
+Use Adobe Acrobat Reader to view and print reports stored in PDF 
+(Portable Document Format). 
+NCLEX Administration website Reports 5-3Report descriptions and examples
+This section provides details on the Candidate Report that is available 
+through the NCLEX administration website.
+Candidate Report
+The Candidate Report is a letter indicating whether or not a candidate passed an NCLEX exam. If the candidat e failed, the report also includes 
+information to help candidates inte rpret their performance and prepare 
+for retaking the exam. Boards of  Nursing/Regulatory Bodies are 
+responsible for sending these letters to candidates who take the exam. This report is delivered in PDF format.
+This report can be generated in the following ways:
+To select specific candidates for whom you want to print results 
+reports, display the Result Available  page or the On Hold for 
+Results  page. After you submit the request from one of those 
+pages, your report request will appear on the Requests  page 
+like any other report.
+On the Registration Details page, click the Generate Candidate 
+Report  link that appears for registra tions with a Result Available 
+status. You must be assigned the RegStatus  (may edit registration 
+status) permission.
+It is the Board of Nursing’s/Regulatory Body’s responsibility to send a Candidate Report to candidates. It is also the Board of Nursing’s/Regulatory Body’s responsibility to send the Candidate Performance Report to candidates who did not pass the exam.
+The Candidate Report may or may not show a candidate’s photo. 
+Whether the candidate’s photo is displayed depends on a setting in the jurisdiction’s profile called Use Candidate Photo on 
+Reports . 
+5-4Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteBelow is a sample Candidate Report  for a candidate that passed 
+the exam.
+NCLEX Administration website Reports 5-5Below is a sample Candidate Performance Report  for a 
+candidate that failed an exam.
+5-6Regulatory Body Guide version 14 .8.1 NCLEX Administration website
+NCLEX Administration website 6-1Incidents
+This chapter covers the following topics:
+Incident overview
+Viewing Incident Reports for candidate registrations
+Incident overview
+Use the Incidents area of the NCLE X Administration website to view 
+a list of incidents associated with re gistrations in your jurisdiction, and 
+to view details about selected incidents.
+At Pearson VUE, Incident Reports are filed using an online system. 
+This system allows testing centers to file reports about any problems 
+or issues related to a specific candidate registration. For example, if a power outage interrupted a candidate’s exam, a candidate arrived without proper identification or a candidate was suspected of misconduct, the test administrator would file an Incident Report. (Other Pearson VUE users, such as NCLEX Candidate Services representatives and VSS personnel, can also file reports.) In some 
+cases, such as when there is su spected cheating, exam results are 
+automatically put on hold when an Incident Report is filed against 
+a candidate’s registration. The incident can then be investigated before results are released to the candidate. For more information on the reasons for results being put on  hold, refer to the Member Board 
+Manual (MBM) or the NCLEX Administration Manual (NAM).
+The test administrator or other staff person provides as much 
+information as possible about the in cident, specifies which candidates 
+were involved and attaches support ing files, if applicable. When 
+the Incident Report is submitted, the system automatically assigns a priority level (urgent, high, medium or low) and routes it to the appropriate person at Pearson VU E for further action. This person 
+consults NCSBN and the responsible Board of Nursing/Regulatory Body when necessary. Each person who is involved with addressing the issue can enter notes about the issue and the investigation until the 66-2Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteinvestigation is complete. If necessary, an incident can be escalated to 
+someone at a higher level in the Pearson VUE organization. When the 
+issue has been resolved, the Incident Report is closed.
+Viewing Incident Reports for candidate 
+registrations
+Follow the steps below to view Incident Reports. You can also view 
+the Incident Reports associated with a selected registration on the Registration Details page.
+1. Click Incidents  on the blue navigation bar.
+The Incidents page is displayed, listing incidents that occurred 
+for candidate registrations in your jurisdiction.
+2. In the Date Range  field, specify the dates for which you want 
+to view incidents, and click the Display  button.
+You can display incidents that occurred during the last 24 hours, 2 days, 7 days, 30 days or 60 days, or display all incidents for all days. (Incident Reports remain accessible for 90 days.)
+The columns display summary information about the incidents.
+The Date column lists the date on which the incident occurred. 
+Incidents are listed by date, starting with the most recent.
+The Incident  column lists the ID assigned to the Incident 
+Report.
+The Status  column lists the Incident Report’s current status. 
+Reports can be Open or Closed.
+NCLEX Administration website Incidents 6-3The Center  column identifies the te sting center by its code.
+The Candidate  column identifies the candidate with whom 
+the incident is associated. To view the Candidate Details page 
+for the candidate, click his or her link in this column.
+The Topic  column displays a brief description of the incident.
+3. In the Topic  column, click an incident’s link to view its details.
+The Incident Details page is displayed. This page shows information 
+about when and where the incident  occurred and which candidates 
+were involved. It also indicates who filed the Incident Report and lists the person at Pearson VUE to whom it is currently assigned.
+Comments entered for the incident are displayed in this area.Click this link to return to the Incidents page.6-4Regulatory Body Guide version 14 .8.1 NCLEX Administration website4.Print  the Incident Report (optional).
+Choose Print from your browser’s File menu and select printing 
+options. The available printing options depend on your selected 
+printer and the browser you’re using. Refer to your printer guide 
+for more information.
+5. Click the Return to NCLEX Admini stration Incidents Page  link.
+You return to the Incidents page.NCLEX Administration website 7-1Administration
+This chapter covers the following topics:
+Changing your jurisdiction’s profile
+Managing user accounts77-2Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteChanging your jurisdiction’s profile
+Use the Profile page to choose settings that affect various areas of the 
+NCLEX Administration website.
+To change any information on this page, you must have the MBData  (may edit Member Board data) permission. 
+If this permission is not assigned to you, you can view the Profile page but cannot edit its fields.
+1. Click Profile  on the blue navigation bar.
+The Profile page is displayed. This page allows you to view and update the Profile information for your jurisdiction. 
+NCLEX Administration website Administration 7-32. Edit fields as needed.
+An asterisk appears on the page next to required fields.
+Other Contact, Business Day St arts at, Business Day Ends 
+at and Fiscal Year Begins:  These fields are for information 
+purposes. (Type up to five characters in the Business Day Starts 
+at, Business Day Ends at and Fiscal Year Begins fields.)
+RN Board  and/or PN Board:  Select the fields that correspond 
+to the types of exams your jurisdiction offers. For example, if your jurisdiction offers NCLEX-RN and NCLEX-PN exams, check both the RN Boar d and PN Board boxes.
+CGFNS Required:  Select this option if your jurisdiction requires 
+non-US educated candidates to  provide a CGFNS certification 
+number when registering for the NCLEX exam. CGFNS refers to The Commission on Graduates of Foreign Nursing Schools. This agency provides credentialing services for foreign-educated 
+nurses, along with a certification program designed to predict success on the NCLEX-RN exam. (This field currently has no effect on candidate registration.)
+Allow Data Sharing:  Select this option to allow certain 
+candidate data to be shared between your jurisdiction and others. (Typically, you can see candidate data for your own jurisdiction only.) For example, the Education Program Summary Report lists registration  and identification information 
+for candidates who graduated from an educational program in your jurisdiction. If a candidate applied for licensure in another jurisdiction whose Board of Nursing/Regulatory Body does not have data sharing enabled, dashes are displayed instead of the candidate’s name on the report.
+This field needs to be se t according to your state 
+mandates. Changing this field’s setting affects the information displayed in reports.
+Allow Early Results Release:  If this option is selected, 
+candidates in your jurisdiction can pay to receive their unofficial exam results before receiving th e official results from your 
+Board of Nursing/Regulatory Body . Candidates can receive their 
+results (a pass/fail result only) by visiting the NCLEX Candidate website. Note:  This option is not applicable to Canadian 
+Regulatory Bodies.
+Allow Other Readers:  NCSBN permits Pearson VUE to use 
+a vendor to provide assistive personnel. As a result, Allow Other Readers is not a field that you will need to configure.
+Use Candidate Photo On Reports:  Select this option to 
+specify whether your Board of Nu rsing/Regulatory Body allows 
+candidates’ photos to be included on candidate result reports, such as the Candidate Report and the Candidate Performance 
+Report. Deselecting the field prev ents the photo from appearing 
+on reports. (Government law may prevent a Board of Nursing/Regulatory Body from including a candidate’s image on reports.) 
+7-4Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteMask Candidate SSN on Reports:  If this option is selected, 
+the candidate SSN is not displayed on the Candidate 
+Performance Report.
+Mask Candidate DOB on Reports:  If this option is selected, 
+the candidate DOB is not displayed on the Candidate Performance Report.
+Generate mailing labels wi th Diagnostic Reports:  Select 
+this option to generate mailing labels along with the CPR report.
+Generate double-sided Diagnostic Reports:  Select this 
+option to include a blank page if a candidate report is only a single page and multiple candid ate reports are generated in a 
+single file. This ensures each candidate report prints as a separate document.
+Retake Delay (in Days):  Users can determine the number of 
+days candidates must wait between exam sessions.
+Per the NCSBN retake policy, Board or Nursing/Regulatory Bodies must select a minimum or 45 days for the retake delay.
+Delay in ATT Dates (in Days):  In this field, Board of Nursing/
+Regulatory Body users specify th e number of days after the ATT 
+(Authorization to Test) email is sent before the candidate’s eligibility period begins. Once a candidate is declared eligible, he or she receives the ATT email.
+Since the ATT emails are sent to candidates, this should be set to zero (0) so candidates can schedule their exam immediately upon receipt of their ATT email.
+Days ATT is Valid: Specify the number of days after 
+a candidate is declared eligible within which the candidate must take the exam. Candidates must schedule AND take the exam during their ATT validity period.
+Mail Diagnostic Reports (0-3), Mail Pass Reports (0-3), Mail Fail Reports (0-3) and Mail Taken Reports (0-3): This field is no longer used.
+The Batch Processing Options near the bottom of the Profile 
+page indicate how your Board of Nursing/Regulatory Body handles 
+batch processing files. These fields can be changed only by authorized Pearson VUE personnel. If your Board of Nursing/Regulatory Body does not use batch processing, the following 
+message appears in this section:  “Your member board does not 
+participate in batch processing.”
+Import Type  (send jurisin files to Pearson VUE): Indicates 
+when your Board of Nursing/Regulatory Body sends eligibility information to Pearson VUE. The following options are available:
+None:  Your Board of Nursing/Regulatory Body does not send 
+jurisin files to Pearson VUE. 
+ 
+NCLEX Administration website Administration 7-5ELST (Eligibility Standard): Your Board of Nursing/
+Regulatory Body sends a candidate’s eligibility status to 
+Pearson VUE after a candidate registers.
+ELHD (Eligibility Hold):  Your Board of Nursing/Regulatory 
+Body sends a candidate’s eligibility status to Pearson VUE before the candidate registers.
+REGS:  This field is no longer used.
+Receive JURISOUT:  “Yes” is displayed next to this field if your 
+Board of Nursing/Regulatory Bo dy receives jurisout files.
+Receive ATT Expirations in JURISOUT:  “Yes” is displayed 
+next to this field if your Board of Nursing/Regulatory Body receives Service Order Cancel transactions in the jurisout file for ATTs that expire.
+Receive Registration Expirations in JURISOUT:  
+“Yes” is displayed next to this field if your Board of Nursing/Regulatory Body receives Servic e Order Cancel transactions in 
+the jurisout file for registrations that expire due to the 365-day rule.
+3. Click the Save  button.
+A message confirms that your changes were saved.
+Managing user accounts
+An NCLEX Administration website user with the appropriate permission can use the Manage Users page to edit user accounts.
+We highly recommend that one or two people at your Board of Nursing/Regulatory Body be designated as administrators for your team. These administrators should be assigned with ca re, and should be the only 
+users allowed to edit other user accounts. This should be the same person who main tains the users for NCSBN 
+Passport.
+Important points about user accounts:
+When user accounts are created, they are assigned permissions. 
+You must have the Users  (may edit user logins and permissions) 
+permission to edit user accounts. In addition, you can only assign or 
+remove permissions for other users if those permissions are also assigned to your own account. 
+7-6Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteUser permissions
+Permissions control the tasks you can perform and the data to which 
+you have access. Below are the permissions you can be assigned.
+CandData  (may edit candidate data): This permission allows users 
+to edit a selected candidate’s in formation, such as the name and 
+address. To edit a candidate’s registration status, however, 
+users must be assigned the RegStatus  permission described 
+below.
+MBData  (may edit Member Board data): This permission allows 
+users to edit your jurisdiction’s profile.
+MBReports  (may run Member Board reports): This permission 
+allows users to view Board of Nursing/Regulatory Body reports.
+Readers  (may edit the Readers list): This permission allows you 
+to add, edit and delete readers and other assistive personnel.
+RegStatus  (may edit registration status): This permission allows 
+you to change candidates’ registration status. This permission also controls whether you can ente r accommodations requests for 
+a candidate.
+Users  (may edit user logins and permissions): This permission 
+allows users to edit user accounts and to view, grant and remove their permissions.NCLEX Administration website Administration 7-7Displaying the Manage Users page
+1. Click Users  on the blue navigation bar.
+The Manage Users page is displayed.
+This page lists all user accounts (including your own), usernames 
+and assigned permissions. The Permissions  Key area lists 
+the permissions that you can assign to a user. (Since you can only assign permissions that are assigned to your own account, this key may not include all possible permissions.)
+To add an account, please contac t the Passport Administrator for 
+your Board of Nursing/Regulatory Body.
+To edit an account, click a name in the Full Name  column.
+This list includes 
+permissions that are 
+assigned to you and that you can assign 
+to other users.7-8Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteEditing a user account
+1. Click Users  on the blue navigation bar.
+The Manage Users page is displayed.
+2. In the Full Name  column, click the user account you want to edit.
+The User Details page appears, displaying the selected user’s 
+information. If you don’t have permission to edit accounts, this page displays the user’s last name, first name, username and permissions, but you cannot edit the permissions fields. If you wish to edit the Name, Username, and Ema il fields this must be done in 
+Passport.
+3. Edit the fields.
+To edit the account, make chan ges in the fields. For example, 
+click to uncheck a box to unassign a permission.
+4. Click the Save  button.
+A message confirms that your changes were saved.
+5. Click the Return to Manage Users link at the bottom of the page. 
+The Manage Users page is displayed.
+NCLEX Administration website 8-1Batch Processing
+This chapter covers the following topics:
+Batch processing jurisin/jurisout files
+Jurisin and jurisout file formats88-2Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteBatch processing jurisin/jurisout files
+Use the Batch Processing page to transfer jurisin and juris out files 
+to and from Pearson VUE.
+1. Click Batch Processing  on the blue navigation bar.
+The Batch Processing page is displayed.
+The Batch Processing page provides  status information about recent 
+batch files and allows you to upload new jurisin files and download 
+recently generated jurisout files.
+Shortcuts for 
+frequently 
+performed tasksUse these options to download candidate 
+registrations from Pearson VUE.
+Use these options to send updated candidate registrations to Pearson VUE.NCLEX Administration website Batch Processing 8-3At the top right, the page lists available jurisout files 
+from Pearson VUE that you can download by clicking their link in the Download  column.
+Jurisout files that you downloaded using Pearson VUE’s SFTP site are displayed on the Batch Processing page as if they have not been downloaded.
+At the lower right, the page li sts recently uploaded, processed 
+or pending jurisin files; click the Upload  button to upload 
+a specified file to Pearson VUE.
+2. Select the range of dates  for which you want to display jurisin and 
+jurisout files.
+By default, the Batch Processing pa ge displays jurisout files created 
+within the last 7 days and jurisi n files that were uploaded and 
+processed within the last 7 days. You can adjust how many jurisin 
+or jurisout files are displayed by selecting a new date range in the Date Range  field and clicking the Display  button.
+3. Download a jurisout file or upload a jurisin file.
+4. Use shortcut links to quickly search for candidates or to view 
+candidates whose results are available or on hold, or who did not 
+take their exams.
+The links in the View status lists  and Candidate Search sections 
+provide access to up-to-the-minute candidate data. The data 
+uploaded to Pearson VUE in a jurisin file should be available on the NCLEX Administration we bsite approximately 30 minutes 
+after it is uploaded, as long as there are no errors in the file.
+Use the View status lists items to view candidates with a 
+Result Available , On Hold for Results, or Exam Not Taken  status.
+Use the Candidate Search  options to search for a candidate 
+by specifying his or her Name, Candidate ID , Social Security 
+Number  (when applicable), Date of Birth , Phone Number , or 
+Registration ID .
+Downloading a jurisout file
+Follow these steps to save a candidate records file from Pearson VUE on your system.
+1. Click Batch Processing  on the blue navigation bar.
+The Batch Processing page is displayed. Below the Jurisout/
+Juriserr files for download heading, jurisout files available for 
+downloading are listed, along with the date on which they were created and their file size (in bytes). The number of jurisout files shown depends on the range of dates selected in the Date Range  
+field. Each jurisout file displays a link in the Download  column. 
+8-4Regulatory Body Guide version 14 .8.1 NCLEX Administration website2. Click the link for the jurisout  file you want to save to your system.
+A File Save ribbon appears.
+3. Click the Save  drop-down arrow and select the Save as  option.
+A Save As dialog box appears, prompting you to specify where you 
+want the file saved.
+4. Select a folder and click Save .
+The file begins downloading. When the download is complete, the following download complete ribbon is displayed.
+5. Click the Close  button.
+6. Import the downloaded file in your system.
+NCLEX Administration website Batch Processing 8-5Uploading a jurisin file
+Follow these steps to send candidate records in a formatted file 
+to Pearson VUE.
+1. Click Batch Processing  on the blue navigation bar.
+The Batch Processing page is displayed. Below the J urisin files 
+uploaded  heading, each jurisin file recently uploaded to 
+Pearson VUE is listed, along with the date on which it was uploaded 
+and processed and its size. The number of jurisin files shown 
+depends on the range of dates selected in the Date Range field. 
+Below the jurisin files are fields for identifying a jurisin file to upload and activating the upload.
+2. Click the Browse  button next to the Upload File field.
+A standard Choose File to Upload dialog box is displayed.
+3. Locate and select the file you want to import, and click Open .
+The file’s path is displayed in the Upload File field.
+4. Click the Upload  button.
+A message confirms that the selected file was uploaded to Pearson VUE, and the file appears last in the jurisin files uploaded list. Jurisin files are processed im mediately after they are uploaded 
+to Pearson VUE. (After they have been processed, Pearson VUE archives them.) The uploaded data will be available on the NCLEX 
+Administration website approximately 30 minutes after being uploaded, as long as there are no e rrors in the file. After the jurisin 
+file is uploaded, you can vi ew the Jurisin Log Report.
+8-6Regulatory Body Guide version 14 .8.1 NCLEX Administration websiteJurisin and jurisout file formats
+Please see the NCLEX Batch Proce ssing Technical Specifications 
+document for information on the file formats for the jurisin.dat and 
+jurisout.dat files.NCLEX Administration website I-1A
+accommodations
+Accommodation Place Holder...... 4-6, 4-12
+Add Accommodations page................ 4-17
+adding............................................ 4-16
+adding comments ....................4-16, 4-18adding when batch processing used......4-6
+assistive personnel........................... 4-11
+equipment ...................................... 4-11extra testing time ..............................4-9
+list of supported.......................4-10, 4-17
+non-standard ..........................4-11, 4-18overview.................................... 4-2, 4-6
+permission to add ..............................7-6
+reader ............................................ 4-12Readers list..................................... 4-21
+recorder ......................................... 4-12
+revoking .................................. 4-4, 4-19
+Accommodation Place Holder .........4-2
+separate room................................. 4-12sign language interpreter .................. 4-12status..............................3-39, 4-7, 4-14
+when to enter.................................. 4-16
+when to set eligibility... ........... ............4-6
+adding
+accommodations requests................. 4-16readers........................................... 4-25
+user accounts...................... 1-4, 7-5, 7-6
+address
+editing............................................ 3-35for testing centers............................ 2-18
+history of changes............................ 3-45
+adjustable font size................................ 4-11
+administration
+role..................................................1-4
+tasks................................................1-6
+Adobe Acrobat Reader..............................2-1aid ...................................................... 4-11Allow Data Sharing profile option...............7-3
+Allow Early Results Release option .............7-3
+Allow Other Readers option.......................7-3appointments
+scheduling ............................... 3-4, 4-19
+with accommodations ............ 4-3, 4-4
+assigning permissions ..............................7-6
+assistive personnel ........................4-11, 4-21
+Assistive Personnel Agreement ............4-4
+ATT (Authorization to Test)
+dates displayed for candidate ............ 3-40
+specifying delay.................................7-4specifying number of e ligible days........7-4
+viewing expired ............................... 3-21when batch processing used ................4-5
+when sent to candidate......... 4-2, 4-3, 4-7
+Awaiting Eligibility status ..........................3-6
+Awaiting Eligibility page ....................3-12
+B
+background colors, adjusted....................4-11batch processing .....................................2-4
+Accommodation Place Holder .............4-12
+accommodations................................4-6
+Batch Processing page ........................8-2
+downloading jurisout files....................8-3profile settings...................................7-4
+reports .............................................8-2
+Special Conditions flag........................4-6uploading jurisin files..........................8-5
+Board of Nursing
+user tasks .........................................1-4
+breaks during exam .................................4-9
+browsers ................................................2-1
+C
+CandData permission ............... 3-5, 3-33, 7-6
+candidate
+address
+editing ......................................3-35history of changes ......................3-45
+Candidate Details page2-7, 2-10, 3-35, 6-3Candidate Search page .......................2-8data
+permission to edit.........................7-6sharing........................................7-3
+displaying .........................................3-7
+flowchart ..........................................2-4
+ID..................................................3-36ID, searching by .........................2-5, 2-8
+marking eligible or denied ...................3-3
+name
+editing ......................................3-35
+history of changes ......................3-44
+searching by .........................2-6, 2-8
+phone number .................................3-37
+photo
+allowing on reports .......................7-3
+displayed...................................3-46
+pre-1994 exam registration ...............3-37registrations (See registrations)results (See results)
+searching for ....................... 2-4, 2-5, 8-3
+signature displayed ..........................3-46IndexI-2Regulatory Body Guide version 14 .8.1 NCLEX Administration websitecandidate-related reports
+Candidate Report
+printing .....................................3-41
+ways of generating......................3-25
+centers, locating ....................................2-16
+CGFNS certification .........................3-36, 7-3
+closing registrations ............... 3-4, 3-17, 3-25
+color overlay .........................................4-11
+comments
+adding to accommodations ................4-18
+comments, adding to accommodations .....4-16contact information
+Contact History page ........................3-45
+for candidates..................................3-35
+for jurisdiction................................... 7-3
+contrast, adjusted..................................4-11
+D
+date of birth
+editing ............................................3-35searching for candidates by ................ 2-8
+Days ATT is Valid option .......................... 7-4
+Delay in ATT Dates option ........................ 7-4
+deleting
+readers ...........................................4-27
+user accounts ......................1-4, 7-5, 7-6
+denied accommodations........................... 4-6denied registrations................................3-19
+Denied Registrations page .................3-19
+Denied Registrations status................. 3-6
+denying eligibility......... .......... 3-3, 3-11, 3-47
+diagram of candidate status ..................... 2-4directions to testing centers ....................2-18
+downloading candidate data (See batch process-
+ing)
+E
+early results........................................... 7-3
+editing
+candidate information ........................ 7-6
+jurisdiction profile.............................. 7-6
+Readers list ..............................4-27, 7-6
+registration status .....................3-41, 7-6user accounts ............... 1-4, 7-5, 7-6, 7-8
+education programs ...............................2-11
+searching by state ............................2-12
+eligibility
+accommodations changes................... 4-5declaring..................................3-3, 3-11Eligible Registrations page .................3-13
+Eligible status ................................... 3-6
+permission to edit.............................. 7-6
+related tasks..................................... 1-5
+specifying number of days .................. 7-4status
+viewing or editing ........................ 3-5when batch processing used .......... 8-3
+viewing eligible registrations ............. 3-13when to declare................................. 4-3
+when to enter accommodations4-2, 4-6, 4-16
+equipment for use during exam............... 4-11
+exams
+Exam History page........................... 3-42extra time accommodations ................ 4-9
+no-show candidates ......................... 3-15
+not taken........................................ 3-15
+Exam Not Taken page................. 3-15
+Exam Not Taken status ................. 3-6
+previously taken.............................. 3-42
+types .......................................2-7, 2-10
+offered by jurisdiction ................... 7-3Review & Challenge.................... 3-26selected by candidates................ 3-39
+expired registrations
+Expirations page.............................. 3-22Expired Registrations status ................ 3-6
+exporting candidate data (See batch processing)
+F
+fail (See results)FAIR (Free And Immediate Retest) process3-16Flowchart page ................................ 2-4, 3-5
+font, enlarged for exam ......................... 4-11
+foreign nursing programs
+certification...............................3-36, 7-3
+FTP site ................................................. 8-2
+G
+generating candidate reports .................. 3-41
+options.......................... 3-25, 3-28, 3-31
+granted accommodations ......................... 4-6
+H
+hold placed on results......................3-4, 3-30
+home page............................................. 2-3
+I
+Identification page ................................ 3-46
+import type ............................................ 7-4importing candidate data (See batch processing)
+Incident Reports ............. 2-4, 3-30, 3-41, 6-1
+Incidents page .................................. 6-2
+printing ............................................ 6-4
+ineligible .............................................. 3-11international certification..................3-36, 7-3
+Internet Explorer..................................... 2-1
+J
+jurisdictionNCLEX Administration website I-3contact information ............................7-3
+settings ..................................... 2-4, 7-2
+permission to edit.........................7-6
+sharing candidate data with other jurisdictions
+7-3
+Jurisdiction Profile
+tasks................................................1-6
+jurisin/jurisout files........................... 2-4, 8-6
+accommodations................................4-6jurisin files
+uploading ....................................8-5
+jurisout files
+downloading ................................8-3profile settings .............................7-4
+K
+keyboard adjustment ............................. 4-11
+L
+large print ............................................ 4-11
+lists .......................................................2-4
+Lists page ...................... 2-11, 2-16, 4-21
+logging
+off website........................................2-3
+onto website .....................................2-1
+Login page .............................................2-3
+M
+Manage Accommodations page................ 4-15
+Manage Users page .................................7-7
+MBData permission..................................7-6MBReports permission..............................7-6
+monitor adjustments.............................. 4-11
+N
+name
+editing for candidates ....................... 3-35
+history of changes............................ 3-44
+Name History page........................... 3-44
+searching for candidates by.......... 2-6, 2-8
+navigating the website .............................2-3
+navigation bar ...................................1-4
+NCLEX
+Administration website ................ 1-3, 2-1
+Quick Results ....................................7-3
+NCSBN Education Programs .................... 2-11
+Netscape................................................2-1
+new registrations.....................................3-9
+New Registrations page .................... 3-10New Registrations status.....................3-6
+no-show candidates............................... 3-15O
+on hold ......................................... 3-4, 3-30
+On Hold for Results page...................3-30On Hold for Results status ...................3-6
+overview of website .................................1-3
+P
+pass (See results)PDF format reports ..................................2-1
+Pearson Professional Centers, locating......2-16permissions .............................. 1-4, 7-5, 7-6
+assigning or editing ............................7-6CandData.......................... 3-5, 3-33, 7-6MBData.............................................7-6
+MBReports ........................................7-6
+Readers ................................... 4-21, 7-6RegStatus .................3-5, 3-24, 3-41, 7-6
+User.................................................7-6
+phone number
+editing for candidate.........................3-37for contacting testing centers.............2-18
+searching for candidates by .................2-8
+photo
+allowing on candidate reports ..............7-3displayed of candidate ......................3-46
+PN exams ...............................................7-3
+pre-1994 exam registration............ 3-37, 3-43
+printing
+candidate reports .............................3-41
+Incident Reports ................................6-4
+results............................................3-25
+processed registrations.................... 3-4, 3-17
+Processed Registrations page.............3-17Processed Registrations status .............3-6
+profile ....................................................2-4
+batch processing settings ....................7-4permission to edit ..............................7-6Profile page.......................................7-2
+viewing.............................................7-2
+programs
+viewing...........................................2-11
+Q
+quick results ...........................................7-3
+R
+readers
+accommodation ...............................4-12
+adding............................................4-25
+allowing other readers ........................7-3
+deleting ..........................................4-27editing............................................4-27
+list of available readers .....................4-21
+Readers page ..................................4-22Readers permission ................... 4-21, 7-6I-4Regulatory Body Guide version 14 .8.1 NCLEX Administration websiterecorder
+accommodation................................4-12
+list of available recorders...................4-21
+Registration Source................................3-39registration status................................... 2-4
+Awaiting Eligibility ....... ...................... 3-6
+Denied Registrations.......................... 3-6Eligible............................................. 3-6
+Exam Not Taken................................ 3-6
+Expired Registrations ......................... 3-6New Registrations.............................. 3-6
+On Hold for Results............................ 3-6
+Processed Registrations...................... 3-6Result Available................................. 3-6
+registrations
+closing .....................................3-4, 3-25editing ............................................3-41
+marking eligible or denied..................3-11
+overview .......................................... 3-2permission to edit.............................. 7-6
+previous for candidate.......................3-42
+processed (closed)............................3-17receiving ....................................3-2, 3-9
+Registration Audit Trail page ..............3-47
+Registration Details page2-7, 2-10, 3-38, 4-
+14, 6-2
+Registration Source ..........................3-39registration status .....................2-7, 2-10viewing denied.................................3-19
+viewing exams not taken...................3-15
+viewing expired................................3-21
+RegStatus permission.......3-5, 3-24, 3-41, 7-6
+Regulatory Body
+internal ID.......................................3-40
+user tasks ........................................ 1-4
+reports
+allowing candidate photos................... 7-3batch processing ............................... 8-2
+Candidate Report, ways of generating .3-25
+Incident Reports................................ 6-1permission to request and view ........... 7-6
+Requests ............................................... 2-4results................................................... 3-4
+Incident Reports................................ 6-1
+NCLEX Quick Results.......................... 7-3
+on hold ............................................ 3-4printing...........................................3-25
+Result Available page........................3-25
+Result Available status ....................... 3-6viewing those on hold .......................3-30
+ways of viewing ...............................3-24
+Review & Challenge exam .......................3-26revoking
+Accommodation Place Holder .............. 4-2
+accommodations .......................4-4, 4-19
+RN exams .............................................. 7-3S
+saving
+candidate records .............................. 8-3
+scheduled breaks .................................... 4-9scheduling appointments..................4-3, 4-19
+with accommodations......................... 4-4
+score (See results)searching
+for candidates ......................2-4, 2-5, 8-3for education programs
+by state .................................... 2-12
+for testing centers ........................... 2-16Search Results page...................2-7, 2-10
+Seat Availability Search.... .............. .......... 2-4
+separate room accommodation ............... 4-12settings for jurisdiction ............................ 2-4sharing candidate data with other jurisdictions7-
+3
+sign language interpreter
+accommodation............................... 4-12
+list of available interpreters............... 4-21
+signature
+displayed for candidate..................... 3-46
+signing
+off website........................................ 2-3
+onto website ..................................... 2-1
+Social Security number ............................ 2-5
+editing ........................................... 3-36searching for candidates by.......... 2-6, 2-8
+source of registrations ........................... 3-39Special Conditions flag............................. 4-6status
+accommodations .......................3-39, 4-7incident............................................ 6-2registration........................2-4, 2-7, 2-10
+editing...................................... 3-41
+support (VSS)......................................... 2-1supported browsers................................. 2-1
+T
+table height adjustment ......................... 4-11
+Taken result ......................................... 3-26
+telephone number, searching for candidates by2-
+8
+testing centers
+locating.......................................... 2-16Testing Center Locator page.............. 2-18
+testing time accommodations ................... 4-9text, adjusted....................................... 4-11
+U
+unscheduled breaks................................. 4-9
+uploading candidate data (See batch processing)
+Use Candidate Photo On Reports option ..... 7-3user accounts ......................................... 2-4
+adding ...................................... 1-4, 7-5NCLEX Administration website I-5deleting..................................... 1-4, 7-5
+editing................................ 1-4, 7-5, 7-8user permissions................................7-6
+User Name (audit trail) .......................... 3-47Users permission.....................................7-6
+V
+VSS (VUE Support Services) .....................2-1
+W
+website..................................................1-3
+addresses .........................................2-1FTP site ............................................8-2home page........................................2-3
+navigating.........................................2-3
+user accounts....................................2-4I-6Regulatory Body Guide version 14 .8.1 NCLEX Administration website
