@@ -102,39 +102,85 @@ function showSimulationIntro(simType) {
  */
 function startExamSimulation() {
     console.log('Starting exam simulation');
-    const simulatorInterface = document.getElementById('simulator-interface');
+    
+    // Check if simulator interface exists, create it if it doesn't
+    let simulatorInterface = document.getElementById('simulator-interface');
+    if (!simulatorInterface) {
+        console.log('Creating simulator interface');
+        simulatorInterface = document.createElement('div');
+        simulatorInterface.id = 'simulator-interface';
+        simulatorInterface.classList.add('hidden');
+        simulatorInterface.innerHTML = `
+            <div class="exam-container">
+                <div class="exam-header">
+                    <div class="exam-info">
+                        <h2 id="exam-name">NCLEX Practice Mode</h2>
+                        <div class="exam-stats">
+                            <div class="stat">
+                                <span class="stat-label">Question</span>
+                                <span class="stat-value"><span id="current-question">1</span>/<span id="total-questions">25</span></span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Time Remaining</span>
+                                <span class="stat-value" id="time-remaining">00:00:00</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="exam-controls">
+                        <button id="pause-button" class="btn btn-outline-light"><i class="fas fa-pause"></i> Pause</button>
+                    </div>
+                </div>
+                <div class="exam-content">
+                    <div id="question-container" class="question-container">
+                        <!-- Question content will be loaded dynamically -->
+                    </div>
+                    <div class="exam-navigation">
+                        <button id="prev-question" class="btn btn-outline-light" disabled><i class="fas fa-arrow-left"></i> Previous</button>
+                        <button id="next-question" class="btn btn-primary">Next <i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(simulatorInterface);
+    }
+    
     simulatorInterface.classList.remove('hidden');
     
     // Get simulation type
-    const simType = localStorage.getItem('currentSimType') || 'practice-30';
+    const simType = currentSimType || 'practice-30';
+    localStorage.setItem('currentSimType', simType);
     console.log('Simulation type:', simType);
     
     // Set exam name in header
     const examNameEl = document.getElementById('exam-name');
-    switch(simType) {
-        case 'rn-75':
-            examNameEl.textContent = 'NCLEX-RN® Examination';
-            break;
-        case 'ngn-full':
-            examNameEl.textContent = 'Next Generation NCLEX® Examination';
-            break;
-        case 'practice-30':
-            examNameEl.textContent = 'NCLEX Practice Mode';
-            break;
+    if (examNameEl) {
+        switch(simType) {
+            case 'rn-75':
+                examNameEl.textContent = 'NCLEX-RN® Examination';
+                break;
+            case 'ngn-full':
+                examNameEl.textContent = 'Next Generation NCLEX® Examination';
+                break;
+            case 'practice-30':
+                examNameEl.textContent = 'NCLEX Practice Mode';
+                break;
+        }
     }
     
     // Set total questions
     const totalQuestionsEl = document.getElementById('total-questions');
-    switch(simType) {
-        case 'rn-75':
-            totalQuestionsEl.textContent = '75';
-            break;
-        case 'ngn-full':
-            totalQuestionsEl.textContent = '135';
-            break;
-        case 'practice-30':
-            totalQuestionsEl.textContent = '25';
-            break;
+    if (totalQuestionsEl) {
+        switch(simType) {
+            case 'rn-75':
+                totalQuestionsEl.textContent = '75';
+                break;
+            case 'ngn-full':
+                totalQuestionsEl.textContent = '135';
+                break;
+            case 'practice-30':
+                totalQuestionsEl.textContent = '25';
+                break;
+        }
     }
     
     // Start the timer
@@ -165,7 +211,13 @@ function startExamTimer(simType) {
             totalSeconds = 120 * 60; // Default to 2 hours
     }
     
-    const timerEl = document.getElementById('exam-timer');
+    // Find timer element - could be either exam-timer or time-remaining
+    const timerEl = document.getElementById('exam-timer') || document.getElementById('time-remaining');
+    
+    if (!timerEl) {
+        console.error('Timer element not found');
+        return;
+    }
     
     // Store end time
     const endTime = Date.now() + (totalSeconds * 1000);
@@ -557,17 +609,55 @@ function toggleStrikethrough() {
  */
 function loadQuestion(questionNumber) {
     console.log('Loading question:', questionNumber);
+    
+    // Check for required elements and create them if needed
+    const examContent = document.querySelector('.exam-content');
+    if (!examContent) {
+        console.error('Exam content container not found');
+        return;
+    }
+    
     // Update current question display
     const currentQuestionEl = document.getElementById('current-question');
-    currentQuestionEl.textContent = questionNumber;
+    if (currentQuestionEl) {
+        currentQuestionEl.textContent = questionNumber;
+    }
     
     // Update previous button state
-    const prevButton = document.getElementById('previous-btn');
-    prevButton.disabled = questionNumber === 1;
+    const prevButton = document.getElementById('previous-btn') || document.getElementById('prev-question');
+    if (prevButton) {
+        prevButton.disabled = questionNumber === 1;
+    }
     
-    // Load question content
-    const questionStem = document.getElementById('question-stem');
-    const questionOptions = document.getElementById('question-options');
+    // Check if question container exists, create if it doesn't
+    let questionContainer = document.getElementById('question-container');
+    if (!questionContainer) {
+        console.log('Creating question container');
+        questionContainer = document.createElement('div');
+        questionContainer.id = 'question-container';
+        questionContainer.className = 'question-container';
+        examContent.appendChild(questionContainer);
+    }
+    
+    // Check if question stem exists, create if it doesn't
+    let questionStem = document.getElementById('question-stem');
+    if (!questionStem) {
+        console.log('Creating question stem');
+        questionStem = document.createElement('div');
+        questionStem.id = 'question-stem';
+        questionStem.className = 'question-stem';
+        questionContainer.appendChild(questionStem);
+    }
+    
+    // Check if question options exist, create if they don't
+    let questionOptions = document.getElementById('question-options');
+    if (!questionOptions) {
+        console.log('Creating question options');
+        questionOptions = document.createElement('div');
+        questionOptions.id = 'question-options';
+        questionOptions.className = 'question-options';
+        questionContainer.appendChild(questionOptions);
+    }
     
     // Get the question from our database or use sample questions if not loaded yet
     let question;
@@ -956,33 +1046,99 @@ function setupDragAndDropExample() {
         return;
     }
     
-    try {
-        // Make items draggable
-        $(".parent li").draggable({
-            revert: "invalid",
-            helper: "clone",
-            cursor: "move"
-        });
-        
-        // Make center box droppable
-        $(".action_inner_center .action_box_first").droppable({
-            accept: ".parent li",
-            hoverClass: "active",
-            drop: function(event, ui) {
-                // Clone the dropped item
-                const droppedItem = $(ui.draggable).clone();
-                
-                // Remove the UI draggable classes and behavior
-                droppedItem.removeClass("ui-draggable ui-draggable-handle");
-                
-                // Add to droppable area
-                $(this).append(droppedItem);
-                
-                // Hide the original item
-                $(ui.draggable).hide();
-            }
-        });
-    } catch (e) {
-        console.error('Error setting up drag and drop:', e);
+    // Check if jQuery UI is loaded
+    if (typeof jQuery.ui === 'undefined') {
+        console.error('jQuery UI is required for drag and drop functionality');
+        return;
     }
+    
+    // Delay execution to ensure the DOM is fully loaded
+    setTimeout(() => {
+        try {
+            // Check if elements exist
+            const dragItems = $(".parent li");
+            const dropTarget = $(".action_inner_center .action_box_first");
+            
+            // Create sample items if they don't exist (for demo purposes)
+            if (dragItems.length === 0 || dropTarget.length === 0) {
+                console.log('Creating sample drag and drop elements');
+                
+                const sampleContainer = document.createElement('div');
+                sampleContainer.className = 'drag-drop-container';
+                sampleContainer.innerHTML = `
+                    <div class="drag-drop-example">
+                        <h4>Drag and Drop Example</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card mb-3">
+                                    <div class="card-header">Drag these items</div>
+                                    <div class="card-body">
+                                        <ul class="parent list-group">
+                                            <li class="list-group-item">Item 1</li>
+                                            <li class="list-group-item">Item 2</li>
+                                            <li class="list-group-item">Item 3</li>
+                                            <li class="list-group-item">Item 4</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card mb-3">
+                                    <div class="card-header">Drop zone</div>
+                                    <div class="card-body action_inner_center">
+                                        <div class="drop-target action_box_first">
+                                            <p>Drop items here</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                // Find a suitable place to add the example
+                const ngResourcesContainer = document.querySelector('#ngn-examples-container');
+                if (ngResourcesContainer) {
+                    ngResourcesContainer.appendChild(sampleContainer);
+                } else {
+                    // Add to the body as a fallback
+                    document.body.appendChild(sampleContainer);
+                }
+                
+                // Update references to the new elements
+                dragItems = $(".parent li");
+                dropTarget = $(".action_inner_center .action_box_first, .drop-target");
+            }
+            
+            // Make items draggable
+            dragItems.draggable({
+                revert: "invalid",
+                helper: "clone",
+                cursor: "move"
+            });
+            
+            // Make center box droppable
+            dropTarget.droppable({
+                accept: ".parent li",
+                hoverClass: "active",
+                drop: function(event, ui) {
+                    // Clone the dropped item
+                    const droppedItem = $(ui.draggable).clone();
+                    
+                    // Remove the UI draggable classes and behavior
+                    droppedItem.removeClass("ui-draggable ui-draggable-handle");
+                    
+                    // Add to droppable area
+                    $(this).append(droppedItem);
+                    
+                    // Hide the original item
+                    $(ui.draggable).hide();
+                }
+            });
+            
+            console.log('Drag and drop setup completed successfully');
+        } catch (e) {
+            console.error('Error setting up drag and drop:', e);
+        }
+    }, 500);
 }
