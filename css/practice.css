@@ -13,7 +13,7 @@
 }
 
 .exam-header h3 {
-    color: var(--secondary-color);
+    color: #333;
     font-size: 24px;
     margin-bottom: 15px;
 }
@@ -26,7 +26,7 @@
 
 .progress-info {
     font-size: 16px;
-    color: var(--light-text);
+    color: #777;
 }
 
 .progress-bar {
@@ -39,7 +39,7 @@
 
 .progress-fill {
     height: 100%;
-    background-color: var(--primary-color);
+    background-color: #4290a9;
     width: 0;
     transition: width 0.3s;
 }
@@ -59,7 +59,7 @@
     font-size: 18px;
     line-height: 1.7;
     margin-bottom: 30px;
-    color: var(--secondary-color);
+    color: #333;
 }
 
 .options-container {
@@ -71,7 +71,7 @@
 .option {
     display: flex;
     background-color: #f9f9f9;
-    border: 1px solid var(--border-color);
+    border: 1px solid #ddd;
     border-radius: 5px;
     padding: 15px;
     cursor: pointer;
@@ -83,8 +83,8 @@
 }
 
 .option.selected {
-    background-color: var(--highlight-color);
-    border-color: var(--primary-color);
+    background-color: #e1f5fe;
+    border-color: #4290a9;
 }
 
 .option.correct {
@@ -98,7 +98,7 @@
     align-items: center;
     width: 30px;
     height: 30px;
-    background-color: var(--primary-color);
+    background-color: #4290a9;
     color: #fff;
     border-radius: 50%;
     margin-right: 15px;
@@ -114,19 +114,19 @@
     margin-top: 30px;
     padding: 20px;
     background-color: rgba(66, 144, 169, 0.1);
-    border-left: 4px solid var(--primary-color);
+    border-left: 4px solid #4290a9;
     border-radius: 0 5px 5px 0;
 }
 
 .answer-rationale h3 {
-    color: var(--primary-color);
+    color: #4290a9;
     margin-bottom: 15px;
     font-size: 18px;
 }
 
 .rationale-content {
     line-height: 1.7;
-    color: var(--secondary-color);
+    color: #333;
 }
 
 .exam-controls {
@@ -155,18 +155,18 @@
 .stat-value {
     font-size: 36px;
     font-weight: 700;
-    color: var(--primary-color);
+    color: #4290a9;
     margin-bottom: 10px;
 }
 
 .stat-label {
-    color: var(--light-text);
+    color: #777;
     font-size: 16px;
 }
 
 .results-message {
     background-color: #f9f9f9;
-    border-left: 4px solid var(--primary-color);
+    border-left: 4px solid #4290a9;
     padding: 20px;
     margin: 30px 0;
     border-radius: 0 5px 5px 0;

@@ -35,7 +35,7 @@ function initializePracticeExam() {
  */
 function setupExamQuestions(examType) {
     // Load questions from JSON file
-    fetch('/data/practice-questions.json')
+    fetch('../data/practice-questions.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
@@ -44,9 +44,13 @@ function setupExamQuestions(examType) {
         })
         .then(data => {
             let questions;
+            let examTitle = 'NCLEX Practice Questions';
             
-            // In case the data structure is different, check if questions array exists
-            if (data.questions && Array.isArray(data.questions)) {
+            // Handle the structure from practice-questions.json where exams are keyed by exam type
+            if (data[examType] && data[examType].items && Array.isArray(data[examType].items)) {
+                questions = data[examType].items;
+                examTitle = data[examType].title || examTitle;
+            } else if (data.questions && Array.isArray(data.questions)) {
                 questions = data.questions;
             } else if (data.practice && Array.isArray(data.practice)) {
                 questions = data.practice;
@@ -56,7 +60,6 @@ function setupExamQuestions(examType) {
             }
             
             // Set title based on exam type
-            let examTitle = 'NCLEX Practice Questions';
             if (document.getElementById('exam-title')) {
                 document.getElementById('exam-title').textContent = examTitle;
             }
@@ -158,8 +161,8 @@ function displayQuestion(index) {
         if (optionsContainer) {
             optionsContainer.innerHTML = '';
             
-            // Check if options exist in the question object
-            const options = question.options;
+            // Check if options exist in the question object (could be named options or choices)
+            const options = question.options || question.choices;
             if (!options || !Array.isArray(options)) {
                 optionsContainer.innerHTML = '<div class="alert alert-warning">No answer options available for this question.</div>';
                 return;
@@ -316,7 +319,11 @@ function showExamResults() {
     
     Object.keys(answers).forEach(index => {
         answered++;
-        if (answers[index] === questions[index].correctAnswer) {
+        // Handle different structures for correct answers (correctAnswer or correct_answer)
+        const correctAnswer = questions[index].correctAnswer !== undefined 
+            ? questions[index].correctAnswer 
+            : questions[index].correct_answer;
+        if (answers[index] === correctAnswer) {
             correct++;
         }
     });
