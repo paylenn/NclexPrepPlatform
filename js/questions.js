@@ -26,7 +26,7 @@ function initializePracticeExam() {
     const urlParams = new URLSearchParams(window.location.search);
     const examType = urlParams.get('exam');
     
-    setupExamQuestions(examType || 'practice');
+    setupExamQuestions(examType || 'exam1');
 }
 
 /**
@@ -45,20 +45,18 @@ function setupExamQuestions(examType) {
         .then(data => {
             let questions;
             
-            // In case the data structure is different, check if questions array exists
-            if (data.questions && Array.isArray(data.questions)) {
-                questions = data.questions;
-            } else if (data.practice && Array.isArray(data.practice)) {
-                questions = data.practice;
+            // Check for the exam type in the data
+            if (data[examType] && data[examType].items && Array.isArray(data[examType].items)) {
+                questions = data[examType].items;
+                
+                // Set title based on exam type
+                let examTitle = data[examType].title || 'NCLEX Practice Questions';
+                if (document.getElementById('exam-title')) {
+                    document.getElementById('exam-title').textContent = examTitle;
+                }
             } else {
-                console.error('Unexpected data structure:', data);
-                throw new Error('Questions data is in an unexpected format');
-            }
-            
-            // Set title based on exam type
-            let examTitle = 'NCLEX Practice Questions';
-            if (document.getElementById('exam-title')) {
-                document.getElementById('exam-title').textContent = examTitle;
+                console.error('Exam type not found or invalid structure:', examType);
+                throw new Error('Exam data not found or in an unexpected format');
             }
             
             // Save questions to session storage
@@ -149,8 +147,8 @@ function displayQuestion(index) {
         
         // Update question content if element exists
         if (questionStemEl) {
-            // Handle different JSON structures - some use stem, others use text
-            const questionText = question.stem || question.text;
+            // Use the text field for the question stem
+            const questionText = question.text;
             questionStemEl.innerHTML = questionText;
         }
         
@@ -158,8 +156,8 @@ function displayQuestion(index) {
         if (optionsContainer) {
             optionsContainer.innerHTML = '';
             
-            // Check if options exist in the question object
-            const options = question.options;
+            // Check if choices exist in the question object
+            const options = question.choices;
             if (!options || !Array.isArray(options)) {
                 optionsContainer.innerHTML = '<div class="alert alert-warning">No answer options available for this question.</div>';
                 return;
@@ -202,33 +200,23 @@ function displayQuestion(index) {
             }
         }
         
-        // Hide answer rationale if element exists
+        // Hide rationale when switching questions
         if (rationaleContainer) {
             rationaleContainer.classList.add('hidden');
         }
         
-        // Update prev/next button states if they exist
+        // Disable previous button on first question
         if (prevBtn) {
             prevBtn.disabled = index === 0;
         }
         
+        // Disable next button on last question
         if (nextBtn) {
             nextBtn.disabled = index === questions.length - 1;
         }
+        
     } catch (error) {
         console.error('Error displaying question:', error);
-        
-        // Show a user-friendly error message
-        const questionContainer = document.querySelector('.question-container');
-        if (questionContainer) {
-            questionContainer.innerHTML = `
-                <div class="alert alert-danger">
-                    <h4>Error Displaying Question</h4>
-                    <p>We encountered an error while displaying this question. Please try refreshing the page.</p>
-                    <button class="btn btn-primary mt-3" onclick="location.reload()">Refresh Page</button>
-                </div>
-            `;
-        }
     }
 }
 
@@ -246,60 +234,43 @@ function showAnswerRationale(index) {
         }
         
         const rationaleContainer = document.getElementById('answer-rationale');
-        if (!rationaleContainer) {
-            console.error('Answer rationale container not found');
-            return;
-        }
-        
-        // Handle different JSON structures for correctAnswer and explanations
-        const correctAnswer = question.correctAnswer !== undefined ? question.correctAnswer : question.correct_answer;
-        const rationaleText = question.rationale || question.explanation || "No explanation provided for this question.";
-        
-        if (correctAnswer === undefined) {
-            console.error('Correct answer not found in question data');
-            rationaleContainer.innerHTML = `
-                <div class="alert alert-warning">
-                    <h4>Information Missing</h4>
-                    <p>The correct answer information is not available for this question.</p>
-                </div>
-            `;
-            rationaleContainer.classList.remove('hidden');
-            return;
-        }
-        
-        // Create the rationale content
-        rationaleContainer.innerHTML = `
-            <h3>Correct Answer: ${String.fromCharCode(65 + correctAnswer)}</h3>
-            <div class="rationale-content">${rationaleText}</div>
-        `;
+        if (!rationaleContainer) return;
         
         rationaleContainer.classList.remove('hidden');
         
-        // Highlight correct answer if options are available
-        const options = document.querySelectorAll('.option');
-        if (options.length > 0) {
-            options.forEach((option, i) => {
-                if (i === correctAnswer) {
-                    option.classList.add('correct');
-                } else {
-                    option.classList.remove('correct');
-                }
+        const rationaleContent = rationaleContainer.querySelector('.rationale-content');
+        if (!rationaleContent) return;
+        
+        // Get the correct answer index or array
+        const correctAnswer = question.correctAnswer;
+        let correctAnswerHTML = '';
+        
+        // Handle single correct answer
+        if (typeof correctAnswer === 'number') {
+            const options = question.choices;
+            const letter = String.fromCharCode(65 + correctAnswer);
+            correctAnswerHTML = `<p class="mb-2"><strong>Correct Answer:</strong> ${letter}. ${options[correctAnswer]}</p>`;
+        } 
+        // Handle multiple correct answers (for select all that apply)
+        else if (Array.isArray(correctAnswer)) {
+            const options = question.choices;
+            const letters = correctAnswer.map(idx => String.fromCharCode(65 + idx));
+            
+            correctAnswerHTML = `<p class="mb-2"><strong>Correct Answers:</strong></p><ul class="mb-3">`;
+            correctAnswer.forEach(idx => {
+                correctAnswerHTML += `<li>${String.fromCharCode(65 + idx)}. ${options[idx]}</li>`;
             });
+            correctAnswerHTML += `</ul>`;
         }
+        
+        // Display rationale
+        rationaleContent.innerHTML = `
+            ${correctAnswerHTML}
+            <p><strong>Explanation:</strong> ${question.rationale}</p>
+        `;
+        
     } catch (error) {
         console.error('Error showing answer rationale:', error);
-        
-        // Display user-friendly error in the rationale container
-        const rationaleContainer = document.getElementById('answer-rationale');
-        if (rationaleContainer) {
-            rationaleContainer.innerHTML = `
-                <div class="alert alert-danger">
-                    <h4>Error</h4>
-                    <p>We encountered an error while displaying the answer explanation. Please try refreshing the page.</p>
-                </div>
-            `;
-            rationaleContainer.classList.remove('hidden');
-        }
     }
 }
 
@@ -307,52 +278,56 @@ function showAnswerRationale(index) {
  * Show the exam results
  */
 function showExamResults() {
-    const questions = JSON.parse(sessionStorage.getItem('currentQuestions'));
-    const answers = JSON.parse(sessionStorage.getItem('examAnswers') || '{}');
-    
-    // Calculate results
-    let correct = 0;
-    let answered = 0;
-    
-    Object.keys(answers).forEach(index => {
-        answered++;
-        if (answers[index] === questions[index].correctAnswer) {
-            correct++;
+    try {
+        const questions = JSON.parse(sessionStorage.getItem('currentQuestions'));
+        const answers = JSON.parse(sessionStorage.getItem('examAnswers') || '{}');
+        
+        let correctCount = 0;
+        let totalAnswered = 0;
+        
+        // Count correct answers
+        questions.forEach((question, index) => {
+            if (answers[index] !== undefined) {
+                totalAnswered++;
+                
+                const correctAnswer = question.correctAnswer;
+                if (typeof correctAnswer === 'number' && answers[index] === correctAnswer) {
+                    correctCount++;
+                } else if (Array.isArray(correctAnswer) && Array.isArray(answers[index])) {
+                    // For multiple select questions, arrays must match exactly
+                    const answerMatch = correctAnswer.length === answers[index].length && 
+                        correctAnswer.every(val => answers[index].includes(val));
+                    
+                    if (answerMatch) correctCount++;
+                }
+            }
+        });
+        
+        const score = totalAnswered ? Math.round((correctCount / totalAnswered) * 100) : 0;
+        const examContainer = document.getElementById('exam-container');
+        
+        if (examContainer) {
+            examContainer.innerHTML = `
+                <div class="col-lg-10 mx-auto">
+                    <div class="card">
+                        <div class="card-body text-center p-5">
+                            <h3 class="mb-4">Exam Results</h3>
+                            <div class="display-1 fw-bold mb-3">${score}%</div>
+                            <p class="lead mb-4">You answered ${correctCount} out of ${totalAnswered} questions correctly.</p>
+                            <p class="mb-4">${getResultMessage(score)}</p>
+                            <div class="d-flex justify-content-center gap-3">
+                                <a href="practice.html" class="btn btn-secondary">Back to Exams</a>
+                                <a href="practice.html?exam=${new URLSearchParams(window.location.search).get('exam')}" class="btn btn-primary">Try Again</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
         }
-    });
-    
-    const score = Math.round((correct / questions.length) * 100);
-    
-    // Create results markup
-    const resultsMarkup = `
-        <h2>Exam Results</h2>
-        <div class="results-stats">
-            <div class="stat-item">
-                <div class="stat-value">${answered}/${questions.length}</div>
-                <div class="stat-label">Questions Answered</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-value">${correct}</div>
-                <div class="stat-label">Correct Answers</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-value">${score}%</div>
-                <div class="stat-label">Score</div>
-            </div>
-        </div>
-        <div class="results-message">
-            <p>${getResultMessage(score)}</p>
-        </div>
-        <button id="review-exam-btn" class="btn btn-primary">Review Exam</button>
-    `;
-    
-    // Update content
-    document.getElementById('exam-container').innerHTML = resultsMarkup;
-    
-    // Add event listener to review button
-    document.getElementById('review-exam-btn').addEventListener('click', () => {
-        location.reload();
-    });
+        
+    } catch (error) {
+        console.error('Error showing results:', error);
+    }
 }
 
 /**
@@ -362,13 +337,13 @@ function showExamResults() {
  */
 function getResultMessage(score) {
     if (score >= 80) {
-        return "Excellent! You're well-prepared for the NCLEX exam.";
+        return "Excellent work! You're demonstrating strong nursing knowledge and clinical judgment.";
     } else if (score >= 70) {
-        return "Good job! With a bit more practice, you'll be ready for the NCLEX.";
+        return "Good job! You're on the right track, but continue reviewing to strengthen your knowledge.";
     } else if (score >= 60) {
-        return "You're on the right track, but need more practice in the areas you missed.";
+        return "You're making progress, but need more practice. Focus on understanding rationales for each question.";
     } else {
-        return "More study and practice is needed. Focus on understanding the rationales for each question.";
+        return "Keep studying and practicing. Review core nursing concepts and clinical judgment principles.";
     }
 }
 
@@ -394,123 +369,30 @@ function setupNGNInteractiveExamples() {
  * Setup drag and drop example
  */
 function setupDragAndDropExample() {
+    // Implementation for drag and drop examples
     console.log('Setting up drag and drop example');
-    
-    if (typeof jQuery === 'undefined') {
-        console.error('jQuery is required for drag and drop functionality');
-        return;
-    }
-    
-    try {
-        // Make items draggable
-        $(".parent li").draggable({
-            revert: "invalid",
-            helper: "clone",
-            cursor: "move"
-        });
-        
-        // Make center box droppable
-        $(".action_inner_center .action_box_first").droppable({
-            accept: ".parent li",
-            hoverClass: "active",
-            drop: function(event, ui) {
-                // Clone the dropped item
-                const droppedItem = $(ui.draggable).clone();
-                
-                // Remove the UI draggable classes and behavior
-                droppedItem.removeClass("ui-draggable ui-draggable-handle");
-                
-                // Add to droppable area
-                $(this).append(droppedItem);
-                
-                // Hide the original item
-                $(ui.draggable).hide();
-            }
-        });
-    } catch (e) {
-        console.error('Error setting up drag and drop:', e);
-    }
 }
 
 /**
  * Setup matrix example
  */
 function setupMatrixExample() {
+    // Implementation for matrix examples
     console.log('Setting up matrix example');
-    const matrixCells = document.querySelectorAll('.matrix-cell.selectable');
-    
-    matrixCells.forEach(cell => {
-        cell.addEventListener('click', function() {
-            this.classList.toggle('selected');
-            if (this.classList.contains('selected')) {
-                this.innerHTML = '<i class="fas fa-check"></i>';
-            } else {
-                this.innerHTML = '';
-            }
-        });
-    });
 }
 
 /**
  * Setup cloze (dropdown) example
  */
 function setupClozeExample() {
+    // Implementation for cloze examples
     console.log('Setting up cloze example');
-    const dropdowns = document.querySelectorAll('.cloze-dropdown');
-    
-    dropdowns.forEach(dropdown => {
-        dropdown.addEventListener('click', function(event) {
-            event.stopPropagation();
-            this.classList.toggle('active');
-        });
-        
-        const options = dropdown.querySelectorAll('.cloze-dropdown-option');
-        options.forEach(option => {
-            option.addEventListener('click', function(event) {
-                event.stopPropagation();
-                const selectedOption = this.closest('.cloze-dropdown').querySelector('.selected-option');
-                selectedOption.textContent = this.textContent;
-                this.closest('.cloze-dropdown').classList.remove('active');
-            });
-        });
-    });
-    
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function() {
-        dropdowns.forEach(dropdown => {
-            dropdown.classList.remove('active');
-        });
-    });
 }
 
 /**
  * Setup highlighting example
  */
 function setupHighlightingExample() {
+    // Implementation for highlighting examples
     console.log('Setting up highlighting example');
-    const paragraph = document.querySelector('.highlight-paragraph');
-    
-    if (paragraph) {
-        paragraph.addEventListener('mouseup', function() {
-            const selection = window.getSelection();
-            
-            if (selection.rangeCount > 0) {
-                const range = selection.getRangeAt(0);
-                
-                if (range.toString().trim() !== '') {
-                    const span = document.createElement('span');
-                    span.style.backgroundColor = 'yellow';
-                    span.className = 'highlighted-text';
-                    
-                    try {
-                        range.surroundContents(span);
-                    } catch (e) {
-                        console.error('Error highlighting text:', e);
-                    }
-                    
-                    selection.removeAllRanges();
-                }
-            }
-        });
-    }
 }
