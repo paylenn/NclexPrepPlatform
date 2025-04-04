@@ -117,13 +117,20 @@ function setupExamQuestions(type) {
             return response.json();
         })
         .then(data => {
-            // For exam1, use questions without 'questionType' or with 'standard' type
-            // For exam2, use questions with 'ngn' or related types
-            if (examType === 'exam1') {
-                questions = data.filter(q => !q.questionType || q.questionType === 'standard');
-            } else if (examType === 'exam2') {
-                questions = data.filter(q => q.questionType && (q.questionType === 'ngn' || q.questionType === 'multi-select'));
+            if (!data[examType]) {
+                throw new Error('No questions available for this exam type. Please try a different exam.');
             }
+            
+            // Extract exam information and items
+            const examData = data[examType];
+            
+            // Set updated exam information from the data if available
+            if (examData.title) document.getElementById('exam-title').textContent = examData.title;
+            if (examData.title) document.getElementById('exam-title-nav').textContent = examData.title;
+            if (examData.description) document.getElementById('exam-description').textContent = examData.description;
+            
+            // Get questions from the items array
+            questions = examData.items || [];
             
             // If no questions found, show an error
             if (questions.length === 0) {
@@ -167,8 +174,8 @@ function displayQuestion(index) {
     // Get the question
     const question = questions[index];
     
-    // Show question stem
-    document.getElementById('question-stem').textContent = question.stem;
+    // Show question stem (text)
+    document.getElementById('question-stem').textContent = question.text || question.stem || '';
     
     // Clear options container
     const optionsContainer = document.getElementById('options-container');
@@ -177,9 +184,12 @@ function displayQuestion(index) {
     // Determine question type (single-select or multi-select)
     const isMultiSelect = question.questionType === 'multi-select';
     
+    // Get the options (choices or options)
+    const options = question.choices || question.options || [];
+    
     // Add options based on question type
-    if (question.options) {
-        question.options.forEach((option, optionIndex) => {
+    if (options.length > 0) {
+        options.forEach((option, optionIndex) => {
             const optionElement = document.createElement('div');
             optionElement.className = 'option';
             optionElement.dataset.index = optionIndex;
@@ -275,7 +285,8 @@ function saveCurrentAnswer() {
 function showAnswerRationale(index) {
     const question = questions[index];
     const rationale = question.rationale || "No rationale available for this question.";
-    const correctAnswer = question.answer;
+    // Check for different answer field names (correctAnswer or answer)
+    const correctAnswer = question.correctAnswer !== undefined ? question.correctAnswer : question.answer;
     
     // Save the current answer
     saveCurrentAnswer();
@@ -317,7 +328,8 @@ function showExamResults() {
     for (let i = 0; i < questions.length; i++) {
         const question = questions[i];
         const userAnswer = userAnswers[i];
-        const correctAnswer = question.answer;
+        // Check for different answer field names (correctAnswer or answer)
+        const correctAnswer = question.correctAnswer !== undefined ? question.correctAnswer : question.answer;
         
         // Skip if user didn't answer
         if (userAnswer === null) continue;
@@ -373,27 +385,31 @@ function generateQuestionReview() {
         const questionHeader = document.createElement('div');
         questionHeader.innerHTML = `<h4>Question ${index + 1}</h4>`;
         
-        // Question stem
+        // Question stem/text
         const questionStem = document.createElement('p');
         questionStem.className = 'question-stem';
-        questionStem.textContent = question.stem;
+        questionStem.textContent = question.text || question.stem || '';
         
         // Options
         const optionsContainer = document.createElement('div');
         optionsContainer.className = 'options-container';
         
+        // Check for different answer field names (correctAnswer or answer)
+        const correctAnswer = question.correctAnswer !== undefined ? question.correctAnswer : question.answer;
+        
         // Add options
-        if (question.options) {
-            question.options.forEach((option, optionIndex) => {
+        const options = question.choices || question.options || [];
+        if (options.length > 0) {
+            options.forEach((option, optionIndex) => {
                 const optionElement = document.createElement('div');
                 optionElement.className = 'option';
                 
                 // Check if this is the correct answer
-                if (Array.isArray(question.answer)) {
-                    if (question.answer.includes(optionIndex)) {
+                if (Array.isArray(correctAnswer)) {
+                    if (correctAnswer.includes(optionIndex)) {
                         optionElement.classList.add('correct');
                     }
-                } else if (question.answer === optionIndex) {
+                } else if (correctAnswer === optionIndex) {
                     optionElement.classList.add('correct');
                 }
                 

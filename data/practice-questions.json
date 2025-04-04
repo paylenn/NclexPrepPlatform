@@ -1,6 +1,6 @@
 {
   "exam1": {
-    "title": "NCLEX Practice Exam 1",
+    "title": "NCLEX Practice Exam",
     "description": "This practice exam covers various nursing competencies and includes questions similar to those you'll see on the NCLEX-RN exam.",
     "items": [
       {
@@ -19,185 +19,255 @@
         "text": "The nurse is caring for a client receiving TPN. The nurse notes that the client has a temperature of 101.2°F (38.4°C) and the catheter insertion site is reddened and tender. What is the priority nursing action?",
         "category": "Intravenous Therapy",
         "choices": [
-          "Increase the IV flow rate to maintain hydration",
-          "Continue to monitor the client's temperature",
-          "Stop the TPN infusion and notify the healthcare provider",
-          "Apply warm compresses to the insertion site"
+          "Slow the TPN infusion rate",
+          "Discontinue the TPN infusion",
+          "Apply warm compresses to the site",
+          "Administer acetaminophen as ordered"
+        ],
+        "correctAnswer": 1,
+        "rationale": "The client is exhibiting signs of catheter-related infection, which is a serious complication of TPN. The priority nursing action is to discontinue the TPN infusion to prevent sepsis. The catheter should be removed and the tip cultured. Slowing the infusion rate or applying warm compresses won't address the infection. While acetaminophen might lower the temperature, it doesn't address the source of the infection."
+      },
+      {
+        "text": "A client with a diagnosis of major depression tells the nurse, 'I should have died instead of my husband. I have nothing to live for now.' Which response by the nurse is most therapeutic?",
+        "category": "Mental Health",
+        "choices": [
+          "'You have so much to live for. Think about your children.'",
+          "'Are you thinking about harming yourself?'",
+          "'Everyone feels that way when they lose someone they love.'",
+          "'Let's talk about something more pleasant.'"
+        ],
+        "correctAnswer": 1,
+        "rationale": "The client's statement suggests suicidal ideation. The most therapeutic response is to directly assess suicide risk by asking if the client is thinking about self-harm. This opens communication about a critical safety concern. The other responses either minimize the client's feelings, offer false reassurance, or avoid the important issue of potential suicide risk."
+      },
+      {
+        "text": "The nurse is teaching a client with newly diagnosed type 1 diabetes about insulin management. Which client statement indicates understanding of the teaching?",
+        "category": "Endocrine",
+        "choices": [
+          "'I should take my insulin even when I'm sick and not eating.'",
+          "'I should stop my insulin if my blood sugar is below 70 mg/dL.'",
+          "'I can stop taking insulin once my blood sugar levels are normal.'",
+          "'I only need to check my blood sugar when I feel symptoms of hypoglycemia.'"
+        ],
+        "correctAnswer": 0,
+        "rationale": "Clients with type 1 diabetes must continue taking insulin even when sick or not eating, although dosage adjustments may be needed. Without insulin, these clients can develop diabetic ketoacidosis, a life-threatening condition. The other statements indicate misunderstandings about insulin management that could lead to serious complications."
+      },
+      {
+        "text": "The nurse is caring for a client after a total hip replacement. Which nursing intervention is most important in preventing dislocation of the prosthesis?",
+        "category": "Orthopedic",
+        "choices": [
+          "Maintaining the hip in abduction",
+          "Encouraging the client to sit in low chairs",
+          "Positioning the client on the operative side",
+          "Allowing the client to cross the legs at the ankles"
+        ],
+        "correctAnswer": 0,
+        "rationale": "After a total hip replacement, maintaining the hip in abduction (keeping the leg away from the midline of the body) is essential to prevent dislocation of the prosthesis. Low chairs, positioning on the operative side, and crossing legs (even at the ankles) all increase the risk of dislocation and should be avoided."
+      },
+      {
+        "text": "A pregnant client at 32 weeks gestation is admitted with a blood pressure of 168/104 mmHg, proteinuria, and complaints of a severe headache. The nurse should anticipate the administration of which medication?",
+        "category": "Maternity",
+        "choices": [
+          "Nifedipine (Procardia)",
+          "Magnesium sulfate",
+          "Terbutaline (Brethine)",
+          "Methylergonovine (Methergine)"
+        ],
+        "correctAnswer": 1,
+        "rationale": "The client is exhibiting signs of severe preeclampsia: hypertension, proteinuria, and neurological symptoms (severe headache). Magnesium sulfate is the drug of choice for prevention and treatment of eclamptic seizures in preeclampsia. Nifedipine may be used to treat hypertension but doesn't prevent seizures. Terbutaline is a tocolytic used to stop preterm labor. Methylergonovine causes uterine contractions and is contraindicated in pregnancy, especially with hypertension."
+      },
+      {
+        "text": "The nurse is caring for a client who is 24 hours post-operative following abdominal surgery. The client has diminished bowel sounds, abdominal distention, and has not passed flatus. The nurse should:",
+        "category": "Gastrointestinal",
+        "choices": [
+          "Encourage increased fluid intake",
+          "Administer the prescribed PRN laxative",
+          "Encourage early ambulation",
+          "Document the findings as expected at this stage"
         ],
         "correctAnswer": 2,
-        "rationale": "The signs and symptoms (fever, redness, and tenderness at the insertion site) indicate a catheter-related infection, which is a serious complication of TPN therapy. The priority nursing action is to stop the TPN infusion to prevent further complications and notify the healthcare provider promptly. Increasing the flow rate or continuing to monitor without intervention would not address the likely infection. Applying warm compresses could increase blood flow to the area and potentially spread the infection."
+        "rationale": "Encouraging early ambulation is the most appropriate action to stimulate peristalsis and resolve postoperative ileus. Diminished bowel sounds, absence of flatus, and abdominal distention are signs of postoperative ileus, which is common after abdominal surgery. Early ambulation helps stimulate bowel function. Administering a laxative could be harmful when bowel sounds are diminished. While increased fluids are good, ambulation is more effective at this stage. These findings are expected but should be addressed, not just documented."
       },
       {
-        "text": "A client is admitted to the emergency department with a suspected myocardial infarction. The nurse should prioritize which assessment?",
-        "category": "Cardiac Assessment",
+        "text": "A client with chronic kidney disease has a serum potassium level of 6.8 mEq/L. Which ECG change should the nurse anticipate seeing?",
+        "category": "Cardiovascular",
         "choices": [
-          "Obtaining a detailed history of the client's pain",
-          "Assessing the client's vital signs",
-          "Establishing intravenous access",
-          "Obtaining a 12-lead ECG"
-        ],
-        "correctAnswer": 1,
-        "rationale": "While all these actions are important for a client with a suspected MI, assessing vital signs is the priority. This provides immediate information about the client's hemodynamic status and can identify life-threatening complications. Vital signs (especially blood pressure, heart rate, and oxygen saturation) give critical information about the client's current condition and help guide immediate interventions. Pain history, IV access, and ECG are all important but follow the initial vital signs assessment."
-      },
-      {
-        "text": "A client with type 1 diabetes mellitus has a blood glucose level of 40 mg/dL and is confused. Which intervention should the nurse implement first?",
-        "category": "Endocrine Management",
-        "choices": [
-          "Administer glucagon as prescribed",
-          "Give 15-20 g of fast-acting carbohydrate",
-          "Encourage the client to rest",
-          "Check the client's most recent insulin dose"
-        ],
-        "correctAnswer": 1,
-        "rationale": "For a conscious client with hypoglycemia (blood glucose <70 mg/dL) who can swallow safely, the first intervention is to administer 15-20 g of fast-acting carbohydrate (such as glucose tablets, 4 oz of fruit juice, or 6-8 oz of regular soda). This follows the \"Rule of 15\" for hypoglycemia management. While glucagon would be appropriate for a severely hypoglycemic, unconscious client, this client is confused but conscious. Encouraging rest or checking the insulin dose would delay treating the immediate problem of hypoglycemia."
-      },
-      {
-        "text": "A nurse is assigned to care for a client with a pulmonary embolism. Which assessment finding requires immediate intervention?",
-        "category": "Respiratory Management",
-        "choices": [
-          "Respiratory rate of 24 breaths per minute",
-          "Oxygen saturation of 88% on room air",
-          "Blood pressure of 132/84 mmHg",
-          "Heart rate of 98 beats per minute"
-        ],
-        "correctAnswer": 1,
-        "rationale": "An oxygen saturation of 88% on room air indicates significant hypoxemia and requires immediate intervention. Normal oxygen saturation is 95-100%, and a level below 90% indicates the need for supplemental oxygen. The respiratory rate is slightly elevated but not severely. The blood pressure and heart rate are within acceptable ranges for a client with pulmonary embolism. Hypoxemia can rapidly worsen and lead to tissue damage if not addressed promptly."
-      },
-      {
-        "text": "A nurse is caring for a client with a nasogastric tube connected to low intermittent suction. Which finding indicates that the nasogastric tube is functioning properly?",
-        "category": "Gastrointestinal Management",
-        "choices": [
-          "Abdominal distention",
-          "pH of aspirate is 7.0",
-          "Return of greenish-brown fluid",
-          "Decreased bowel sounds"
+          "Prolonged PR interval",
+          "Shortened QT interval",
+          "Tall, peaked T waves",
+          "Depressed ST segment"
         ],
         "correctAnswer": 2,
-        "rationale": "The return of greenish-brown fluid (bile and gastric contents) indicates that the nasogastric tube is properly positioned in the stomach and functioning correctly. Abdominal distention would suggest that the tube is not effectively removing gastric contents. A pH of 7.0 is neutral and not consistent with gastric fluid (which typically has a pH of 1-4). Decreased bowel sounds could be related to several factors, including the underlying condition, and doesn't specifically indicate proper tube function."
+        "rationale": "Hyperkalemia (serum potassium >5.5 mEq/L) typically causes tall, peaked T waves, which is often the earliest ECG change seen. As hyperkalemia worsens, other changes may occur including widened QRS complexes and prolonged PR intervals. Shortened QT intervals and depressed ST segments are not characteristic ECG changes associated with hyperkalemia."
       },
       {
-        "text": "A client is scheduled for a colonoscopy tomorrow morning. Which instruction should the nurse include in the teaching plan?",
-        "category": "Gastrointestinal Procedures",
+        "text": "The nurse is educating a client about warfarin (Coumadin) therapy. Which statement by the client indicates a need for further teaching?",
+        "category": "Pharmacology",
         "choices": [
-          "Take all routine medications with a small sip of water on the morning of the procedure",
-          "Eat a light breakfast before coming to the hospital",
-          "Complete the bowel preparation as prescribed the day before the procedure",
-          "Stop clear liquids 2 hours before the procedure"
+          "'I should report unusual bleeding or bruising immediately.'",
+          "'I can take aspirin for a headache while on this medication.'",
+          "'I should wear medical identification stating I'm on Coumadin.'",
+          "'I need regular blood tests to monitor my INR levels.'"
+        ],
+        "correctAnswer": 1,
+        "rationale": "The client should not take aspirin while on warfarin therapy without healthcare provider approval. Aspirin has antiplatelet effects that can increase the anticoagulant effect of warfarin, significantly increasing bleeding risk. The other statements demonstrate correct understanding of warfarin therapy: reporting unusual bleeding, wearing medical ID, and getting regular INR monitoring."
+      },
+      {
+        "text": "A client who sustained burns to 40% of the body surface area is in the acute phase of burn management. The nurse's highest priority would be to:",
+        "category": "Integumentary",
+        "choices": [
+          "Maintain adequate nutritional status",
+          "Prevent wound infection",
+          "Ensure adequate fluid resuscitation",
+          "Manage pain effectively"
         ],
         "correctAnswer": 2,
-        "rationale": "Proper bowel preparation is essential for a successful colonoscopy. The client must complete the prescribed bowel preparation (usually a laxative solution) the day before the procedure to ensure the colon is clean and the physician can visualize the intestinal lining. The client should not eat breakfast on the day of the procedure, as they need to be NPO. Some medications may need to be held, especially anticoagulants. Clear liquids are typically allowed until 2-4 hours before the procedure, according to facility protocol."
-      },
-      {
-        "text": "A nurse is caring for a client who has just returned from surgery and has a patient-controlled analgesia (PCA) pump with morphine. Which assessment is most important to monitor?",
-        "category": "Pain Management",
-        "choices": [
-          "Urinary output",
-          "Respiratory status",
-          "Level of consciousness",
-          "Blood pressure"
-        ],
-        "correctAnswer": 1,
-        "rationale": "When a client is receiving opioid medications like morphine via PCA, respiratory depression is the most serious potential adverse effect. It is crucial to monitor the client's respiratory status, including respiratory rate, depth, and pattern. Respiratory depression can occur rapidly and be life-threatening. While urinary retention, altered level of consciousness, and hypotension are all possible side effects of morphine, respiratory status is the priority assessment because respiratory depression can be fatal if not detected quickly."
-      },
-      {
-        "text": "A nurse is caring for a client with acute pancreatitis. Which intervention is most important in the management of this client?",
-        "category": "Gastrointestinal Management",
-        "choices": [
-          "Administering pancreatic enzymes",
-          "Maintaining NPO status",
-          "Encouraging ambulation",
-          "Applying heat to the abdomen"
-        ],
-        "correctAnswer": 1,
-        "rationale": "Maintaining NPO (nothing by mouth) status is most important in the management of acute pancreatitis. Oral intake stimulates pancreatic secretions, which can worsen inflammation and pain. Resting the pancreas by withholding oral intake is a key management strategy. Pancreatic enzymes would not be given during an acute attack as they could stimulate the pancreas. Ambulation would be encouraged once the acute pain is controlled. Heat application to the abdomen is not a standard intervention for pancreatitis and could potentially increase blood flow to the inflamed area."
-      },
-      {
-        "text": "A client with chronic kidney disease is receiving hemodialysis. Which assessment finding would indicate that the arteriovenous fistula is functioning properly?",
-        "category": "Renal Management",
-        "choices": [
-          "Absence of a bruit over the site",
-          "Presence of a thrill over the site",
-          "Redness and warmth at the site",
-          "Coolness of the extremity distal to the site"
-        ],
-        "correctAnswer": 1,
-        "rationale": "The presence of a thrill (palpable vibration) over the arteriovenous fistula site indicates that the fistula is patent and functioning properly. A bruit (audible swishing sound) should also be present when auscultated, so absence of a bruit would indicate a problem. Redness and warmth could indicate infection, while coolness of the extremity distal to the site could suggest steal syndrome, both of which are complications of AV fistulas."
+        "rationale": "During the acute phase of burn management (first 24-48 hours), ensuring adequate fluid resuscitation is the highest priority. Massive fluid shifts occur with burns >20% BSA, leading to hypovolemic shock if not addressed promptly. While nutrition, infection prevention, and pain management are all important aspects of burn care, they become priorities after the initial fluid resuscitation has stabilized the client."
       }
     ]
   },
   "exam2": {
-    "title": "Next Generation NCLEX Practice Exam",
-    "description": "Practice with questions that reflect the new NGN format, focusing on clinical judgment and decision-making.",
+    "title": "Next Generation NCLEX Practice",
+    "description": "Practice with Next Generation NCLEX (NGN) question formats that test clinical judgment and critical thinking skills.",
     "items": [
       {
-        "text": "A nurse is assessing a client admitted with pneumonia. The client has a temperature of 102.5°F (39.2°C), respiratory rate of 28 breaths per minute, heart rate of 112 beats per minute, and blood pressure of 110/70 mmHg. Crackles are heard in the right lower lobe. What are the priority nursing interventions? Select all that apply.",
-        "category": "Respiratory Management",
+        "text": "The nurse is caring for a 72-year-old client admitted with pneumonia who has become increasingly confused over the past 8 hours. Vital signs: T 101.2°F, HR 110, RR 24, BP 110/68, O2 saturation 91% on 2L nasal cannula. The client is pulling at their IV line and oxygen tubing. Select all nursing actions that should be implemented at this time.",
+        "questionType": "multi-select",
         "choices": [
-          "Administer prescribed antibiotics",
-          "Provide supplemental oxygen as ordered",
-          "Position the client in high Fowler's position",
-          "Encourage deep breathing and coughing exercises",
-          "Administer antipyretics as prescribed",
-          "Restrict fluid intake"
+          "Apply soft restraints to prevent the client from removing the IV and oxygen",
+          "Assess for other causes of acute confusion such as medication effects or electrolyte imbalances",
+          "Reorient the client frequently and encourage family presence at bedside",
+          "Increase oxygen flow rate to 6L without healthcare provider order",
+          "Administer PRN antipyretic medication as ordered",
+          "Document the findings but take no immediate action as confusion is expected in elderly clients with infection"
         ],
-        "correctAnswer": [0, 1, 2, 3, 4],
-        "rationale": "The priority interventions for a client with pneumonia include: administering prescribed antibiotics (to treat the infection), providing supplemental oxygen (to improve oxygenation), positioning in high Fowler's position (to optimize lung expansion), encouraging deep breathing and coughing (to mobilize secretions), and administering antipyretics (to reduce fever). Restricting fluid intake would be inappropriate, as adequate hydration helps liquefy secretions and is important for a client with pneumonia."
+        "correctAnswer": [1, 2, 4],
+        "rationale": "This client is experiencing acute delirium likely related to their infection, hypoxia, and fever. Appropriate nursing actions include: assessing for other potential causes of confusion; reorienting the client and encouraging family presence (non-pharmacological interventions); and administering antipyretic medication to reduce fever, which can worsen confusion. Applying restraints should be a last resort after other interventions fail. Increasing oxygen without an order is outside nursing scope. Documenting without action is inappropriate for a change in mental status requiring intervention."
       },
       {
-        "text": "A client has been diagnosed with deep vein thrombosis (DVT) and started on warfarin (Coumadin) therapy. The nurse is providing discharge teaching. What should the nurse include in the discharge instructions? Select all that apply.",
-        "category": "Pharmacology",
+        "text": "A nurse is caring for a client who has just returned from surgery after a total knee replacement. The client reported their pain as 8/10 and received morphine 4mg IV 30 minutes ago. Now the client reports pain of 7/10 and is requesting more pain medication. The nurse notes the client's respiratory rate is 10, down from 16 pre-medication. Based on these findings, what should be the nurse's next actions? Select all that apply.",
+        "questionType": "multi-select",
         "choices": [
-          "Take the medication at the same time each day",
-          "Monitor for unusual bleeding or bruising",
-          "Avoid foods high in vitamin K",
-          "Take aspirin for minor pain",
-          "Report signs of unusual swelling in the extremities",
-          "Wear compression stockings as prescribed"
+          "Administer an additional dose of morphine immediately",
+          "Assess the client's sedation level and other vital signs",
+          "Notify the healthcare provider about the respiratory rate and insufficient pain relief",
+          "Reposition the client and apply cold therapy to the surgical site",
+          "Document that the client is seeking additional medication too soon and is drug-seeking",
+          "Administer naloxone to reverse the respiratory depression"
         ],
-        "correctAnswer": [0, 1, 2, 4, 5],
-        "rationale": "Discharge instructions for a client on warfarin therapy should include: taking the medication at the same time each day (for consistent blood levels), monitoring for unusual bleeding or bruising (side effect of anticoagulation), avoiding foods high in vitamin K (as they can counteract warfarin), reporting signs of unusual swelling (which could indicate worsening DVT), and wearing compression stockings as prescribed (to reduce swelling and prevent post-thrombotic syndrome). The client should avoid taking aspirin, as it increases the risk of bleeding when combined with warfarin."
+        "correctAnswer": [1, 2, 3],
+        "rationale": "The client has a decreased respiratory rate (10) which could indicate developing respiratory depression from opioids. The appropriate actions are to first assess the client's sedation level and other vital signs to evaluate the severity of the potential opioid effect, reposition and use non-pharmacological pain management, and notify the provider about both the respiratory rate change and insufficient pain control to get further orders. Administering more morphine could worsen respiratory depression. Labeling a client as drug-seeking is inappropriate. Naloxone would be used only for severe respiratory depression (RR <8 or other signs of significant opioid toxicity), which isn't yet indicated."
       },
       {
-        "text": "A nurse is caring for a client with diabetic ketoacidosis (DKA). The client has a blood glucose of 480 mg/dL, serum potassium of 5.8 mEq/L, and arterial pH of 7.21. The client is receiving IV insulin. Which interventions are appropriate for this client? Select all that apply.",
-        "category": "Endocrine Management",
+        "text": "A nurse is caring for a client with newly diagnosed type 1 diabetes. Which assessment findings would indicate that the client needs additional teaching about diabetic ketoacidosis (DKA)? Select all that apply.",
+        "questionType": "multi-select",
         "choices": [
-          "Administer IV normal saline",
-          "Monitor potassium levels closely",
-          "Administer sodium bicarbonate",
-          "Continue IV insulin as ordered",
-          "Provide oral carbohydrates",
-          "Monitor arterial blood gases"
+          "Client states they can stop taking insulin when sick and not eating",
+          "Client identifies thirst and frequent urination as early signs of DKA",
+          "Client plans to contact their provider if blood glucose exceeds 300 mg/dL and ketones are present in urine",
+          "Client states that DKA only occurs when blood sugar levels are very high",
+          "Client identifies fruity breath odor as a sign of DKA",
+          "Client states they will drink sugar-free fluids when blood glucose is elevated"
         ],
-        "correctAnswer": [0, 1, 3, 5],
-        "rationale": "Appropriate interventions for DKA include: administering IV normal saline (for fluid replacement), monitoring potassium levels (as insulin administration will drive potassium into cells, potentially causing hypokalemia), continuing IV insulin as ordered (to reduce blood glucose and correct metabolic acidosis), and monitoring arterial blood gases (to assess acid-base status). Sodium bicarbonate is not routinely recommended in DKA unless pH is extremely low (<7.0). Oral carbohydrates would be inappropriate during the acute phase of DKA treatment when the client is receiving IV insulin for hyperglycemia."
+        "correctAnswer": [0, 3],
+        "rationale": "Two statements indicate the need for additional teaching: 1) Client should never stop taking insulin when sick (even when not eating) as this can precipitate DKA; insulin needs might be adjusted but not eliminated. 2) DKA can sometimes occur with only moderately elevated blood glucose levels, particularly during illness or stress. The other statements demonstrate correct understanding: identifying symptoms of DKA (thirst, frequent urination, fruity breath), appropriate provider contact parameters, and proper fluid intake when blood glucose is elevated."
       },
       {
-        "text": "A nurse is caring for a client admitted with acute exacerbation of COPD. Which assessment findings would the nurse expect to see in this client? Select all that apply.",
-        "category": "Respiratory Assessment",
+        "text": "A nurse is caring for a client who is 2 days post-operative from abdominal surgery. The client's nasogastric (NG) tube was removed this morning. Now the client reports nausea, abdominal distention, and has vomited 100 mL of greenish fluid. Based on this assessment data, which interventions should the nurse implement? Select all that apply.",
+        "questionType": "multi-select",
         "choices": [
-          "Barrel chest",
-          "Use of accessory muscles",
-          "Prolonged expiratory phase",
-          "Inspiratory crackles",
-          "Pursed-lip breathing",
-          "Peripheral cyanosis"
+          "Administer the prescribed antiemetic medication",
+          "Encourage the client to increase oral intake to stimulate peristalsis",
+          "Position the client with the head of bed elevated at least 30 degrees",
+          "Notify the healthcare provider about the findings",
+          "Document the findings and reassess in 2 hours",
+          "Prepare for possible NG tube reinsertion"
         ],
-        "correctAnswer": [0, 1, 2, 4, 5],
-        "rationale": "Expected assessment findings in a client with COPD exacerbation include: barrel chest (due to hyperinflation), use of accessory muscles (indicating increased work of breathing), prolonged expiratory phase (due to airway obstruction), pursed-lip breathing (a compensatory mechanism to prevent airway collapse), and peripheral cyanosis (due to hypoxemia). Inspiratory crackles are more commonly associated with conditions like pneumonia or heart failure, not typical COPD, which is characterized by wheezes due to airway narrowing."
+        "correctAnswer": [0, 2, 3, 5],
+        "rationale": "The client is showing signs of paralytic ileus or small bowel obstruction after surgery. Appropriate interventions include: administering prescribed antiemetics to control nausea and vomiting; positioning with the head elevated to reduce risk of aspiration; notifying the provider as this is a significant post-op complication requiring evaluation; and preparing for possible NG tube reinsertion to decompress the stomach. Increasing oral intake would worsen the situation as the GI tract isn't functioning properly. While documentation is important, these symptoms require immediate action, not just reassessment in 2 hours."
       },
       {
-        "text": "A nurse is developing a care plan for a client with heart failure. Which interventions should be included? Select all that apply.",
-        "category": "Cardiac Management",
+        "text": "A nurse is admitting a client who experienced a syncopal episode. Which assessment findings would indicate the need for immediate intervention? Select all that apply.",
+        "questionType": "multi-select",
         "choices": [
-          "Weighing the client daily",
-          "Encouraging a liberal sodium diet",
-          "Elevating the head of the bed",
-          "Monitoring daily fluid intake and output",
-          "Administering medications as prescribed",
-          "Encouraging prolonged periods of activity"
+          "Blood pressure 90/60 mmHg with no symptoms",
+          "New onset of slurred speech",
+          "Heart rate of 48 beats per minute",
+          "Client report of mild dizziness when standing",
+          "ST-segment elevation on ECG",
+          "Temperature of 99.2°F (37.3°C)"
         ],
-        "correctAnswer": [0, 2, 3, 4],
-        "rationale": "Appropriate interventions for a client with heart failure include: weighing the client daily (to monitor fluid status), elevating the head of the bed (to decrease cardiac workload and improve breathing), monitoring daily fluid intake and output (to assess fluid balance), and administering medications as prescribed (such as diuretics, ACE inhibitors, beta-blockers). A sodium-restricted diet (not liberal sodium) is recommended to prevent fluid retention. Activity should be balanced with rest periods, not prolonged, to avoid cardiac stress."
+        "correctAnswer": [1, 4],
+        "rationale": "Two findings require immediate intervention: 1) New onset slurred speech could indicate a stroke or TIA, requiring immediate neurological assessment and intervention. 2) ST-segment elevation on ECG indicates possible myocardial infarction (heart attack) requiring immediate cardiac intervention. The other findings require monitoring but not immediate intervention: the blood pressure is low but asymptomatic; heart rate of 48 requires monitoring but isn't immediately dangerous if the client is stable; mild orthostatic dizziness is common after syncope; and a temperature of 99.2°F is only slightly elevated."
+      },
+      {
+        "text": "A nurse is preparing discharge teaching for a client who has been newly prescribed warfarin (Coumadin). Which information should the nurse include? Select all that apply.",
+        "questionType": "multi-select",
+        "choices": [
+          "Limit intake of green leafy vegetables while on warfarin",
+          "Take warfarin at the same time each day",
+          "Missing a dose is not a concern as long as blood tests are normal",
+          "Report unusual bruising or bleeding to the healthcare provider",
+          "Regular blood tests will be needed to monitor INR levels",
+          "Over-the-counter pain medications can be taken without consulting a healthcare provider"
+        ],
+        "correctAnswer": [0, 1, 3, 4],
+        "rationale": "Correct teaching for a client on warfarin includes: limiting intake of vitamin K-rich foods (green leafy vegetables) as they can decrease warfarin's effectiveness; taking the medication at the same time daily for consistent blood levels; reporting unusual bleeding or bruising as this may indicate an excessive anticoagulant effect; and understanding the need for regular INR monitoring. Missing doses can significantly affect anticoagulation and should not be minimized. OTC pain medications (especially NSAIDs) can interact with warfarin and increase bleeding risk, so the provider should be consulted before taking them."
+      },
+      {
+        "text": "A client with chronic kidney disease and hyperkalemia is receiving sodium polystyrene sulfonate (Kayexalate). Which nursing interventions are appropriate for this client? Select all that apply.",
+        "questionType": "multi-select",
+        "choices": [
+          "Monitor serum potassium levels before and after administration",
+          "Observe for constipation as a potential side effect",
+          "Administer the medication with sorbitol to prevent constipation",
+          "Monitor for hypokalemia as sodium is exchanged for potassium",
+          "Observe for diarrhea as a common side effect",
+          "Administer the medication with food to reduce GI discomfort"
+        ],
+        "correctAnswer": [0, 3, 4],
+        "rationale": "Appropriate nursing interventions for a client receiving Kayexalate include: monitoring serum potassium levels to evaluate treatment effectiveness; monitoring for hypokalemia which can occur as the resin exchanges sodium for potassium in the intestines; and observing for diarrhea, which is a common side effect. Constipation is not a side effect of Kayexalate; diarrhea is more common. While Kayexalate was historically administered with sorbitol, this practice is now discouraged due to risk of intestinal necrosis. The medication should be given separate from other oral medications, not necessarily with food, as it can bind with other drugs."
+      },
+      {
+        "text": "A nurse is caring for a client who has just been diagnosed with Guillain-Barré syndrome. Which assessments should the nurse prioritize for this client? Select all that apply.",
+        "questionType": "multi-select",
+        "choices": [
+          "Respiratory status including vital capacity and negative inspiratory force",
+          "Sensory function in extremities",
+          "Bowel sounds and abdominal assessment",
+          "Progression of ascending muscle weakness",
+          "Signs of autonomic dysfunction such as fluctuations in blood pressure or heart rate",
+          "Orientation and level of consciousness"
+        ],
+        "correctAnswer": [0, 3, 4],
+        "rationale": "Guillain-Barré syndrome is an ascending paralysis that can affect respiratory muscles and autonomic function. Priority assessments include: respiratory status (including measurements of respiratory muscle strength) as respiratory failure is a life-threatening complication; progression of ascending muscle weakness to monitor disease progression; and signs of autonomic dysfunction which can cause dangerous fluctuations in vital signs. While sensory function may be affected, motor weakness is the primary concern. Bowel sounds aren't a priority assessment unless there are GI symptoms. Orientation and level of consciousness typically remain intact in Guillain-Barré as it doesn't affect the brain."
+      },
+      {
+        "text": "A nurse is caring for a client with cirrhosis who is experiencing hepatic encephalopathy. Which interventions are appropriate for managing this client's condition? Select all that apply.",
+        "questionType": "multi-select",
+        "choices": [
+          "Administer lactulose as prescribed",
+          "Provide a high-protein diet to prevent muscle wasting",
+          "Monitor for asterixis and changes in level of consciousness",
+          "Restrict dietary protein intake as directed",
+          "Administer benzodiazepines for agitation",
+          "Implement safety precautions due to altered mental status"
+        ],
+        "correctAnswer": [0, 2, 3, 5],
+        "rationale": "Appropriate interventions for hepatic encephalopathy include: administering lactulose, which reduces ammonia production and absorption in the intestines; monitoring for asterixis (flapping tremor) and mental status changes, which are signs of worsening encephalopathy; restricting protein intake as directed (protein metabolism produces ammonia which worsens encephalopathy); and implementing safety precautions due to the client's altered mental status. A high-protein diet would worsen encephalopathy by increasing ammonia levels. Benzodiazepines should be avoided in patients with liver disease as they can worsen encephalopathy due to impaired metabolism."
+      },
+      {
+        "text": "A client with type 2 diabetes has a foot ulcer with signs of infection. The client has been prescribed an antibiotic and instructed on wound care. Which client statements indicate understanding of foot care management? Select all that apply.",
+        "questionType": "multi-select",
+        "choices": [
+          "\"I should soak my feet daily to keep the wound clean.\"",
+          "\"I need to inspect both feet daily for any new wounds or changes.\"",
+          "\"I should complete the full course of antibiotics even if the wound looks better.\"",
+          "\"I can continue to wear my regular shoes as long as they're comfortable.\"",
+          "\"I should contact my healthcare provider if I notice increased redness or drainage.\"",
+          "\"I can manage small foot wounds at home without medical attention.\""
+        ],
+        "correctAnswer": [1, 2, 4],
+        "rationale": "Statements that indicate understanding of proper foot care with diabetes include: inspecting feet daily for new wounds or changes (essential for early detection); completing the full course of antibiotics (necessary for complete eradication of infection); and contacting the provider for signs of worsening infection (increased redness or drainage). Soaking feet is not recommended for diabetic wounds as it can macerate healthy tissue. Specialized diabetic footwear is often needed with foot ulcers, not regular shoes. All foot wounds in diabetic clients require professional assessment due to the high risk of complications."
       }
     ]
   }
