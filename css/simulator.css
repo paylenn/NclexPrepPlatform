@@ -555,14 +555,29 @@
 
 .ngn-section {
     margin-bottom: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.ngn-section h3 {
+    background-color: #4290a9;
+    color: #fff;
+    padding: 15px 20px;
+    margin: 0;
+    font-size: 20px;
+}
+
+.ngn-section p {
+    padding: 15px 20px;
+    margin: 0;
+    color: #666;
+    border-bottom: 1px solid #eee;
 }
 
 .ngn-example {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+    padding: 20px;
 }
 
 /* Drag and Drop styles */
@@ -590,7 +605,7 @@
     padding: 10px 20px;
     text-align: center;
     color: #333;
-    font-size: 20px;
+    font-size: 18px;
     position: relative;
     margin-bottom: 20px;
     min-height: 60px;
@@ -615,17 +630,20 @@
     display: flex;
     align-items: center;
     width: 100%;
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
 }
 
 .action_box_first li:before {
     content: "\f0c9";
-    font: 20px/1 FontAwesome;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
     color: #4290a9;
     padding-right: 10px;
 }
 
-.droppable.active {
-    background-color: #f0f7fa;
+.action_box_first.droppable.active {
+    background-color: #e1f5fe;
 }
 
 /* Matrix styles */
@@ -636,7 +654,10 @@
 .matrix-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    gap: 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .matrix-header {
@@ -645,6 +666,11 @@
     padding: 10px;
     text-align: center;
     font-weight: bold;
+    border-right: 1px solid #fff;
+}
+
+.matrix-header:last-child {
+    border-right: none;
 }
 
 .matrix-cell {
@@ -656,10 +682,11 @@
 
 .matrix-cell.selectable {
     cursor: pointer;
+    background-color: #f0f0f0;
 }
 
 .matrix-cell.selectable:hover {
-    background-color: #f0f7fa;
+    background-color: #e1f5fe;
 }
 
 .matrix-cell.selected {
@@ -671,13 +698,16 @@
 .cloze-container {
     margin-top: 20px;
     line-height: 2;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
 }
 
 .cloze-dropdown {
     display: inline-block;
     min-width: 150px;
     padding: 8px 12px;
-    background-color: #f9f9f9;
+    background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 4px;
     cursor: pointer;
@@ -704,6 +734,11 @@
 .cloze-dropdown-option {
     padding: 8px 12px;
     cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.cloze-dropdown-option:last-child {
+    border-bottom: none;
 }
 
 .cloze-dropdown-option:hover {
@@ -714,10 +749,20 @@
     display: block;
 }
 
+.selected-option {
+    color: #666;
+}
+
 /* Highlighting styles */
 .highlight-container {
     margin-top: 20px;
-    line-height: 1.8;
+}
+
+.highlight-instruction {
+    margin-bottom: 10px;
+    font-style: italic;
+    color: #666;
+    padding: 0 15px;
 }
 
 .highlight-paragraph {
@@ -725,12 +770,22 @@
     padding: 20px;
     border: 1px solid #ddd;
     border-radius: 4px;
+    line-height: 1.8;
 }
 
-.highlight-instruction {
-    margin-bottom: 10px;
-    font-style: italic;
-    color: #666;
+/* Simulator CTA */
+.simulator-cta {
+    text-align: center;
+    margin: 40px 0;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.simulator-cta p {
+    font-size: 18px;
+    margin-bottom: 20px;
 }
 
 /* Responsive styles */
@@ -753,7 +808,7 @@
         width: 100%;
         height: auto;
         flex-direction: row;
-        padding: a10px;
+        padding: 10px;
         justify-content: center;
         gap: 10px;
     }
@@ -780,5 +835,11 @@
     
     .matrix-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .option-marker {
+        min-width: 25px;
+        height: 25px;
+        font-size: 14px;
     }
 }

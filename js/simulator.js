@@ -7,6 +7,8 @@ let simulatorQuestions = [];
 let currentSimType = '';
 
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Simulator script loaded');
+    
     // Load questions from our database
     fetch('../data/nclex-questions.json')
         .then(response => response.json())
@@ -35,10 +37,12 @@ document.addEventListener('DOMContentLoaded', function() {
  * Set up the simulator start buttons
  */
 function setupSimulatorButtons() {
+    console.log('Setting up simulator buttons');
     const startButtons = document.querySelectorAll('.start-sim');
     
     startButtons.forEach(button => {
         button.addEventListener('click', function() {
+            console.log('Start button clicked');
             const simType = this.getAttribute('data-sim');
             currentSimType = simType;
             showSimulationIntro(simType);
@@ -49,6 +53,7 @@ function setupSimulatorButtons() {
     const beginButton = document.querySelector('.begin-exam');
     if (beginButton) {
         beginButton.addEventListener('click', function() {
+            console.log('Begin exam button clicked');
             document.getElementById('simulation-intro').classList.add('hidden');
             startExamSimulation();
         });
@@ -60,6 +65,7 @@ function setupSimulatorButtons() {
  * @param {string} simType - The type of simulation
  */
 function showSimulationIntro(simType) {
+    console.log('Showing simulation intro for:', simType);
     const introScreen = document.getElementById('simulation-intro');
     const examTypeEl = document.getElementById('intro-exam-type');
     const timeEl = document.getElementById('intro-time');
@@ -95,11 +101,13 @@ function showSimulationIntro(simType) {
  * Start the exam simulation
  */
 function startExamSimulation() {
+    console.log('Starting exam simulation');
     const simulatorInterface = document.getElementById('simulator-interface');
     simulatorInterface.classList.remove('hidden');
     
     // Get simulation type
     const simType = localStorage.getItem('currentSimType') || 'practice-30';
+    console.log('Simulation type:', simType);
     
     // Set exam name in header
     const examNameEl = document.getElementById('exam-name');
@@ -189,10 +197,13 @@ function startExamTimer(simType) {
  * Set up interface controls
  */
 function setupInterfaceControls() {
+    console.log('Setting up interface controls');
+    
     // Pause button
     const pauseButton = document.getElementById('pause-exam');
     if (pauseButton) {
         pauseButton.addEventListener('click', function() {
+            console.log('Pause button clicked');
             document.getElementById('pause-screen').classList.remove('hidden');
         });
     }
@@ -201,6 +212,7 @@ function setupInterfaceControls() {
     const resumeButton = document.querySelector('.resume-exam');
     if (resumeButton) {
         resumeButton.addEventListener('click', function() {
+            console.log('Resume button clicked');
             document.getElementById('pause-screen').classList.add('hidden');
         });
     }
@@ -209,6 +221,7 @@ function setupInterfaceControls() {
     const endButton = document.getElementById('end-exam');
     if (endButton) {
         endButton.addEventListener('click', function() {
+            console.log('End exam button clicked');
             document.getElementById('end-confirmation').classList.remove('hidden');
         });
     }
@@ -217,6 +230,7 @@ function setupInterfaceControls() {
     const cancelEndButton = document.querySelector('.cancel-end');
     if (cancelEndButton) {
         cancelEndButton.addEventListener('click', function() {
+            console.log('Cancel end button clicked');
             document.getElementById('end-confirmation').classList.add('hidden');
         });
     }
@@ -225,6 +239,7 @@ function setupInterfaceControls() {
     const confirmEndButton = document.querySelector('.confirm-end');
     if (confirmEndButton) {
         confirmEndButton.addEventListener('click', function() {
+            console.log('Confirm end button clicked');
             document.getElementById('end-confirmation').classList.add('hidden');
             endExam();
         });
@@ -282,10 +297,14 @@ function setupInterfaceControls() {
  * Set up tool panels
  */
 function setupToolPanels() {
+    console.log('Setting up tool panels');
+    
     // Calculator button
     const calculatorBtn = document.getElementById('calculator-btn');
     if (calculatorBtn) {
+        console.log('Calculator button found');
         calculatorBtn.addEventListener('click', function() {
+            console.log('Calculator button clicked');
             const calculatorPanel = document.getElementById('calculator-panel');
             calculatorPanel.classList.toggle('hidden');
             
@@ -294,12 +313,15 @@ function setupToolPanels() {
                 setupCalculator();
             }
         });
+    } else {
+        console.log('Calculator button not found');
     }
     
     // Notes button
     const notesBtn = document.getElementById('notes-btn');
     if (notesBtn) {
         notesBtn.addEventListener('click', function() {
+            console.log('Notes button clicked');
             const notesPanel = document.getElementById('notes-panel');
             notesPanel.classList.toggle('hidden');
         });
@@ -309,6 +331,7 @@ function setupToolPanels() {
     const highlightBtn = document.getElementById('highlight-btn');
     if (highlightBtn) {
         highlightBtn.addEventListener('click', function() {
+            console.log('Highlight button clicked');
             this.classList.toggle('active');
             
             if (this.classList.contains('active')) {
@@ -325,6 +348,7 @@ function setupToolPanels() {
     const strikethroughBtn = document.getElementById('strikethrough-btn');
     if (strikethroughBtn) {
         strikethroughBtn.addEventListener('click', function() {
+            console.log('Strikethrough button clicked');
             this.classList.toggle('active');
             
             if (this.classList.contains('active')) {
@@ -341,6 +365,7 @@ function setupToolPanels() {
     const closePanelButtons = document.querySelectorAll('.close-panel');
     closePanelButtons.forEach(button => {
         button.addEventListener('click', function() {
+            console.log('Close panel button clicked');
             this.closest('.tool-panel').classList.add('hidden');
         });
     });
@@ -350,6 +375,7 @@ function setupToolPanels() {
  * Set up calculator functionality
  */
 function setupCalculator() {
+    console.log('Setting up calculator');
     const display = document.getElementById('calc-display');
     const buttons = document.querySelectorAll('.calc-btn');
     
@@ -361,10 +387,15 @@ function setupCalculator() {
     display.value = '0';
     
     buttons.forEach(button => {
-        button.addEventListener('click', function() {
-            const value = this.textContent;
+        // Remove any existing event listeners
+        const newButton = button.cloneNode(true);
+        button.parentNode.replaceChild(newButton, button);
+        
+        newButton.addEventListener('click', function() {
+            const value = this.textContent.trim();
+            console.log('Calculator button clicked:', value);
             
-            if (value >= '0' && value <= '9' || value === '.') {
+            if ((value >= '0' && value <= '9') || value === '.') {
                 if (currentValue === '0' && value !== '.') {
                     currentValue = value;
                 } else {
@@ -442,6 +473,7 @@ function calculate(a, b, op) {
  * Enable highlighting mode
  */
 function enableHighlighting() {
+    console.log('Enabling highlighting mode');
     // Implementation would depend on the question content
     const questionContent = document.querySelector('.question-content');
     
@@ -453,6 +485,7 @@ function enableHighlighting() {
  * Disable highlighting mode
  */
 function disableHighlighting() {
+    console.log('Disabling highlighting mode');
     const questionContent = document.querySelector('.question-content');
     
     questionContent.style.cursor = '';
@@ -463,6 +496,7 @@ function disableHighlighting() {
  * Highlight selected text
  */
 function highlightSelection() {
+    console.log('Highlighting selection');
     const selection = window.getSelection();
     
     if (selection.rangeCount > 0) {
@@ -488,6 +522,7 @@ function highlightSelection() {
  * Enable strikethrough mode
  */
 function enableStrikethrough() {
+    console.log('Enabling strikethrough mode');
     // Add click event to options
     const options = document.querySelectorAll('.option');
     
@@ -500,6 +535,7 @@ function enableStrikethrough() {
  * Disable strikethrough mode
  */
 function disableStrikethrough() {
+    console.log('Disabling strikethrough mode');
     const options = document.querySelectorAll('.option');
     
     options.forEach(option => {
@@ -511,6 +547,7 @@ function disableStrikethrough() {
  * Toggle strikethrough on an option
  */
 function toggleStrikethrough() {
+    console.log('Toggling strikethrough');
     this.classList.toggle('strikethrough');
 }
 
@@ -519,6 +556,7 @@ function toggleStrikethrough() {
  * @param {number} questionNumber - The question number to load
  */
 function loadQuestion(questionNumber) {
+    console.log('Loading question:', questionNumber);
     // Update current question display
     const currentQuestionEl = document.getElementById('current-question');
     currentQuestionEl.textContent = questionNumber;
@@ -555,9 +593,10 @@ function loadQuestion(questionNumber) {
         `;
         
         // Add click handler for option selection
-        optionElement.addEventListener('click', function() {
+        optionElement.addEventListener('click', function(event) {
             // If strikethrough mode is active, don't select
             if (document.getElementById('strikethrough-btn').classList.contains('active')) {
+                console.log('Strikethrough mode active, not selecting option');
                 return;
             }
             
@@ -665,6 +704,7 @@ function getSampleQuestions() {
  * End the exam
  */
 function endExam() {
+    console.log('Ending exam');
     // Clear timer interval
     clearInterval(window.examTimerInterval);
     
@@ -679,6 +719,7 @@ function endExam() {
  * Show exam results
  */
 function showResults() {
+    console.log('Showing exam results');
     const resultsScreen = document.getElementById('results-screen');
     
     // Calculate results
@@ -720,8 +761,12 @@ function showResults() {
     
     // Get time used
     const endTime = parseInt(localStorage.getItem('examEndTime') || '0');
-    const timeUsed = Math.max(0, Math.floor((endTime - Date.now()) / 1000));
-    const totalSeconds = Math.abs(timeUsed);
+    const currentTime = Date.now();
+    const timeUsed = Math.max(0, Math.floor((endTime - currentTime) / 1000));
+    const totalSeconds = endTime > currentTime ? 
+                         timeUsed : 
+                         Math.floor((currentTime - (endTime - getTotalTime(currentSimType))) / 1000);
+    
     const hours = Math.floor(totalSeconds / 3600);
     const minutes = Math.floor((totalSeconds % 3600) / 60);
     
@@ -772,9 +817,28 @@ function showResults() {
 }
 
 /**
+ * Get total exam time in seconds based on simulation type
+ * @param {string} simType - The type of simulation
+ * @returns {number} - Total time in seconds
+ */
+function getTotalTime(simType) {
+    switch(simType) {
+        case 'rn-75':
+            return 120 * 60 * 1000; // 2 hours in milliseconds
+        case 'ngn-full':
+            return 300 * 60 * 1000; // 5 hours in milliseconds
+        case 'practice-30':
+            return 30 * 60 * 1000; // 30 minutes in milliseconds
+        default:
+            return 120 * 60 * 1000; // Default to 2 hours in milliseconds
+    }
+}
+
+/**
  * Initialize NGN Examples
  */
 function initializeNGNExamples() {
+    console.log('Initializing NGN examples');
     setupMatrixExample();
     setupClozeExample();
     setupHighlightingExample();
@@ -786,6 +850,7 @@ function initializeNGNExamples() {
  * Set up the NGN simulator buttons
  */
 function setupNGNSimulatorButtons() {
+    console.log('Setting up NGN simulator buttons');
     const ngnSimButton = document.querySelector('.simulator-cta .start-sim');
     if (ngnSimButton) {
         ngnSimButton.addEventListener('click', function() {
@@ -799,6 +864,7 @@ function setupNGNSimulatorButtons() {
  * Set up matrix example
  */
 function setupMatrixExample() {
+    console.log('Setting up matrix example');
     const matrixCells = document.querySelectorAll('.matrix-cell.selectable');
     
     matrixCells.forEach(cell => {
@@ -817,6 +883,7 @@ function setupMatrixExample() {
  * Set up cloze (dropdown) example
  */
 function setupClozeExample() {
+    console.log('Setting up cloze example');
     const dropdowns = document.querySelectorAll('.cloze-dropdown');
     
     dropdowns.forEach(dropdown => {
@@ -850,6 +917,7 @@ function setupClozeExample() {
  * Set up highlighting example
  */
 function setupHighlightingExample() {
+    console.log('Setting up highlighting example');
     const paragraph = document.querySelector('.highlight-paragraph');
     
     if (paragraph) {
@@ -881,6 +949,8 @@ function setupHighlightingExample() {
  * Set up drag and drop example for NGN questions
  */
 function setupDragAndDropExample() {
+    console.log('Setting up drag and drop example');
+    
     if (typeof jQuery === 'undefined') {
         console.error('jQuery is required for drag and drop functionality');
         return;
