@@ -1,501 +1,223 @@
-/* NCLEX Simulator Styles - Dark Theme */
-
-/* Main simulator elements */
-.simulator-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+/* Reset hidden class */
+.hidden {
+    display: none !important;
 }
 
-/* Simulation Cards */
-.card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-}
-
-/* Simulation Introduction */
-#simulation-intro {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.intro-container {
-    background-color: #212529;
-    border-radius: 10px;
-    padding: 40px;
-    max-width: 600px;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.intro-title {
-    font-size: 28px;
-    margin-bottom: 20px;
-}
-
-.intro-info {
-    margin-bottom: 30px;
-}
-
-/* Simulator Interface */
+/* Simulation Interface Layout */
 #simulator-interface {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #2b3035;
+    background-color: #f5f5f5;
     z-index: 1000;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
 }
 
-.exam-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.exam-title {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.exam-controls {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-}
-
-.exam-timer {
-    background-color: var(--bs-primary);
-    padding: 8px 12px;
-    border-radius: 4px;
-    font-weight: bold;
-}
-
-.control-btn {
-    background-color: #495057;
-    color: #fff;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.control-btn:hover {
-    background-color: #6c757d;
-}
-
 .exam-main {
-    flex: 1;
     display: flex;
+    flex: 1;
     overflow: hidden;
 }
 
 .question-container {
     flex: 1;
-    padding: 20px;
+    padding: 30px;
     overflow-y: auto;
 }
 
-.question-number {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    font-size: 18px;
-}
-
-.question-content {
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    margin-bottom: 20px;
-}
-
-.question-stem {
-    margin-bottom: 20px;
-    line-height: 1.6;
-    font-size: 16px;
-}
-
-.question-options {
+.toolbox {
+    width: 80px;
+    background-color: white;
+    border-right: 1px solid #e9ecef;
+    padding: 20px 0;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    align-items: center;
 }
 
+/* Tool panels positioning */
+.tool-panel {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 350px;
+    z-index: 1100;
+}
+
+#calculator-panel .calculator {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+}
+
+#calculator-panel .calculator .calc-btn {
+    height: 50px;
+    font-weight: 700;
+}
+
+#notes-panel {
+    width: 500px;
+}
+
+#notes-panel .notes-content {
+    height: 300px;
+    resize: none;
+}
+
+/* Options styling */
 .option {
     display: flex;
-    align-items: flex-start;
-    background-color: #343a40;
-    border: 1px solid #495057;
-    border-radius: 5px;
+    align-items: center;
     padding: 15px;
     cursor: pointer;
-    transition: background-color 0.2s;
+    margin-bottom: 10px;
 }
 
-.option:hover {
-    background-color: #495057;
-}
-
-.option.selected {
-    background-color: rgba(13, 110, 253, 0.2);
-    border-color: var(--bs-primary);
-}
-
-.option.strikethrough {
+.option.strike {
     text-decoration: line-through;
-    opacity: 0.7;
-}
-
-.option-marker {
-    min-width: 30px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--bs-primary);
-    color: #fff;
-    border-radius: 50%;
-    margin-right: 10px;
-    font-weight: bold;
+    color: #6c757d;
 }
 
 .option-text {
     flex: 1;
-    padding-top: 5px;
 }
 
-.highlighted-text {
-    background-color: rgba(255, 193, 7, 0.5);
-    border-radius: 2px;
-}
-
-.tool-panel {
-    position: absolute;
-    top: 100px;
-    right: 20px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    width: 300px;
-    z-index: 100;
-}
-
-.panel-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 15px;
-    border-radius: 10px 10px 0 0;
-}
-
-.panel-title {
-    font-weight: bold;
-}
-
-.close-panel {
-    background: none;
-    border: none;
-    color: #fff;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-.panel-content {
-    padding: 15px;
-}
-
-/* Calculator Panel */
-.calculator {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 5px;
-    margin-top: 10px;
-}
-
-.calc-display {
-    grid-column: 1 / span 4;
-    padding: 10px;
-    margin-bottom: 10px;
-    text-align: right;
-    font-size: 20px;
-}
-
-.calc-btn {
-    padding: 10px;
-    background-color: #343a40;
-    color: #fff;
-    border: 1px solid #495057;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    text-align: center;
-    transition: background-color 0.2s;
-}
-
-.calc-btn:hover {
-    background-color: #495057;
-}
-
-.calc-btn-op {
-    background-color: #495057;
-}
-
-.calc-btn-eq {
-    background-color: var(--bs-primary);
-}
-
-/* Notes Panel */
-.notes-content {
-    width: 100%;
-    min-height: 200px;
-    padding: 10px;
-    resize: vertical;
-    font-family: inherit;
-}
-
-/* Navigation Buttons */
-.navigation-buttons {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
-    gap: 10px;
-}
-
-/* Toolbox */
-.toolbox {
-    width: 80px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 10px;
-}
-
-.tool-btn {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #343a40;
-    color: #fff;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.tool-btn:hover {
-    background-color: #495057;
-}
-
-.tool-btn.active {
-    background-color: var(--bs-primary);
-}
-
-/* Pause Screen */
-#pause-screen,
-#end-confirmation {
+/* Overlay screens */
+#simulation-intro, #pause-screen, #end-confirmation, #results-screen {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: rgba(0, 0, 0, 0.8);
     z-index: 2000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.pause-container,
-.confirm-container {
+/* Progress bar */
+.progress {
+    background-color: #e9ecef;
     border-radius: 10px;
-    padding: 30px;
-    max-width: 500px;
-    text-align: center;
-}
-
-.pause-title,
-.confirm-title {
-    margin-top: 0;
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-.pause-text,
-.confirm-text {
-    margin-bottom: 30px;
-    line-height: 1.6;
-}
-
-.pause-buttons,
-.confirm-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-/* Results Screen */
-#results-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #2b3035;
-    z-index: 1000;
-    padding: 40px;
-    overflow-y: auto;
-    display: flex;
-    justify-content: center;
-}
-
-.results-container {
-    max-width: 800px;
-    border-radius: 10px;
-    padding: 40px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-.results-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.results-title {
-    font-size: 28px;
-    margin-bottom: 10px;
-}
-
-.results-stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    margin-bottom: 30px;
-}
-
-.stats-item {
-    border-radius: 8px;
-    padding: 20px;
-    text-align: center;
-}
-
-.stats-value {
-    font-size: 32px;
-    font-weight: bold;
-    color: var(--bs-primary);
-    margin-bottom: 5px;
-}
-
-.stats-label {
-    color: #adb5bd;
-}
-
-.results-breakdown {
-    margin-bottom: 30px;
-}
-
-.results-breakdown h3 {
-    font-size: 20px;
-    margin-bottom: 15px;
-}
-
-.results-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 30px;
-}
-
-/* Utility Classes */
-.hidden {
-    display: none !important;
-}
-
-/* Next Generation NCLEX Styles */
-.ngn-container {
-    margin-top: 30px;
-}
-
-.ngn-section {
-    margin-bottom: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     overflow: hidden;
 }
 
-.ngn-section h3 {
-    background-color: var(--bs-primary);
-    color: #fff;
-    padding: 15px 20px;
-    margin: 0;
-    font-size: 20px;
+.progress-bar {
+    background: linear-gradient(to right, #0062E6, #33AEFF);
+    transition: width 0.3s ease;
 }
 
-.ngn-section p {
-    padding: 15px 20px;
-    margin: 0;
-    color: #adb5bd;
-    border-bottom: 1px solid #343a40;
+/* NGN Question Types */
+.matrix-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
 }
 
-.ngn-example {
+.matrix-cell {
+    border: 1px solid #dee2e6;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.matrix-cell:hover {
+    background-color: #f8f9fa;
+}
+
+.matrix-cell.selected {
+    border-color: #0d6efd;
+    background-color: rgba(13, 110, 253, 0.1);
+}
+
+.cloze-dropdown {
+    display: inline-block;
+    min-width: 150px;
+    position: relative;
+}
+
+.highlight-region {
+    background-color: rgba(255, 193, 7, 0.3);
+    cursor: text;
+}
+
+.highlight-text {
+    background-color: rgba(255, 193, 7, 0.5);
+}
+
+.draggable-item {
+    background-color: white;
+    border: 1px solid #dee2e6;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    cursor: grab;
+    transition: all 0.2s ease;
+}
+
+.draggable-item:hover {
+    background-color: #f8f9fa;
+}
+
+.drop-zone {
+    background-color: #f8f9fa;
+    border: 2px dashed #dee2e6;
     padding: 20px;
+    min-height: 100px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: all 0.2s ease;
 }
 
-/* Responsive styles */
-@media screen and (max-width: 768px) {
-    .exam-main {
+.drop-zone.highlight {
+    border-color: #0d6efd;
+    background-color: rgba(13, 110, 253, 0.05);
+}
+
+.drag-item-placed {
+    margin-bottom: 10px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .exam-header {
         flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .exam-controls {
+        margin-top: 10px;
     }
     
     .toolbox {
-        width: 100%;
-        height: auto;
-        flex-direction: row;
-        padding: 10px;
-        justify-content: center;
-        gap: 10px;
+        width: 60px;
     }
     
     .tool-btn {
-        margin-bottom: 0;
+        width: 40px;
+        height: 40px;
+    }
+    
+    .intro-container {
+        width: 90%;
+        padding: 2rem;
     }
     
     .tool-panel {
-        top: 150px;
-        right: 10px;
-        width: calc(100% - 20px);
-        max-width: 400px;
+        width: 90%;
+        max-width: 350px;
     }
     
-    .option-marker {
-        min-width: 25px;
-        height: 25px;
-        font-size: 14px;
-    }
-    
-    .results-stats {
-        grid-template-columns: 1fr;
+    #notes-panel {
+        width: 90%;
+        max-width: 450px;
     }
 }
