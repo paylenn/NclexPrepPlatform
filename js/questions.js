@@ -35,64 +35,90 @@ function initializePracticeExam() {
  */
 function setupExamQuestions(examType) {
     // Load questions from JSON file
-    fetch('../data/practice-questions.json')
-        .then(response => response.json())
+    fetch('/data/practice-questions.json')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(data => {
             let questions;
             
-            // Set questions based on exam type
-            switch(examType) {
-                case 'exam1':
-                    questions = data.exam1;
-                    document.getElementById('exam-title').textContent = 'NCLEX-RN Practice Exam 1';
-                    break;
-                case 'exam2':
-                    questions = data.exam2;
-                    document.getElementById('exam-title').textContent = 'NCLEX-RN Practice Exam 2';
-                    break;
-                case 'ngn':
-                    questions = data.ngn;
-                    document.getElementById('exam-title').textContent = 'Next Generation NCLEX Practice';
-                    break;
-                default:
-                    questions = data.practice;
-                    document.getElementById('exam-title').textContent = 'NCLEX Practice Questions';
+            // In case the data structure is different, check if questions array exists
+            if (data.questions && Array.isArray(data.questions)) {
+                questions = data.questions;
+            } else if (data.practice && Array.isArray(data.practice)) {
+                questions = data.practice;
+            } else {
+                console.error('Unexpected data structure:', data);
+                throw new Error('Questions data is in an unexpected format');
+            }
+            
+            // Set title based on exam type
+            let examTitle = 'NCLEX Practice Questions';
+            if (document.getElementById('exam-title')) {
+                document.getElementById('exam-title').textContent = examTitle;
             }
             
             // Save questions to session storage
             sessionStorage.setItem('currentQuestions', JSON.stringify(questions));
             
-            // Update total questions count
-            document.getElementById('total-questions').textContent = questions.length;
+            // Update total questions count if element exists
+            if (document.getElementById('total-questions')) {
+                document.getElementById('total-questions').textContent = questions.length;
+            }
             
             // Display first question
             displayQuestion(0);
             
-            // Setup next/prev buttons
-            document.getElementById('next-btn').addEventListener('click', () => {
-                const currentIndex = parseInt(document.getElementById('current-question').textContent) - 1;
-                if (currentIndex < questions.length - 1) {
-                    displayQuestion(currentIndex + 1);
-                }
-            });
+            // Setup next/prev buttons if they exist
+            if (document.getElementById('next-btn')) {
+                document.getElementById('next-btn').addEventListener('click', () => {
+                    const currentIndex = parseInt(document.getElementById('current-question').textContent) - 1;
+                    if (currentIndex < questions.length - 1) {
+                        displayQuestion(currentIndex + 1);
+                    }
+                });
+            }
             
-            document.getElementById('prev-btn').addEventListener('click', () => {
-                const currentIndex = parseInt(document.getElementById('current-question').textContent) - 1;
-                if (currentIndex > 0) {
-                    displayQuestion(currentIndex - 1);
-                }
-            });
+            if (document.getElementById('prev-btn')) {
+                document.getElementById('prev-btn').addEventListener('click', () => {
+                    const currentIndex = parseInt(document.getElementById('current-question').textContent) - 1;
+                    if (currentIndex > 0) {
+                        displayQuestion(currentIndex - 1);
+                    }
+                });
+            }
             
-            // Setup show answer button
-            document.getElementById('show-answer-btn').addEventListener('click', () => {
-                const currentIndex = parseInt(document.getElementById('current-question').textContent) - 1;
-                showAnswerRationale(currentIndex);
-            });
+            // Setup show answer button if it exists
+            if (document.getElementById('show-answer-btn')) {
+                document.getElementById('show-answer-btn').addEventListener('click', () => {
+                    const currentIndex = parseInt(document.getElementById('current-question').textContent) - 1;
+                    showAnswerRationale(currentIndex);
+                });
+            }
             
-            // Setup finish exam button
-            document.getElementById('finish-exam-btn').addEventListener('click', showExamResults);
+            // Setup finish exam button if it exists
+            if (document.getElementById('finish-exam-btn')) {
+                document.getElementById('finish-exam-btn').addEventListener('click', showExamResults);
+            }
         })
-        .catch(error => console.error('Error loading questions:', error));
+        .catch(error => {
+            console.error('Error loading questions:', error);
+            
+            // Show a user-friendly error message
+            const questionContainer = document.querySelector('.question-container');
+            if (questionContainer) {
+                questionContainer.innerHTML = `
+                    <div class="alert alert-danger">
+                        <h4>Error Loading Questions</h4>
+                        <p>We encountered an error while loading the practice questions. Please try refreshing the page.</p>
+                        <button class="btn btn-primary mt-3" onclick="location.reload()">Refresh Page</button>
+                    </div>
+                `;
+            }
+        });
 }
 
 /**
@@ -100,59 +126,110 @@ function setupExamQuestions(examType) {
  * @param {number} index - The index of the question to display
  */
 function displayQuestion(index) {
-    const questions = JSON.parse(sessionStorage.getItem('currentQuestions'));
-    const question = questions[index];
-    
-    // Update current question number
-    document.getElementById('current-question').textContent = index + 1;
-    
-    // Update question content
-    document.getElementById('question-stem').innerHTML = question.stem;
-    
-    // Update options
-    const optionsContainer = document.getElementById('question-options');
-    optionsContainer.innerHTML = '';
-    
-    question.options.forEach((option, i) => {
-        const optionElement = document.createElement('div');
-        optionElement.className = 'option';
-        optionElement.innerHTML = `
-            <div class="option-marker">${String.fromCharCode(65 + i)}</div>
-            <div class="option-text">${option}</div>
-        `;
+    try {
+        const questions = JSON.parse(sessionStorage.getItem('currentQuestions'));
+        const question = questions[index];
         
-        // Add click handler
-        optionElement.addEventListener('click', function() {
-            // Remove selected class from all options
-            document.querySelectorAll('.option').forEach(opt => {
-                opt.classList.remove('selected');
+        if (!question) {
+            throw new Error(`Question at index ${index} not found`);
+        }
+        
+        // Get elements (check if they exist first)
+        const currentQuestionEl = document.getElementById('current-question');
+        const questionStemEl = document.getElementById('question-stem');
+        const optionsContainer = document.getElementById('question-options');
+        const rationaleContainer = document.getElementById('answer-rationale');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        
+        // Update current question number if element exists
+        if (currentQuestionEl) {
+            currentQuestionEl.textContent = index + 1;
+        }
+        
+        // Update question content if element exists
+        if (questionStemEl) {
+            // Handle different JSON structures - some use stem, others use text
+            const questionText = question.stem || question.text;
+            questionStemEl.innerHTML = questionText;
+        }
+        
+        // Update options if container exists
+        if (optionsContainer) {
+            optionsContainer.innerHTML = '';
+            
+            // Check if options exist in the question object
+            const options = question.options;
+            if (!options || !Array.isArray(options)) {
+                optionsContainer.innerHTML = '<div class="alert alert-warning">No answer options available for this question.</div>';
+                return;
+            }
+            
+            options.forEach((option, i) => {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'option';
+                optionElement.innerHTML = `
+                    <div class="option-marker">${String.fromCharCode(65 + i)}</div>
+                    <div class="option-text">${option}</div>
+                `;
+                
+                // Add click handler
+                optionElement.addEventListener('click', function() {
+                    // Remove selected class from all options
+                    document.querySelectorAll('.option').forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    
+                    // Add selected class to clicked option
+                    this.classList.add('selected');
+                    
+                    // Save answer
+                    const answers = JSON.parse(sessionStorage.getItem('examAnswers') || '{}');
+                    answers[index] = i;
+                    sessionStorage.setItem('examAnswers', JSON.stringify(answers));
+                });
+                
+                optionsContainer.appendChild(optionElement);
             });
             
-            // Add selected class to clicked option
-            this.classList.add('selected');
-            
-            // Save answer
+            // Check if there's a saved answer for this question
             const answers = JSON.parse(sessionStorage.getItem('examAnswers') || '{}');
-            answers[index] = i;
-            sessionStorage.setItem('examAnswers', JSON.stringify(answers));
-        });
+            if (answers[index] !== undefined) {
+                const optionElements = optionsContainer.querySelectorAll('.option');
+                if (optionElements.length > answers[index]) {
+                    optionElements[answers[index]].classList.add('selected');
+                }
+            }
+        }
         
-        optionsContainer.appendChild(optionElement);
-    });
-    
-    // Check if there's a saved answer for this question
-    const answers = JSON.parse(sessionStorage.getItem('examAnswers') || '{}');
-    if (answers[index] !== undefined) {
-        const options = document.querySelectorAll('.option');
-        options[answers[index]].classList.add('selected');
+        // Hide answer rationale if element exists
+        if (rationaleContainer) {
+            rationaleContainer.classList.add('hidden');
+        }
+        
+        // Update prev/next button states if they exist
+        if (prevBtn) {
+            prevBtn.disabled = index === 0;
+        }
+        
+        if (nextBtn) {
+            nextBtn.disabled = index === questions.length - 1;
+        }
+    } catch (error) {
+        console.error('Error displaying question:', error);
+        
+        // Show a user-friendly error message
+        const questionContainer = document.querySelector('.question-container');
+        if (questionContainer) {
+            questionContainer.innerHTML = `
+                <div class="alert alert-danger">
+                    <h4>Error Displaying Question</h4>
+                    <p>We encountered an error while displaying this question. Please try refreshing the page.</p>
+                    <button class="btn btn-primary mt-3" onclick="location.reload()">Refresh Page</button>
+                </div>
+            `;
+        }
     }
-    
-    // Hide answer rationale
-    document.getElementById('answer-rationale').classList.add('hidden');
-    
-    // Update prev/next button states
-    document.getElementById('prev-btn').disabled = index === 0;
-    document.getElementById('next-btn').disabled = index === questions.length - 1;
 }
 
 /**
@@ -160,26 +237,70 @@ function displayQuestion(index) {
  * @param {number} index - The index of the question
  */
 function showAnswerRationale(index) {
-    const questions = JSON.parse(sessionStorage.getItem('currentQuestions'));
-    const question = questions[index];
-    
-    const rationaleContainer = document.getElementById('answer-rationale');
-    rationaleContainer.innerHTML = `
-        <h3>Correct Answer: ${String.fromCharCode(65 + question.correctAnswer)}</h3>
-        <div class="rationale-content">${question.rationale}</div>
-    `;
-    
-    rationaleContainer.classList.remove('hidden');
-    
-    // Highlight correct answer
-    const options = document.querySelectorAll('.option');
-    options.forEach((option, i) => {
-        if (i === question.correctAnswer) {
-            option.classList.add('correct');
-        } else {
-            option.classList.remove('correct');
+    try {
+        const questions = JSON.parse(sessionStorage.getItem('currentQuestions'));
+        const question = questions[index];
+        
+        if (!question) {
+            throw new Error(`Question at index ${index} not found`);
         }
-    });
+        
+        const rationaleContainer = document.getElementById('answer-rationale');
+        if (!rationaleContainer) {
+            console.error('Answer rationale container not found');
+            return;
+        }
+        
+        // Handle different JSON structures for correctAnswer and explanations
+        const correctAnswer = question.correctAnswer !== undefined ? question.correctAnswer : question.correct_answer;
+        const rationaleText = question.rationale || question.explanation || "No explanation provided for this question.";
+        
+        if (correctAnswer === undefined) {
+            console.error('Correct answer not found in question data');
+            rationaleContainer.innerHTML = `
+                <div class="alert alert-warning">
+                    <h4>Information Missing</h4>
+                    <p>The correct answer information is not available for this question.</p>
+                </div>
+            `;
+            rationaleContainer.classList.remove('hidden');
+            return;
+        }
+        
+        // Create the rationale content
+        rationaleContainer.innerHTML = `
+            <h3>Correct Answer: ${String.fromCharCode(65 + correctAnswer)}</h3>
+            <div class="rationale-content">${rationaleText}</div>
+        `;
+        
+        rationaleContainer.classList.remove('hidden');
+        
+        // Highlight correct answer if options are available
+        const options = document.querySelectorAll('.option');
+        if (options.length > 0) {
+            options.forEach((option, i) => {
+                if (i === correctAnswer) {
+                    option.classList.add('correct');
+                } else {
+                    option.classList.remove('correct');
+                }
+            });
+        }
+    } catch (error) {
+        console.error('Error showing answer rationale:', error);
+        
+        // Display user-friendly error in the rationale container
+        const rationaleContainer = document.getElementById('answer-rationale');
+        if (rationaleContainer) {
+            rationaleContainer.innerHTML = `
+                <div class="alert alert-danger">
+                    <h4>Error</h4>
+                    <p>We encountered an error while displaying the answer explanation. Please try refreshing the page.</p>
+                </div>
+            `;
+            rationaleContainer.classList.remove('hidden');
+        }
+    }
 }
 
 /**

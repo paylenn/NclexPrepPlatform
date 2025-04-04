@@ -76,12 +76,30 @@
         </section>
 
         <section class="practice-container" style="display: none;">
-            <div class="exam-header">
-                <!-- Exam title and description will be inserted here by JavaScript -->
-            </div>
-            
-            <div class="questions-container">
-                <!-- Question content will be inserted here by JavaScript -->
+            <div class="container">
+                <div class="exam-header">
+                    <h3 id="exam-title">NCLEX Practice Questions</h3>
+                    <div class="exam-progress">
+                        <div class="progress-info">
+                            <span>Question <span id="current-question">1</span> of <span id="total-questions">0</span></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="exam-container" class="exam-content">
+                    <div class="question-container">
+                        <div id="question-stem" class="question-stem"></div>
+                        <div id="question-options" class="options-container"></div>
+                        <div id="answer-rationale" class="answer-rationale hidden"></div>
+                    </div>
+                    
+                    <div class="exam-controls">
+                        <button id="prev-btn" class="btn btn-secondary">Previous</button>
+                        <button id="show-answer-btn" class="btn btn-info">Show Answer</button>
+                        <button id="next-btn" class="btn btn-primary">Next</button>
+                        <button id="finish-exam-btn" class="btn btn-danger">Finish Exam</button>
+                    </div>
+                </div>
             </div>
         </section>
 
