@@ -103,48 +103,62 @@ function showSimulationIntro(simType) {
 function startExamSimulation() {
     console.log('Starting exam simulation');
     
-    // Check if simulator interface exists, create it if it doesn't
-    let simulatorInterface = document.getElementById('simulator-interface');
-    if (!simulatorInterface) {
-        console.log('Creating simulator interface');
-        simulatorInterface = document.createElement('div');
-        simulatorInterface.id = 'simulator-interface';
-        simulatorInterface.classList.add('hidden');
-        simulatorInterface.innerHTML = `
-            <div class="exam-container">
-                <div class="exam-header">
-                    <div class="exam-info">
-                        <h2 id="exam-name">NCLEX Practice Mode</h2>
-                        <div class="exam-stats">
-                            <div class="stat">
-                                <span class="stat-label">Question</span>
-                                <span class="stat-value"><span id="current-question">1</span>/<span id="total-questions">25</span></span>
-                            </div>
-                            <div class="stat">
-                                <span class="stat-label">Time Remaining</span>
-                                <span class="stat-value" id="time-remaining">00:00:00</span>
+    try {
+        // Find the simulation intro div and hide it
+        const simIntro = document.getElementById('simulation-intro');
+        if (simIntro) {
+            simIntro.classList.add('hidden');
+        }
+        
+        // Check if simulator interface exists, create it if it doesn't
+        let simulatorInterface = document.getElementById('simulator-interface');
+        if (!simulatorInterface) {
+            console.log('Creating simulator interface');
+            simulatorInterface = document.createElement('div');
+            simulatorInterface.id = 'simulator-interface';
+            // Don't add hidden class here so it shows immediately
+            simulatorInterface.className = 'simulator-interface'; // Add a regular class for styling
+            simulatorInterface.innerHTML = `
+                <div class="exam-container">
+                    <div class="exam-header">
+                        <div class="exam-info">
+                            <h2 id="exam-name">NCLEX Practice Mode</h2>
+                            <div class="exam-stats">
+                                <div class="stat">
+                                    <span class="stat-label">Question</span>
+                                    <span class="stat-value"><span id="current-question">1</span>/<span id="total-questions">25</span></span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">Time Remaining</span>
+                                    <span class="stat-value" id="time-remaining">00:00:00</span>
+                                </div>
                             </div>
                         </div>
+                        <div class="exam-controls">
+                            <button id="pause-button" class="btn btn-outline-light"><i class="fas fa-pause"></i> Pause</button>
+                        </div>
                     </div>
-                    <div class="exam-controls">
-                        <button id="pause-button" class="btn btn-outline-light"><i class="fas fa-pause"></i> Pause</button>
+                    <div class="exam-content">
+                        <div id="question-container" class="question-container">
+                            <!-- Question content will be loaded dynamically -->
+                            <div id="question-stem" class="question-stem"></div>
+                            <div id="question-options" class="question-options"></div>
+                        </div>
+                        <div class="exam-navigation">
+                            <button id="prev-question" class="btn btn-outline-light" disabled><i class="fas fa-arrow-left"></i> Previous</button>
+                            <button id="next-question" class="btn btn-primary">Next <i class="fas fa-arrow-right"></i></button>
+                        </div>
                     </div>
                 </div>
-                <div class="exam-content">
-                    <div id="question-container" class="question-container">
-                        <!-- Question content will be loaded dynamically -->
-                    </div>
-                    <div class="exam-navigation">
-                        <button id="prev-question" class="btn btn-outline-light" disabled><i class="fas fa-arrow-left"></i> Previous</button>
-                        <button id="next-question" class="btn btn-primary">Next <i class="fas fa-arrow-right"></i></button>
-                    </div>
-                </div>
-            </div>
-        `;
-        document.body.appendChild(simulatorInterface);
+            `;
+            document.body.appendChild(simulatorInterface);
+        } else {
+            // Make sure it's visible
+            simulatorInterface.classList.remove('hidden');
+        }
+    } catch (error) {
+        console.error('Error in startExamSimulation:', error);
     }
-    
-    simulatorInterface.classList.remove('hidden');
     
     // Get simulation type
     const simType = currentSimType || 'practice-30';
@@ -798,11 +812,18 @@ function endExam() {
     // Clear timer interval
     clearInterval(window.examTimerInterval);
     
-    // Hide interface
-    document.getElementById('simulator-interface').classList.add('hidden');
-    
-    // Show results
-    showResults();
+    try {
+        // Hide interface
+        const simulatorInterface = document.getElementById('simulator-interface');
+        if (simulatorInterface) {
+            simulatorInterface.classList.add('hidden');
+        }
+        
+        // Show results
+        showResults();
+    } catch (error) {
+        console.error('Error in endExam:', error);
+    }
 }
 
 /**
@@ -810,100 +831,179 @@ function endExam() {
  */
 function showResults() {
     console.log('Showing exam results');
-    const resultsScreen = document.getElementById('results-screen');
     
-    // Calculate results
-    const answers = JSON.parse(localStorage.getItem('examAnswers') || '{}');
-    const totalQuestions = parseInt(document.getElementById('total-questions').textContent);
-    const answeredQuestions = Object.keys(answers).length;
-    
-    // For demo, we'll consider certain answers as correct based on a fixed pattern or the actual data
-    let correctAnswers = {};
-    
-    // If we have the actual questions loaded, use their correct answers
-    if (simulatorQuestions && simulatorQuestions.length > 0) {
-        for (let i = 1; i <= totalQuestions; i++) {
-            const questionIndex = (i - 1) % simulatorQuestions.length;
-            correctAnswers[i] = simulatorQuestions[questionIndex].correctAnswer;
+    try {
+        // Check if results screen exists, create it if not
+        let resultsScreen = document.getElementById('results-screen');
+        if (!resultsScreen) {
+            console.log('Creating results screen');
+            resultsScreen = document.createElement('div');
+            resultsScreen.id = 'results-screen';
+            resultsScreen.className = 'hidden';
+            resultsScreen.innerHTML = `
+                <div class="results-container">
+                    <h2 class="results-title">Exam Results</h2>
+                    <div class="results-summary">
+                        <div class="result-item">
+                            <div class="result-label">Questions Answered</div>
+                            <div class="result-value" id="results-answered">0/0</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Correct Answers</div>
+                            <div class="result-value" id="results-correct">0</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Score</div>
+                            <div class="result-value" id="results-score">0%</div>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-label">Time Used</div>
+                            <div class="result-value" id="results-time">0 hours 0 minutes</div>
+                        </div>
+                    </div>
+                    <div id="results-breakdown" class="results-breakdown"></div>
+                    <div class="results-buttons">
+                        <button class="btn btn-outline-light review-exam">Review Exam</button>
+                        <button class="btn btn-primary exit-results">Exit to Main Menu</button>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(resultsScreen);
         }
-    } else {
-        // Fallback pattern for demo
-        correctAnswers = {
-            1: 3, 2: 1, 3: 2, 4: 0, 5: 3, 6: 1, 7: 2,
-            8: 0, 9: 2, 10: 1, 11: 3, 12: 0
-        };
-    }
-    
-    let correct = 0;
-    Object.keys(answers).forEach(question => {
-        if (correctAnswers[question] === answers[question]) {
-            correct++;
+        
+        // Calculate results
+        const answers = JSON.parse(localStorage.getItem('examAnswers') || '{}');
+        
+        // Find total questions element
+        const totalQuestionsEl = document.getElementById('total-questions');
+        const totalQuestions = totalQuestionsEl ? parseInt(totalQuestionsEl.textContent) : 25;
+        const answeredQuestions = Object.keys(answers).length;
+        
+        // For demo, we'll consider certain answers as correct based on a fixed pattern or the actual data
+        let correctAnswers = {};
+        
+        // If we have the actual questions loaded, use their correct answers
+        if (simulatorQuestions && simulatorQuestions.length > 0) {
+            for (let i = 1; i <= totalQuestions; i++) {
+                const questionIndex = (i - 1) % simulatorQuestions.length;
+                correctAnswers[i] = simulatorQuestions[questionIndex].correctAnswer;
+            }
+        } else {
+            // Fallback pattern for demo
+            correctAnswers = {
+                1: 3, 2: 1, 3: 2, 4: 0, 5: 3, 6: 1, 7: 2,
+                8: 0, 9: 2, 10: 1, 11: 3, 12: 0
+            };
         }
-    });
-    
-    // Calculate score
-    const score = Math.round((correct / totalQuestions) * 100);
-    
-    // Update results elements
-    document.getElementById('results-answered').textContent = `${answeredQuestions}/${totalQuestions}`;
-    document.getElementById('results-correct').textContent = correct;
-    document.getElementById('results-score').textContent = `${score}%`;
-    
-    // Get time used
-    const endTime = parseInt(localStorage.getItem('examEndTime') || '0');
-    const currentTime = Date.now();
-    const timeUsed = Math.max(0, Math.floor((endTime - currentTime) / 1000));
-    const totalSeconds = endTime > currentTime ? 
-                         timeUsed : 
-                         Math.floor((currentTime - (endTime - getTotalTime(currentSimType))) / 1000);
-    
-    const hours = Math.floor(totalSeconds / 3600);
-    const minutes = Math.floor((totalSeconds % 3600) / 60);
-    
-    document.getElementById('results-time').textContent = 
-        `${hours} hour${hours !== 1 ? 's' : ''} ${minutes} minute${minutes !== 1 ? 's' : ''}`;
-    
-    // Create breakdown based on the simulation type
-    const breakdownDiv = document.getElementById('results-breakdown');
-    
-    if (currentSimType === 'ngn-full') {
-        breakdownDiv.innerHTML = `
-            <h3>Performance by Question Type</h3>
-            <p>You performed well in:</p>
-            <ul>
-                <li>Standard multiple choice</li>
-                <li>Multiple response select all that apply</li>
-            </ul>
-            <p>Areas for improvement:</p>
-            <ul>
-                <li>Drag and Drop case studies</li>
-                <li>Cloze (fill-in-the-blank) questions</li>
-                <li>Matrix/grid questions</li>
-            </ul>
-        `;
-    } else {
-        breakdownDiv.innerHTML = `
-            <h3>Performance by Content Area</h3>
-            <p>You performed well in:</p>
-            <ul>
-                <li>Medication administration</li>
-                <li>Patient assessment</li>
-            </ul>
-            <p>Areas for improvement:</p>
-            <ul>
-                <li>Prioritization of care</li>
-                <li>Laboratory value interpretation</li>
-            </ul>
-        `;
+        
+        let correct = 0;
+        Object.keys(answers).forEach(question => {
+            if (correctAnswers[question] === answers[question]) {
+                correct++;
+            }
+        });
+        
+        // Calculate score
+        const score = Math.round((correct / totalQuestions) * 100);
+        
+        // Update results elements
+        const resultsAnswered = document.getElementById('results-answered');
+        if (resultsAnswered) {
+            resultsAnswered.textContent = `${answeredQuestions}/${totalQuestions}`;
+        }
+        
+        const resultsCorrect = document.getElementById('results-correct');
+        if (resultsCorrect) {
+            resultsCorrect.textContent = correct;
+        }
+        
+        const resultsScore = document.getElementById('results-score');
+        if (resultsScore) {
+            resultsScore.textContent = `${score}%`;
+        }
+        
+        // Get time used
+        const endTime = parseInt(localStorage.getItem('examEndTime') || '0');
+        const currentTime = Date.now();
+        const timeUsed = Math.max(0, Math.floor((endTime - currentTime) / 1000));
+        const totalSeconds = endTime > currentTime ? 
+                          timeUsed : 
+                          Math.floor((currentTime - (endTime - getTotalTime(currentSimType))) / 1000);
+        
+        const hours = Math.floor(totalSeconds / 3600);
+        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        
+        const resultsTime = document.getElementById('results-time');
+        if (resultsTime) {
+            resultsTime.textContent = `${hours} hour${hours !== 1 ? 's' : ''} ${minutes} minute${minutes !== 1 ? 's' : ''}`;
+        }
+        
+        // Create breakdown based on the simulation type
+        const breakdownDiv = document.getElementById('results-breakdown');
+        if (breakdownDiv) {
+            if (currentSimType === 'ngn-full') {
+                breakdownDiv.innerHTML = `
+                    <h3>Performance by Question Type</h3>
+                    <p>You performed well in:</p>
+                    <ul>
+                        <li>Standard multiple choice</li>
+                        <li>Multiple response select all that apply</li>
+                    </ul>
+                    <p>Areas for improvement:</p>
+                    <ul>
+                        <li>Drag and Drop case studies</li>
+                        <li>Cloze (fill-in-the-blank) questions</li>
+                        <li>Matrix/grid questions</li>
+                    </ul>
+                `;
+            } else {
+                breakdownDiv.innerHTML = `
+                    <h3>Performance by Content Area</h3>
+                    <p>You performed well in:</p>
+                    <ul>
+                        <li>Medication administration</li>
+                        <li>Patient assessment</li>
+                    </ul>
+                    <p>Areas for improvement:</p>
+                    <ul>
+                        <li>Prioritization of care</li>
+                        <li>Laboratory value interpretation</li>
+                    </ul>
+                `;
+            }
+        }
+        
+        // Show results screen
+        resultsScreen.classList.remove('hidden');
+        
+        // Clear stored answers
+        localStorage.removeItem('examAnswers');
+        localStorage.removeItem('examEndTime');
+        localStorage.removeItem('currentSimType');
+        
+        // Add event listeners for the buttons
+        const reviewButton = document.querySelector('.review-exam');
+        if (reviewButton) {
+            reviewButton.addEventListener('click', function() {
+                resultsScreen.classList.add('hidden');
+                const simInterface = document.getElementById('simulator-interface');
+                if (simInterface) {
+                    simInterface.classList.remove('hidden');
+                }
+            });
+        }
+        
+        const exitButton = document.querySelector('.exit-results');
+        if (exitButton) {
+            exitButton.addEventListener('click', function() {
+                resultsScreen.classList.add('hidden');
+                // Redirect to the home page
+                window.location.href = 'index.html';
+            });
+        }
+    } catch (error) {
+        console.error('Error in showResults:', error);
     }
-    
-    // Show results screen
-    resultsScreen.classList.remove('hidden');
-    
-    // Clear stored answers
-    localStorage.removeItem('examAnswers');
-    localStorage.removeItem('examEndTime');
-    localStorage.removeItem('currentSimType');
 }
 
 /**
