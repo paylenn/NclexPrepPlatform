@@ -6,182 +6,773 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>NCLEX Prep - Paylenn.tech</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css?v=2.0">
-    <link rel="stylesheet" href="css/responsive.css?v=2.0">
+    <title>NCLEX Prep - Exam Preparation</title>
+    <!-- Bootstrap Dark Theme CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css?v=2.2">
+    <link rel="stylesheet" href="css/responsive.css?v=2.2">
+    <link rel="stylesheet" href="css/simulator.css?v=2.2">
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #6c757d;
+            --dark-color: #212529;
+            --darker-color: #1a1e21;
+            --light-color: #f8f9fa;
+            --success-color: #198754;
+            --info-color: #0dcaf0;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background-color: #fff;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+        }
+        
+        .navbar-brand span {
+            color: var(--primary-color);
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            padding: 0.75rem 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-link.active {
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        .nav-link.active:after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary-color);
+            bottom: 0;
+            left: calc(50% - 12.5px);
+            border-radius: 10px;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #0062E6 0%, #33AEFF 100%);
+            padding: 5rem 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-section:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.6;
+        }
+        
+        .simulator-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .simulator-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .card-header-bg {
+            height: 120px;
+            background: linear-gradient(to right, rgba(13, 110, 253, 0.9), rgba(25, 135, 84, 0.9));
+            border-radius: 10px 10px 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .card-header-bg.rn {
+            background: linear-gradient(to right, rgba(13, 110, 253, 0.9), rgba(84, 150, 255, 0.9));
+        }
+        
+        .card-header-bg.ngn {
+            background: linear-gradient(to right, rgba(13, 217, 217, 0.9), rgba(0, 172, 193, 0.9));
+        }
+        
+        .card-header-bg.practice {
+            background: linear-gradient(to right, rgba(25, 135, 84, 0.9), rgba(72, 187, 120, 0.9));
+        }
+        
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .features-section {
+            padding: 5rem 0;
+            background-color: #f8f9fa;
+        }
+        
+        .feature-box {
+            text-align: center;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(13, 110, 253, 0.1);
+            color: var(--primary-color);
+            border-radius: 50%;
+            font-size: 1.75rem;
+        }
+        
+        .btn-custom {
+            padding: 0.75rem 1.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(to right, #0062E6, #33AEFF);
+            border: none;
+            box-shadow: 0 3px 10px rgba(13, 110, 253, 0.2);
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(to right, #005AD5, #2199EB);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+        }
+        
+        .btn-info {
+            background: linear-gradient(to right, #00BCD4, #00E5FF);
+            border: none;
+            color: white;
+            box-shadow: 0 3px 10px rgba(0, 188, 212, 0.2);
+        }
+        
+        .btn-info:hover {
+            background: linear-gradient(to right, #00ACC1, #00D4F0);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 188, 212, 0.3);
+            color: white;
+        }
+        
+        .btn-success {
+            background: linear-gradient(to right, #28a745, #5cb85c);
+            border: none;
+            box-shadow: 0 3px 10px rgba(40, 167, 69, 0.2);
+        }
+        
+        .btn-success:hover {
+            background: linear-gradient(to right, #218838, #4CAE4F);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+        }
+        
+        .footer {
+            background-color: #212529;
+            color: #f8f9fa;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer h5 {
+            position: relative;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer h5:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 30px;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 10px;
+        }
+        
+        .footer-links {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            text-decoration: none;
+            padding-left: 5px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            width: 40px;
+            height: 40px;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        /* Simulation UI Overrides */
+        #simulation-intro, #simulator-interface, #pause-screen, #end-confirmation, #results-screen {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        #simulation-intro .intro-container {
+            background-color: white;
+            color: #333;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            max-width: 600px;
+            padding: 3rem;
+        }
+        
+        .intro-title {
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 2rem;
+        }
+        
+        .intro-info {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        #intro-exam-type {
+            font-size: 1.25rem;
+            color: #333;
+            font-weight: 700;
+        }
+        
+        .exam-header {
+            background-color: white;
+            border-bottom: 1px solid #e9ecef;
+            padding: 1rem 2rem;
+        }
+        
+        .exam-timer {
+            background-color: #f8f9fa;
+            color: #333;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: 700;
+        }
+        
+        .question-container {
+            background-color: #f8f9fa;
+            padding: 2rem;
+        }
+        
+        .question-content {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .option {
+            background-color: white;
+            border: 1px solid #e9ecef;
+            transition: all 0.2s ease;
+            border-radius: 10px;
+            margin-bottom: 0.75rem;
+        }
+        
+        .option:hover {
+            background-color: #f8f9fa;
+            border-color: #dee2e6;
+        }
+        
+        .option.selected {
+            background-color: rgba(13, 110, 253, 0.1);
+            border-color: var(--primary-color);
+        }
+        
+        .option-marker {
+            background-color: var(--primary-color);
+            color: white;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-weight: 700;
+            margin-right: 1rem;
+        }
+        
+        .toolbox {
+            background-color: white;
+            border-right: 1px solid #e9ecef;
+            padding: 1.5rem 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .tool-btn {
+            width: 50px;
+            height: 50px;
+            background-color: #f8f9fa;
+            color: #6c757d;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .tool-btn:hover {
+            background-color: #e9ecef;
+            color: #333;
+        }
+        
+        .tool-btn.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .tool-panel {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            background-color: white;
+            color: #333;
+        }
+        
+        .panel-header {
+            background-color: #f8f9fa;
+            color: #333;
+            padding: 1rem;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .close-panel {
+            background: none;
+            border: none;
+            color: #6c757d;
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        
+        .close-panel:hover {
+            color: #dc3545;
+        }
+        
+        .stats-item {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .stats-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stats-label {
+            color: #6c757d;
+            font-weight: 500;
+        }
+    </style>
 </head>
 <body>
-    <!-- Site Header -->
-    <header class="site-header">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-            <div class="logo">
-                <a href="index.html">
-                    <h1>NCLEX<span>Prep</span></h1>
-                </a>
-            </div>
-            <nav class="main-nav">
-                <div class="menu-icon">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="pages/practice.html">Practice Questions</a></li>
-                    <li><a href="pages/ngn-types.html?v=2.0">NGN Question Types</a></li>
-                    <li><a href="pages/simulator.html?v=2.0">NCLEX Simulator</a></li>
-                    <li><a href="pages/resources.html">Resources</a></li>
-                    <li><a href="pages/about.html">About</a></li>
+            <a class="navbar-brand" href="index.html">
+                NCLEX<span>Prep</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/practice.html">Practice Questions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/ngn-types.html">NGN Question Types</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/simulator.html">NCLEX Simulator</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/resources.html">Resources</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/about.html">About</a>
+                    </li>
                 </ul>
-            </nav>
+            </div>
         </div>
-    </header>
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
-            <div class="hero-content">
-                <h1>Prepare for NCLEX Success</h1>
-                <p>Comprehensive resources and realistic simulations to help you ace the NCLEX examination.</p>
-                <div class="hero-buttons">
-                    <a href="pages/practice.html" class="btn btn-primary">Practice Questions</a>
-                    <a href="pages/simulator.html?v=2.0" class="btn btn-secondary">Try Simulator</a>
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-4">Prepare for NCLEX Success</h1>
+                    <p class="lead mb-5">Our comprehensive resources and realistic simulations help you master the NCLEX examination with confidence.</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="pages/practice.html" class="btn btn-light btn-lg px-4">Practice Questions</a>
+                        <a href="pages/simulator.html" class="btn btn-primary btn-lg px-4">Try Simulator</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simulator Options -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row mb-5 text-center">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="mb-3">Choose Your Simulation</h2>
+                    <p class="lead text-muted">Select the exam format that matches your preparation needs</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="simulator-card">
+                        <div class="card-header-bg rn">
+                            <div class="icon-circle">
+                                <i class="fas fa-user-nurse fa-2x text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="card-body p-4 text-center">
+                            <h3 class="h4 fw-bold mt-4 mb-3">NCLEX-RN Exam</h3>
+                            <div class="mb-4">
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span>75 standard questions</span>
+                                </div>
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span>2-hour time limit</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span>Performance analysis</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary btn-custom w-100 start-sim" data-sim="rn-75">
+                                Begin Simulation
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="simulator-card">
+                        <div class="card-header-bg ngn">
+                            <div class="icon-circle">
+                                <i class="fas fa-brain fa-2x text-info"></i>
+                            </div>
+                        </div>
+                        <div class="card-body p-4 text-center">
+                            <h3 class="h4 fw-bold mt-4 mb-3">Next Generation NCLEX</h3>
+                            <div class="mb-4">
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span>135 questions with case studies</span>
+                                </div>
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span>5-hour time limit</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span>New question formats</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-info btn-custom w-100 start-sim" data-sim="ngn-full">
+                                Begin Simulation
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="simulator-card">
+                        <div class="card-header-bg practice">
+                            <div class="icon-circle">
+                                <i class="fas fa-stopwatch fa-2x text-success"></i>
+                            </div>
+                        </div>
+                        <div class="card-body p-4 text-center">
+                            <h3 class="h4 fw-bold mt-4 mb-3">Quick Practice Mode</h3>
+                            <div class="mb-4">
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span>25 practice questions</span>
+                                </div>
+                                <div class="d-flex align-items-center mb-2">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span>30-minute time limit</span>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <i class="fas fa-check-circle text-success me-2"></i>
+                                    <span>Immediate feedback</span>
+                                </div>
+                            </div>
+                            <button class="btn btn-success btn-custom w-100 start-sim" data-sim="practice-30">
+                                Begin Simulation
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Features Section -->
-    <section class="features-section">
+    <section class="features-section py-5">
         <div class="container">
-            <h2 class="section-title">Why Choose Our NCLEX Prep?</h2>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-clipboard-check"></i>
-                    </div>
-                    <h3>Realistic Practice Tests</h3>
-                    <p>Thousands of practice questions that mirror the style and difficulty of the actual NCLEX examination.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-laptop"></i>
-                    </div>
-                    <h3>Authentic Simulator</h3>
-                    <p>Experience the exact testing environment including all Next Generation NCLEX (NGN) question types.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h3>Smart Study Tools</h3>
-                    <p>Detailed rationales and performance tracking to identify your strengths and weaknesses.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-book-medical"></i>
-                    </div>
-                    <h3>Comprehensive Content</h3>
-                    <p>Review materials covering all nursing concepts and clinical areas tested on the NCLEX.</p>
+            <div class="row mb-5 text-center">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="mb-3">Why Choose Our NCLEX Prep?</h2>
+                    <p class="lead text-muted">Features designed to enhance your test preparation experience</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Exam Types Section -->
-    <section class="exam-types-section">
-        <div class="container">
-            <h2 class="section-title">NCLEX Exam Preparation</h2>
-            <div class="exam-types-grid">
-                <div class="exam-type">
-                    <div class="exam-type-header">
-                        <h3>NCLEX-RN</h3>
-                    </div>
-                    <div class="exam-type-content">
-                        <ul>
-                            <li>Realistic practice tests</li>
-                            <li>Content review materials</li>
-                            <li>Test-taking strategies</li>
-                            <li>Question banks & flashcards</li>
-                        </ul>
-                        <a href="pages/practice.html?exam=exam1" class="btn btn-outline">Start Practicing</a>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-box h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-laptop-medical"></i>
+                        </div>
+                        <h3 class="h5 fw-bold mb-3">Authentic Interface</h3>
+                        <p class="text-muted mb-0">Our simulator perfectly replicates the look and feel of the official NCLEX testing environment, reducing test day anxiety.</p>
                     </div>
                 </div>
-                <div class="exam-type featured">
-                    <div class="exam-type-header">
-                        <h3>Next Generation NCLEX</h3>
-                        <span class="badge">New</span>
-                    </div>
-                    <div class="exam-type-content">
-                        <ul>
-                            <li>Case study questions</li>
-                            <li>Clinical judgment models</li>
-                            <li>All new NGN question types</li>
-                            <li>Realistic testing environment</li>
-                        </ul>
-                        <a href="pages/ngn-types.html?v=2.0" class="btn btn-primary">Explore NGN</a>
+                
+                <div class="col-md-4">
+                    <div class="feature-box h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3 class="h5 fw-bold mb-3">Built-in Tools</h3>
+                        <p class="text-muted mb-0">Practice with the same tools available on test day, including calculator, highlighter, and strikethrough features.</p>
                     </div>
                 </div>
-                <div class="exam-type">
-                    <div class="exam-type-header">
-                        <h3>NCLEX-PN</h3>
-                    </div>
-                    <div class="exam-type-content">
-                        <ul>
-                            <li>Practical nursing focus</li>
-                            <li>LPN/LVN scope of practice</li>
-                            <li>Core competency review</li>
-                            <li>Practice exams & simulations</li>
-                        </ul>
-                        <a href="pages/practice.html?exam=exam2" class="btn btn-outline">Start Practicing</a>
+                
+                <div class="col-md-4">
+                    <div class="feature-box h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3 class="h5 fw-bold mb-3">Performance Analysis</h3>
+                        <p class="text-muted mb-0">Receive detailed feedback on your performance to identify strengths and improve weak areas before test day.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Simulator Promo Section -->
-    <section class="simulator-promo">
-        <div class="container">
-            <div class="promo-content">
-                <h2>Experience the NCLEX Simulator</h2>
-                <p>Our simulator replicates the exact testing environment you'll encounter on exam day, including calculator, highlighting tool, and all question types.</p>
-                <a href="pages/simulator.html?v=2.0" class="btn btn-primary">Try the Simulator</a>
+            
+            <div class="row g-4 mt-4">
+                <div class="col-md-4">
+                    <div class="feature-box h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <h3 class="h5 fw-bold mb-3">Realistic Practice</h3>
+                        <p class="text-muted mb-0">Thousands of practice questions that mirror the style and difficulty of the actual NCLEX examination.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="feature-box h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3 class="h5 fw-bold mb-3">Smart Study Tools</h3>
+                        <p class="text-muted mb-0">Detailed rationales and performance tracking to identify your strengths and weaknesses.</p>
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="feature-box h-100">
+                        <div class="feature-icon">
+                            <i class="fas fa-book-medical"></i>
+                        </div>
+                        <h3 class="h5 fw-bold mb-3">Comprehensive Content</h3>
+                        <p class="text-muted mb-0">Review materials covering all nursing concepts and clinical areas tested on the NCLEX.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-lg-10 mx-auto">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="row align-items-center">
+                                <div class="col-md-8">
+                                    <h3 class="h4 fw-bold mb-3">Ready to Take Your Preparation Further?</h3>
+                                    <p class="text-muted mb-md-0">Check out our comprehensive study resources to complement your practice exams.</p>
+                                </div>
+                                <div class="col-md-4 text-md-end">
+                                    <a href="pages/resources.html" class="btn btn-outline-primary btn-custom">View Resources</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
-    <section class="testimonials-section">
+    <section class="py-5">
         <div class="container">
-            <h2 class="section-title">Success Stories</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p>"The NCLEX simulator was exactly like the real thing. I felt so prepared when I took my exam and passed on the first try!"</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <h4>Jessica M.</h4>
-                        <p>Registered Nurse, Chicago</p>
+            <div class="row mb-5 text-center">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="mb-3">Success Stories</h2>
+                    <p class="lead text-muted">See what our users are saying about their NCLEX success</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between mb-4">
+                                <div>
+                                    <h5 class="fw-bold mb-1">Jessica M.</h5>
+                                    <p class="text-muted mb-0">Registered Nurse, Chicago</p>
+                                </div>
+                                <div class="text-warning">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <p class="mb-0">"The NCLEX simulator was exactly like the real thing. I felt so prepared when I took my exam and passed on the first try!"</p>
+                        </div>
                     </div>
                 </div>
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p>"The practice questions and rationales helped me understand the clinical reasoning behind each answer. This was key to my success."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <h4>Michael T.</h4>
-                        <p>BSN Graduate, California</p>
+                
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between mb-4">
+                                <div>
+                                    <h5 class="fw-bold mb-1">Michael T.</h5>
+                                    <p class="text-muted mb-0">BSN Graduate, California</p>
+                                </div>
+                                <div class="text-warning">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <p class="mb-0">"The practice questions and rationales helped me understand the clinical reasoning behind each answer. This was key to my success."</p>
+                        </div>
                     </div>
                 </div>
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p>"I was so nervous about the new NGN questions, but after practicing with these examples, I felt confident and ready."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <h4>Samantha J.</h4>
-                        <p>New RN, Texas</p>
+                
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between mb-4">
+                                <div>
+                                    <h5 class="fw-bold mb-1">Samantha J.</h5>
+                                    <p class="text-muted mb-0">New RN, Texas</p>
+                                </div>
+                                <div class="text-warning">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                            <p class="mb-0">"I was so nervous about the new NGN questions, but after practicing with these examples, I felt confident and ready."</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -189,52 +780,274 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section">
+    <section class="py-5 bg-primary text-white">
         <div class="container">
-            <h2>Ready to Ace Your NCLEX Exam?</h2>
-            <p>Start practicing with our comprehensive question bank and realistic simulator today.</p>
-            <div class="cta-buttons">
-                <a href="pages/practice.html" class="btn btn-primary">Practice Questions</a>
-                <a href="pages/simulator.html?v=2.0" class="btn btn-secondary">Try Simulator</a>
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold mb-3">Ready to Ace Your NCLEX Exam?</h2>
+                    <p class="lead mb-4">Start practicing with our comprehensive question bank and realistic simulator today.</p>
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="pages/practice.html" class="btn btn-light btn-lg px-4">Practice Questions</a>
+                        <a href="pages/simulator.html" class="btn btn-outline-light btn-lg px-4">Try Simulator</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Site Footer -->
-    <footer class="site-footer">
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <h3>About NCLEX Prep</h3>
-                    <p>Dedicated to helping nursing students succeed on the NCLEX examination with comprehensive practice materials and realistic test simulations.</p>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h5>About NCLEXPrep</h5>
+                    <p class="text-muted">We provide nursing students with comprehensive preparation materials and realistic simulations to help them succeed on the NCLEX examination.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
+                <div class="col-md-4 col-lg-3 offset-lg-1">
+                    <h5>Quick Links</h5>
+                    <ul class="footer-links">
                         <li><a href="index.html">Home</a></li>
                         <li><a href="pages/practice.html">Practice Questions</a></li>
-                        <li><a href="pages/ngn-types.html?v=2.0">NGN Question Types</a></li>
-                        <li><a href="pages/simulator.html?v=2.0">NCLEX Simulator</a></li>
+                        <li><a href="pages/ngn-types.html">NGN Question Types</a></li>
+                        <li><a href="pages/simulator.html">NCLEX Simulator</a></li>
                         <li><a href="pages/resources.html">Resources</a></li>
                         <li><a href="pages/about.html">About</a></li>
                     </ul>
                 </div>
-                <div class="footer-contact">
-                    <h3>Contact Us</h3>
-                    <p>Email: contact@paylenn.tech</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
+                <div class="col-md-4 col-lg-3 offset-lg-1">
+                    <h5>Contact</h5>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope me-2"></i> contact@paylenn.tech</li>
+                        <li><i class="fas fa-phone me-2"></i> (800) 555-NCLEX</li>
+                        <li><i class="fas fa-map-marker-alt me-2"></i> New York, NY</li>
+                    </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 NCLEX Prep. All rights reserved.</p>
+            <div class="row mt-5 pt-4 border-top border-secondary">
+                <div class="col-12 text-center">
+                    <p class="text-muted mb-0">&copy; 2023 NCLEXPrep. All rights reserved.</p>
+                </div>
             </div>
         </div>
     </footer>
+    
+    <!-- Simulation Introduction Screen -->
+    <div id="simulation-intro" class="hidden">
+        <div class="intro-container">
+            <h2 class="intro-title text-center">NCLEX Examination Simulation</h2>
+            <div class="intro-info">
+                <div id="intro-exam-type" class="mb-2 text-center">NCLEX-RN Simulation</div>
+                <div class="mb-2 d-flex align-items-center">
+                    <i class="fas fa-clock me-2 text-primary"></i>
+                    Time: <span id="intro-time" class="ms-2 fw-bold">2 hours (120 minutes)</span>
+                </div>
+                <div class="d-flex align-items-center">
+                    <i class="fas fa-question-circle me-2 text-primary"></i>
+                    Questions: <span id="intro-questions" class="ms-2 fw-bold">75 questions</span>
+                </div>
+            </div>
+            <p class="mb-4">This simulation mimics the actual NCLEX exam environment. You will have access to a calculator, highlighting tools, and strikethrough functionality. The exam will automatically end when the time is up.</p>
+            <div class="text-center">
+                <button class="btn btn-primary btn-lg begin-exam">Begin Exam</button>
+            </div>
+        </div>
+    </div>
 
-    <script src="js/main.js?v=2.0"></script>
+    <!-- Simulator Interface -->
+    <div id="simulator-interface" class="hidden">
+        <div class="exam-header d-flex justify-content-between align-items-center">
+            <div class="exam-title">
+                <span id="exam-name" class="fw-bold">NCLEX-RN® Examination</span>
+            </div>
+            <div class="exam-controls d-flex align-items-center">
+                <div class="exam-timer me-4" id="exam-timer">02:00:00</div>
+                <button class="btn btn-outline-secondary me-2" id="pause-exam">
+                    <i class="fas fa-pause me-2"></i>Pause
+                </button>
+                <button class="btn btn-outline-danger" id="end-exam">
+                    <i class="fas fa-stop-circle me-2"></i>End Exam
+                </button>
+            </div>
+        </div>
+        <div class="exam-main d-flex h-100">
+            <div class="toolbox">
+                <div class="tool-btn" id="calculator-btn" title="Calculator">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <div class="tool-btn" id="notes-btn" title="Notes">
+                    <i class="fas fa-sticky-note"></i>
+                </div>
+                <div class="tool-btn" id="highlight-btn" title="Highlight Text">
+                    <i class="fas fa-highlighter"></i>
+                </div>
+                <div class="tool-btn" id="strikethrough-btn" title="Strikethrough Options">
+                    <i class="fas fa-strikethrough"></i>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question-number d-flex justify-content-between align-items-center mb-4">
+                    <div class="fw-bold">Question <span id="current-question">1</span> of <span id="total-questions">75</span></div>
+                    <div class="progress" style="width: 200px; height: 10px;">
+                        <div class="progress-bar" role="progressbar" style="width: 1%;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+                <div class="question-content">
+                    <div class="question-stem mb-4" id="question-stem">
+                        Loading question...
+                    </div>
+                    <div class="question-options" id="question-options">
+                        <!-- Options will be dynamically inserted here -->
+                    </div>
+                </div>
+                <div class="navigation-buttons d-flex justify-content-between mt-4">
+                    <button class="btn btn-outline-secondary" id="previous-btn" disabled>
+                        <i class="fas fa-arrow-left me-2"></i>Previous
+                    </button>
+                    <button class="btn btn-primary" id="next-btn">
+                        Next<i class="fas fa-arrow-right ms-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calculator Panel -->
+        <div class="tool-panel hidden" id="calculator-panel">
+            <div class="panel-header d-flex justify-content-between align-items-center">
+                <div class="panel-title fw-bold">Calculator</div>
+                <button class="close-panel">&times;</button>
+            </div>
+            <div class="panel-content p-3">
+                <input type="text" class="form-control calc-display mb-3" id="calc-display" readonly value="0">
+                <div class="calculator">
+                    <button class="btn btn-light calc-btn calc-btn-op">C</button>
+                    <button class="btn btn-light calc-btn calc-btn-op">CE</button>
+                    <button class="btn btn-light calc-btn calc-btn-op">/</button>
+                    <button class="btn btn-light calc-btn calc-btn-op">*</button>
+                    
+                    <button class="btn btn-light calc-btn">7</button>
+                    <button class="btn btn-light calc-btn">8</button>
+                    <button class="btn btn-light calc-btn">9</button>
+                    <button class="btn btn-light calc-btn calc-btn-op">-</button>
+                    
+                    <button class="btn btn-light calc-btn">4</button>
+                    <button class="btn btn-light calc-btn">5</button>
+                    <button class="btn btn-light calc-btn">6</button>
+                    <button class="btn btn-light calc-btn calc-btn-op">+</button>
+                    
+                    <button class="btn btn-light calc-btn">1</button>
+                    <button class="btn btn-light calc-btn">2</button>
+                    <button class="btn btn-light calc-btn">3</button>
+                    <button class="btn btn-light calc-btn calc-btn-eq">=</button>
+                    
+                    <button class="btn btn-light calc-btn" style="grid-column: span 2;">0</button>
+                    <button class="btn btn-light calc-btn">.</button>
+                    <button class="btn btn-light calc-btn calc-btn-op">=</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notes Panel -->
+        <div class="tool-panel hidden" id="notes-panel">
+            <div class="panel-header d-flex justify-content-between align-items-center">
+                <div class="panel-title fw-bold">Notes</div>
+                <button class="close-panel">&times;</button>
+            </div>
+            <div class="panel-content p-3">
+                <textarea class="form-control notes-content" placeholder="Type your notes here..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pause Screen -->
+    <div id="pause-screen" class="hidden">
+        <div class="intro-container">
+            <h2 class="intro-title text-center">Exam Paused</h2>
+            <p class="text-center mb-4">Your exam time has been paused. When you're ready to continue, click the Resume button.</p>
+            <div class="text-center">
+                <button class="btn btn-primary btn-lg resume-exam">Resume Exam</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- End Confirmation Screen -->
+    <div id="end-confirmation" class="hidden">
+        <div class="intro-container">
+            <h2 class="intro-title text-center">End Exam?</h2>
+            <p class="text-center mb-4">Are you sure you want to end the exam? This action cannot be undone.</p>
+            <div class="d-flex justify-content-center gap-3">
+                <button class="btn btn-outline-secondary btn-lg cancel-end">Cancel</button>
+                <button class="btn btn-danger btn-lg confirm-end">End Exam</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Screen -->
+    <div id="results-screen" class="hidden">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="card border-0 shadow">
+                        <div class="card-body p-5">
+                            <div class="text-center mb-5">
+                                <h2 class="fw-bold mb-1">Exam Results</h2>
+                                <p class="text-muted">Your performance analysis</p>
+                            </div>
+                            
+                            <div class="row g-4 mb-5">
+                                <div class="col-md-3">
+                                    <div class="stats-item">
+                                        <div class="stats-value" id="results-answered">0/75</div>
+                                        <div class="stats-label">Questions Answered</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="stats-item">
+                                        <div class="stats-value" id="results-correct">0</div>
+                                        <div class="stats-label">Correct Answers</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="stats-item">
+                                        <div class="stats-value" id="results-score">0%</div>
+                                        <div class="stats-label">Score</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="stats-item">
+                                        <div class="stats-value" id="results-time">0 hrs 0 mins</div>
+                                        <div class="stats-label">Time Used</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="results-breakdown mb-5" id="results-breakdown">
+                                <!-- Performance breakdown will be inserted here -->
+                            </div>
+                            
+                            <div class="d-flex justify-content-center gap-3">
+                                <button class="btn btn-outline-primary btn-lg review-exam">
+                                    <i class="fas fa-search me-2"></i>Review Exam
+                                </button>
+                                <button class="btn btn-primary btn-lg exit-results">
+                                    <i class="fas fa-home me-2"></i>Exit to Menu
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js?v=2.2"></script>
+    <script src="js/simulator.js?v=2.2"></script>
 </body>
 </html>
