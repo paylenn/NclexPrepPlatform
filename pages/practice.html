@@ -3,162 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Practice Questions | NCLEX Exam Preparation</title>
-    <meta name="description" content="Practice NCLEX exam questions with detailed rationales and explanations.">
-    <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/responsive.css">
-    <link rel="stylesheet" href="../css/practice.css">
+    <title>NCLEX Practice Exam - PayLeNN.tech</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
+    <link rel="stylesheet" href="../css/neubrutalism.css">
 </head>
 <body>
-    <header class="site-header">
+    <!-- Header -->
+    <header class="header">
         <div class="container">
-            <div class="logo">
-                <h1>PayLeNN.tech</h1>
-                <p class="tagline">Your NCLEX Success Partner</p>
-            </div>
-            <nav class="main-nav">
-                <button class="menu-toggle" aria-label="Toggle menu">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </button>
-                <ul class="nav-links">
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="practice.html" class="active">Practice Questions</a></li>
-                    <li><a href="ngn-types.html">NGN Question Types</a></li>
-                    <li><a href="simulator.html">NCLEX Simulator</a></li>
-                    <li><a href="about.html">About</a></li>
-                </ul>
+            <a href="../index.html" class="logo">PayLeNN<span>.tech</span></a>
+            <nav class="nav">
+                <a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <span id="exam-title-nav" class="nav-link">Practice Exam</span>
             </nav>
         </div>
     </header>
 
-    <main>
-        <section class="page-header">
-            <div class="container">
-                <h2>NCLEX Practice Questions</h2>
-                <p>Test your knowledge with our comprehensive collection of practice questions.</p>
-            </div>
-        </section>
-
-        <section class="practice-overview">
-            <div class="container">
-                <div class="overview-content">
-                    <h3>About Our Practice Questions</h3>
-                    <p>Our practice questions are designed to mimic the format and difficulty level of the actual NCLEX exam, including both traditional formats and Next Generation NCLEX (NGN) question types. Each question includes detailed rationales to help you understand the correct answer and strengthen your clinical judgment skills.</p>
-                    
-                    <div class="exam-types">
-                        <h3>Choose a Practice Exam</h3>
-                        <div class="exam-grid">
-                            <div class="exam-card">
-                                <div class="exam-icon">
-                                    <i class="fas fa-clipboard-list"></i>
-                                </div>
-                                <h4>Standard NCLEX Practice</h4>
-                                <p>Traditional NCLEX question formats covering essential nursing knowledge across all domains.</p>
-                                <a href="practice.html?exam=exam1" class="btn btn-primary">Start Practice</a>
-                            </div>
-                            
-                            <div class="exam-card">
-                                <div class="exam-icon">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                <h4>Next Generation NCLEX</h4>
-                                <p>Practice with new NGN question types that focus on clinical judgment and decision-making.</p>
-                                <a href="practice.html?exam=exam2" class="btn btn-primary">Start Practice</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="practice-container" style="display: none;">
-            <div class="container">
-                <div class="exam-header">
-                    <h3 id="exam-title">NCLEX Practice Questions</h3>
-                    <div class="exam-progress">
-                        <div class="progress-info">
-                            <span>Question <span id="current-question">1</span> of <span id="total-questions">0</span></span>
-                        </div>
+    <!-- Exam Info Section -->
+    <section class="section" id="exam-info">
+        <div class="container">
+            <div class="neu-card tertiary">
+                <div id="exam-intro">
+                    <h2 id="exam-title">NCLEX Practice Exam</h2>
+                    <p id="exam-description">Loading exam information...</p>
+                    <div class="exam-controls mt-4">
+                        <button id="start-exam-btn" class="neubtn primary">Begin Exam</button>
+                        <a href="../index.html" class="neubtn">Return Home</a>
                     </div>
                 </div>
                 
-                <div id="exam-container" class="exam-content">
-                    <div class="question-container">
-                        <div id="question-stem" class="question-stem"></div>
-                        <div id="question-options" class="options-container"></div>
-                        <div id="answer-rationale" class="answer-rationale hidden"></div>
+                <div id="exam-container" class="hidden">
+                    <div class="exam-header">
+                        <div>
+                            <h3 id="question-number">Question 1 of 10</h3>
+                        </div>
+                        <div>
+                            <button id="exit-exam-btn" class="neubtn">Exit Exam</button>
+                        </div>
+                    </div>
+                    
+                    <div id="question-container" class="question-container">
+                        <p id="question-stem" class="question-stem">Loading question...</p>
+                        <div id="options-container" class="options-container">
+                            <!-- Options will be inserted here -->
+                        </div>
                     </div>
                     
                     <div class="exam-controls">
-                        <button id="prev-btn" class="btn btn-secondary">Previous</button>
-                        <button id="show-answer-btn" class="btn btn-info">Show Answer</button>
-                        <button id="next-btn" class="btn btn-primary">Next</button>
-                        <button id="finish-exam-btn" class="btn btn-danger">Finish Exam</button>
+                        <button id="prev-question-btn" class="neubtn" disabled>Previous</button>
+                        <button id="show-answer-btn" class="neubtn secondary">Show Answer</button>
+                        <button id="next-question-btn" class="neubtn primary">Next</button>
+                    </div>
+                    
+                    <div id="rationale-container" class="answer-rationale hidden">
+                        <h3>Rationale</h3>
+                        <p id="rationale-text"></p>
+                    </div>
+                </div>
+                
+                <div id="results-container" class="hidden">
+                    <h2>Exam Results</h2>
+                    <div class="neu-card">
+                        <div class="stats-container">
+                            <div class="stat-box">
+                                <div class="stat-value" id="result-score">0%</div>
+                                <div class="stat-label">SCORE</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-value" id="result-correct">0</div>
+                                <div class="stat-label">CORRECT</div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-value" id="result-total">0</div>
+                                <div class="stat-label">TOTAL</div>
+                            </div>
+                        </div>
+                        
+                        <div id="result-message" class="mt-3 mb-3"></div>
+                        
+                        <div class="exam-controls">
+                            <button id="review-exam-btn" class="neubtn secondary">Review Answers</button>
+                            <a href="../index.html" class="neubtn primary">Return Home</a>
+                        </div>
+                    </div>
+                    
+                    <div id="question-review" class="hidden mt-4">
+                        <h3>Question Review</h3>
+                        <div id="review-questions">
+                            <!-- Review questions will be inserted here -->
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="practice-tips">
-            <div class="container">
-                <h3>Tips for NCLEX Success</h3>
-                <div class="tips-grid">
-                    <div class="tip-card">
-                        <div class="tip-icon">
-                            <i class="fas fa-book-reader"></i>
-                        </div>
-                        <h4>Read Carefully</h4>
-                        <p>Pay close attention to what each question is asking. Look for key words like "priority," "first," "best," and "most important."</p>
-                    </div>
-                    
-                    <div class="tip-card">
-                        <div class="tip-icon">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <h4>Apply Clinical Judgment</h4>
-                        <p>Focus on recognizing cues, analyzing information, and making decisions based on sound nursing judgment rather than memorizing facts.</p>
-                    </div>
-                    
-                    <div class="tip-card">
-                        <div class="tip-icon">
-                            <i class="fas fa-heartbeat"></i>
-                        </div>
-                        <h4>Remember ABC's</h4>
-                        <p>When prioritizing, remember the hierarchy: Airway, Breathing, and Circulation come first, followed by safety concerns.</p>
-                    </div>
-                    
-                    <div class="tip-card">
-                        <div class="tip-icon">
-                            <i class="fas fa-sync-alt"></i>
-                        </div>
-                        <h4>Practice Regularly</h4>
-                        <p>Consistent practice with various question types will build your confidence and improve your test-taking skills over time.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <h2>PayLeNN.tech</h2>
+                <div class="footer-about">
+                    <h3>PayLeNN.tech</h3>
                     <p>Your NCLEX Success Partner</p>
                 </div>
-                <div class="footer-nav">
+                <div class="footer-links">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="practice.html">Practice Questions</a></li>
-                        <li><a href="ngn-types.html">NGN Question Types</a></li>
-                        <li><a href="simulator.html">NCLEX Simulator</a></li>
-                    <li><a href="simulator.html">NCLEX Simulator</a></li>
-                        <li><a href="resources.html">Resources</a></li>
+                        <li><a href="../index.html#exams">Exam Options</a></li>
+                        <li><a href="../index.html#progress">Your Progress</a></li>
+                        <li><a href="../index.html#tips">NCLEX Tips</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
@@ -172,8 +125,54 @@
         </div>
     </footer>
 
-    <script src="../js/main.js"></script>
+    <!-- Scripts -->
     <script src="../js/questions.js"></script>
-    <!-- Note: The display logic is now handled in the initializePracticeExam function in questions.js -->
+    <script>
+        // Analytics tracking
+        function trackExamCompletion(examType, score) {
+            // Get existing analytics data
+            let analytics = JSON.parse(localStorage.getItem('nclexAnalytics') || '{"pageViews":[],"examAttempts":{}}');
+            
+            // Initialize exam type if doesn't exist
+            if (!analytics.examAttempts[examType]) {
+                analytics.examAttempts[examType] = {
+                    starts: 1,
+                    completions: 0,
+                    avgScore: 0,
+                    lastAttempt: new Date().toISOString()
+                };
+            }
+            
+            // Update completions and scores
+            analytics.examAttempts[examType].completions++;
+            
+            // Calculate new average score
+            const oldCompletions = analytics.examAttempts[examType].completions - 1;
+            const oldAvgScore = analytics.examAttempts[examType].avgScore || 0;
+            
+            // Calculate new average
+            if (oldCompletions > 0) {
+                analytics.examAttempts[examType].avgScore = 
+                    ((oldAvgScore * oldCompletions) + score) / analytics.examAttempts[examType].completions;
+            } else {
+                analytics.examAttempts[examType].avgScore = score;
+            }
+            
+            // Store updated analytics
+            localStorage.setItem('nclexAnalytics', JSON.stringify(analytics));
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Setup exam based on URL parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const examType = urlParams.get('exam') || 'exam1';
+            
+            // Initialize the practice exam
+            initializePracticeExam();
+            
+            // Setup the exam questions
+            setupExamQuestions(examType);
+        });
+    </script>
 </body>
 </html>

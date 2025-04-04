@@ -3,238 +3,340 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    <title>NCLEX Prep - Paylenn.tech</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="css/styles.css?v=2.0">
-    <link rel="stylesheet" href="css/responsive.css?v=2.0">
+    <title>NCLEX Prep - PayLeNN.tech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/neubrutalism.css">
+    <script async>
+        // Simple page view tracking
+        function trackPageView() {
+            // Record when user visited the page
+            const visitTime = new Date().toISOString();
+            
+            // Get existing analytics data or initialize new object
+            let analytics = JSON.parse(localStorage.getItem('nclexAnalytics') || '{"pageViews":[],"examAttempts":{}}');
+            
+            // Add this page view
+            analytics.pageViews.push({
+                page: 'home',
+                time: visitTime
+            });
+            
+            // Store updated analytics
+            localStorage.setItem('nclexAnalytics', JSON.stringify(analytics));
+            
+            // Display analytics on page
+            displayAnalytics();
+        }
+        
+        // Track when a user starts an exam
+        function trackExamStart(examType) {
+            // Get existing analytics data
+            let analytics = JSON.parse(localStorage.getItem('nclexAnalytics') || '{"pageViews":[],"examAttempts":{}}');
+            
+            // Initialize exam type if doesn't exist
+            if (!analytics.examAttempts[examType]) {
+                analytics.examAttempts[examType] = {
+                    starts: 0,
+                    completions: 0,
+                    avgScore: 0,
+                    lastAttempt: null
+                };
+            }
+            
+            // Increment starts
+            analytics.examAttempts[examType].starts++;
+            analytics.examAttempts[examType].lastAttempt = new Date().toISOString();
+            
+            // Store updated analytics
+            localStorage.setItem('nclexAnalytics', JSON.stringify(analytics));
+        }
+        
+        // Display analytics on the page
+        function displayAnalytics() {
+            // Get analytics data
+            const analytics = JSON.parse(localStorage.getItem('nclexAnalytics') || '{"pageViews":[],"examAttempts":{}}');
+            
+            // Calculate stats
+            const totalPageViews = analytics.pageViews.length;
+            const totalExamStarts = Object.values(analytics.examAttempts).reduce((sum, exam) => sum + exam.starts, 0);
+            const totalExamCompletions = Object.values(analytics.examAttempts).reduce((sum, exam) => sum + exam.completions, 0);
+            
+            // Update statistics in the DOM
+            if (document.getElementById('stat-visits')) {
+                document.getElementById('stat-visits').textContent = totalPageViews;
+            }
+            if (document.getElementById('stat-exams-started')) {
+                document.getElementById('stat-exams-started').textContent = totalExamStarts;
+            }
+            if (document.getElementById('stat-exams-completed')) {
+                document.getElementById('stat-exams-completed').textContent = totalExamCompletions;
+            }
+            
+            // Display detailed exam statistics
+            const examStatsContainer = document.getElementById('exam-stats-container');
+            if (examStatsContainer) {
+                let examStatsHTML = '';
+                
+                for (const [examType, stats] of Object.entries(analytics.examAttempts)) {
+                    if (stats.starts > 0) {
+                        const completionRate = stats.starts > 0 ? Math.round((stats.completions / stats.starts) * 100) : 0;
+                        const lastAttemptDate = stats.lastAttempt ? new Date(stats.lastAttempt).toLocaleDateString() : 'N/A';
+                        
+                        examStatsHTML += `
+                            <div class="neu-card">
+                                <h4>${examType === 'exam1' ? 'Standard NCLEX Practice' : examType === 'exam2' ? 'Next Generation NCLEX' : examType}</h4>
+                                <div class="stats-grid">
+                                    <div>
+                                        <p><strong>Attempts:</strong> ${stats.starts}</p>
+                                    </div>
+                                    <div>
+                                        <p><strong>Completed:</strong> ${stats.completions}</p>
+                                    </div>
+                                    <div>
+                                        <p><strong>Completion Rate:</strong> ${completionRate}%</p>
+                                    </div>
+                                    <div>
+                                        <p><strong>Last Attempt:</strong> ${lastAttemptDate}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }
+                }
+                
+                // If no exams have been started, show a message
+                if (examStatsHTML === '') {
+                    examStatsHTML = `
+                        <div class="neu-card tertiary">
+                            <p>No exam attempts recorded yet. Start practicing to see your statistics!</p>
+                        </div>
+                    `;
+                }
+                
+                examStatsContainer.innerHTML = examStatsHTML;
+            }
+        }
+        
+        // Run tracking when page loads
+        window.addEventListener('DOMContentLoaded', trackPageView);
+    </script>
 </head>
 <body>
-    <!-- Site Header -->
-    <header class="site-header">
+    <!-- Header -->
+    <header class="header">
         <div class="container">
-            <div class="logo">
-                <a href="index.html">
-                    <h1>NCLEX<span>Prep</span></h1>
-                </a>
-            </div>
-            <nav class="main-nav">
-                <div class="menu-icon">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="pages/practice.html">Practice Questions</a></li>
-                    <li><a href="pages/ngn-types.html?v=2.0">NGN Question Types</a></li>
-                    <li><a href="pages/simulator.html?v=2.0">NCLEX Simulator</a></li>
-                    <li><a href="pages/resources.html">Resources</a></li>
-                    <li><a href="pages/about.html">About</a></li>
-                </ul>
+            <a href="index.html" class="logo">PayLeNN<span>.tech</span></a>
+            <nav class="nav">
+                <a href="#exams" class="nav-link">Exams</a>
+                <a href="#progress" class="nav-link">Progress</a>
+                <a href="#tips" class="nav-link">Tips</a>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-section">
+    <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Prepare for NCLEX Success</h1>
-                <p>Comprehensive resources and realistic simulations to help you ace the NCLEX examination.</p>
+                <h1>ACE YOUR NCLEX EXAM!</h1>
+                <p>Practice with traditional and Next Generation NCLEX questions to build your confidence and clinical judgment skills.</p>
                 <div class="hero-buttons">
-                    <a href="pages/practice.html" class="btn btn-primary">Practice Questions</a>
-                    <a href="pages/simulator.html?v=2.0" class="btn btn-secondary">Try Simulator</a>
+                    <a href="#exams" class="neubtn primary">Start Practicing</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features-section">
+    <!-- Exam Options Section -->
+    <section class="section" id="exams">
         <div class="container">
-            <h2 class="section-title">Why Choose Our NCLEX Prep?</h2>
-            <div class="features-grid">
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-clipboard-check"></i>
+            <h2>CHOOSE YOUR EXAM</h2>
+            <div class="grid-3">
+                <div class="neu-card primary exam-card">
+                    <div class="exam-card-body">
+                        <div class="exam-icon">
+                            <i class="fas fa-clipboard-list"></i>
+                        </div>
+                        <h3>Standard NCLEX</h3>
+                        <p>Practice with traditional NCLEX-style questions covering essential nursing knowledge.</p>
+                        <ul class="exam-features">
+                            <li><i class="fas fa-check"></i> Multiple-choice questions</li>
+                            <li><i class="fas fa-check"></i> Detailed rationales</li>
+                            <li><i class="fas fa-check"></i> Core nursing concepts</li>
+                            <li><i class="fas fa-check"></i> 10 questions per practice</li>
+                        </ul>
                     </div>
-                    <h3>Realistic Practice Tests</h3>
-                    <p>Thousands of practice questions that mirror the style and difficulty of the actual NCLEX examination.</p>
-                </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-laptop"></i>
+                    <div class="exam-card-footer">
+                        <a href="pages/practice.html?exam=exam1" class="neubtn" onclick="trackExamStart('exam1')">START PRACTICE</a>
                     </div>
-                    <h3>Authentic Simulator</h3>
-                    <p>Experience the exact testing environment including all Next Generation NCLEX (NGN) question types.</p>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
+                
+                <div class="neu-card secondary exam-card">
+                    <div class="exam-card-body">
+                        <div class="exam-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Next Generation NCLEX</h3>
+                        <p>Master the new NGN question formats focusing on clinical judgment.</p>
+                        <ul class="exam-features">
+                            <li><i class="fas fa-check"></i> Multi-select questions</li>
+                            <li><i class="fas fa-check"></i> Case study scenarios</li>
+                            <li><i class="fas fa-check"></i> Clinical judgment emphasis</li>
+                            <li><i class="fas fa-check"></i> Advanced question formats</li>
+                        </ul>
+                    </div>
+                    <div class="exam-card-footer">
+                        <a href="pages/practice.html?exam=exam2" class="neubtn" onclick="trackExamStart('exam2')">START NGN PRACTICE</a>
+                    </div>
+                </div>
+                
+                <div class="neu-card tertiary exam-card">
+                    <div class="exam-card-body">
+                        <div class="exam-icon">
+                            <i class="fas fa-laptop-medical"></i>
+                        </div>
+                        <h3>Full NCLEX Simulator</h3>
+                        <p>Experience a realistic NCLEX testing environment with all exam tools.</p>
+                        <ul class="exam-features">
+                            <li><i class="fas fa-check"></i> Realistic interface</li>
+                            <li><i class="fas fa-check"></i> Timed examinations</li>
+                            <li><i class="fas fa-check"></i> Calculator & highlighting</li>
+                            <li><i class="fas fa-check"></i> Performance analysis</li>
+                        </ul>
+                    </div>
+                    <div class="exam-card-footer">
+                        <a href="pages/simulator.html" class="neubtn" onclick="trackExamStart('simulator')">LAUNCH SIMULATOR</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Section -->
+    <section class="section" id="progress">
+        <div class="container">
+            <h2>YOUR PROGRESS</h2>
+            <div class="stats-container">
+                <div class="stat-box">
+                    <div class="stat-value" id="stat-visits">0</div>
+                    <div class="stat-label">SITE VISITS</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="stat-exams-started">0</div>
+                    <div class="stat-label">EXAMS STARTED</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-value" id="stat-exams-completed">0</div>
+                    <div class="stat-label">EXAMS COMPLETED</div>
+                </div>
+            </div>
+            
+            <h3>EXAM STATISTICS</h3>
+            <div id="exam-stats-container">
+                <!-- Exam statistics will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section class="section" id="tips">
+        <div class="container">
+            <h2>NCLEX SUCCESS TIPS</h2>
+            <div class="tips-grid">
+                <div class="neu-card quaternary tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-book-reader"></i>
+                    </div>
+                    <h3>Read Carefully</h3>
+                    <p>Pay close attention to what each question is asking. Look for key words like "priority," "first," "best," and "most important."</p>
+                </div>
+                
+                <div class="neu-card quinary tip-card">
+                    <div class="tip-icon">
                         <i class="fas fa-brain"></i>
                     </div>
-                    <h3>Smart Study Tools</h3>
-                    <p>Detailed rationales and performance tracking to identify your strengths and weaknesses.</p>
+                    <h3>Apply Clinical Judgment</h3>
+                    <p>Focus on recognizing cues, analyzing information, and making decisions based on sound nursing judgment rather than memorizing facts.</p>
                 </div>
-                <div class="feature-item">
-                    <div class="feature-icon">
-                        <i class="fas fa-book-medical"></i>
+                
+                <div class="neu-card primary tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-heartbeat"></i>
                     </div>
-                    <h3>Comprehensive Content</h3>
-                    <p>Review materials covering all nursing concepts and clinical areas tested on the NCLEX.</p>
+                    <h3>Remember ABC's</h3>
+                    <p>When prioritizing, remember the hierarchy: Airway, Breathing, and Circulation come first, followed by safety concerns.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Exam Types Section -->
-    <section class="exam-types-section">
-        <div class="container">
-            <h2 class="section-title">NCLEX Exam Preparation</h2>
-            <div class="exam-types-grid">
-                <div class="exam-type">
-                    <div class="exam-type-header">
-                        <h3>NCLEX-RN</h3>
+                
+                <div class="neu-card secondary tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-sync-alt"></i>
                     </div>
-                    <div class="exam-type-content">
-                        <ul>
-                            <li>Realistic practice tests</li>
-                            <li>Content review materials</li>
-                            <li>Test-taking strategies</li>
-                            <li>Question banks & flashcards</li>
-                        </ul>
-                        <a href="pages/practice.html?exam=exam1" class="btn btn-outline">Start Practicing</a>
-                    </div>
+                    <h3>Practice Regularly</h3>
+                    <p>Consistent practice with various question types will build your confidence and improve your test-taking skills over time.</p>
                 </div>
-                <div class="exam-type featured">
-                    <div class="exam-type-header">
-                        <h3>Next Generation NCLEX</h3>
-                        <span class="badge">New</span>
+                
+                <div class="neu-card tertiary tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-clock"></i>
                     </div>
-                    <div class="exam-type-content">
-                        <ul>
-                            <li>Case study questions</li>
-                            <li>Clinical judgment models</li>
-                            <li>All new NGN question types</li>
-                            <li>Realistic testing environment</li>
-                        </ul>
-                        <a href="pages/ngn-types.html?v=2.0" class="btn btn-primary">Explore NGN</a>
-                    </div>
+                    <h3>Time Management</h3>
+                    <p>Pace yourself during the exam. Don't spend too much time on any single question. If you're unsure, mark it and come back later.</p>
                 </div>
-                <div class="exam-type">
-                    <div class="exam-type-header">
-                        <h3>NCLEX-PN</h3>
+                
+                <div class="neu-card quaternary tip-card">
+                    <div class="tip-icon">
+                        <i class="fas fa-users"></i>
                     </div>
-                    <div class="exam-type-content">
-                        <ul>
-                            <li>Practical nursing focus</li>
-                            <li>LPN/LVN scope of practice</li>
-                            <li>Core competency review</li>
-                            <li>Practice exams & simulations</li>
-                        </ul>
-                        <a href="pages/practice.html?exam=exam2" class="btn btn-outline">Start Practicing</a>
-                    </div>
+                    <h3>Form Study Groups</h3>
+                    <p>Discussing concepts with peers can help solidify your understanding and expose you to different perspectives.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Simulator Promo Section -->
-    <section class="simulator-promo">
-        <div class="container">
-            <div class="promo-content">
-                <h2>Experience the NCLEX Simulator</h2>
-                <p>Our simulator replicates the exact testing environment you'll encounter on exam day, including calculator, highlighting tool, and all question types.</p>
-                <a href="pages/simulator.html?v=2.0" class="btn btn-primary">Try the Simulator</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="testimonials-section">
-        <div class="container">
-            <h2 class="section-title">Success Stories</h2>
-            <div class="testimonials-grid">
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p>"The NCLEX simulator was exactly like the real thing. I felt so prepared when I took my exam and passed on the first try!"</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <h4>Jessica M.</h4>
-                        <p>Registered Nurse, Chicago</p>
-                    </div>
-                </div>
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p>"The practice questions and rationales helped me understand the clinical reasoning behind each answer. This was key to my success."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <h4>Michael T.</h4>
-                        <p>BSN Graduate, California</p>
-                    </div>
-                </div>
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        <p>"I was so nervous about the new NGN questions, but after practicing with these examples, I felt confident and ready."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <h4>Samantha J.</h4>
-                        <p>New RN, Texas</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>Ready to Ace Your NCLEX Exam?</h2>
-            <p>Start practicing with our comprehensive question bank and realistic simulator today.</p>
-            <div class="cta-buttons">
-                <a href="pages/practice.html" class="btn btn-primary">Practice Questions</a>
-                <a href="pages/simulator.html?v=2.0" class="btn btn-secondary">Try Simulator</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Site Footer -->
-    <footer class="site-footer">
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
-                    <h3>About NCLEX Prep</h3>
-                    <p>Dedicated to helping nursing students succeed on the NCLEX examination with comprehensive practice materials and realistic test simulations.</p>
+                    <h3>PayLeNN.tech</h3>
+                    <p>Your NCLEX Success Partner</p>
                 </div>
                 <div class="footer-links">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="pages/practice.html">Practice Questions</a></li>
-                        <li><a href="pages/ngn-types.html?v=2.0">NGN Question Types</a></li>
-                        <li><a href="pages/simulator.html?v=2.0">NCLEX Simulator</a></li>
-                        <li><a href="pages/resources.html">Resources</a></li>
-                        <li><a href="pages/about.html">About</a></li>
+                        <li><a href="#exams">Exam Options</a></li>
+                        <li><a href="#progress">Your Progress</a></li>
+                        <li><a href="#tips">NCLEX Tips</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
-                    <h3>Contact Us</h3>
-                    <p>Email: contact@paylenn.tech</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
+                    <h3>Contact</h3>
+                    <p>Email: support@paylenn.tech</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 NCLEX Prep. All rights reserved.</p>
+                <p>&copy; 2023 PayLeNN.tech. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="js/main.js?v=2.0"></script>
+    <!-- Scripts -->
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>

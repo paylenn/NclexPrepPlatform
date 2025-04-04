@@ -1,33 +1,19 @@
 /**
- * NCLEX Simulator Functionality
+ * Simulator functionality for NCLEX exam preparation
  */
 
-// Store questions globally
+// Global variables
 let simulatorQuestions = [];
-let currentSimType = '';
+let userSimAnswers = [];
+let currentSimQuestionIndex = 0;
+let simType = 'standard';
+let examTimer = null;
+let examTimeRemaining = 0;
 
+// Wait for DOM to load
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Simulator script loaded');
-    
-    // Load questions from our database
-    fetch('../data/nclex-questions.json')
-        .then(response => response.json())
-        .then(data => {
-            simulatorQuestions = data.questions;
-            console.log('Questions loaded:', simulatorQuestions.length);
-        })
-        .catch(error => {
-            console.error('Error loading questions:', error);
-        });
-
-    // Set up simulator start buttons
+    // Set up the simulator buttons
     setupSimulatorButtons();
-    
-    // Set up interface controls
-    setupInterfaceControls();
-    
-    // Set up tool panels
-    setupToolPanels();
     
     // Initialize NGN examples
     initializeNGNExamples();
@@ -37,27 +23,76 @@ document.addEventListener('DOMContentLoaded', function() {
  * Set up the simulator start buttons
  */
 function setupSimulatorButtons() {
-    console.log('Setting up simulator buttons');
-    const startButtons = document.querySelectorAll('.start-sim');
+    // Get all simulator buttons
+    const simButtons = document.querySelectorAll('[data-sim-type]');
     
-    startButtons.forEach(button => {
+    // Add click event to each button
+    simButtons.forEach(button => {
         button.addEventListener('click', function() {
-            console.log('Start button clicked');
-            const simType = this.getAttribute('data-sim');
-            currentSimType = simType;
-            showSimulationIntro(simType);
+            const type = this.getAttribute('data-sim-type');
+            showSimulationIntro(type);
         });
     });
     
-    // Set up begin exam button
-    const beginButton = document.querySelector('.begin-exam');
-    if (beginButton) {
-        beginButton.addEventListener('click', function() {
-            console.log('Begin exam button clicked');
-            document.getElementById('simulation-intro').classList.add('hidden');
-            startExamSimulation();
+    // Exit button
+    const exitButton = document.getElementById('exit-simulator-btn');
+    if (exitButton) {
+        exitButton.addEventListener('click', function() {
+            if (confirm('Are you sure you want to end the exam? Your progress will be saved.')) {
+                endExam();
+            }
         });
     }
+    
+    // Previous and next buttons
+    const prevButton = document.getElementById('sim-prev-btn');
+    const nextButton = document.getElementById('sim-next-btn');
+    
+    if (prevButton) {
+        prevButton.addEventListener('click', function() {
+            if (currentSimQuestionIndex > 0) {
+                currentSimQuestionIndex--;
+                loadQuestion(currentSimQuestionIndex);
+            }
+        });
+    }
+    
+    if (nextButton) {
+        nextButton.addEventListener('click', function() {
+            // Save current answer
+            saveCurrentSimAnswer();
+            
+            // Go to next question or end exam if at the end
+            if (currentSimQuestionIndex < simulatorQuestions.length - 1) {
+                currentSimQuestionIndex++;
+                loadQuestion(currentSimQuestionIndex);
+            } else {
+                if (confirm('You have reached the end of the exam. Do you want to submit your answers?')) {
+                    endExam();
+                }
+            }
+        });
+    }
+    
+    // Review button
+    const reviewButton = document.getElementById('sim-review-btn');
+    if (reviewButton) {
+        reviewButton.addEventListener('click', function() {
+            const reviewContainer = document.getElementById('sim-question-review');
+            if (reviewContainer.classList.contains('hidden')) {
+                reviewContainer.classList.remove('hidden');
+                generateSimQuestionReview();
+            } else {
+                reviewContainer.classList.add('hidden');
+            }
+        });
+    }
+    
+    // Setup interface controls
+    setupInterfaceControls();
+    
+    // Setup tool panels
+    setupToolPanels();
 }
 
 /**
@@ -65,83 +100,89 @@ function setupSimulatorButtons() {
  * @param {string} simType - The type of simulation
  */
 function showSimulationIntro(simType) {
-    console.log('Showing simulation intro for:', simType);
-    const introScreen = document.getElementById('simulation-intro');
-    const examTypeEl = document.getElementById('intro-exam-type');
-    const timeEl = document.getElementById('intro-time');
-    const questionsEl = document.getElementById('intro-questions');
+    // Set global simulation type
+    window.simType = simType;
     
-    // Set the content based on sim type
-    switch(simType) {
-        case 'rn-75':
-            examTypeEl.textContent = 'NCLEX-RN Simulation';
-            timeEl.textContent = '2 hours (120 minutes)';
-            questionsEl.textContent = '75 questions';
-            break;
-        case 'ngn-full':
-            examTypeEl.textContent = 'Next Generation NCLEX Simulation';
-            timeEl.textContent = '5 hours (300 minutes)';
-            questionsEl.textContent = '135 questions (including case studies)';
-            break;
-        case 'practice-30':
-            examTypeEl.textContent = 'Practice Mode';
-            timeEl.textContent = '30 minutes';
-            questionsEl.textContent = '25 questions';
-            break;
+    // Set exam title
+    let examTitle = 'NCLEX Exam Simulator';
+    let questionCount = 75;
+    
+    if (simType === 'standard') {
+        examTitle = 'Standard NCLEX Exam';
+        questionCount = 75;
+    } else if (simType === 'ngn') {
+        examTitle = 'Next Generation NCLEX Exam';
+        questionCount = 70;
+    } else if (simType === 'mini') {
+        examTitle = 'NCLEX Mini Practice';
+        questionCount = 10;
     }
     
-    // Store simulation type for later use
-    localStorage.setItem('currentSimType', simType);
+    // Update the UI
+    document.getElementById('sim-exam-title').textContent = examTitle;
     
-    // Show the intro screen
-    introScreen.classList.remove('hidden');
+    // Track exam start in analytics
+    if (typeof trackExamStart === 'function') {
+        trackExamStart(`simulator-${simType}`);
+    }
+    
+    // Start the exam
+    startExamSimulation();
 }
 
 /**
  * Start the exam simulation
  */
 function startExamSimulation() {
-    console.log('Starting exam simulation');
-    const simulatorInterface = document.getElementById('simulator-interface');
-    simulatorInterface.classList.remove('hidden');
+    // Hide intro section and show simulator interface
+    document.getElementById('simulator-intro').classList.add('hidden');
+    document.getElementById('simulator-interface').classList.remove('hidden');
     
-    // Get simulation type
-    const simType = localStorage.getItem('currentSimType') || 'practice-30';
-    console.log('Simulation type:', simType);
+    // Load sample questions (in a real app, these would come from an API or database)
+    simulatorQuestions = getSampleQuestions();
     
-    // Set exam name in header
-    const examNameEl = document.getElementById('exam-name');
-    switch(simType) {
-        case 'rn-75':
-            examNameEl.textContent = 'NCLEX-RN® Examination';
-            break;
-        case 'ngn-full':
-            examNameEl.textContent = 'Next Generation NCLEX® Examination';
-            break;
-        case 'practice-30':
-            examNameEl.textContent = 'NCLEX Practice Mode';
-            break;
-    }
+    // Initialize user answers array
+    userSimAnswers = Array(simulatorQuestions.length).fill(null);
     
-    // Set total questions
-    const totalQuestionsEl = document.getElementById('total-questions');
-    switch(simType) {
-        case 'rn-75':
-            totalQuestionsEl.textContent = '75';
-            break;
-        case 'ngn-full':
-            totalQuestionsEl.textContent = '135';
-            break;
-        case 'practice-30':
-            totalQuestionsEl.textContent = '25';
-            break;
-    }
+    // Create question navigation buttons
+    createQuestionNavigation();
+    
+    // Load the first question
+    loadQuestion(0);
     
     // Start the timer
-    startExamTimer(simType);
+    startExamTimer(window.simType);
+}
+
+/**
+ * Create question navigation buttons
+ */
+function createQuestionNavigation() {
+    const navContainer = document.getElementById('question-nav-buttons');
+    if (!navContainer) return;
     
-    // Load first question
-    loadQuestion(1);
+    navContainer.innerHTML = '';
+    
+    // Create a button for each question
+    for (let i = 0; i < simulatorQuestions.length; i++) {
+        const button = document.createElement('button');
+        button.className = 'question-button';
+        button.textContent = i + 1;
+        button.dataset.index = i;
+        
+        // Add click event
+        button.addEventListener('click', function() {
+            // Save current answer
+            saveCurrentSimAnswer();
+            
+            // Go to clicked question
+            const index = parseInt(this.dataset.index);
+            currentSimQuestionIndex = index;
+            loadQuestion(index);
+        });
+        
+        navContainer.appendChild(button);
+    }
 }
 
 /**
@@ -149,147 +190,72 @@ function startExamSimulation() {
  * @param {string} simType - The type of simulation
  */
 function startExamTimer(simType) {
-    let totalSeconds;
-    
-    switch(simType) {
-        case 'rn-75':
-            totalSeconds = 120 * 60; // 2 hours
-            break;
-        case 'ngn-full':
-            totalSeconds = 300 * 60; // 5 hours
-            break;
-        case 'practice-30':
-            totalSeconds = 30 * 60; // 30 minutes
-            break;
-        default:
-            totalSeconds = 120 * 60; // Default to 2 hours
+    // Clear any existing timer
+    if (examTimer) {
+        clearInterval(examTimer);
     }
     
-    const timerEl = document.getElementById('exam-timer');
+    // Get total time in seconds
+    examTimeRemaining = getTotalTime(simType);
     
-    // Store end time
-    const endTime = Date.now() + (totalSeconds * 1000);
-    localStorage.setItem('examEndTime', endTime);
+    // Display initial time
+    updateTimerDisplay();
     
-    // Update timer every second
-    window.examTimerInterval = setInterval(function() {
-        const currentTime = Date.now();
-        const timeRemaining = Math.max(0, Math.floor((endTime - currentTime) / 1000));
+    // Start countdown
+    examTimer = setInterval(function() {
+        examTimeRemaining--;
         
-        if (timeRemaining <= 0) {
-            clearInterval(window.examTimerInterval);
+        // Update display
+        updateTimerDisplay();
+        
+        // Check if time is up
+        if (examTimeRemaining <= 0) {
+            clearInterval(examTimer);
+            alert('Time is up! Your exam will be submitted.');
             endExam();
         }
-        
-        // Format time
-        const hours = Math.floor(timeRemaining / 3600);
-        const minutes = Math.floor((timeRemaining % 3600) / 60);
-        const seconds = timeRemaining % 60;
-        
-        timerEl.textContent = 
-            (hours < 10 ? '0' + hours : hours) + ':' +
-            (minutes < 10 ? '0' + minutes : minutes) + ':' +
-            (seconds < 10 ? '0' + seconds : seconds);
     }, 1000);
+}
+
+/**
+ * Update the timer display
+ */
+function updateTimerDisplay() {
+    const display = document.getElementById('exam-timer-display');
+    if (!display) return;
+    
+    // Convert seconds to hours, minutes, seconds
+    const hours = Math.floor(examTimeRemaining / 3600);
+    const minutes = Math.floor((examTimeRemaining % 3600) / 60);
+    const seconds = examTimeRemaining % 60;
+    
+    // Format display
+    display.textContent = 
+        `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    
+    // Add warning class if time is running low
+    if (examTimeRemaining < 300) { // 5 minutes
+        display.parentElement.style.backgroundColor = 'var(--color-quaternary)';
+    }
 }
 
 /**
  * Set up interface controls
  */
 function setupInterfaceControls() {
-    console.log('Setting up interface controls');
+    // Set up calculator
+    setupCalculator();
     
-    // Pause button
-    const pauseButton = document.getElementById('pause-exam');
-    if (pauseButton) {
-        pauseButton.addEventListener('click', function() {
-            console.log('Pause button clicked');
-            document.getElementById('pause-screen').classList.remove('hidden');
-        });
+    // Set up highlighter
+    const enableHighlightBtn = document.getElementById('enable-highlight-btn');
+    if (enableHighlightBtn) {
+        enableHighlightBtn.addEventListener('click', enableHighlighting);
     }
     
-    // Resume button
-    const resumeButton = document.querySelector('.resume-exam');
-    if (resumeButton) {
-        resumeButton.addEventListener('click', function() {
-            console.log('Resume button clicked');
-            document.getElementById('pause-screen').classList.add('hidden');
-        });
-    }
-    
-    // End exam button
-    const endButton = document.getElementById('end-exam');
-    if (endButton) {
-        endButton.addEventListener('click', function() {
-            console.log('End exam button clicked');
-            document.getElementById('end-confirmation').classList.remove('hidden');
-        });
-    }
-    
-    // Cancel end button
-    const cancelEndButton = document.querySelector('.cancel-end');
-    if (cancelEndButton) {
-        cancelEndButton.addEventListener('click', function() {
-            console.log('Cancel end button clicked');
-            document.getElementById('end-confirmation').classList.add('hidden');
-        });
-    }
-    
-    // Confirm end button
-    const confirmEndButton = document.querySelector('.confirm-end');
-    if (confirmEndButton) {
-        confirmEndButton.addEventListener('click', function() {
-            console.log('Confirm end button clicked');
-            document.getElementById('end-confirmation').classList.add('hidden');
-            endExam();
-        });
-    }
-    
-    // Navigation buttons
-    const prevButton = document.getElementById('previous-btn');
-    const nextButton = document.getElementById('next-btn');
-    
-    if (prevButton) {
-        prevButton.addEventListener('click', function() {
-            if (this.disabled) return;
-            
-            const currentQuestion = parseInt(document.getElementById('current-question').textContent);
-            if (currentQuestion > 1) {
-                loadQuestion(currentQuestion - 1);
-            }
-        });
-    }
-    
-    if (nextButton) {
-        nextButton.addEventListener('click', function() {
-            const currentQuestion = parseInt(document.getElementById('current-question').textContent);
-            const totalQuestions = parseInt(document.getElementById('total-questions').textContent);
-            
-            if (currentQuestion < totalQuestions) {
-                loadQuestion(currentQuestion + 1);
-            } else {
-                // If at last question, end exam
-                document.getElementById('end-confirmation').classList.remove('hidden');
-            }
-        });
-    }
-    
-    // Results screen buttons
-    const reviewButton = document.querySelector('.review-exam');
-    if (reviewButton) {
-        reviewButton.addEventListener('click', function() {
-            document.getElementById('results-screen').classList.add('hidden');
-            document.getElementById('simulator-interface').classList.remove('hidden');
-        });
-    }
-    
-    const exitResultsButton = document.querySelector('.exit-results');
-    if (exitResultsButton) {
-        exitResultsButton.addEventListener('click', function() {
-            document.getElementById('results-screen').classList.add('hidden');
-            document.getElementById('simulator-interface').classList.add('hidden');
-            window.location.href = 'simulator.html';
-        });
+    // Set up strikethrough
+    const enableStrikethroughBtn = document.getElementById('enable-strikethrough-btn');
+    if (enableStrikethroughBtn) {
+        enableStrikethroughBtn.addEventListener('click', enableStrikethrough);
     }
 }
 
@@ -297,76 +263,21 @@ function setupInterfaceControls() {
  * Set up tool panels
  */
 function setupToolPanels() {
-    console.log('Setting up tool panels');
+    const toolTabs = document.querySelectorAll('.tool-tab');
+    const toolPanels = document.querySelectorAll('.tool-panel');
     
-    // Calculator button
-    const calculatorBtn = document.getElementById('calculator-btn');
-    if (calculatorBtn) {
-        console.log('Calculator button found');
-        calculatorBtn.addEventListener('click', function() {
-            console.log('Calculator button clicked');
-            const calculatorPanel = document.getElementById('calculator-panel');
-            calculatorPanel.classList.toggle('hidden');
+    // Add click event to tabs
+    toolTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            const tool = this.getAttribute('data-tool');
             
-            // Setup calculator if visible
-            if (!calculatorPanel.classList.contains('hidden')) {
-                setupCalculator();
-            }
-        });
-    } else {
-        console.log('Calculator button not found');
-    }
-    
-    // Notes button
-    const notesBtn = document.getElementById('notes-btn');
-    if (notesBtn) {
-        notesBtn.addEventListener('click', function() {
-            console.log('Notes button clicked');
-            const notesPanel = document.getElementById('notes-panel');
-            notesPanel.classList.toggle('hidden');
-        });
-    }
-    
-    // Highlight button
-    const highlightBtn = document.getElementById('highlight-btn');
-    if (highlightBtn) {
-        highlightBtn.addEventListener('click', function() {
-            console.log('Highlight button clicked');
-            this.classList.toggle('active');
+            // Remove active class from all tabs and panels
+            toolTabs.forEach(t => t.classList.remove('active'));
+            toolPanels.forEach(p => p.classList.remove('active'));
             
-            if (this.classList.contains('active')) {
-                // Enable highlighting mode
-                enableHighlighting();
-            } else {
-                // Disable highlighting mode
-                disableHighlighting();
-            }
-        });
-    }
-    
-    // Strikethrough button
-    const strikethroughBtn = document.getElementById('strikethrough-btn');
-    if (strikethroughBtn) {
-        strikethroughBtn.addEventListener('click', function() {
-            console.log('Strikethrough button clicked');
-            this.classList.toggle('active');
-            
-            if (this.classList.contains('active')) {
-                // Enable strikethrough mode
-                enableStrikethrough();
-            } else {
-                // Disable strikethrough mode
-                disableStrikethrough();
-            }
-        });
-    }
-    
-    // Close panel buttons
-    const closePanelButtons = document.querySelectorAll('.close-panel');
-    closePanelButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            console.log('Close panel button clicked');
-            this.closest('.tool-panel').classList.add('hidden');
+            // Add active class to clicked tab and corresponding panel
+            this.classList.add('active');
+            document.getElementById(`${tool}-panel`).classList.add('active');
         });
     });
 }
@@ -375,73 +286,130 @@ function setupToolPanels() {
  * Set up calculator functionality
  */
 function setupCalculator() {
-    console.log('Setting up calculator');
-    const display = document.getElementById('calc-display');
-    const buttons = document.querySelectorAll('.calc-btn');
+    const calculatorInput = document.getElementById('calculator-input');
+    const calculatorKeys = document.querySelectorAll('.calc-key');
     
-    let currentValue = '';
-    let operator = '';
-    let previousValue = '';
+    if (!calculatorInput || !calculatorKeys.length) return;
     
-    // Clear display
-    display.value = '0';
+    // Current values
+    let currentValue = '0';
+    let pendingValue = null;
+    let pendingOperator = null;
+    let waitingForNewValue = false;
     
-    buttons.forEach(button => {
-        // Remove any existing event listeners
-        const newButton = button.cloneNode(true);
-        button.parentNode.replaceChild(newButton, button);
+    // Update display
+    function updateDisplay() {
+        calculatorInput.value = currentValue;
+    }
+    
+    // Clear calculator
+    function clearCalculator() {
+        currentValue = '0';
+        pendingValue = null;
+        pendingOperator = null;
+        waitingForNewValue = false;
+        updateDisplay();
+    }
+    
+    // Handle digit input
+    function handleDigitInput(digit) {
+        if (waitingForNewValue) {
+            currentValue = digit;
+            waitingForNewValue = false;
+        } else {
+            currentValue = currentValue === '0' ? digit : currentValue + digit;
+        }
+        updateDisplay();
+    }
+    
+    // Handle decimal point
+    function handleDecimalPoint() {
+        if (waitingForNewValue) {
+            currentValue = '0.';
+            waitingForNewValue = false;
+        } else if (!currentValue.includes('.')) {
+            currentValue += '.';
+        }
+        updateDisplay();
+    }
+    
+    // Handle operator
+    function handleOperator(operator) {
+        // If we have a pending calculation, calculate it first
+        if (pendingOperator) {
+            currentValue = calculate(pendingValue, currentValue, pendingOperator);
+            updateDisplay();
+        }
         
-        newButton.addEventListener('click', function() {
-            const value = this.textContent.trim();
-            console.log('Calculator button clicked:', value);
+        // Save the current value and operator
+        pendingValue = currentValue;
+        pendingOperator = operator;
+        waitingForNewValue = true;
+    }
+    
+    // Handle equals
+    function handleEquals() {
+        if (pendingOperator) {
+            currentValue = calculate(pendingValue, currentValue, pendingOperator);
+            pendingValue = null;
+            pendingOperator = null;
+            waitingForNewValue = true;
+            updateDisplay();
+        }
+    }
+    
+    // Handle backspace
+    function handleBackspace() {
+        if (currentValue.length > 1) {
+            currentValue = currentValue.slice(0, -1);
+        } else {
+            currentValue = '0';
+        }
+        updateDisplay();
+    }
+    
+    // Handle percent
+    function handlePercent() {
+        currentValue = (parseFloat(currentValue) / 100).toString();
+        updateDisplay();
+    }
+    
+    // Add click events to calculator keys
+    calculatorKeys.forEach(key => {
+        key.addEventListener('click', function() {
+            const keyValue = this.getAttribute('data-key');
             
-            if ((value >= '0' && value <= '9') || value === '.') {
-                if (currentValue === '0' && value !== '.') {
-                    currentValue = value;
-                } else {
-                    // Only allow one decimal point
-                    if (value === '.' && currentValue.includes('.')) {
-                        return;
-                    }
-                    currentValue += value;
-                }
-                display.value = currentValue;
-            } else if (value === 'C') {
-                // Clear all
-                currentValue = '0';
-                operator = '';
-                previousValue = '';
-                display.value = currentValue;
-            } else if (value === 'CE') {
-                // Clear entry
-                currentValue = '0';
-                display.value = currentValue;
-            } else if (value === '+' || value === '-' || value === '*' || value === '/') {
-                // Operator
-                if (currentValue === '') return;
-                
-                if (previousValue !== '') {
-                    // Calculate previous operation
-                    currentValue = calculate(previousValue, currentValue, operator);
-                    display.value = currentValue;
-                }
-                
-                operator = value;
-                previousValue = currentValue;
-                currentValue = '';
-            } else if (value === '=') {
-                // Calculate result
-                if (previousValue === '' || currentValue === '') return;
-                
-                currentValue = calculate(previousValue, currentValue, operator);
-                display.value = currentValue;
-                
-                // Reset for next calculation
-                previousValue = '';
-                operator = '';
+            switch (keyValue) {
+                case 'clear':
+                    clearCalculator();
+                    break;
+                case 'backspace':
+                    handleBackspace();
+                    break;
+                case 'percent':
+                    handlePercent();
+                    break;
+                case 'divide':
+                case 'multiply':
+                case 'subtract':
+                case 'add':
+                    handleOperator(keyValue);
+                    break;
+                case 'equals':
+                    handleEquals();
+                    break;
+                case 'decimal':
+                    handleDecimalPoint();
+                    break;
+                default: // Digits 0-9
+                    handleDigitInput(keyValue);
+                    break;
             }
         });
     });
+    
+    // Initialize calculator
+    clearCalculator();
 }
 
 /**
@@ -452,69 +420,103 @@ function setupCalculator() {
  * @returns {string} - Result
  */
 function calculate(a, b, op) {
-    a = parseFloat(a);
-    b = parseFloat(b);
+    const numA = parseFloat(a);
+    const numB = parseFloat(b);
+    let result = 0;
     
     switch (op) {
-        case '+':
-            return (a + b).toString();
-        case '-':
-            return (a - b).toString();
-        case '*':
-            return (a * b).toString();
-        case '/':
-            return (b === 0) ? 'Error' : (a / b).toString();
-        default:
-            return b.toString();
+        case 'add':
+            result = numA + numB;
+            break;
+        case 'subtract':
+            result = numA - numB;
+            break;
+        case 'multiply':
+            result = numA * numB;
+            break;
+        case 'divide':
+            if (numB !== 0) {
+                result = numA / numB;
+            } else {
+                return 'Error';
+            }
+            break;
     }
+    
+    // Format result
+    return result.toString().includes('.') ? result.toFixed(8).replace(/\.?0+$/, '') : result.toString();
 }
 
 /**
  * Enable highlighting mode
  */
 function enableHighlighting() {
-    console.log('Enabling highlighting mode');
-    // Implementation would depend on the question content
-    const questionContent = document.querySelector('.question-content');
+    // Get elements
+    const enableBtn = document.getElementById('enable-highlight-btn');
+    const questionStem = document.getElementById('sim-question-stem');
     
-    questionContent.style.cursor = 'pointer';
-    questionContent.addEventListener('mouseup', highlightSelection);
+    if (!enableBtn || !questionStem) return;
+    
+    // Toggle button text and highlighting mode
+    if (enableBtn.textContent === 'Enable Highlighting') {
+        enableBtn.textContent = 'Disable Highlighting';
+        enableBtn.classList.add('primary');
+        
+        // Add highlighting event listener
+        questionStem.addEventListener('mouseup', highlightSelection);
+    } else {
+        enableBtn.textContent = 'Enable Highlighting';
+        enableBtn.classList.remove('primary');
+        
+        // Remove highlighting event listener
+        questionStem.removeEventListener('mouseup', highlightSelection);
+    }
 }
 
 /**
  * Disable highlighting mode
  */
 function disableHighlighting() {
-    console.log('Disabling highlighting mode');
-    const questionContent = document.querySelector('.question-content');
+    const enableBtn = document.getElementById('enable-highlight-btn');
+    if (enableBtn) {
+        enableBtn.textContent = 'Enable Highlighting';
+        enableBtn.classList.remove('primary');
+    }
     
-    questionContent.style.cursor = '';
-    questionContent.removeEventListener('mouseup', highlightSelection);
+    const questionStem = document.getElementById('sim-question-stem');
+    if (questionStem) {
+        questionStem.removeEventListener('mouseup', highlightSelection);
+    }
 }
 
 /**
  * Highlight selected text
  */
 function highlightSelection() {
-    console.log('Highlighting selection');
     const selection = window.getSelection();
-    
-    if (selection.rangeCount > 0) {
+    if (selection.toString().length > 0) {
+        // Create a span to wrap the selected text
         const range = selection.getRangeAt(0);
+        const selectedText = selection.toString();
         
-        if (range.toString().trim() !== '') {
+        // Check if the selection is already highlighted
+        if (range.startContainer.parentNode.classList && 
+            range.startContainer.parentNode.classList.contains('highlight-active')) {
+            // Remove highlight
+            const highlightSpan = range.startContainer.parentNode;
+            const textNode = document.createTextNode(highlightSpan.textContent);
+            highlightSpan.parentNode.replaceChild(textNode, highlightSpan);
+        } else {
+            // Add highlight
             const span = document.createElement('span');
-            span.style.backgroundColor = 'yellow';
-            span.className = 'highlighted-text';
-            
-            try {
-                range.surroundContents(span);
-            } catch (e) {
-                console.error('Error highlighting text:', e);
-            }
-            
-            selection.removeAllRanges();
+            span.classList.add('highlight-active');
+            span.textContent = selectedText;
+            range.deleteContents();
+            range.insertNode(span);
         }
+        
+        // Clear selection
+        selection.removeAllRanges();
     }
 }
 
@@ -522,33 +524,55 @@ function highlightSelection() {
  * Enable strikethrough mode
  */
 function enableStrikethrough() {
-    console.log('Enabling strikethrough mode');
-    // Add click event to options
-    const options = document.querySelectorAll('.option');
+    // Get elements
+    const enableBtn = document.getElementById('enable-strikethrough-btn');
+    const options = document.querySelectorAll('#sim-options-container .option');
     
-    options.forEach(option => {
-        option.addEventListener('click', toggleStrikethrough);
-    });
+    if (!enableBtn || !options.length) return;
+    
+    // Toggle button text and strikethrough mode
+    if (enableBtn.textContent === 'Enable Strikethrough') {
+        enableBtn.textContent = 'Disable Strikethrough';
+        enableBtn.classList.add('primary');
+        
+        // Add strikethrough event listener to options
+        options.forEach(option => {
+            option.addEventListener('click', toggleStrikethrough);
+        });
+    } else {
+        enableBtn.textContent = 'Enable Strikethrough';
+        enableBtn.classList.remove('primary');
+        
+        // Remove strikethrough event listener from options
+        options.forEach(option => {
+            option.removeEventListener('click', toggleStrikethrough);
+        });
+    }
 }
 
 /**
  * Disable strikethrough mode
  */
 function disableStrikethrough() {
-    console.log('Disabling strikethrough mode');
-    const options = document.querySelectorAll('.option');
+    const enableBtn = document.getElementById('enable-strikethrough-btn');
+    if (enableBtn) {
+        enableBtn.textContent = 'Enable Strikethrough';
+        enableBtn.classList.remove('primary');
+    }
     
-    options.forEach(option => {
-        option.removeEventListener('click', toggleStrikethrough);
-    });
+    const options = document.querySelectorAll('#sim-options-container .option');
+    if (options.length) {
+        options.forEach(option => {
+            option.removeEventListener('click', toggleStrikethrough);
+        });
+    }
 }
 
 /**
  * Toggle strikethrough on an option
  */
 function toggleStrikethrough() {
-    console.log('Toggling strikethrough');
-    this.classList.toggle('strikethrough');
+    this.style.textDecoration = this.style.textDecoration === 'line-through' ? 'none' : 'line-through';
 }
 
 /**
@@ -556,73 +580,140 @@ function toggleStrikethrough() {
  * @param {number} questionNumber - The question number to load
  */
 function loadQuestion(questionNumber) {
-    console.log('Loading question:', questionNumber);
-    // Update current question display
-    const currentQuestionEl = document.getElementById('current-question');
-    currentQuestionEl.textContent = questionNumber;
+    // Update current question index
+    currentSimQuestionIndex = questionNumber;
     
-    // Update previous button state
-    const prevButton = document.getElementById('previous-btn');
-    prevButton.disabled = questionNumber === 1;
+    // Get the question
+    const question = simulatorQuestions[questionNumber];
     
-    // Load question content
-    const questionStem = document.getElementById('question-stem');
-    const questionOptions = document.getElementById('question-options');
+    // Update question number and navigation buttons
+    document.getElementById('sim-prev-btn').disabled = questionNumber === 0;
+    document.getElementById('sim-next-btn').textContent = questionNumber === simulatorQuestions.length - 1 ? 'Submit Exam' : 'Next';
     
-    // Get the question from our database or use sample questions if not loaded yet
-    let question;
-    if (simulatorQuestions && simulatorQuestions.length > 0) {
-        question = simulatorQuestions[(questionNumber - 1) % simulatorQuestions.length];
-    } else {
-        // Fallback to sample questions
-        const sampleQuestions = getSampleQuestions();
-        question = sampleQuestions[(questionNumber - 1) % sampleQuestions.length];
-    }
-    
-    // Set question stem
-    questionStem.innerHTML = question.stem;
-    
-    // Set options
-    questionOptions.innerHTML = '';
-    question.options.forEach((option, index) => {
-        const optionElement = document.createElement('div');
-        optionElement.className = 'option';
-        optionElement.innerHTML = `
-            <div class="option-marker">${String.fromCharCode(65 + index)}</div>
-            <div class="option-text">${option}</div>
-        `;
+    // Update question navigation highlights
+    const questionButtons = document.querySelectorAll('.question-button');
+    questionButtons.forEach(button => {
+        button.classList.remove('current');
+        const buttonIndex = parseInt(button.dataset.index);
         
-        // Add click handler for option selection
-        optionElement.addEventListener('click', function(event) {
-            // If strikethrough mode is active, don't select
-            if (document.getElementById('strikethrough-btn').classList.contains('active')) {
-                console.log('Strikethrough mode active, not selecting option');
-                return;
-            }
-            
-            // Deselect all options
-            document.querySelectorAll('.option').forEach(opt => {
-                opt.classList.remove('selected');
-            });
-            
-            // Select this option
-            this.classList.add('selected');
-            
-            // Store answer
-            const answers = JSON.parse(localStorage.getItem('examAnswers') || '{}');
-            answers[questionNumber] = index;
-            localStorage.setItem('examAnswers', JSON.stringify(answers));
-        });
+        // Mark as current if this is the current question
+        if (buttonIndex === questionNumber) {
+            button.classList.add('current');
+        }
         
-        questionOptions.appendChild(optionElement);
+        // Mark as answered if the user has answered this question
+        if (userSimAnswers[buttonIndex] !== null) {
+            button.classList.add('answered');
+        } else {
+            button.classList.remove('answered');
+        }
     });
     
-    // Check if there's a stored answer for this question
-    const answers = JSON.parse(localStorage.getItem('examAnswers') || '{}');
-    if (answers[questionNumber] !== undefined) {
-        const options = document.querySelectorAll('.option');
-        if (options.length > answers[questionNumber]) {
-            options[answers[questionNumber]].classList.add('selected');
+    // Update question stem
+    document.getElementById('sim-question-stem').textContent = question.stem;
+    
+    // Clear options container
+    const optionsContainer = document.getElementById('sim-options-container');
+    optionsContainer.innerHTML = '';
+    
+    // Determine question type (single-select or multi-select)
+    const isMultiSelect = question.questionType === 'multi-select';
+    
+    // Add options
+    if (question.options) {
+        // If this is a multi-select question, add a note
+        if (isMultiSelect) {
+            const noteElement = document.createElement('div');
+            noteElement.className = 'mt-3 mb-3';
+            noteElement.innerHTML = '<strong>Note:</strong> This is a multi-select question. Select all options that apply.';
+            optionsContainer.appendChild(noteElement);
+        }
+        
+        // Add options
+        question.options.forEach((option, optionIndex) => {
+            const optionElement = document.createElement('div');
+            optionElement.className = 'option';
+            optionElement.dataset.index = optionIndex;
+            
+            // Check if this option was previously selected
+            const userAnswer = userSimAnswers[questionNumber];
+            if (userAnswer !== null) {
+                if (isMultiSelect && Array.isArray(userAnswer)) {
+                    if (userAnswer.includes(optionIndex)) {
+                        optionElement.classList.add('selected');
+                    }
+                } else if (userAnswer === optionIndex) {
+                    optionElement.classList.add('selected');
+                }
+            }
+            
+            // Create option marker (A, B, C, etc.)
+            const markerElement = document.createElement('div');
+            markerElement.className = 'option-marker';
+            markerElement.textContent = String.fromCharCode(65 + optionIndex); // A, B, C, etc.
+            
+            // Create option text
+            const textElement = document.createElement('div');
+            textElement.className = 'option-text';
+            textElement.textContent = option;
+            
+            // Add elements to option
+            optionElement.appendChild(markerElement);
+            optionElement.appendChild(textElement);
+            
+            // Add click event listener
+            optionElement.addEventListener('click', function(e) {
+                // Don't select if in strikethrough mode
+                const strikethroughBtn = document.getElementById('enable-strikethrough-btn');
+                if (strikethroughBtn && strikethroughBtn.textContent === 'Disable Strikethrough') {
+                    return; // Let the strikethrough handler handle it
+                }
+                
+                if (isMultiSelect) {
+                    // For multi-select, toggle selection
+                    this.classList.toggle('selected');
+                } else {
+                    // For single-select, remove selection from all options and select this one
+                    document.querySelectorAll('#sim-options-container .option').forEach(opt => {
+                        opt.classList.remove('selected');
+                    });
+                    this.classList.add('selected');
+                }
+                
+                // Mark the question as answered in the navigation
+                const questionButton = document.querySelector(`.question-button[data-index="${questionNumber}"]`);
+                if (questionButton) {
+                    questionButton.classList.add('answered');
+                }
+            });
+            
+            // Add to options container
+            optionsContainer.appendChild(optionElement);
+        });
+    }
+    
+    // Reset tool states
+    disableHighlighting();
+    disableStrikethrough();
+}
+
+/**
+ * Save the user's answer for the current question
+ */
+function saveCurrentSimAnswer() {
+    const selectedOptions = document.querySelectorAll('#sim-options-container .option.selected');
+    const question = simulatorQuestions[currentSimQuestionIndex];
+    const isMultiSelect = question.questionType === 'multi-select';
+    
+    if (selectedOptions.length > 0) {
+        if (isMultiSelect) {
+            // For multi-select, save an array of selected indices
+            userSimAnswers[currentSimQuestionIndex] = Array.from(selectedOptions).map(opt => 
+                parseInt(opt.dataset.index)
+            );
+        } else {
+            // For single-select, save the index of the selected option
+            userSimAnswers[currentSimQuestionIndex] = parseInt(selectedOptions[0].dataset.index);
         }
     }
 }
@@ -632,70 +723,66 @@ function loadQuestion(questionNumber) {
  * @returns {Array} - Array of sample questions
  */
 function getSampleQuestions() {
+    // In a real application, these would be loaded from an API or database
+    // This is just a small sample for the simulator demo
     return [
         {
-            stem: "A nurse is caring for a client with heart failure who is receiving furosemide (Lasix) 40 mg IV. The client's serum potassium level is 3.2 mEq/L. Which action should the nurse take?",
+            stem: "A nurse is caring for a client with hypertension who takes enalapril 10 mg orally daily. The client's blood pressure today is 90/50 mmHg. The client reports feeling dizzy when standing. What is the priority nursing action?",
             options: [
-                "Administer the medication as ordered",
-                "Hold the medication and notify the healthcare provider",
-                "Administer the medication with a banana",
-                "Request an order for potassium supplementation before administering the medication"
-            ]
+                "Administer the enalapril as prescribed",
+                "Hold the enalapril and notify the healthcare provider",
+                "Have the client lie down and recheck blood pressure in 30 minutes",
+                "Give the client a glass of water and recheck blood pressure"
+            ],
+            answer: 1,
+            rationale: "The client is experiencing hypotension (90/50 mmHg) and orthostatic symptoms, which are side effects of enalapril. The priority action is to hold the medication and notify the healthcare provider for further orders."
         },
         {
-            stem: "A nurse is caring for a client who had abdominal surgery 2 days ago. The client reports pain at the incision site rated as 8/10. The last dose of morphine sulfate 4 mg IV was given 5 hours ago. The medication is ordered every 4 hours as needed. Which action should the nurse take?",
+            stem: "A nurse is caring for a client who has just returned from surgery with a nasogastric tube connected to low intermittent suction. Which finding requires immediate intervention?",
             options: [
-                "Encourage the client to wait 1 more hour before receiving pain medication",
-                "Administer the ordered dose of morphine sulfate",
-                "Contact the healthcare provider to increase the dosage",
-                "Assess the client's vital signs before administering the medication"
-            ]
+                "Small amount of bright red drainage in the collection chamber",
+                "Gurgling sounds when air is injected into the tube",
+                "Absence of bowel sounds in all four quadrants",
+                "pH of 7 when drainage is tested with pH paper"
+            ],
+            answer: 0,
+            rationale: "Bright red drainage in the collection chamber indicates fresh bleeding, which requires immediate intervention. This could indicate trauma to the nasogastric tube insertion site or other gastrointestinal bleeding."
         },
         {
-            stem: "A nurse is caring for a client who has just been diagnosed with type 1 diabetes mellitus. Which statement by the client indicates effective teaching about insulin administration?",
+            stem: "A client with pneumonia has an order for ceftriaxone 1 g IV every 24 hours. The medication label states that when reconstituted with 10 mL of sterile water, the resulting concentration is 100 mg/mL. How many milliliters should the nurse administer?",
             options: [
-                "\"I should always inject my insulin in the same site to ensure consistent absorption.\"",
-                "\"I will store my insulin vials at room temperature.\"",
-                "\"I will rotate my injection sites to prevent lipodystrophy.\"",
-                "\"I can mix all types of insulin in the same syringe.\""
-            ]
+                "1 mL",
+                "10 mL",
+                "100 mL",
+                "None of the above"
+            ],
+            answer: 1,
+            rationale: "To calculate the volume: Desired dose = 1 g = 1000 mg. Concentration = 100 mg/mL. Volume = Desired dose ÷ Concentration = 1000 mg ÷ 100 mg/mL = 10 mL."
         },
         {
-            stem: "A client with a diagnosis of pneumonia has the following arterial blood gas results: pH 7.32, PaCO₂ 48 mmHg, PaO₂ 80 mmHg, HCO₃⁻ 24 mEq/L. The nurse interprets these results as indicating which condition?",
+            questionType: "multi-select",
+            stem: "A nurse is providing discharge teaching to a client who has been prescribed warfarin. Select all the instructions that should be included in the teaching.",
             options: [
-                "Respiratory acidosis",
-                "Respiratory alkalosis",
-                "Metabolic acidosis",
-                "Metabolic alkalosis"
-            ]
+                "Report unusual bleeding or bruising to your healthcare provider",
+                "Take aspirin for headaches",
+                "Eat a consistent amount of green leafy vegetables",
+                "Have regular blood tests to monitor INR levels",
+                "Avoid contact sports",
+                "Increase your vitamin K intake"
+            ],
+            answer: [0, 2, 3, 4],
+            rationale: "The correct instructions for a client on warfarin include reporting unusual bleeding, maintaining consistent vitamin K intake (from green leafy vegetables), having regular INR monitoring, and avoiding activities with high risk of injury. The client should avoid aspirin (increases bleeding risk) and should not increase vitamin K (antagonizes warfarin)."
         },
         {
-            stem: "A nurse is caring for a client who is receiving total parenteral nutrition (TPN) through a central venous catheter. The client suddenly develops shortness of breath, chest pain, and anxiety. What is the priority nursing action?",
+            stem: "A nurse is caring for a client who has been newly diagnosed with type 1 diabetes mellitus. Which statement by the client indicates a need for further teaching?",
             options: [
-                "Increase the flow rate of the TPN",
-                "Place the client in a supine position",
-                "Stop the TPN infusion and place the client in a left lateral recumbent position",
-                "Administer oxygen and place the client in a high Fowler's position"
-            ]
-        },
-        // Additional questions
-        {
-            stem: "A nurse is providing teaching for a client who will be taking warfarin (Coumadin) after discharge. Which statement by the client indicates understanding of the medication teaching?",
-            options: [
-                "\"I should take aspirin if I develop a headache.\"",
-                "\"I should notify my healthcare provider if I notice blood in my urine.\"",
-                "\"I can eat green leafy vegetables without any restrictions.\"",
-                "\"I should stop taking the medication if I get a nosebleed.\""
-            ]
-        },
-        {
-            stem: "A nurse is assessing a client with a diagnosis of pulmonary embolism. Which assessment finding would the nurse expect to observe?",
-            options: [
-                "Diminished breath sounds in the affected area",
-                "Productive cough with purulent sputum",
-                "Sudden onset of sharp chest pain that worsens with inspiration",
-                "Presence of a friction rub on auscultation"
-            ]
+                "I should rotate my insulin injection sites",
+                "I can stop taking insulin once my blood sugar normalizes",
+                "I need to check my feet daily for cuts or sores",
+                "I should carry a source of fast-acting glucose with me"
+            ],
+            answer: 1,
+            rationale: "The statement 'I can stop taking insulin once my blood sugar normalizes' indicates a need for further teaching. Clients with type 1 diabetes require lifelong insulin therapy because their pancreas does not produce insulin."
         }
     ];
 }
@@ -704,14 +791,19 @@ function getSampleQuestions() {
  * End the exam
  */
 function endExam() {
-    console.log('Ending exam');
-    // Clear timer interval
-    clearInterval(window.examTimerInterval);
+    // Save current answer
+    saveCurrentSimAnswer();
     
-    // Hide interface
+    // Stop the timer
+    if (examTimer) {
+        clearInterval(examTimer);
+    }
+    
+    // Hide simulator interface and show results
     document.getElementById('simulator-interface').classList.add('hidden');
+    document.getElementById('simulator-results').classList.remove('hidden');
     
-    // Show results
+    // Display results
     showResults();
 }
 
@@ -719,101 +811,215 @@ function endExam() {
  * Show exam results
  */
 function showResults() {
-    console.log('Showing exam results');
-    const resultsScreen = document.getElementById('results-screen');
+    // Calculate the score
+    let correctCount = 0;
     
-    // Calculate results
-    const answers = JSON.parse(localStorage.getItem('examAnswers') || '{}');
-    const totalQuestions = parseInt(document.getElementById('total-questions').textContent);
-    const answeredQuestions = Object.keys(answers).length;
-    
-    // For demo, we'll consider certain answers as correct based on a fixed pattern or the actual data
-    let correctAnswers = {};
-    
-    // If we have the actual questions loaded, use their correct answers
-    if (simulatorQuestions && simulatorQuestions.length > 0) {
-        for (let i = 1; i <= totalQuestions; i++) {
-            const questionIndex = (i - 1) % simulatorQuestions.length;
-            correctAnswers[i] = simulatorQuestions[questionIndex].correctAnswer;
+    for (let i = 0; i < simulatorQuestions.length; i++) {
+        const question = simulatorQuestions[i];
+        const userAnswer = userSimAnswers[i];
+        const correctAnswer = question.answer;
+        
+        // Skip if user didn't answer
+        if (userAnswer === null) continue;
+        
+        // Check if answer is correct
+        if (Array.isArray(correctAnswer)) {
+            // For multi-select questions
+            if (Array.isArray(userAnswer) && 
+                userAnswer.length === correctAnswer.length && 
+                userAnswer.every(ans => correctAnswer.includes(ans))) {
+                correctCount++;
+            }
+        } else {
+            // For single-select questions
+            if (userAnswer === correctAnswer) {
+                correctCount++;
+            }
         }
-    } else {
-        // Fallback pattern for demo
-        correctAnswers = {
-            1: 3, 2: 1, 3: 2, 4: 0, 5: 3, 6: 1, 7: 2,
-            8: 0, 9: 2, 10: 1, 11: 3, 12: 0
-        };
     }
     
-    let correct = 0;
-    Object.keys(answers).forEach(question => {
-        if (correctAnswers[question] === answers[question]) {
-            correct++;
+    // Calculate score percentage
+    const totalQuestions = simulatorQuestions.length;
+    const scorePercentage = Math.round((correctCount / totalQuestions) * 100);
+    
+    // Calculate time taken
+    const totalTime = getTotalTime(window.simType);
+    const timeTaken = totalTime - examTimeRemaining;
+    const hours = Math.floor(timeTaken / 3600);
+    const minutes = Math.floor((timeTaken % 3600) / 60);
+    const seconds = timeTaken % 60;
+    const timeDisplay = 
+        `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    
+    // Update results UI
+    document.getElementById('sim-result-score').textContent = `${scorePercentage}%`;
+    document.getElementById('sim-result-correct').textContent = correctCount;
+    document.getElementById('sim-result-total').textContent = totalQuestions;
+    document.getElementById('sim-result-time').textContent = timeDisplay;
+    document.getElementById('sim-result-message').textContent = getResultMessage(scorePercentage);
+    
+    // Create performance analysis
+    createPerformanceAnalysis(correctCount, totalQuestions);
+    
+    // Track exam completion in analytics
+    if (typeof trackExamCompletion === 'function') {
+        trackExamCompletion(`simulator-${window.simType}`, scorePercentage);
+    }
+}
+
+/**
+ * Create performance analysis
+ * @param {number} correctCount - Number of correct answers
+ * @param {number} totalQuestions - Total number of questions
+ */
+function createPerformanceAnalysis(correctCount, totalQuestions) {
+    const analysisContainer = document.getElementById('analysis-container');
+    if (!analysisContainer) return;
+    
+    // Calculate percentage
+    const percentage = Math.round((correctCount / totalQuestions) * 100);
+    
+    // Create analysis HTML
+    let html = `
+        <div class="neu-card">
+            <h4>Score Breakdown</h4>
+            <p>You answered ${correctCount} out of ${totalQuestions} questions correctly.</p>
+            <div class="progress-bar">
+                <div class="progress" style="width: ${percentage}%"></div>
+            </div>
+            <p class="mt-2">Your score: ${percentage}%</p>
+        </div>
+    `;
+    
+    // Add recommendations based on score
+    html += `
+        <div class="neu-card mt-4">
+            <h4>Recommendations</h4>
+            <ul class="exam-features">
+    `;
+    
+    if (percentage < 60) {
+        html += `
+            <li><i class="fas fa-check"></i> Focus on content review in key areas</li>
+            <li><i class="fas fa-check"></i> Practice more questions daily</li>
+            <li><i class="fas fa-check"></i> Consider using additional study resources</li>
+            <li><i class="fas fa-check"></i> Form a study group for support</li>
+            <li><i class="fas fa-check"></i> Schedule regular review sessions</li>
+        `;
+    } else if (percentage < 80) {
+        html += `
+            <li><i class="fas fa-check"></i> Review rationales for missed questions</li>
+            <li><i class="fas fa-check"></i> Focus on test-taking strategies</li>
+            <li><i class="fas fa-check"></i> Continue daily practice with timed sessions</li>
+            <li><i class="fas fa-check"></i> Identify and strengthen weak content areas</li>
+            <li><i class="fas fa-check"></i> Take another practice exam in one week</li>
+        `;
+    } else {
+        html += `
+            <li><i class="fas fa-check"></i> Maintain your excellent study habits</li>
+            <li><i class="fas fa-check"></i> Focus on any remaining weak areas</li>
+            <li><i class="fas fa-check"></i> Practice more complex question types</li>
+            <li><i class="fas fa-check"></i> Begin final exam preparation</li>
+            <li><i class="fas fa-check"></i> You're ready for the NCLEX exam!</li>
+        `;
+    }
+    
+    html += `
+            </ul>
+        </div>
+    `;
+    
+    // Set container HTML
+    analysisContainer.innerHTML = html;
+}
+
+/**
+ * Generate the question review section
+ */
+function generateSimQuestionReview() {
+    const reviewContainer = document.getElementById('sim-review-questions');
+    if (!reviewContainer) return;
+    
+    reviewContainer.innerHTML = '';
+    
+    simulatorQuestions.forEach((question, index) => {
+        const questionReview = document.createElement('div');
+        questionReview.className = 'question-container mt-4';
+        
+        // Question header
+        const questionHeader = document.createElement('div');
+        questionHeader.innerHTML = `<h4>Question ${index + 1}</h4>`;
+        
+        // Question stem
+        const questionStem = document.createElement('p');
+        questionStem.className = 'question-stem';
+        questionStem.textContent = question.stem;
+        
+        // Options
+        const optionsContainer = document.createElement('div');
+        optionsContainer.className = 'options-container';
+        
+        // Add options
+        if (question.options) {
+            question.options.forEach((option, optionIndex) => {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'option';
+                
+                // Check if this is the correct answer
+                if (Array.isArray(question.answer)) {
+                    if (question.answer.includes(optionIndex)) {
+                        optionElement.classList.add('correct');
+                    }
+                } else if (question.answer === optionIndex) {
+                    optionElement.classList.add('correct');
+                }
+                
+                // Check if user selected this option
+                const userAnswer = userSimAnswers[index];
+                if (userAnswer !== null) {
+                    if (Array.isArray(userAnswer) && userAnswer.includes(optionIndex)) {
+                        optionElement.classList.add('selected');
+                    } else if (userAnswer === optionIndex) {
+                        optionElement.classList.add('selected');
+                    }
+                }
+                
+                // Create option marker
+                const markerElement = document.createElement('div');
+                markerElement.className = 'option-marker';
+                markerElement.textContent = String.fromCharCode(65 + optionIndex); // A, B, C, etc.
+                
+                // Create option text
+                const textElement = document.createElement('div');
+                textElement.className = 'option-text';
+                textElement.textContent = option;
+                
+                // Add elements to option
+                optionElement.appendChild(markerElement);
+                optionElement.appendChild(textElement);
+                
+                // Add to options container
+                optionsContainer.appendChild(optionElement);
+            });
         }
+        
+        // Rationale
+        const rationaleContainer = document.createElement('div');
+        rationaleContainer.className = 'answer-rationale';
+        rationaleContainer.innerHTML = `
+            <h3>Rationale</h3>
+            <p>${question.rationale || "No rationale available for this question."}</p>
+        `;
+        
+        // Build the question review
+        questionReview.appendChild(questionHeader);
+        questionReview.appendChild(questionStem);
+        questionReview.appendChild(optionsContainer);
+        questionReview.appendChild(rationaleContainer);
+        
+        // Add to review container
+        reviewContainer.appendChild(questionReview);
     });
-    
-    // Calculate score
-    const score = Math.round((correct / totalQuestions) * 100);
-    
-    // Update results elements
-    document.getElementById('results-answered').textContent = `${answeredQuestions}/${totalQuestions}`;
-    document.getElementById('results-correct').textContent = correct;
-    document.getElementById('results-score').textContent = `${score}%`;
-    
-    // Get time used
-    const endTime = parseInt(localStorage.getItem('examEndTime') || '0');
-    const currentTime = Date.now();
-    const timeUsed = Math.max(0, Math.floor((endTime - currentTime) / 1000));
-    const totalSeconds = endTime > currentTime ? 
-                         timeUsed : 
-                         Math.floor((currentTime - (endTime - getTotalTime(currentSimType))) / 1000);
-    
-    const hours = Math.floor(totalSeconds / 3600);
-    const minutes = Math.floor((totalSeconds % 3600) / 60);
-    
-    document.getElementById('results-time').textContent = 
-        `${hours} hour${hours !== 1 ? 's' : ''} ${minutes} minute${minutes !== 1 ? 's' : ''}`;
-    
-    // Create breakdown based on the simulation type
-    const breakdownDiv = document.getElementById('results-breakdown');
-    
-    if (currentSimType === 'ngn-full') {
-        breakdownDiv.innerHTML = `
-            <h3>Performance by Question Type</h3>
-            <p>You performed well in:</p>
-            <ul>
-                <li>Standard multiple choice</li>
-                <li>Multiple response select all that apply</li>
-            </ul>
-            <p>Areas for improvement:</p>
-            <ul>
-                <li>Drag and Drop case studies</li>
-                <li>Cloze (fill-in-the-blank) questions</li>
-                <li>Matrix/grid questions</li>
-            </ul>
-        `;
-    } else {
-        breakdownDiv.innerHTML = `
-            <h3>Performance by Content Area</h3>
-            <p>You performed well in:</p>
-            <ul>
-                <li>Medication administration</li>
-                <li>Patient assessment</li>
-            </ul>
-            <p>Areas for improvement:</p>
-            <ul>
-                <li>Prioritization of care</li>
-                <li>Laboratory value interpretation</li>
-            </ul>
-        `;
-    }
-    
-    // Show results screen
-    resultsScreen.classList.remove('hidden');
-    
-    // Clear stored answers
-    localStorage.removeItem('examAnswers');
-    localStorage.removeItem('examEndTime');
-    localStorage.removeItem('currentSimType');
 }
 
 /**
@@ -822,167 +1028,14 @@ function showResults() {
  * @returns {number} - Total time in seconds
  */
 function getTotalTime(simType) {
-    switch(simType) {
-        case 'rn-75':
-            return 120 * 60 * 1000; // 2 hours in milliseconds
-        case 'ngn-full':
-            return 300 * 60 * 1000; // 5 hours in milliseconds
-        case 'practice-30':
-            return 30 * 60 * 1000; // 30 minutes in milliseconds
+    switch (simType) {
+        case 'standard':
+            return 5 * 60 * 60; // 5 hours
+        case 'ngn':
+            return 5 * 60 * 60; // 5 hours
+        case 'mini':
+            return 30 * 60; // 30 minutes
         default:
-            return 120 * 60 * 1000; // Default to 2 hours in milliseconds
-    }
-}
-
-/**
- * Initialize NGN Examples
- */
-function initializeNGNExamples() {
-    console.log('Initializing NGN examples');
-    setupMatrixExample();
-    setupClozeExample();
-    setupHighlightingExample();
-    setupDragAndDropExample();
-    setupNGNSimulatorButtons();
-}
-
-/**
- * Set up the NGN simulator buttons
- */
-function setupNGNSimulatorButtons() {
-    console.log('Setting up NGN simulator buttons');
-    const ngnSimButton = document.querySelector('.simulator-cta .start-sim');
-    if (ngnSimButton) {
-        ngnSimButton.addEventListener('click', function() {
-            const simType = this.getAttribute('data-sim');
-            showSimulationIntro(simType);
-        });
-    }
-}
-
-/**
- * Set up matrix example
- */
-function setupMatrixExample() {
-    console.log('Setting up matrix example');
-    const matrixCells = document.querySelectorAll('.matrix-cell.selectable');
-    
-    matrixCells.forEach(cell => {
-        cell.addEventListener('click', function() {
-            this.classList.toggle('selected');
-            if (this.classList.contains('selected')) {
-                this.innerHTML = '<i class="fas fa-check"></i>';
-            } else {
-                this.innerHTML = '';
-            }
-        });
-    });
-}
-
-/**
- * Set up cloze (dropdown) example
- */
-function setupClozeExample() {
-    console.log('Setting up cloze example');
-    const dropdowns = document.querySelectorAll('.cloze-dropdown');
-    
-    dropdowns.forEach(dropdown => {
-        const dropdownEl = dropdown;
-        
-        dropdownEl.addEventListener('click', function(event) {
-            event.stopPropagation();
-            this.classList.toggle('active');
-        });
-        
-        const options = dropdown.querySelectorAll('.cloze-dropdown-option');
-        options.forEach(option => {
-            option.addEventListener('click', function(event) {
-                event.stopPropagation();
-                const selectedOption = this.closest('.cloze-dropdown').querySelector('.selected-option');
-                selectedOption.textContent = this.textContent;
-                this.closest('.cloze-dropdown').classList.remove('active');
-            });
-        });
-    });
-    
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function(event) {
-        dropdowns.forEach(dropdown => {
-            dropdown.classList.remove('active');
-        });
-    });
-}
-
-/**
- * Set up highlighting example
- */
-function setupHighlightingExample() {
-    console.log('Setting up highlighting example');
-    const paragraph = document.querySelector('.highlight-paragraph');
-    
-    if (paragraph) {
-        paragraph.addEventListener('mouseup', function() {
-            const selection = window.getSelection();
-            
-            if (selection.rangeCount > 0) {
-                const range = selection.getRangeAt(0);
-                
-                if (range.toString().trim() !== '') {
-                    const span = document.createElement('span');
-                    span.style.backgroundColor = 'yellow';
-                    span.className = 'highlighted-text';
-                    
-                    try {
-                        range.surroundContents(span);
-                    } catch (e) {
-                        console.error('Error highlighting text:', e);
-                    }
-                    
-                    selection.removeAllRanges();
-                }
-            }
-        });
-    }
-}
-
-/**
- * Set up drag and drop example for NGN questions
- */
-function setupDragAndDropExample() {
-    console.log('Setting up drag and drop example');
-    
-    if (typeof jQuery === 'undefined') {
-        console.error('jQuery is required for drag and drop functionality');
-        return;
-    }
-    
-    try {
-        // Make items draggable
-        $(".parent li").draggable({
-            revert: "invalid",
-            helper: "clone",
-            cursor: "move"
-        });
-        
-        // Make center box droppable
-        $(".action_inner_center .action_box_first").droppable({
-            accept: ".parent li",
-            hoverClass: "active",
-            drop: function(event, ui) {
-                // Clone the dropped item
-                const droppedItem = $(ui.draggable).clone();
-                
-                // Remove the UI draggable classes and behavior
-                droppedItem.removeClass("ui-draggable ui-draggable-handle");
-                
-                // Add to droppable area
-                $(this).append(droppedItem);
-                
-                // Hide the original item
-                $(ui.draggable).hide();
-            }
-        });
-    } catch (e) {
-        console.error('Error setting up drag and drop:', e);
+            return 60 * 60; // 1 hour default
     }
 }

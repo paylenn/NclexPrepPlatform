@@ -3,283 +3,318 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    <title>NCLEX Simulator v2.0 - Paylenn.tech</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
-    <link rel="stylesheet" href="../css/styles.css?v=2.0">
-    <link rel="stylesheet" href="../css/responsive.css?v=2.0">
-    <link rel="stylesheet" href="../css/simulator.css?v=2.0">
+    <title>NCLEX Simulator - PayLeNN.tech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/neubrutalism.css">
+    <link rel="stylesheet" href="../css/simulator.css">
 </head>
 <body>
-    <!-- Site Header - Single Navigation -->
-    <header class="site-header">
+    <!-- Header -->
+    <header class="header">
         <div class="container">
-            <div class="logo">
-                <a href="../index.html">
-                    <h1>NCLEX<span>Prep</span></h1>
-                </a>
-            </div>
-            <nav class="main-nav">
-                <div class="menu-icon">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-                <ul class="nav-links">
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="practice.html">Practice Questions</a></li>
-                    <li><a href="ngn-types.html">NGN Question Types</a></li>
-                    <li><a href="simulator.html" class="active">NCLEX Simulator</a></li>
-                    <li><a href="resources.html">Resources</a></li>
-                    <li><a href="about.html">About</a></li>
-                </ul>
+            <a href="../index.html" class="logo">PayLeNN<span>.tech</span></a>
+            <nav class="nav">
+                <a href="../index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <span class="nav-link">NCLEX Simulator</span>
             </nav>
         </div>
     </header>
 
-    <!-- Main Content - Selection Screen -->
-    <main>
-        <section class="page-header">
-            <div class="container">
-                <h2>NCLEX Simulator</h2>
-                <p>Experience a realistic simulation of the Pearson VUE NCLEX testing interface</p>
-            </div>
-        </section>
-
-        <section class="simulator-container">
-            <div class="simulator-intro">
-                <h2>Practice Like It's Test Day</h2>
-                <p>Our NCLEX simulator replicates the exact testing environment you'll encounter on exam day. Get comfortable with the interface, timer, and various question types to boost your confidence and performance.</p>
-            </div>
-
-            <div class="simulator-options">
-                <div class="simulator-card">
-                    <h3>NCLEX-RN</h3>
-                    <p>Standard NCLEX-RN Examination with 75 questions and a 2-hour time limit</p>
-                    <button class="btn btn-primary start-sim" data-sim="rn-75">Begin Simulation</button>
+    <!-- Simulator Intro Section -->
+    <section class="section" id="simulator-intro">
+        <div class="container">
+            <div class="neu-card tertiary">
+                <h2>NCLEX Exam Simulator</h2>
+                <p>Experience a realistic NCLEX testing environment with all the tools and features you'll encounter on exam day.</p>
+                
+                <div class="grid-2 mt-4">
+                    <div class="neu-card">
+                        <h3>Standard NCLEX</h3>
+                        <p>Practice with the traditional NCLEX format:</p>
+                        <ul class="exam-features">
+                            <li><i class="fas fa-check"></i> 75 multiple-choice questions</li>
+                            <li><i class="fas fa-check"></i> 5-hour time limit</li>
+                            <li><i class="fas fa-check"></i> All nursing content areas covered</li>
+                            <li><i class="fas fa-check"></i> Results with detailed rationales</li>
+                        </ul>
+                        <div class="mt-3">
+                            <button class="neubtn primary" data-sim-type="standard">Start Standard Exam</button>
+                        </div>
+                    </div>
+                    
+                    <div class="neu-card">
+                        <h3>Next Generation NCLEX</h3>
+                        <p>Experience the newest NGN format:</p>
+                        <ul class="exam-features">
+                            <li><i class="fas fa-check"></i> Case studies with multiple question types</li>
+                            <li><i class="fas fa-check"></i> Clinical judgment measurement model</li>
+                            <li><i class="fas fa-check"></i> Enhanced interaction question formats</li>
+                            <li><i class="fas fa-check"></i> Standalone and case study questions</li>
+                        </ul>
+                        <div class="mt-3">
+                            <button class="neubtn primary" data-sim-type="ngn">Start NGN Exam</button>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="simulator-card">
-                    <h3>Next Generation NCLEX</h3>
-                    <p>Full NGN exam with 135 questions including case studies and a 5-hour time limit</p>
-                    <button class="btn btn-primary start-sim" data-sim="ngn-full">Begin Simulation</button>
+                <div class="neu-card quinary mt-4">
+                    <h3>NCLEX Mini Practice</h3>
+                    <p>Short on time? Try a shortened version of the exam:</p>
+                    <ul class="exam-features">
+                        <li><i class="fas fa-check"></i> 10 questions from various content areas</li>
+                        <li><i class="fas fa-check"></i> 30-minute time limit</li>
+                        <li><i class="fas fa-check"></i> Mix of question formats</li>
+                    </ul>
+                    <div class="mt-3">
+                        <button class="neubtn primary" data-sim-type="mini">Start Mini Exam</button>
+                    </div>
                 </div>
                 
-                <div class="simulator-card">
-                    <h3>Practice Mode</h3>
-                    <p>Quick practice session with 25 questions and a 30-minute time limit</p>
-                    <button class="btn btn-primary start-sim" data-sim="practice-30">Begin Simulation</button>
+                <div class="grid-2 mt-4">
+                    <div class="neu-card secondary">
+                        <h3>NGN Question Types</h3>
+                        <p>Learn about the new NGN question formats:</p>
+                        <div class="mt-3 mb-3">
+                            <button class="neubtn" id="show-ngn-examples-btn">Explore NGN Examples</button>
+                        </div>
+                    </div>
+                    
+                    <div class="neu-card quaternary">
+                        <h3>Exam Tips</h3>
+                        <p>Prepare for exam day with these strategies:</p>
+                        <ul class="exam-features">
+                            <li><i class="fas fa-check"></i> Get enough sleep the night before</li>
+                            <li><i class="fas fa-check"></i> Arrive early to your testing center</li>
+                            <li><i class="fas fa-check"></i> Use all available tools during the exam</li>
+                            <li><i class="fas fa-check"></i> Manage your time effectively</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
+    
+    <!-- NGN Examples Section (Initially Hidden) -->
+    <section class="section hidden" id="ngn-examples">
+        <div class="container">
+            <div class="neu-card tertiary">
+                <h2>Next Generation NCLEX Question Types</h2>
+                <p>Familiarize yourself with these new question formats before taking the exam.</p>
+                
+                <div class="ngn-examples mt-4">
+                    <div class="neu-card primary">
+                        <h3>Matrix/Grid Questions</h3>
+                        <p>Select options from a grid to match different criteria:</p>
+                        <div id="matrix-example" class="ngn-example-container mt-3">
+                            <!-- Matrix example will be inserted here -->
+                        </div>
+                    </div>
+                    
+                    <div class="neu-card secondary mt-4">
+                        <h3>Cloze (Drop-Down) Questions</h3>
+                        <p>Complete sentences by selecting the correct option from drop-down menus:</p>
+                        <div id="cloze-example" class="ngn-example-container mt-3">
+                            <!-- Cloze example will be inserted here -->
+                        </div>
+                    </div>
+                    
+                    <div class="neu-card quaternary mt-4">
+                        <h3>Highlighting Questions</h3>
+                        <p>Identify important information by highlighting text in a passage:</p>
+                        <div id="highlighting-example" class="ngn-example-container mt-3">
+                            <!-- Highlighting example will be inserted here -->
+                        </div>
+                    </div>
+                    
+                    <div class="neu-card quinary mt-4">
+                        <h3>Drag-and-Drop Questions</h3>
+                        <p>Arrange items in the correct order or group them appropriately:</p>
+                        <div id="drag-drop-example" class="ngn-example-container mt-3">
+                            <!-- Drag-and-drop example will be inserted here -->
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 text-center">
+                        <button id="back-to-simulator-btn" class="neubtn primary">Back to Simulator</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Simulator Interface (Initially Hidden) -->
+    <section class="section hidden" id="simulator-interface">
+        <div class="container">
+            <div class="simulator-header">
+                <div class="exam-info">
+                    <h3 id="sim-exam-title">NCLEX Exam Simulator</h3>
+                </div>
+                <div class="exam-timer">
+                    <div class="neu-card">
+                        <span id="exam-timer-display">00:00:00</span>
+                    </div>
+                </div>
+                <div class="exam-exit">
+                    <button id="exit-simulator-btn" class="neubtn">End Exam</button>
+                </div>
+            </div>
+            
+            <div class="simulator-content">
+                <div class="simulator-main">
+                    <div id="sim-question-container" class="question-container">
+                        <p id="sim-question-stem" class="question-stem">Loading question...</p>
+                        <div id="sim-options-container" class="options-container">
+                            <!-- Options will be inserted here -->
+                        </div>
+                    </div>
+                    
+                    <div class="simulator-controls">
+                        <div class="navigation-controls">
+                            <button id="sim-prev-btn" class="neubtn" disabled>Previous</button>
+                            <button id="sim-next-btn" class="neubtn primary">Next</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="simulator-sidebar">
+                    <div class="tool-panels">
+                        <div class="tool-tabs">
+                            <button class="tool-tab active" data-tool="calculator">Calculator</button>
+                            <button class="tool-tab" data-tool="highlighter">Highlighter</button>
+                            <button class="tool-tab" data-tool="strikethrough">Strikethrough</button>
+                        </div>
+                        
+                        <div class="tool-panel active" id="calculator-panel">
+                            <div class="calculator">
+                                <div class="calculator-display">
+                                    <input type="text" id="calculator-input" readonly value="0">
+                                </div>
+                                <div class="calculator-keys">
+                                    <button class="calc-key" data-key="clear">C</button>
+                                    <button class="calc-key" data-key="backspace">⌫</button>
+                                    <button class="calc-key" data-key="percent">%</button>
+                                    <button class="calc-key" data-key="divide">÷</button>
+                                    
+                                    <button class="calc-key" data-key="7">7</button>
+                                    <button class="calc-key" data-key="8">8</button>
+                                    <button class="calc-key" data-key="9">9</button>
+                                    <button class="calc-key" data-key="multiply">×</button>
+                                    
+                                    <button class="calc-key" data-key="4">4</button>
+                                    <button class="calc-key" data-key="5">5</button>
+                                    <button class="calc-key" data-key="6">6</button>
+                                    <button class="calc-key" data-key="subtract">-</button>
+                                    
+                                    <button class="calc-key" data-key="1">1</button>
+                                    <button class="calc-key" data-key="2">2</button>
+                                    <button class="calc-key" data-key="3">3</button>
+                                    <button class="calc-key" data-key="add">+</button>
+                                    
+                                    <button class="calc-key" data-key="0">0</button>
+                                    <button class="calc-key" data-key="decimal">.</button>
+                                    <button class="calc-key calc-equal" data-key="equals">=</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tool-panel" id="highlighter-panel">
+                            <p>Click the button below to enable highlighting, then select text in the question to highlight it.</p>
+                            <button id="enable-highlight-btn" class="neubtn secondary mt-2">Enable Highlighting</button>
+                        </div>
+                        
+                        <div class="tool-panel" id="strikethrough-panel">
+                            <p>Click the button below to enable strikethrough, then click on answer options to mark them out.</p>
+                            <button id="enable-strikethrough-btn" class="neubtn secondary mt-2">Enable Strikethrough</button>
+                        </div>
+                    </div>
+                    
+                    <div class="question-navigator">
+                        <h4>Question Navigator</h4>
+                        <div id="question-nav-buttons" class="question-buttons">
+                            <!-- Question buttons will be inserted here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Results Section (Initially Hidden) -->
+    <section class="section hidden" id="simulator-results">
+        <div class="container">
+            <div class="neu-card tertiary">
+                <h2>Exam Results</h2>
+                <div class="stats-container">
+                    <div class="stat-box">
+                        <div class="stat-value" id="sim-result-score">0%</div>
+                        <div class="stat-label">SCORE</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value" id="sim-result-correct">0</div>
+                        <div class="stat-label">CORRECT</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value" id="sim-result-total">0</div>
+                        <div class="stat-label">TOTAL</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value" id="sim-result-time">00:00:00</div>
+                        <div class="stat-label">TIME TAKEN</div>
+                    </div>
+                </div>
+                
+                <div id="sim-result-message" class="mt-3 mb-3"></div>
+                
+                <div class="result-analysis mt-4">
+                    <h3>Performance Analysis</h3>
+                    <div id="analysis-container">
+                        <!-- Performance analysis will be inserted here -->
+                    </div>
+                </div>
+                
+                <div class="exam-controls mt-4">
+                    <button id="sim-review-btn" class="neubtn secondary">Review Questions</button>
+                    <a href="../index.html" class="neubtn primary">Return Home</a>
+                </div>
+                
+                <div id="sim-question-review" class="hidden mt-4">
+                    <h3>Question Review</h3>
+                    <div id="sim-review-questions">
+                        <!-- Review questions will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="site-footer">
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
-                    <h3>About NCLEX Prep</h3>
-                    <p>Dedicated to helping nursing students succeed on the NCLEX examination with comprehensive practice materials and realistic test simulations.</p>
+                    <h3>PayLeNN.tech</h3>
+                    <p>Your NCLEX Success Partner</p>
                 </div>
                 <div class="footer-links">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="../index.html">Home</a></li>
-                        <li><a href="practice.html">Practice Questions</a></li>
-                        <li><a href="ngn-types.html">NGN Question Types</a></li>
-                        <li><a href="simulator.html">NCLEX Simulator</a></li>
-                        <li><a href="resources.html">Resources</a></li>
-                        <li><a href="about.html">About</a></li>
+                        <li><a href="../index.html#exams">Exam Options</a></li>
+                        <li><a href="../index.html#progress">Your Progress</a></li>
+                        <li><a href="../index.html#tips">NCLEX Tips</a></li>
                     </ul>
                 </div>
                 <div class="footer-contact">
-                    <h3>Contact Us</h3>
-                    <p>Email: contact@paylenn.tech</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
+                    <h3>Contact</h3>
+                    <p>Email: support@paylenn.tech</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 NCLEX Prep. All rights reserved.</p>
+                <p>&copy; 2023 PayLeNN.tech. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- Simulation Introduction Screen -->
-    <div id="simulation-intro" class="hidden">
-        <div class="intro-container">
-            <h2 class="intro-title">NCLEX Examination Simulation</h2>
-            <div class="intro-info">
-                <div id="intro-exam-type">NCLEX-RN Simulation</div>
-                <div>Time: <span id="intro-time">2 hours (120 minutes)</span></div>
-                <div>Questions: <span id="intro-questions">75 questions</span></div>
-            </div>
-            <p>This simulation mimics the actual NCLEX exam environment. You will have a calculator, highlighting tool, and strikethrough functionality available. The exam will automatically end when the time is up.</p>
-            <button class="btn btn-primary begin-exam">Begin Exam</button>
-        </div>
-    </div>
-
-    <!-- Simulator Interface -->
-    <div id="simulator-interface" class="hidden">
-        <div class="exam-header">
-            <div class="exam-title">
-                <span id="exam-name">NCLEX-RN® Examination</span>
-            </div>
-            <div class="exam-controls">
-                <div class="exam-timer" id="exam-timer">02:00:00</div>
-                <button class="control-btn" id="pause-exam">Pause</button>
-                <button class="control-btn" id="end-exam">End Exam</button>
-            </div>
-        </div>
-        <div class="exam-main">
-            <div class="toolbox">
-                <div class="tool-btn" id="calculator-btn" title="Calculator">
-                    <i class="fas fa-calculator"></i>
-                </div>
-                <div class="tool-btn" id="notes-btn" title="Notes">
-                    <i class="fas fa-sticky-note"></i>
-                </div>
-                <div class="tool-btn" id="highlight-btn" title="Highlight Text">
-                    <i class="fas fa-highlighter"></i>
-                </div>
-                <div class="tool-btn" id="strikethrough-btn" title="Strikethrough Options">
-                    <i class="fas fa-strikethrough"></i>
-                </div>
-            </div>
-            <div class="question-container">
-                <div class="question-number">
-                    <div>Question <span id="current-question">1</span> of <span id="total-questions">75</span></div>
-                </div>
-                <div class="question-content">
-                    <div class="question-stem" id="question-stem">
-                        Loading question...
-                    </div>
-                    <div class="question-options" id="question-options">
-                        <!-- Options will be dynamically inserted here -->
-                    </div>
-                </div>
-                <div class="navigation-buttons">
-                    <button class="nav-btn" id="previous-btn" disabled>Previous</button>
-                    <button class="nav-btn" id="next-btn">Next</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Calculator Panel -->
-        <div class="tool-panel hidden" id="calculator-panel">
-            <div class="panel-header">
-                <div class="panel-title">Calculator</div>
-                <button class="close-panel">&times;</button>
-            </div>
-            <div class="panel-content">
-                <input type="text" class="calc-display" id="calc-display" readonly value="0">
-                <div class="calculator">
-                    <button class="calc-btn calc-btn-op">C</button>
-                    <button class="calc-btn calc-btn-op">CE</button>
-                    <button class="calc-btn calc-btn-op">/</button>
-                    <button class="calc-btn calc-btn-op">*</button>
-                    
-                    <button class="calc-btn">7</button>
-                    <button class="calc-btn">8</button>
-                    <button class="calc-btn">9</button>
-                    <button class="calc-btn calc-btn-op">-</button>
-                    
-                    <button class="calc-btn">4</button>
-                    <button class="calc-btn">5</button>
-                    <button class="calc-btn">6</button>
-                    <button class="calc-btn calc-btn-op">+</button>
-                    
-                    <button class="calc-btn">1</button>
-                    <button class="calc-btn">2</button>
-                    <button class="calc-btn">3</button>
-                    <button class="calc-btn calc-btn-eq">=</button>
-                    
-                    <button class="calc-btn" style="grid-column: span 2;">0</button>
-                    <button class="calc-btn">.</button>
-                    <button class="calc-btn calc-btn-op">=</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Notes Panel -->
-        <div class="tool-panel hidden" id="notes-panel">
-            <div class="panel-header">
-                <div class="panel-title">Notes</div>
-                <button class="close-panel">&times;</button>
-            </div>
-            <div class="panel-content">
-                <textarea class="notes-content" placeholder="Type your notes here..."></textarea>
-            </div>
-        </div>
-    </div>
-
-    <!-- Pause Screen -->
-    <div id="pause-screen" class="hidden">
-        <div class="pause-container">
-            <h2 class="pause-title">Exam Paused</h2>
-            <p class="pause-text">Your exam time has been paused. When you're ready to continue, click the Resume button.</p>
-            <div class="pause-buttons">
-                <button class="btn btn-primary resume-exam">Resume Exam</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- End Confirmation Screen -->
-    <div id="end-confirmation" class="hidden">
-        <div class="confirm-container">
-            <h2 class="confirm-title">End Exam?</h2>
-            <p class="confirm-text">Are you sure you want to end the exam? This action cannot be undone.</p>
-            <div class="confirm-buttons">
-                <button class="btn btn-outline cancel-end">Cancel</button>
-                <button class="btn btn-primary confirm-end">End Exam</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Results Screen -->
-    <div id="results-screen" class="hidden">
-        <div class="results-container">
-            <div class="results-header">
-                <h2 class="results-title">Exam Results</h2>
-            </div>
-            <div class="results-stats">
-                <div class="stats-item">
-                    <div class="stats-value" id="results-answered">0/75</div>
-                    <div class="stats-label">Questions Answered</div>
-                </div>
-                <div class="stats-item">
-                    <div class="stats-value" id="results-correct">0</div>
-                    <div class="stats-label">Correct Answers</div>
-                </div>
-                <div class="stats-item">
-                    <div class="stats-value" id="results-score">0%</div>
-                    <div class="stats-label">Score</div>
-                </div>
-                <div class="stats-item">
-                    <div class="stats-value" id="results-time">0 hrs 0 mins</div>
-                    <div class="stats-label">Time Used</div>
-                </div>
-            </div>
-            <div class="results-breakdown" id="results-breakdown">
-                <!-- Performance breakdown will be inserted here -->
-            </div>
-            <div class="results-buttons">
-                <button class="btn btn-outline review-exam">Review Exam</button>
-                <button class="btn btn-primary exit-results">Exit to Menu</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="../js/main.js?v=2.0"></script>
-    <script src="../js/simulator.js?v=2.0"></script>
+    <!-- Scripts -->
+    <script src="../js/simulator.js"></script>
 </body>
 </html>
