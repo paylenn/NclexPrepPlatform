@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../css/simulator.css">
 </head>
 <body>
-    <!-- Site Header -->
+    <!-- Site Header - Single Navigation -->
     <header class="site-header">
         <div class="container">
             <div class="logo">
@@ -39,7 +39,7 @@
         </div>
     </header>
 
-    <!-- Main Content -->
+    <!-- Main Content - Selection Screen -->
     <main>
         <section class="page-header">
             <div class="container">
@@ -73,338 +73,10 @@
                     <button class="btn btn-primary start-sim" data-sim="practice-30">Begin Simulation</button>
                 </div>
             </div>
-
-            <div class="ngn-container">
-                <h2>Next Generation NCLEX (NGN) Question Types</h2>
-                <p>Familiarize yourself with the new question formats introduced in the Next Generation NCLEX:</p>
-                
-                <div class="ngn-section">
-                    <h3>Extended Multiple Response</h3>
-                    <p>Select all options that apply from a list of possible answers.</p>
-                    <div class="ngn-example">
-                        <div class="question-stem">
-                            <strong>Example:</strong> A nurse is caring for a client with heart failure. Select all assessments that should be prioritized for this client.
-                        </div>
-                        <div class="question-options">
-                            <div class="option">
-                                <div class="option-marker">A</div>
-                                <div class="option-text">Weight measurement</div>
-                            </div>
-                            <div class="option">
-                                <div class="option-marker">B</div>
-                                <div class="option-text">Lung sounds</div>
-                            </div>
-                            <div class="option">
-                                <div class="option-marker">C</div>
-                                <div class="option-text">Skin temperature</div>
-                            </div>
-                            <div class="option">
-                                <div class="option-marker">D</div>
-                                <div class="option-text">Jugular venous distention</div>
-                            </div>
-                            <div class="option">
-                                <div class="option-marker">E</div>
-                                <div class="option-text">Hair texture</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="ngn-section">
-                    <h3>Drag and Drop</h3>
-                    <p>Move items from one area to another to create the correct associations or sequences.</p>
-                    <div class="ngn-example">
-                        <div class="question-stem">
-                            <strong>Example:</strong> A nurse is assessing a client with suspected sepsis. Drag the clinical findings to their appropriate category.
-                        </div>
-                        <div class="drag-drop-container">
-                            <section class="actions_first">
-                                <div class="action_outer">
-                                    <div class="action_inner_row">
-                                        <div class="action_box_first" data-class="potential_conditions">
-                                            <ul class="parent">
-                                                <li>Temperature 102.3°F (39.1°C)</li>
-                                                <li>Heart rate 115/min</li>
-                                                <li>Blood pressure 85/50 mmHg</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="action_inner_row action_inner_center">
-                                        <div class="action_box_first">
-                                            Drop items here
-                                        </div>
-                                    </div>
-                                    <div class="action_inner_row">
-                                        <div class="action_box_first" data-class="actiontake">
-                                            <ul class="parent">
-                                                <li>Respiratory rate 22/min</li>
-                                                <li>Altered mental status</li>
-                                                <li>WBC count 14,500/mm³</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="ngn-section">
-                    <h3>Matrix/Grid</h3>
-                    <p>Select cells within a grid format to indicate correct responses.</p>
-                    <div class="ngn-example">
-                        <div class="question-stem">
-                            <strong>Example:</strong> A nurse is reviewing laboratory results for several clients. Select which results should be reported immediately to the healthcare provider.
-                        </div>
-                        <div class="matrix-container">
-                            <div class="matrix-grid">
-                                <div class="matrix-header">Laboratory Test</div>
-                                <div class="matrix-header">Value</div>
-                                <div class="matrix-header">Report Immediately</div>
-                                
-                                <div class="matrix-cell">Potassium</div>
-                                <div class="matrix-cell">6.2 mEq/L</div>
-                                <div class="matrix-cell selectable"></div>
-                                
-                                <div class="matrix-cell">Sodium</div>
-                                <div class="matrix-cell">140 mEq/L</div>
-                                <div class="matrix-cell selectable"></div>
-                                
-                                <div class="matrix-cell">Glucose</div>
-                                <div class="matrix-cell">490 mg/dL</div>
-                                <div class="matrix-cell selectable"></div>
-                                
-                                <div class="matrix-cell">Hemoglobin</div>
-                                <div class="matrix-cell">7.8 g/dL</div>
-                                <div class="matrix-cell selectable"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="ngn-section">
-                    <h3>Cloze (Dropdown)</h3>
-                    <p>Complete a sentence by selecting the correct option from dropdown menus.</p>
-                    <div class="ngn-example">
-                        <div class="question-stem">
-                            <strong>Example:</strong> Complete the statements about interventions for a client with diabetic ketoacidosis.
-                        </div>
-                        <div class="cloze-container">
-                            <p>
-                                The primary treatment for diabetic ketoacidosis is 
-                                <span class="cloze-dropdown">
-                                    <span class="selected-option">Select...</span>
-                                    <div class="cloze-dropdown-content">
-                                        <div class="cloze-dropdown-option">IV insulin</div>
-                                        <div class="cloze-dropdown-option">oral glucose</div>
-                                        <div class="cloze-dropdown-option">oral antidiabetics</div>
-                                    </div>
-                                </span>
-                                 administered with 
-                                <span class="cloze-dropdown">
-                                    <span class="selected-option">Select...</span>
-                                    <div class="cloze-dropdown-content">
-                                        <div class="cloze-dropdown-option">normal saline</div>
-                                        <div class="cloze-dropdown-option">dextrose solution</div>
-                                        <div class="cloze-dropdown-option">packed red blood cells</div>
-                                    </div>
-                                </span>
-                                .
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="ngn-section">
-                    <h3>Highlighting</h3>
-                    <p>Highlight relevant portions of text in a passage.</p>
-                    <div class="ngn-example">
-                        <div class="question-stem">
-                            <strong>Example:</strong> Read the case study and highlight the portions that indicate the client may be experiencing heart failure.
-                        </div>
-                        <div class="highlight-container">
-                            <div class="highlight-instruction">Click and drag to highlight relevant text</div>
-                            <div class="highlight-paragraph">
-                                A 72-year-old male client presents to the emergency department with complaints of shortness of breath that worsens when lying flat. He reports needing to sleep with three pillows at night. The client states he has noticed swelling in his ankles and feet for the past week. His vital signs are: BP 158/92 mmHg, HR 96/min, RR 24/min, SpO2 92% on room air. Upon assessment, the nurse notes bibasilar crackles, jugular vein distention, and 2+ pitting edema in the lower extremities.
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="simulator-cta">
-                    <p>Ready to test your knowledge with these question types?</p>
-                    <button class="btn btn-primary start-sim" data-sim="ngn-full">Start NGN Simulation</button>
-                </div>
-            </div>
         </section>
-
-        <!-- Simulation Introduction Screen -->
-        <div id="simulation-intro" class="hidden">
-            <div class="intro-container">
-                <h2 class="intro-title">NCLEX Examination Simulation</h2>
-                <div class="intro-info">
-                    <div id="intro-exam-type">NCLEX-RN Simulation</div>
-                    <div>Time: <span id="intro-time">2 hours (120 minutes)</span></div>
-                    <div>Questions: <span id="intro-questions">75 questions</span></div>
-                </div>
-                <p>This simulation mimics the actual NCLEX exam environment. You will have a calculator, highlighting tool, and strikethrough functionality available. The exam will automatically end when the time is up.</p>
-                <button class="btn btn-primary begin-exam">Begin Exam</button>
-            </div>
-        </div>
-
-        <!-- Simulator Interface -->
-        <div id="simulator-interface" class="hidden">
-            <div class="exam-header">
-                <div class="exam-title">
-                    <span id="exam-name">NCLEX-RN® Examination</span>
-                </div>
-                <div class="exam-controls">
-                    <div class="exam-timer" id="exam-timer">02:00:00</div>
-                    <button class="control-btn" id="pause-exam">Pause</button>
-                    <button class="control-btn" id="end-exam">End Exam</button>
-                </div>
-            </div>
-            <div class="exam-main">
-                <div class="toolbox">
-                    <div class="tool-btn" id="calculator-btn" title="Calculator">
-                        <i class="fas fa-calculator"></i>
-                    </div>
-                    <div class="tool-btn" id="notes-btn" title="Notes">
-                        <i class="fas fa-sticky-note"></i>
-                    </div>
-                    <div class="tool-btn" id="highlight-btn" title="Highlight Text">
-                        <i class="fas fa-highlighter"></i>
-                    </div>
-                    <div class="tool-btn" id="strikethrough-btn" title="Strikethrough Options">
-                        <i class="fas fa-strikethrough"></i>
-                    </div>
-                </div>
-                <div class="question-container">
-                    <div class="question-number">
-                        <div>Question <span id="current-question">1</span> of <span id="total-questions">75</span></div>
-                    </div>
-                    <div class="question-content">
-                        <div class="question-stem" id="question-stem">
-                            Loading question...
-                        </div>
-                        <div class="question-options" id="question-options">
-                            <!-- Options will be dynamically inserted here -->
-                        </div>
-                    </div>
-                    <div class="navigation-buttons">
-                        <button class="nav-btn" id="previous-btn" disabled>Previous</button>
-                        <button class="nav-btn" id="next-btn">Next</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Calculator Panel -->
-            <div class="tool-panel hidden" id="calculator-panel">
-                <div class="panel-header">
-                    <div class="panel-title">Calculator</div>
-                    <button class="close-panel">&times;</button>
-                </div>
-                <div class="panel-content">
-                    <input type="text" class="calc-display" id="calc-display" readonly value="0">
-                    <div class="calculator">
-                        <button class="calc-btn calc-btn-op">C</button>
-                        <button class="calc-btn calc-btn-op">CE</button>
-                        <button class="calc-btn calc-btn-op">/</button>
-                        <button class="calc-btn calc-btn-op">*</button>
-                        
-                        <button class="calc-btn">7</button>
-                        <button class="calc-btn">8</button>
-                        <button class="calc-btn">9</button>
-                        <button class="calc-btn calc-btn-op">-</button>
-                        
-                        <button class="calc-btn">4</button>
-                        <button class="calc-btn">5</button>
-                        <button class="calc-btn">6</button>
-                        <button class="calc-btn calc-btn-op">+</button>
-                        
-                        <button class="calc-btn">1</button>
-                        <button class="calc-btn">2</button>
-                        <button class="calc-btn">3</button>
-                        <button class="calc-btn calc-btn-op">=</button>
-                        
-                        <button class="calc-btn" style="grid-column: span 2;">0</button>
-                        <button class="calc-btn">.</button>
-                        <button class="calc-btn calc-btn-op">=</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Notes Panel -->
-            <div class="tool-panel hidden" id="notes-panel">
-                <div class="panel-header">
-                    <div class="panel-title">Notes</div>
-                    <button class="close-panel">&times;</button>
-                </div>
-                <div class="panel-content">
-                    <textarea class="notes-content" placeholder="Type your notes here..."></textarea>
-                </div>
-            </div>
-        </div>
-
-        <!-- Pause Screen -->
-        <div id="pause-screen" class="hidden">
-            <div class="pause-container">
-                <h2 class="pause-title">Exam Paused</h2>
-                <p class="pause-text">Your exam time has been paused. When you're ready to continue, click the Resume button.</p>
-                <div class="pause-buttons">
-                    <button class="btn btn-primary resume-exam">Resume Exam</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- End Confirmation Screen -->
-        <div id="end-confirmation" class="hidden">
-            <div class="confirm-container">
-                <h2 class="confirm-title">End Exam?</h2>
-                <p class="confirm-text">Are you sure you want to end the exam? This action cannot be undone.</p>
-                <div class="confirm-buttons">
-                    <button class="btn btn-outline cancel-end">Cancel</button>
-                    <button class="btn btn-primary confirm-end">End Exam</button>
-                </div>
-            </div>
-        </div>
-
-        <!-- Results Screen -->
-        <div id="results-screen" class="hidden">
-            <div class="results-container">
-                <div class="results-header">
-                    <h2 class="results-title">Exam Results</h2>
-                </div>
-                <div class="results-stats">
-                    <div class="stats-item">
-                        <div class="stats-value" id="results-answered">0/75</div>
-                        <div class="stats-label">Questions Answered</div>
-                    </div>
-                    <div class="stats-item">
-                        <div class="stats-value" id="results-correct">0</div>
-                        <div class="stats-label">Correct Answers</div>
-                    </div>
-                    <div class="stats-item">
-                        <div class="stats-value" id="results-score">0%</div>
-                        <div class="stats-label">Score</div>
-                    </div>
-                    <div class="stats-item">
-                        <div class="stats-value" id="results-time">0 hrs 0 mins</div>
-                        <div class="stats-label">Time Used</div>
-                    </div>
-                </div>
-                <div class="results-breakdown" id="results-breakdown">
-                    <!-- Performance breakdown will be inserted here -->
-                </div>
-                <div class="results-buttons">
-                    <button class="btn btn-outline review-exam">Review Exam</button>
-                    <button class="btn btn-primary exit-results">Exit to Menu</button>
-                </div>
-            </div>
-        </div>
     </main>
 
-    <!-- Site Footer -->
+    <!-- Footer -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-content">
@@ -438,6 +110,171 @@
             </div>
         </div>
     </footer>
+
+    <!-- Simulation Introduction Screen -->
+    <div id="simulation-intro" class="hidden">
+        <div class="intro-container">
+            <h2 class="intro-title">NCLEX Examination Simulation</h2>
+            <div class="intro-info">
+                <div id="intro-exam-type">NCLEX-RN Simulation</div>
+                <div>Time: <span id="intro-time">2 hours (120 minutes)</span></div>
+                <div>Questions: <span id="intro-questions">75 questions</span></div>
+            </div>
+            <p>This simulation mimics the actual NCLEX exam environment. You will have a calculator, highlighting tool, and strikethrough functionality available. The exam will automatically end when the time is up.</p>
+            <button class="btn btn-primary begin-exam">Begin Exam</button>
+        </div>
+    </div>
+
+    <!-- Simulator Interface -->
+    <div id="simulator-interface" class="hidden">
+        <div class="exam-header">
+            <div class="exam-title">
+                <span id="exam-name">NCLEX-RN® Examination</span>
+            </div>
+            <div class="exam-controls">
+                <div class="exam-timer" id="exam-timer">02:00:00</div>
+                <button class="control-btn" id="pause-exam">Pause</button>
+                <button class="control-btn" id="end-exam">End Exam</button>
+            </div>
+        </div>
+        <div class="exam-main">
+            <div class="toolbox">
+                <div class="tool-btn" id="calculator-btn" title="Calculator">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <div class="tool-btn" id="notes-btn" title="Notes">
+                    <i class="fas fa-sticky-note"></i>
+                </div>
+                <div class="tool-btn" id="highlight-btn" title="Highlight Text">
+                    <i class="fas fa-highlighter"></i>
+                </div>
+                <div class="tool-btn" id="strikethrough-btn" title="Strikethrough Options">
+                    <i class="fas fa-strikethrough"></i>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question-number">
+                    <div>Question <span id="current-question">1</span> of <span id="total-questions">75</span></div>
+                </div>
+                <div class="question-content">
+                    <div class="question-stem" id="question-stem">
+                        Loading question...
+                    </div>
+                    <div class="question-options" id="question-options">
+                        <!-- Options will be dynamically inserted here -->
+                    </div>
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" id="previous-btn" disabled>Previous</button>
+                    <button class="nav-btn" id="next-btn">Next</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calculator Panel -->
+        <div class="tool-panel hidden" id="calculator-panel">
+            <div class="panel-header">
+                <div class="panel-title">Calculator</div>
+                <button class="close-panel">&times;</button>
+            </div>
+            <div class="panel-content">
+                <input type="text" class="calc-display" id="calc-display" readonly value="0">
+                <div class="calculator">
+                    <button class="calc-btn calc-btn-op">C</button>
+                    <button class="calc-btn calc-btn-op">CE</button>
+                    <button class="calc-btn calc-btn-op">/</button>
+                    <button class="calc-btn calc-btn-op">*</button>
+                    
+                    <button class="calc-btn">7</button>
+                    <button class="calc-btn">8</button>
+                    <button class="calc-btn">9</button>
+                    <button class="calc-btn calc-btn-op">-</button>
+                    
+                    <button class="calc-btn">4</button>
+                    <button class="calc-btn">5</button>
+                    <button class="calc-btn">6</button>
+                    <button class="calc-btn calc-btn-op">+</button>
+                    
+                    <button class="calc-btn">1</button>
+                    <button class="calc-btn">2</button>
+                    <button class="calc-btn">3</button>
+                    <button class="calc-btn calc-btn-eq">=</button>
+                    
+                    <button class="calc-btn" style="grid-column: span 2;">0</button>
+                    <button class="calc-btn">.</button>
+                    <button class="calc-btn calc-btn-op">=</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notes Panel -->
+        <div class="tool-panel hidden" id="notes-panel">
+            <div class="panel-header">
+                <div class="panel-title">Notes</div>
+                <button class="close-panel">&times;</button>
+            </div>
+            <div class="panel-content">
+                <textarea class="notes-content" placeholder="Type your notes here..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pause Screen -->
+    <div id="pause-screen" class="hidden">
+        <div class="pause-container">
+            <h2 class="pause-title">Exam Paused</h2>
+            <p class="pause-text">Your exam time has been paused. When you're ready to continue, click the Resume button.</p>
+            <div class="pause-buttons">
+                <button class="btn btn-primary resume-exam">Resume Exam</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- End Confirmation Screen -->
+    <div id="end-confirmation" class="hidden">
+        <div class="confirm-container">
+            <h2 class="confirm-title">End Exam?</h2>
+            <p class="confirm-text">Are you sure you want to end the exam? This action cannot be undone.</p>
+            <div class="confirm-buttons">
+                <button class="btn btn-outline cancel-end">Cancel</button>
+                <button class="btn btn-primary confirm-end">End Exam</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Screen -->
+    <div id="results-screen" class="hidden">
+        <div class="results-container">
+            <div class="results-header">
+                <h2 class="results-title">Exam Results</h2>
+            </div>
+            <div class="results-stats">
+                <div class="stats-item">
+                    <div class="stats-value" id="results-answered">0/75</div>
+                    <div class="stats-label">Questions Answered</div>
+                </div>
+                <div class="stats-item">
+                    <div class="stats-value" id="results-correct">0</div>
+                    <div class="stats-label">Correct Answers</div>
+                </div>
+                <div class="stats-item">
+                    <div class="stats-value" id="results-score">0%</div>
+                    <div class="stats-label">Score</div>
+                </div>
+                <div class="stats-item">
+                    <div class="stats-value" id="results-time">0 hrs 0 mins</div>
+                    <div class="stats-label">Time Used</div>
+                </div>
+            </div>
+            <div class="results-breakdown" id="results-breakdown">
+                <!-- Performance breakdown will be inserted here -->
+            </div>
+            <div class="results-buttons">
+                <button class="btn btn-outline review-exam">Review Exam</button>
+                <button class="btn btn-primary exit-results">Exit to Menu</button>
+            </div>
+        </div>
+    </div>
 
     <script src="../js/main.js"></script>
     <script src="../js/simulator.js"></script>
