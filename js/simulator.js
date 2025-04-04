@@ -102,116 +102,39 @@ function showSimulationIntro(simType) {
  */
 function startExamSimulation() {
     console.log('Starting exam simulation');
-    
-    try {
-        // Find the simulation intro div and hide it
-        const simIntro = document.getElementById('simulation-intro');
-        if (simIntro) {
-            simIntro.classList.add('hidden');
-        }
-        
-        // Hide all content on the page to create a clean exam environment
-        const mainContent = document.querySelector('main');
-        if (mainContent) {
-            mainContent.style.display = 'none';
-        }
-        
-        // Hide header and footer too
-        const header = document.querySelector('header');
-        if (header) {
-            header.style.display = 'none';
-        }
-        
-        const footer = document.querySelector('footer');
-        if (footer) {
-            footer.style.display = 'none';
-        }
-        
-        // Check if simulator interface exists, create it if it doesn't
-        let simulatorInterface = document.getElementById('simulator-interface');
-        if (!simulatorInterface) {
-            console.log('Creating simulator interface');
-            simulatorInterface = document.createElement('div');
-            simulatorInterface.id = 'simulator-interface';
-            // Don't add hidden class here so it shows immediately
-            simulatorInterface.className = 'simulator-interface simulator-full-environment'; // Added class for full environment
-            simulatorInterface.innerHTML = `
-                <div class="exam-container">
-                    <div class="exam-header">
-                        <div class="exam-info">
-                            <h2 id="exam-name">NCLEX Practice Mode</h2>
-                            <div class="exam-stats">
-                                <div class="stat">
-                                    <span class="stat-label">Question</span>
-                                    <span class="stat-value"><span id="current-question">1</span>/<span id="total-questions">25</span></span>
-                                </div>
-                                <div class="stat">
-                                    <span class="stat-label">Time Remaining</span>
-                                    <span class="stat-value" id="time-remaining">00:00:00</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="exam-controls">
-                            <button id="pause-button" class="btn btn-outline-light"><i class="fas fa-pause"></i> Pause</button>
-                        </div>
-                    </div>
-                    <div class="exam-content">
-                        <div id="question-container" class="question-container">
-                            <!-- Question content will be loaded dynamically -->
-                            <div id="question-stem" class="question-stem"></div>
-                            <div id="question-options" class="question-options"></div>
-                        </div>
-                        <div class="exam-navigation">
-                            <button id="prev-question" class="btn btn-outline-light" disabled><i class="fas fa-arrow-left"></i> Previous</button>
-                            <button id="next-question" class="btn btn-primary">Next <i class="fas fa-arrow-right"></i></button>
-                        </div>
-                    </div>
-                </div>
-            `;
-            document.body.appendChild(simulatorInterface);
-        } else {
-            // Make sure it's visible
-            simulatorInterface.classList.remove('hidden');
-        }
-    } catch (error) {
-        console.error('Error in startExamSimulation:', error);
-    }
+    const simulatorInterface = document.getElementById('simulator-interface');
+    simulatorInterface.classList.remove('hidden');
     
     // Get simulation type
-    const simType = currentSimType || 'practice-30';
-    localStorage.setItem('currentSimType', simType);
+    const simType = localStorage.getItem('currentSimType') || 'practice-30';
     console.log('Simulation type:', simType);
     
     // Set exam name in header
     const examNameEl = document.getElementById('exam-name');
-    if (examNameEl) {
-        switch(simType) {
-            case 'rn-75':
-                examNameEl.textContent = 'NCLEX-RN® Examination';
-                break;
-            case 'ngn-full':
-                examNameEl.textContent = 'Next Generation NCLEX® Examination';
-                break;
-            case 'practice-30':
-                examNameEl.textContent = 'NCLEX Practice Mode';
-                break;
-        }
+    switch(simType) {
+        case 'rn-75':
+            examNameEl.textContent = 'NCLEX-RN® Examination';
+            break;
+        case 'ngn-full':
+            examNameEl.textContent = 'Next Generation NCLEX® Examination';
+            break;
+        case 'practice-30':
+            examNameEl.textContent = 'NCLEX Practice Mode';
+            break;
     }
     
     // Set total questions
     const totalQuestionsEl = document.getElementById('total-questions');
-    if (totalQuestionsEl) {
-        switch(simType) {
-            case 'rn-75':
-                totalQuestionsEl.textContent = '75';
-                break;
-            case 'ngn-full':
-                totalQuestionsEl.textContent = '135';
-                break;
-            case 'practice-30':
-                totalQuestionsEl.textContent = '25';
-                break;
-        }
+    switch(simType) {
+        case 'rn-75':
+            totalQuestionsEl.textContent = '75';
+            break;
+        case 'ngn-full':
+            totalQuestionsEl.textContent = '135';
+            break;
+        case 'practice-30':
+            totalQuestionsEl.textContent = '25';
+            break;
     }
     
     // Start the timer
@@ -242,13 +165,7 @@ function startExamTimer(simType) {
             totalSeconds = 120 * 60; // Default to 2 hours
     }
     
-    // Find timer element - could be either exam-timer or time-remaining
-    const timerEl = document.getElementById('exam-timer') || document.getElementById('time-remaining');
-    
-    if (!timerEl) {
-        console.error('Timer element not found');
-        return;
-    }
+    const timerEl = document.getElementById('exam-timer');
     
     // Store end time
     const endTime = Date.now() + (totalSeconds * 1000);
@@ -640,55 +557,17 @@ function toggleStrikethrough() {
  */
 function loadQuestion(questionNumber) {
     console.log('Loading question:', questionNumber);
-    
-    // Check for required elements and create them if needed
-    const examContent = document.querySelector('.exam-content');
-    if (!examContent) {
-        console.error('Exam content container not found');
-        return;
-    }
-    
     // Update current question display
     const currentQuestionEl = document.getElementById('current-question');
-    if (currentQuestionEl) {
-        currentQuestionEl.textContent = questionNumber;
-    }
+    currentQuestionEl.textContent = questionNumber;
     
     // Update previous button state
-    const prevButton = document.getElementById('previous-btn') || document.getElementById('prev-question');
-    if (prevButton) {
-        prevButton.disabled = questionNumber === 1;
-    }
+    const prevButton = document.getElementById('previous-btn');
+    prevButton.disabled = questionNumber === 1;
     
-    // Check if question container exists, create if it doesn't
-    let questionContainer = document.getElementById('question-container');
-    if (!questionContainer) {
-        console.log('Creating question container');
-        questionContainer = document.createElement('div');
-        questionContainer.id = 'question-container';
-        questionContainer.className = 'question-container';
-        examContent.appendChild(questionContainer);
-    }
-    
-    // Check if question stem exists, create if it doesn't
-    let questionStem = document.getElementById('question-stem');
-    if (!questionStem) {
-        console.log('Creating question stem');
-        questionStem = document.createElement('div');
-        questionStem.id = 'question-stem';
-        questionStem.className = 'question-stem';
-        questionContainer.appendChild(questionStem);
-    }
-    
-    // Check if question options exist, create if they don't
-    let questionOptions = document.getElementById('question-options');
-    if (!questionOptions) {
-        console.log('Creating question options');
-        questionOptions = document.createElement('div');
-        questionOptions.id = 'question-options';
-        questionOptions.className = 'question-options';
-        questionContainer.appendChild(questionOptions);
-    }
+    // Load question content
+    const questionStem = document.getElementById('question-stem');
+    const questionOptions = document.getElementById('question-options');
     
     // Get the question from our database or use sample questions if not loaded yet
     let question;
@@ -716,8 +595,7 @@ function loadQuestion(questionNumber) {
         // Add click handler for option selection
         optionElement.addEventListener('click', function(event) {
             // If strikethrough mode is active, don't select
-            const strikethroughBtn = document.getElementById('strikethrough-btn');
-            if (strikethroughBtn && strikethroughBtn.classList.contains('active')) {
+            if (document.getElementById('strikethrough-btn').classList.contains('active')) {
                 console.log('Strikethrough mode active, not selecting option');
                 return;
             }
@@ -830,34 +708,11 @@ function endExam() {
     // Clear timer interval
     clearInterval(window.examTimerInterval);
     
-    try {
-        // Hide interface
-        const simulatorInterface = document.getElementById('simulator-interface');
-        if (simulatorInterface) {
-            simulatorInterface.classList.add('hidden');
-        }
-        
-        // Restore main content, header, and footer visibility
-        const mainContent = document.querySelector('main');
-        if (mainContent) {
-            mainContent.style.display = '';
-        }
-        
-        const header = document.querySelector('header');
-        if (header) {
-            header.style.display = '';
-        }
-        
-        const footer = document.querySelector('footer');
-        if (footer) {
-            footer.style.display = '';
-        }
-        
-        // Show results
-        showResults();
-    } catch (error) {
-        console.error('Error in endExam:', error);
-    }
+    // Hide interface
+    document.getElementById('simulator-interface').classList.add('hidden');
+    
+    // Show results
+    showResults();
 }
 
 /**
@@ -865,179 +720,100 @@ function endExam() {
  */
 function showResults() {
     console.log('Showing exam results');
+    const resultsScreen = document.getElementById('results-screen');
     
-    try {
-        // Check if results screen exists, create it if not
-        let resultsScreen = document.getElementById('results-screen');
-        if (!resultsScreen) {
-            console.log('Creating results screen');
-            resultsScreen = document.createElement('div');
-            resultsScreen.id = 'results-screen';
-            resultsScreen.className = 'hidden';
-            resultsScreen.innerHTML = `
-                <div class="results-container">
-                    <h2 class="results-title">Exam Results</h2>
-                    <div class="results-summary">
-                        <div class="result-item">
-                            <div class="result-label">Questions Answered</div>
-                            <div class="result-value" id="results-answered">0/0</div>
-                        </div>
-                        <div class="result-item">
-                            <div class="result-label">Correct Answers</div>
-                            <div class="result-value" id="results-correct">0</div>
-                        </div>
-                        <div class="result-item">
-                            <div class="result-label">Score</div>
-                            <div class="result-value" id="results-score">0%</div>
-                        </div>
-                        <div class="result-item">
-                            <div class="result-label">Time Used</div>
-                            <div class="result-value" id="results-time">0 hours 0 minutes</div>
-                        </div>
-                    </div>
-                    <div id="results-breakdown" class="results-breakdown"></div>
-                    <div class="results-buttons">
-                        <button class="btn btn-outline-light review-exam">Review Exam</button>
-                        <button class="btn btn-primary exit-results">Exit to Main Menu</button>
-                    </div>
-                </div>
-            `;
-            document.body.appendChild(resultsScreen);
+    // Calculate results
+    const answers = JSON.parse(localStorage.getItem('examAnswers') || '{}');
+    const totalQuestions = parseInt(document.getElementById('total-questions').textContent);
+    const answeredQuestions = Object.keys(answers).length;
+    
+    // For demo, we'll consider certain answers as correct based on a fixed pattern or the actual data
+    let correctAnswers = {};
+    
+    // If we have the actual questions loaded, use their correct answers
+    if (simulatorQuestions && simulatorQuestions.length > 0) {
+        for (let i = 1; i <= totalQuestions; i++) {
+            const questionIndex = (i - 1) % simulatorQuestions.length;
+            correctAnswers[i] = simulatorQuestions[questionIndex].correctAnswer;
         }
-        
-        // Calculate results
-        const answers = JSON.parse(localStorage.getItem('examAnswers') || '{}');
-        
-        // Find total questions element
-        const totalQuestionsEl = document.getElementById('total-questions');
-        const totalQuestions = totalQuestionsEl ? parseInt(totalQuestionsEl.textContent) : 25;
-        const answeredQuestions = Object.keys(answers).length;
-        
-        // For demo, we'll consider certain answers as correct based on a fixed pattern or the actual data
-        let correctAnswers = {};
-        
-        // If we have the actual questions loaded, use their correct answers
-        if (simulatorQuestions && simulatorQuestions.length > 0) {
-            for (let i = 1; i <= totalQuestions; i++) {
-                const questionIndex = (i - 1) % simulatorQuestions.length;
-                correctAnswers[i] = simulatorQuestions[questionIndex].correctAnswer;
-            }
-        } else {
-            // Fallback pattern for demo
-            correctAnswers = {
-                1: 3, 2: 1, 3: 2, 4: 0, 5: 3, 6: 1, 7: 2,
-                8: 0, 9: 2, 10: 1, 11: 3, 12: 0
-            };
-        }
-        
-        let correct = 0;
-        Object.keys(answers).forEach(question => {
-            if (correctAnswers[question] === answers[question]) {
-                correct++;
-            }
-        });
-        
-        // Calculate score
-        const score = Math.round((correct / totalQuestions) * 100);
-        
-        // Update results elements
-        const resultsAnswered = document.getElementById('results-answered');
-        if (resultsAnswered) {
-            resultsAnswered.textContent = `${answeredQuestions}/${totalQuestions}`;
-        }
-        
-        const resultsCorrect = document.getElementById('results-correct');
-        if (resultsCorrect) {
-            resultsCorrect.textContent = correct;
-        }
-        
-        const resultsScore = document.getElementById('results-score');
-        if (resultsScore) {
-            resultsScore.textContent = `${score}%`;
-        }
-        
-        // Get time used
-        const endTime = parseInt(localStorage.getItem('examEndTime') || '0');
-        const currentTime = Date.now();
-        const timeUsed = Math.max(0, Math.floor((endTime - currentTime) / 1000));
-        const totalSeconds = endTime > currentTime ? 
-                          timeUsed : 
-                          Math.floor((currentTime - (endTime - getTotalTime(currentSimType))) / 1000);
-        
-        const hours = Math.floor(totalSeconds / 3600);
-        const minutes = Math.floor((totalSeconds % 3600) / 60);
-        
-        const resultsTime = document.getElementById('results-time');
-        if (resultsTime) {
-            resultsTime.textContent = `${hours} hour${hours !== 1 ? 's' : ''} ${minutes} minute${minutes !== 1 ? 's' : ''}`;
-        }
-        
-        // Create breakdown based on the simulation type
-        const breakdownDiv = document.getElementById('results-breakdown');
-        if (breakdownDiv) {
-            if (currentSimType === 'ngn-full') {
-                breakdownDiv.innerHTML = `
-                    <h3>Performance by Question Type</h3>
-                    <p>You performed well in:</p>
-                    <ul>
-                        <li>Standard multiple choice</li>
-                        <li>Multiple response select all that apply</li>
-                    </ul>
-                    <p>Areas for improvement:</p>
-                    <ul>
-                        <li>Drag and Drop case studies</li>
-                        <li>Cloze (fill-in-the-blank) questions</li>
-                        <li>Matrix/grid questions</li>
-                    </ul>
-                `;
-            } else {
-                breakdownDiv.innerHTML = `
-                    <h3>Performance by Content Area</h3>
-                    <p>You performed well in:</p>
-                    <ul>
-                        <li>Medication administration</li>
-                        <li>Patient assessment</li>
-                    </ul>
-                    <p>Areas for improvement:</p>
-                    <ul>
-                        <li>Prioritization of care</li>
-                        <li>Laboratory value interpretation</li>
-                    </ul>
-                `;
-            }
-        }
-        
-        // Show results screen
-        resultsScreen.classList.remove('hidden');
-        
-        // Clear stored answers
-        localStorage.removeItem('examAnswers');
-        localStorage.removeItem('examEndTime');
-        localStorage.removeItem('currentSimType');
-        
-        // Add event listeners for the buttons
-        const reviewButton = document.querySelector('.review-exam');
-        if (reviewButton) {
-            reviewButton.addEventListener('click', function() {
-                resultsScreen.classList.add('hidden');
-                const simInterface = document.getElementById('simulator-interface');
-                if (simInterface) {
-                    simInterface.classList.remove('hidden');
-                }
-            });
-        }
-        
-        const exitButton = document.querySelector('.exit-results');
-        if (exitButton) {
-            exitButton.addEventListener('click', function() {
-                resultsScreen.classList.add('hidden');
-                // Redirect to the home page
-                window.location.href = 'index.html';
-            });
-        }
-    } catch (error) {
-        console.error('Error in showResults:', error);
+    } else {
+        // Fallback pattern for demo
+        correctAnswers = {
+            1: 3, 2: 1, 3: 2, 4: 0, 5: 3, 6: 1, 7: 2,
+            8: 0, 9: 2, 10: 1, 11: 3, 12: 0
+        };
     }
+    
+    let correct = 0;
+    Object.keys(answers).forEach(question => {
+        if (correctAnswers[question] === answers[question]) {
+            correct++;
+        }
+    });
+    
+    // Calculate score
+    const score = Math.round((correct / totalQuestions) * 100);
+    
+    // Update results elements
+    document.getElementById('results-answered').textContent = `${answeredQuestions}/${totalQuestions}`;
+    document.getElementById('results-correct').textContent = correct;
+    document.getElementById('results-score').textContent = `${score}%`;
+    
+    // Get time used
+    const endTime = parseInt(localStorage.getItem('examEndTime') || '0');
+    const currentTime = Date.now();
+    const timeUsed = Math.max(0, Math.floor((endTime - currentTime) / 1000));
+    const totalSeconds = endTime > currentTime ? 
+                         timeUsed : 
+                         Math.floor((currentTime - (endTime - getTotalTime(currentSimType))) / 1000);
+    
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    
+    document.getElementById('results-time').textContent = 
+        `${hours} hour${hours !== 1 ? 's' : ''} ${minutes} minute${minutes !== 1 ? 's' : ''}`;
+    
+    // Create breakdown based on the simulation type
+    const breakdownDiv = document.getElementById('results-breakdown');
+    
+    if (currentSimType === 'ngn-full') {
+        breakdownDiv.innerHTML = `
+            <h3>Performance by Question Type</h3>
+            <p>You performed well in:</p>
+            <ul>
+                <li>Standard multiple choice</li>
+                <li>Multiple response select all that apply</li>
+            </ul>
+            <p>Areas for improvement:</p>
+            <ul>
+                <li>Drag and Drop case studies</li>
+                <li>Cloze (fill-in-the-blank) questions</li>
+                <li>Matrix/grid questions</li>
+            </ul>
+        `;
+    } else {
+        breakdownDiv.innerHTML = `
+            <h3>Performance by Content Area</h3>
+            <p>You performed well in:</p>
+            <ul>
+                <li>Medication administration</li>
+                <li>Patient assessment</li>
+            </ul>
+            <p>Areas for improvement:</p>
+            <ul>
+                <li>Prioritization of care</li>
+                <li>Laboratory value interpretation</li>
+            </ul>
+        `;
+    }
+    
+    // Show results screen
+    resultsScreen.classList.remove('hidden');
+    
+    // Clear stored answers
+    localStorage.removeItem('examAnswers');
+    localStorage.removeItem('examEndTime');
+    localStorage.removeItem('currentSimType');
 }
 
 /**
@@ -1180,105 +956,33 @@ function setupDragAndDropExample() {
         return;
     }
     
-    // Check if jQuery UI is loaded
-    if (typeof jQuery.ui === 'undefined') {
-        console.error('jQuery UI is required for drag and drop functionality');
-        return;
-    }
-    
-    // Delay execution to ensure the DOM is fully loaded
-    setTimeout(() => {
-        try {
-            // Check if elements exist
-            const dragItems = $(".parent li");
-            const dropTarget = $(".action_inner_center .action_box_first");
-            
-            // Create sample items if they don't exist (for demo purposes)
-            if (dragItems.length === 0 || dropTarget.length === 0) {
-                console.log('Creating sample drag and drop elements');
+    try {
+        // Make items draggable
+        $(".parent li").draggable({
+            revert: "invalid",
+            helper: "clone",
+            cursor: "move"
+        });
+        
+        // Make center box droppable
+        $(".action_inner_center .action_box_first").droppable({
+            accept: ".parent li",
+            hoverClass: "active",
+            drop: function(event, ui) {
+                // Clone the dropped item
+                const droppedItem = $(ui.draggable).clone();
                 
-                const sampleContainer = document.createElement('div');
-                sampleContainer.className = 'drag-drop-container';
-                sampleContainer.innerHTML = `
-                    <div class="drag-drop-example">
-                        <h4>Drag and Drop Example</h4>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="card mb-3">
-                                    <div class="card-header">Drag these items</div>
-                                    <div class="card-body">
-                                        <ul class="parent list-group">
-                                            <li class="list-group-item">Item 1</li>
-                                            <li class="list-group-item">Item 2</li>
-                                            <li class="list-group-item">Item 3</li>
-                                            <li class="list-group-item">Item 4</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="card mb-3">
-                                    <div class="card-header">Drop zone</div>
-                                    <div class="card-body action_inner_center">
-                                        <div class="drop-target action_box_first">
-                                            <p>Drop items here</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                `;
+                // Remove the UI draggable classes and behavior
+                droppedItem.removeClass("ui-draggable ui-draggable-handle");
                 
-                // Find a suitable place to add the example
-                const ngResourcesContainer = document.querySelector('#ngn-examples-container');
-                if (ngResourcesContainer) {
-                    ngResourcesContainer.appendChild(sampleContainer);
-                } else {
-                    // Add to the body as a fallback
-                    document.body.appendChild(sampleContainer);
-                }
+                // Add to droppable area
+                $(this).append(droppedItem);
                 
-                // Update references to the new elements
-                try {
-                    const newDragItems = $(".parent li");
-                    const newDropTarget = $(".action_inner_center .action_box_first, .drop-target");
-                    if (newDragItems.length > 0) dragItems = newDragItems;
-                    if (newDropTarget.length > 0) dropTarget = newDropTarget;
-                } catch (error) {
-                    console.error('Error updating drag and drop references:', error);
-                }
+                // Hide the original item
+                $(ui.draggable).hide();
             }
-            
-            // Make items draggable
-            dragItems.draggable({
-                revert: "invalid",
-                helper: "clone",
-                cursor: "move"
-            });
-            
-            // Make center box droppable
-            dropTarget.droppable({
-                accept: ".parent li",
-                hoverClass: "active",
-                drop: function(event, ui) {
-                    // Clone the dropped item
-                    const droppedItem = $(ui.draggable).clone();
-                    
-                    // Remove the UI draggable classes and behavior
-                    droppedItem.removeClass("ui-draggable ui-draggable-handle");
-                    
-                    // Add to droppable area
-                    $(this).append(droppedItem);
-                    
-                    // Hide the original item
-                    $(ui.draggable).hide();
-                }
-            });
-            
-            console.log('Drag and drop setup completed successfully');
-        } catch (e) {
-            console.error('Error setting up drag and drop:', e);
-        }
-    }, 500);
+        });
+    } catch (e) {
+        console.error('Error setting up drag and drop:', e);
+    }
 }

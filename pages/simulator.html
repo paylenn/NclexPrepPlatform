@@ -6,868 +6,280 @@
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
-    <title>NCLEX Simulator - Exam Preparation</title>
-    <!-- Bootstrap Dark Theme CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>NCLEX Simulator v2.0 - Paylenn.tech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
-    <link rel="stylesheet" href="../css/styles.css?v=2.3">
-    <link rel="stylesheet" href="../css/responsive.css?v=2.3">
-    <link rel="stylesheet" href="../css/simulator.css?v=2.3">
-    <style>
-        :root {
-            --primary-color: #4361ee;
-            --secondary-color: #3a0ca3;
-            --accent-color: #4cc9f0;
-            --light-color: #f8f9fa;
-            --dark-color: #0f172a;
-            --success-color: #06d6a0;
-            --warning-color: #ffd166;
-            --danger-color: #ef476f;
-            --transition-slow: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-            --transition-medium: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-            --transition-fast: all 0.25s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--dark-color);
-            color: white;
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
-        
-        /* Portal Background */
-        .portal-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at center, #1e3a8a 0%, #0f172a 100%);
-            z-index: -2;
-            overflow: hidden;
-        }
-        
-        .portal-background::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background-image: 
-                radial-gradient(circle at 20% 30%, rgba(67, 97, 238, 0.15) 0%, transparent 20%),
-                radial-gradient(circle at 80% 70%, rgba(76, 201, 240, 0.1) 0%, transparent 20%);
-            z-index: -1;
-        }
-        
-        /* Floating Particles */
-        .particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            overflow: hidden;
-        }
-        
-        .particle {
-            position: absolute;
-            background-color: rgba(255, 255, 255, 0.5);
-            border-radius: 50%;
-            animation: float 15s infinite linear;
-        }
-        
-        @keyframes float {
-            0% {
-                transform: translateY(0) translateX(0) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-2000%) translateX(200px) rotate(720deg);
-                opacity: 0;
-            }
-        }
-        
-        /* Navigation */
-        .navbar {
-            background-color: rgba(15, 23, 42, 0.8);
-            padding: 1.5rem 0;
-            transition: var(--transition-medium);
-        }
-        
-        .navbar.scrolled {
-            background-color: rgba(15, 23, 42, 0.95);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            padding: 1rem 0;
-        }
-        
-        .navbar-brand {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            font-size: 1.8rem;
-            color: white;
-            letter-spacing: -0.5px;
-        }
-        
-        .navbar-brand span {
-            color: var(--accent-color);
-            position: relative;
-        }
-        
-        .navbar-brand span::after {
-            content: "";
-            position: absolute;
-            bottom: 5px;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background-color: var(--accent-color);
-            border-radius: 4px;
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: var(--transition-medium);
-        }
-        
-        .navbar-brand:hover span::after {
-            transform: scaleX(1);
-        }
-        
-        .nav-link {
-            color: rgba(255, 255, 255, 0.8);
-            font-weight: 500;
-            padding: 0.75rem 1.25rem;
-            margin: 0 0.25rem;
-            position: relative;
-            transition: var(--transition-fast);
-            z-index: 1;
-        }
-        
-        .nav-link::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(67, 97, 238, 0.1);
-            border-radius: 8px;
-            z-index: -1;
-            transform: scale(0);
-            transition: var(--transition-fast);
-        }
-        
-        .nav-link:hover::before,
-        .nav-link.active::before {
-            transform: scale(1);
-        }
-        
-        .nav-link:hover,
-        .nav-link.active {
-            color: white;
-        }
-        
-        .nav-link.active::after {
-            content: "";
-            position: absolute;
-            bottom: 5px;
-            left: 50%;
-            width: 20px;
-            height: 3px;
-            background-color: var(--accent-color);
-            border-radius: 3px;
-            transform: translateX(-50%);
-        }
-        
-        /* Hero Section */
-        .hero-section {
-            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
-            padding: 5rem 0;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-section:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            background-image: radial-gradient(circle at 20% 30%, rgba(67, 97, 238, 0.2) 0%, transparent 30%),
-                             radial-gradient(circle at 80% 70%, rgba(76, 201, 240, 0.15) 0%, transparent 30%);
-            opacity: 0.8;
-        }
-        
-        /* Simulator Cards */
-        .simulator-card {
-            background-color: rgba(30, 41, 59, 0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            transition: var(--transition-medium);
-            height: 100%;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(76, 201, 240, 0.2);
-            transform-style: preserve-3d;
-            perspective: 1000px;
-        }
-        
-        .simulator-card:hover {
-            transform: translateY(-10px) rotateX(5deg);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3), 0 0 20px rgba(76, 201, 240, 0.2);
-            border-color: rgba(76, 201, 240, 0.4);
-        }
-        
-        .card-header-bg {
-            height: 120px;
-            background: linear-gradient(135deg, rgba(67, 97, 238, 0.8), rgba(76, 201, 240, 0.8));
-            border-radius: 20px 20px 0 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .card-header-bg::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.2), transparent 70%);
-            z-index: 1;
-            animation: light-sweep 3s infinite linear;
-        }
-        
-        @keyframes light-sweep {
-            0% {
-                transform: translateX(-100%) skewX(-20deg);
-            }
-            100% {
-                transform: translateX(200%) skewX(-20deg);
-            }
-        }
-        
-        .card-header-bg.rn {
-            background: linear-gradient(135deg, rgba(67, 97, 238, 0.8), rgba(58, 12, 163, 0.8));
-        }
-        
-        .card-header-bg.ngn {
-            background: linear-gradient(135deg, rgba(58, 12, 163, 0.8), rgba(76, 201, 240, 0.8));
-        }
-        
-        .card-header-bg.practice {
-            background: linear-gradient(135deg, rgba(76, 201, 240, 0.8), rgba(6, 214, 160, 0.8));
-        }
-        
-        .icon-circle {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(5px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), inset 0 0 10px rgba(255, 255, 255, 0.1);
-            z-index: 2;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: var(--transition-medium);
-        }
-        
-        .simulator-card:hover .icon-circle {
-            transform: scale(1.1) translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), inset 0 0 15px rgba(255, 255, 255, 0.2);
-        }
-        
-        .icon-circle i {
-            font-size: 2rem;
-            color: white;
-            transition: var(--transition-medium);
-        }
-        
-        .simulator-card:hover .icon-circle i {
-            transform: scale(1.1);
-            color: rgba(76, 201, 240, 1);
-        }
-        
-        /* Features Section */
-        .features-section {
-            padding: 5rem 0;
-            background-color: rgba(15, 23, 42, 0.8);
-            position: relative;
-        }
-        
-        .feature-box {
-            text-align: center;
-            padding: 2.5rem 2rem;
-            background-color: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-            transition: var(--transition-medium);
-            border: 1px solid rgba(76, 201, 240, 0.1);
-            transform-style: preserve-3d;
-            perspective: 1000px;
-        }
-        
-        .feature-box:hover {
-            transform: translateY(-10px) rotateX(5deg);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 0 20px rgba(76, 201, 240, 0.1);
-            border-color: rgba(76, 201, 240, 0.3);
-        }
-        
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, rgba(67, 97, 238, 0.2), rgba(76, 201, 240, 0.2));
-            color: var(--accent-color);
-            border-radius: 50%;
-            font-size: 2rem;
-            position: relative;
-            z-index: 1;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), inset 0 0 10px rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: var(--transition-medium);
-        }
-        
-        .feature-box:hover .feature-icon {
-            transform: translateY(-5px);
-            background: linear-gradient(135deg, rgba(67, 97, 238, 0.3), rgba(76, 201, 240, 0.3));
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), inset 0 0 15px rgba(255, 255, 255, 0.1);
-        }
-        
-        /* Custom Buttons */
-        .btn-custom {
-            padding: 0.75rem 1.5rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 30px;
-            transition: var(--transition-medium);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .btn-custom::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: var(--transition-medium);
-            z-index: -1;
-        }
-        
-        .btn-custom:hover::before {
-            left: 100%;
-        }
-        
-        .btn-primary {
-            background: linear-gradient(to right, #4361ee, #3a0ca3);
-            border: none;
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            background: linear-gradient(to right, #4cc9f0, #4361ee);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        }
-        
-        .btn-info {
-            background: linear-gradient(to right, #3a0ca3, #4cc9f0);
-            border: none;
-            color: white;
-        }
-        
-        .btn-info:hover {
-            background: linear-gradient(to right, #4cc9f0, #06d6a0);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-            color: white;
-        }
-        
-        .btn-success {
-            background: linear-gradient(to right, #4cc9f0, #06d6a0);
-            border: none;
-            color: white;
-        }
-        
-        .btn-success:hover {
-            background: linear-gradient(to right, #06d6a0, #4cc9f0);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        }
-        
-        /* Footer */
-        .footer {
-            background-color: rgba(15, 23, 42, 0.95);
-            color: white;
-            padding: 4rem 0 2rem;
-            position: relative;
-            border-top: 1px solid rgba(76, 201, 240, 0.1);
-        }
-        
-        .footer h5 {
-            position: relative;
-            padding-bottom: 1rem;
-            margin-bottom: 1.5rem;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            color: rgba(255, 255, 255, 0.9);
-        }
-        
-        .footer h5:after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 30px;
-            height: 3px;
-            background: linear-gradient(to right, #4cc9f0, #4361ee);
-            border-radius: 3px;
-        }
-        
-        .footer-links {
-            list-style-type: none;
-            padding-left: 0;
-        }
-        
-        .footer-links li {
-            margin-bottom: 0.75rem;
-        }
-        
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
-            text-decoration: none;
-            transition: var(--transition-fast);
-            position: relative;
-            padding-left: 15px;
-        }
-        
-        .footer-links a::before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            opacity: 0;
-            transform: translateX(-10px);
-            transition: var(--transition-fast);
-        }
-        
-        .footer-links a:hover {
-            color: var(--accent-color);
-            padding-left: 20px;
-        }
-        
-        .footer-links a:hover::before {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        .social-icons a {
-            display: inline-flex;
-            width: 40px;
-            height: 40px;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, rgba(67, 97, 238, 0.2), rgba(76, 201, 240, 0.2));
-            border-radius: 50%;
-            margin-right: 10px;
-            color: white;
-            transition: var(--transition-medium);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .social-icons a:hover {
-            background: linear-gradient(135deg, rgba(67, 97, 238, 0.4), rgba(76, 201, 240, 0.4));
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            color: var(--accent-color);
-        }
-        
-        /* Simulation UI Overrides - For Consistency with Portal Theme */
-        #simulation-intro .intro-container {
-            background-color: rgba(30, 41, 59, 0.9);
-            color: white;
-            border-radius: 20px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2), 0 0 20px rgba(76, 201, 240, 0.2);
-            max-width: 600px;
-            padding: 3rem;
-            border: 1px solid rgba(76, 201, 240, 0.2);
-        }
-        
-        .intro-title {
-            font-weight: 700;
-            color: white;
-            margin-bottom: 2rem;
-            font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(to right, #4cc9f0, #4361ee);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .intro-info {
-            background-color: rgba(15, 23, 42, 0.7);
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            border: 1px solid rgba(76, 201, 240, 0.1);
-        }
-        
-        #intro-exam-type {
-            font-size: 1.25rem;
-            color: var(--accent-color);
-            font-weight: 700;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/styles.css?v=2.0">
+    <link rel="stylesheet" href="../css/responsive.css?v=2.0">
+    <link rel="stylesheet" href="../css/simulator.css?v=2.0">
 </head>
 <body>
-    <div class="portal-background"></div>
-    <div class="particles" id="particles"></div>
-    
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <!-- Site Header - Single Navigation -->
+    <header class="site-header">
         <div class="container">
-            <a class="navbar-brand" href="../index.html">
-                NCLEX<span>Prep</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="practice.html">Practice Questions</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="ngn-types.html">NGN Question Types</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="simulator.html">NCLEX Simulator</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="resources.html">Resources</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
-                    </li>
+            <div class="logo">
+                <a href="../index.html">
+                    <h1>NCLEX<span>Prep</span></h1>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <div class="menu-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="practice.html">Practice Questions</a></li>
+                    <li><a href="ngn-types.html">NGN Question Types</a></li>
+                    <li><a href="simulator.html" class="active">NCLEX Simulator</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                    <li><a href="about.html">About</a></li>
                 </ul>
-            </div>
+            </nav>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8 text-center">
-                    <h1 class="display-4 fw-bold mb-4">NCLEX Exam Simulator</h1>
-                    <p class="lead mb-5">Experience a realistic exam environment with our advanced simulator. Practice with different formats, time constraints, and question types to build confidence for test day.</p>
+    <!-- Main Content - Selection Screen -->
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h2>NCLEX Simulator</h2>
+                <p>Experience a realistic simulation of the Pearson VUE NCLEX testing interface</p>
+            </div>
+        </section>
+
+        <section class="simulator-container">
+            <div class="simulator-intro">
+                <h2>Practice Like It's Test Day</h2>
+                <p>Our NCLEX simulator replicates the exact testing environment you'll encounter on exam day. Get comfortable with the interface, timer, and various question types to boost your confidence and performance.</p>
+            </div>
+
+            <div class="simulator-options">
+                <div class="simulator-card">
+                    <h3>NCLEX-RN</h3>
+                    <p>Standard NCLEX-RN Examination with 75 questions and a 2-hour time limit</p>
+                    <button class="btn btn-primary start-sim" data-sim="rn-75">Begin Simulation</button>
+                </div>
+                
+                <div class="simulator-card">
+                    <h3>Next Generation NCLEX</h3>
+                    <p>Full NGN exam with 135 questions including case studies and a 5-hour time limit</p>
+                    <button class="btn btn-primary start-sim" data-sim="ngn-full">Begin Simulation</button>
+                </div>
+                
+                <div class="simulator-card">
+                    <h3>Practice Mode</h3>
+                    <p>Quick practice session with 25 questions and a 30-minute time limit</p>
+                    <button class="btn btn-primary start-sim" data-sim="practice-30">Begin Simulation</button>
                 </div>
             </div>
-            
-            <div class="row mt-4">
-                <div class="col-lg-4 mb-4">
-                    <div class="simulator-card">
-                        <div class="card-header-bg rn">
-                            <div class="icon-circle">
-                                <i class="fas fa-stethoscope"></i>
-                            </div>
-                        </div>
-                        <div class="card-body text-center p-4">
-                            <h3 class="card-title mb-3">Traditional NCLEX-RN</h3>
-                            <p class="card-text mb-4">Simulate the classic NCLEX-RN format with 75 standard questions in a timed environment.</p>
-                            <ul class="list-unstyled mb-4">
-                                <li class="mb-2"><i class="fas fa-check-circle text-info me-2"></i> 75 Questions</li>
-                                <li class="mb-2"><i class="fas fa-check-circle text-info me-2"></i> 2 Hour Time Limit</li>
-                                <li class="mb-2"><i class="fas fa-check-circle text-info me-2"></i> Standard Multiple Choice</li>
-                            </ul>
-                            <button type="button" class="btn btn-primary btn-custom start-sim" data-sim="rn-75">Start Simulation</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 mb-4">
-                    <div class="simulator-card">
-                        <div class="card-header-bg ngn">
-                            <div class="icon-circle">
-                                <i class="fas fa-laptop-medical"></i>
-                            </div>
-                        </div>
-                        <div class="card-body text-center p-4">
-                            <h3 class="card-title mb-3">Next Generation NCLEX</h3>
-                            <p class="card-text mb-4">Experience the new NGN format with case studies and innovative question types.</p>
-                            <ul class="list-unstyled mb-4">
-                                <li class="mb-2"><i class="fas fa-check-circle text-info me-2"></i> 135 Questions</li>
-                                <li class="mb-2"><i class="fas fa-check-circle text-info me-2"></i> 5 Hour Time Limit</li>
-                                <li class="mb-2"><i class="fas fa-check-circle text-info me-2"></i> Advanced Question Types</li>
-                            </ul>
-                            <button type="button" class="btn btn-info btn-custom start-sim" data-sim="ngn-full">Start Simulation</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-lg-4 mb-4">
-                    <div class="simulator-card">
-                        <div class="card-header-bg practice">
-                            <div class="icon-circle">
-                                <i class="fas fa-clipboard-check"></i>
-                            </div>
-                        </div>
-                        <div class="card-body text-center p-4">
-                            <h3 class="card-title mb-3">Practice Mode</h3>
-                            <p class="card-text mb-4">Short practice sessions with a mix of question types and detailed rationales.</p>
-                            <ul class="list-unstyled mb-4">
-                                <li class="mb-2"><i class="fas fa-check-circle text-info me-2"></i> 25 Questions</li>
-                                <li class="mb-2"><i class="fas fa-check-circle text-info me-2"></i> 30 Minute Time Limit</li>
-                                <li class="mb-2"><i class="fas fa-check-circle text-info me-2"></i> Immediate Feedback</li>
-                            </ul>
-                            <button type="button" class="btn btn-success btn-custom start-sim" data-sim="practice-30">Start Simulation</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Features Section -->
-    <section class="features-section">
-        <div class="container">
-            <div class="row justify-content-center mb-5">
-                <div class="col-md-8 text-center">
-                    <h2 class="section-title mb-4">Simulator Features</h2>
-                    <p class="lead">Our simulator is designed to provide a realistic exam experience with tools to help you prepare effectively.</p>
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="feature-box">
-                        <div class="feature-icon">
-                            <i class="fas fa-tools"></i>
-                        </div>
-                        <h4>Exam Tools</h4>
-                        <p>Access to calculators, note-taking, highlighting, and strikethrough tools during your practice exams.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 mb-4">
-                    <div class="feature-box">
-                        <div class="feature-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <h4>Realistic Timing</h4>
-                        <p>Experience the same time constraints as the actual NCLEX exam to build your time management skills.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 mb-4">
-                    <div class="feature-box">
-                        <div class="feature-icon">
-                            <i class="fas fa-chart-bar"></i>
-                        </div>
-                        <h4>Performance Analytics</h4>
-                        <p>Receive detailed feedback and performance metrics after each simulation to track your progress.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 mb-4">
-                    <div class="feature-box">
-                        <div class="feature-icon">
-                            <i class="fas fa-question-circle"></i>
-                        </div>
-                        <h4>Diverse Question Types</h4>
-                        <p>Practice with all NCLEX question formats, including new NGN case studies and interactive items.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 mb-4">
-                    <div class="feature-box">
-                        <div class="feature-icon">
-                            <i class="fas fa-book-open"></i>
-                        </div>
-                        <h4>Detailed Rationales</h4>
-                        <p>Learn from comprehensive explanations for both correct and incorrect answers.</p>
-                    </div>
-                </div>
-                
-                <div class="col-md-4 mb-4">
-                    <div class="feature-box">
-                        <div class="feature-icon">
-                            <i class="fas fa-sync"></i>
-                        </div>
-                        <h4>Adaptive Testing</h4>
-                        <p>Questions adjust in difficulty based on your performance, similar to the actual NCLEX exam.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Simulation Intro (Hidden Initially) -->
-    <div id="simulation-intro" class="hidden">
-        <div class="intro-container">
-            <h2 class="intro-title text-center mb-4">Prepare for Your Simulation</h2>
-            <div class="intro-info">
-                <p class="mb-2">You are about to begin: <span id="intro-exam-type" class="fw-bold">NCLEX Practice Mode</span></p>
-                <div id="intro-details"></div>
-            </div>
-            <p>Before you begin:</p>
-            <ul class="mb-4">
-                <li>Find a quiet space without distractions</li>
-                <li>Have scratch paper and a pen ready if needed</li>
-                <li>Plan to complete the entire simulation in one sitting</li>
-                <li>Use the tools provided (calculator, highlighting, etc.)</li>
-            </ul>
-            <div class="d-flex justify-content-between">
-                <button class="btn btn-outline-light px-4 cancel-intro">Cancel</button>
-                <button class="btn btn-primary px-4 begin-exam">Begin Exam</button>
-            </div>
-        </div>
-    </div>
-    
+        </section>
+    </main>
+
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="site-footer">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4 mb-lg-0">
-                    <h5>About NCLEX Prep</h5>
-                    <p>We provide comprehensive resources and tools to help nursing students prepare for and pass the NCLEX examination.</p>
-                    <div class="social-icons mt-4">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>About NCLEX Prep</h3>
+                    <p>Dedicated to helping nursing students succeed on the NCLEX examination with comprehensive practice materials and realistic test simulations.</p>
                 </div>
-                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
-                    <h5>Quick Links</h5>
-                    <ul class="footer-links">
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
                         <li><a href="../index.html">Home</a></li>
-                        <li><a href="practice.html">Practice</a></li>
-                        <li><a href="simulator.html">Simulator</a></li>
+                        <li><a href="practice.html">Practice Questions</a></li>
+                        <li><a href="ngn-types.html">NGN Question Types</a></li>
+                        <li><a href="simulator.html">NCLEX Simulator</a></li>
                         <li><a href="resources.html">Resources</a></li>
                         <li><a href="about.html">About</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                    <h5>Study Resources</h5>
-                    <ul class="footer-links">
-                        <li><a href="#">Question Bank</a></li>
-                        <li><a href="#">Study Guides</a></li>
-                        <li><a href="#">NGN Question Types</a></li>
-                        <li><a href="#">Test Strategies</a></li>
-                        <li><a href="#">Content Review</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3">
-                    <h5>Contact Us</h5>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-envelope me-2"></i> support@nclexprep.com</li>
-                        <li><i class="fas fa-phone me-2"></i> (800) 555-NCLEX</li>
-                        <li><i class="fas fa-map-marker-alt me-2"></i> 123 Main St, Suite 400<br>New York, NY 10001</li>
-                    </ul>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p>Email: contact@paylenn.tech</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
                 </div>
             </div>
-            <div class="row mt-5">
-                <div class="col-12 text-center">
-                    <p class="mb-0">&copy; 2025 NCLEX Prep Portal. All rights reserved.</p>
-                </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 NCLEX Prep. All rights reserved.</p>
             </div>
         </div>
     </footer>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/main.js?v=2.3"></script>
-    <script src="../js/simulator.js?v=2.3"></script>
-    <script>
-        // Create floating particles for background effect
-        document.addEventListener('DOMContentLoaded', function() {
-            const particlesContainer = document.getElementById('particles');
-            
-            // Create floating particles
-            for (let i = 0; i < 50; i++) {
-                createParticle();
-            }
-            
-            function createParticle() {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                
-                // Random size between 2px and 6px
-                const size = Math.random() * 4 + 2;
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                
-                // Random position
-                const posX = Math.random() * 100;
-                const posY = Math.random() * 100;
-                particle.style.left = `${posX}%`;
-                particle.style.top = `${posY}%`;
-                
-                // Random animation delay
-                const delay = Math.random() * 15;
-                particle.style.animationDelay = `${delay}s`;
-                
-                // Random animation duration between 15s and 30s
-                const duration = Math.random() * 15 + 15;
-                particle.style.animationDuration = `${duration}s`;
-                
-                // Random opacity
-                const opacity = Math.random() * 0.5 + 0.1;
-                particle.style.opacity = opacity;
-                
-                particlesContainer.appendChild(particle);
-                
-                // Remove and recreate particle after animation ends
-                setTimeout(() => {
-                    particle.remove();
-                    createParticle();
-                }, duration * 1000);
-            }
-            
-            // Add scroll class to navbar
-            window.addEventListener('scroll', function() {
-                const navbar = document.querySelector('.navbar');
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-            });
-        });
-    </script>
+
+    <!-- Simulation Introduction Screen -->
+    <div id="simulation-intro" class="hidden">
+        <div class="intro-container">
+            <h2 class="intro-title">NCLEX Examination Simulation</h2>
+            <div class="intro-info">
+                <div id="intro-exam-type">NCLEX-RN Simulation</div>
+                <div>Time: <span id="intro-time">2 hours (120 minutes)</span></div>
+                <div>Questions: <span id="intro-questions">75 questions</span></div>
+            </div>
+            <p>This simulation mimics the actual NCLEX exam environment. You will have a calculator, highlighting tool, and strikethrough functionality available. The exam will automatically end when the time is up.</p>
+            <button class="btn btn-primary begin-exam">Begin Exam</button>
+        </div>
+    </div>
+
+    <!-- Simulator Interface -->
+    <div id="simulator-interface" class="hidden">
+        <div class="exam-header">
+            <div class="exam-title">
+                <span id="exam-name">NCLEX-RN® Examination</span>
+            </div>
+            <div class="exam-controls">
+                <div class="exam-timer" id="exam-timer">02:00:00</div>
+                <button class="control-btn" id="pause-exam">Pause</button>
+                <button class="control-btn" id="end-exam">End Exam</button>
+            </div>
+        </div>
+        <div class="exam-main">
+            <div class="toolbox">
+                <div class="tool-btn" id="calculator-btn" title="Calculator">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <div class="tool-btn" id="notes-btn" title="Notes">
+                    <i class="fas fa-sticky-note"></i>
+                </div>
+                <div class="tool-btn" id="highlight-btn" title="Highlight Text">
+                    <i class="fas fa-highlighter"></i>
+                </div>
+                <div class="tool-btn" id="strikethrough-btn" title="Strikethrough Options">
+                    <i class="fas fa-strikethrough"></i>
+                </div>
+            </div>
+            <div class="question-container">
+                <div class="question-number">
+                    <div>Question <span id="current-question">1</span> of <span id="total-questions">75</span></div>
+                </div>
+                <div class="question-content">
+                    <div class="question-stem" id="question-stem">
+                        Loading question...
+                    </div>
+                    <div class="question-options" id="question-options">
+                        <!-- Options will be dynamically inserted here -->
+                    </div>
+                </div>
+                <div class="navigation-buttons">
+                    <button class="nav-btn" id="previous-btn" disabled>Previous</button>
+                    <button class="nav-btn" id="next-btn">Next</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calculator Panel -->
+        <div class="tool-panel hidden" id="calculator-panel">
+            <div class="panel-header">
+                <div class="panel-title">Calculator</div>
+                <button class="close-panel">&times;</button>
+            </div>
+            <div class="panel-content">
+                <input type="text" class="calc-display" id="calc-display" readonly value="0">
+                <div class="calculator">
+                    <button class="calc-btn calc-btn-op">C</button>
+                    <button class="calc-btn calc-btn-op">CE</button>
+                    <button class="calc-btn calc-btn-op">/</button>
+                    <button class="calc-btn calc-btn-op">*</button>
+                    
+                    <button class="calc-btn">7</button>
+                    <button class="calc-btn">8</button>
+                    <button class="calc-btn">9</button>
+                    <button class="calc-btn calc-btn-op">-</button>
+                    
+                    <button class="calc-btn">4</button>
+                    <button class="calc-btn">5</button>
+                    <button class="calc-btn">6</button>
+                    <button class="calc-btn calc-btn-op">+</button>
+                    
+                    <button class="calc-btn">1</button>
+                    <button class="calc-btn">2</button>
+                    <button class="calc-btn">3</button>
+                    <button class="calc-btn calc-btn-eq">=</button>
+                    
+                    <button class="calc-btn" style="grid-column: span 2;">0</button>
+                    <button class="calc-btn">.</button>
+                    <button class="calc-btn calc-btn-op">=</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notes Panel -->
+        <div class="tool-panel hidden" id="notes-panel">
+            <div class="panel-header">
+                <div class="panel-title">Notes</div>
+                <button class="close-panel">&times;</button>
+            </div>
+            <div class="panel-content">
+                <textarea class="notes-content" placeholder="Type your notes here..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pause Screen -->
+    <div id="pause-screen" class="hidden">
+        <div class="pause-container">
+            <h2 class="pause-title">Exam Paused</h2>
+            <p class="pause-text">Your exam time has been paused. When you're ready to continue, click the Resume button.</p>
+            <div class="pause-buttons">
+                <button class="btn btn-primary resume-exam">Resume Exam</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- End Confirmation Screen -->
+    <div id="end-confirmation" class="hidden">
+        <div class="confirm-container">
+            <h2 class="confirm-title">End Exam?</h2>
+            <p class="confirm-text">Are you sure you want to end the exam? This action cannot be undone.</p>
+            <div class="confirm-buttons">
+                <button class="btn btn-outline cancel-end">Cancel</button>
+                <button class="btn btn-primary confirm-end">End Exam</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Screen -->
+    <div id="results-screen" class="hidden">
+        <div class="results-container">
+            <div class="results-header">
+                <h2 class="results-title">Exam Results</h2>
+            </div>
+            <div class="results-stats">
+                <div class="stats-item">
+                    <div class="stats-value" id="results-answered">0/75</div>
+                    <div class="stats-label">Questions Answered</div>
+                </div>
+                <div class="stats-item">
+                    <div class="stats-value" id="results-correct">0</div>
+                    <div class="stats-label">Correct Answers</div>
+                </div>
+                <div class="stats-item">
+                    <div class="stats-value" id="results-score">0%</div>
+                    <div class="stats-label">Score</div>
+                </div>
+                <div class="stats-item">
+                    <div class="stats-value" id="results-time">0 hrs 0 mins</div>
+                    <div class="stats-label">Time Used</div>
+                </div>
+            </div>
+            <div class="results-breakdown" id="results-breakdown">
+                <!-- Performance breakdown will be inserted here -->
+            </div>
+            <div class="results-buttons">
+                <button class="btn btn-outline review-exam">Review Exam</button>
+                <button class="btn btn-primary exit-results">Exit to Menu</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/main.js?v=2.0"></script>
+    <script src="../js/simulator.js?v=2.0"></script>
 </body>
 </html>
