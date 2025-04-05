@@ -140,10 +140,18 @@ function setupExamQuestions(type) {
                 return;
             }
             
-            // Prepare for a 10-question exam
-            if (questions.length > 10) {
-                // Randomly select 10 questions
-                questions = questions.sort(() => 0.5 - Math.random()).slice(0, 10);
+            // Get user-selected question count (default to 10)
+            let questionCount = 10;
+            // Check if question count is specified in local storage
+            const storedQuestionCount = localStorage.getItem('nclexQuestionCount');
+            if (storedQuestionCount) {
+                questionCount = parseInt(storedQuestionCount);
+            }
+            
+            // Prepare for the exam with specified number of questions
+            if (questions.length > questionCount) {
+                // Randomly select the specified number of questions
+                questions = questions.sort(() => 0.5 - Math.random()).slice(0, questionCount);
             }
             
             // Initialize user answers array

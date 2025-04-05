@@ -674,6 +674,50 @@ p {
   transition: font-size var(--transition-speed) ease;
 }
 
+/* Exam Settings */
+.question-count-selector {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.question-count-selector label {
+  font-weight: 700;
+  font-size: calc(1.1rem * var(--font-size-multiplier));
+  transition: font-size var(--transition-speed) ease;
+}
+
+.neu-select {
+  padding: 10px 15px;
+  border: 3px solid var(--color-dark);
+  background-color: var(--color-white);
+  box-shadow: 3px 3px 0 var(--shadow-color);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: calc(1rem * var(--font-size-multiplier));
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, font-size var(--transition-speed) ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 1em;
+  padding-right: 40px;
+}
+
+.neu-select:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--shadow-color);
+}
+
+.neu-select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
 /* Practice Question Styles */
 .question-container {
   background-color: var(--color-white);
@@ -937,4 +981,48 @@ p {
 
 .animate-bounce {
   animation: bounce 1s infinite;
+}
+
+/* Exam Settings */
+.question-count-selector {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.question-count-selector label {
+  font-weight: 700;
+  font-size: calc(1.1rem * var(--font-size-multiplier));
+  transition: font-size var(--transition-speed) ease;
+}
+
+.neu-select {
+  padding: 10px 15px;
+  border: 3px solid var(--color-dark);
+  background-color: var(--color-white);
+  box-shadow: 3px 3px 0 var(--shadow-color);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: calc(1rem * var(--font-size-multiplier));
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, font-size var(--transition-speed) ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 1em;
+  padding-right: 40px;
+}
+
+.neu-select:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--shadow-color);
+}
+
+.neu-select:focus {
+  outline: none;
+  border-color: var(--color-primary);
 }

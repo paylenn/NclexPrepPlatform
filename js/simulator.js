@@ -724,8 +724,8 @@ function saveCurrentSimAnswer() {
  */
 function getSampleQuestions() {
     // In a real application, these would be loaded from an API or database
-    // This is just a small sample for the simulator demo
-    return [
+    // For the simulator demo, we'll generate more questions for full simulation
+    let questionsArray = [
         {
             stem: "A nurse is caring for a client with hypertension who takes enalapril 10 mg orally daily. The client's blood pressure today is 90/50 mmHg. The client reports feeling dizzy when standing. What is the priority nursing action?",
             options: [
@@ -785,6 +785,32 @@ function getSampleQuestions() {
             rationale: "The statement 'I can stop taking insulin once my blood sugar normalizes' indicates a need for further teaching. Clients with type 1 diabetes require lifelong insulin therapy because their pancreas does not produce insulin."
         }
     ];
+    
+    // For full simulation, we need to generate more questions
+    // Duplicate and slightly modify existing questions to get to 100 questions
+    if (window.simType === 'standard' || window.simType === 'ngn') {
+        // Store original questions for reference
+        const originalQuestions = [...questionsArray];
+        
+        // We need to generate up to 100 questions
+        while (questionsArray.length < 100) {
+            // Take a question from the original set and clone it
+            const randomIndex = Math.floor(Math.random() * originalQuestions.length);
+            const originalQuestion = originalQuestions[randomIndex];
+            
+            // Clone and modify the question slightly to make it appear different
+            const clonedQuestion = JSON.parse(JSON.stringify(originalQuestion));
+            
+            // Add a variation identifier to make it appear different
+            const variationNum = Math.floor(questionsArray.length / originalQuestions.length) + 1;
+            clonedQuestion.stem = clonedQuestion.stem.replace(/\?$/, ` (Variation ${variationNum})?`);
+            
+            // Add the modified question to our questions array
+            questionsArray.push(clonedQuestion);
+        }
+    }
+    
+    return questionsArray;
 }
 
 /**

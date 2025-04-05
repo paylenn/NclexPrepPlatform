@@ -29,6 +29,21 @@
                         <div class="section-line"></div>
                     </div>
                     <p id="exam-description">Loading exam information...</p>
+                    
+                    <div class="neu-card secondary mt-4 mb-4">
+                        <h3>Exam Settings</h3>
+                        <div class="question-count-selector mt-3">
+                            <label for="question-count">Number of Questions:</label>
+                            <select id="question-count" class="neu-select">
+                                <option value="5">5 Questions</option>
+                                <option value="10" selected>10 Questions</option>
+                                <option value="20">20 Questions</option>
+                                <option value="50">50 Questions</option>
+                                <option value="100">100 Questions</option>
+                            </select>
+                        </div>
+                    </div>
+                    
                     <div class="exam-controls mt-4">
                         <button id="start-exam-btn" class="neubtn primary">Begin Exam <i class="fas fa-play"></i></button>
                         <a href="../index.html" class="neubtn"><i class="fas fa-arrow-left"></i> Return Home</a>
@@ -256,6 +271,21 @@
             
             // Initialize font size controls
             initFontSizeControls();
+            
+            // Question count selector
+            const questionCountSelect = document.getElementById('question-count');
+            if (questionCountSelect) {
+                // Load saved preference if it exists
+                const savedCount = localStorage.getItem('nclexQuestionCount');
+                if (savedCount) {
+                    questionCountSelect.value = savedCount;
+                }
+                
+                // Set event listener to save preference
+                questionCountSelect.addEventListener('change', function() {
+                    localStorage.setItem('nclexQuestionCount', this.value);
+                });
+            }
         });
     </script>
 </body>
