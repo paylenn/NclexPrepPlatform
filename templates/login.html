@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - NCLEX Practice</title>
+    <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
+    <link rel="stylesheet" href="/css/neubrutalism.css">
+    <style>
+        .login-container {
+            max-width: 500px;
+            margin: 80px auto;
+            padding: 2rem;
+        }
+        
+        .neu-hero {
+            margin-bottom: 3rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="d-flex justify-content-between align-items-center py-3">
+            <div class="logo">
+                <a href="/" class="neu-logo">paylenn.tech</a>
+            </div>
+            <nav>
+                <a href="/" class="neu-button me-2">Home</a>
+                <a href="/register" class="neu-button neu-button-primary">Register</a>
+            </nav>
+        </header>
+        
+        <div class="login-container neu-container">
+            <div class="neu-hero text-center">
+                <h1 class="display-4">Login</h1>
+                <p class="lead">Access your NCLEX Practice Dashboard</p>
+            </div>
+            
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            
+            <form id="login-form" action="/login" method="POST">
+                <div class="mb-4">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control neu-input" id="username" name="username" required>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control neu-input" id="password" name="password" required>
+                </div>
+                
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary neu-button neu-button-primary btn-lg">Login</button>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <p>Don't have an account? <a href="/register" class="neu-link">Register here</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
