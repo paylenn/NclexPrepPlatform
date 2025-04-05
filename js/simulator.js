@@ -15,8 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Set up the simulator buttons
     setupSimulatorButtons();
     
-    // Initialize NGN examples
-    initializeNGNExamples();
+    // No need to initialize NGN examples in simulator
+    // This was causing the error
 });
 
 /**

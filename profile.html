@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - NCLEX Practice</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/neubrutalism.css">
+    <style>
+        .profile-container {
+            max-width: 800px;
+            margin: 60px auto;
+        }
+        
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: var(--space-lg);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: var(--color-tertiary);
+            border: 3px solid var(--color-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--color-dark);
+            box-shadow: var(--shadow-offset) var(--shadow-offset) var(--shadow-blur) var(--shadow-color);
+        }
+        
+        .profile-info {
+            flex: 1;
+        }
+        
+        .profile-section {
+            margin-bottom: var(--space-xl);
+        }
+        
+        .profile-form label {
+            font-weight: 700;
+            margin-bottom: var(--space-xs);
+            display: block;
+        }
+        
+        .profile-form input, 
+        .profile-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 3px solid var(--color-dark);
+            background-color: var(--color-white);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: calc(1rem * var(--font-size-multiplier));
+            margin-bottom: var(--space-md);
+            box-shadow: 3px 3px 0 var(--shadow-color);
+        }
+        
+        .profile-form input:focus,
+        .profile-form textarea:focus {
+            outline: none;
+            border-color: var(--color-primary);
+        }
+        
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: var(--space-md);
+            margin-top: var(--space-md);
+        }
+        
+        .achievement-item {
+            text-align: center;
+            padding: var(--space-md);
+            border: 3px solid var(--color-dark);
+            background-color: var(--color-white);
+            box-shadow: var(--shadow-offset) var(--shadow-offset) var(--shadow-blur) var(--shadow-color);
+        }
+        
+        .achievement-icon {
+            font-size: 2rem;
+            margin-bottom: var(--space-sm);
+            color: var(--color-primary);
+        }
+        
+        .achievement-item.locked {
+            opacity: 0.7;
+        }
+        
+        .achievement-item.locked .achievement-icon {
+            color: #999;
+        }
+        
+        .exam-history-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: var(--space-md);
+            margin-bottom: var(--space-sm);
+            border: 2px solid var(--color-dark);
+            background-color: var(--color-white);
+        }
+        
+        .exam-score {
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .exam-score.high {
+            color: #28a745;
+        }
+        
+        .exam-score.medium {
+            color: #ffc107;
+        }
+        
+        .exam-score.low {
+            color: #dc3545;
+        }
+    </style>
+    <script async>
+        // Initialize profile data
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get or initialize profile data
+            let profileData = JSON.parse(localStorage.getItem('userProfile') || '{"name":"","email":"","bio":""}');
+            
+            // Populate form fields
+            if (document.getElementById('profile-name')) {
+                document.getElementById('profile-name').value = profileData.name || '';
+            }
+            
+            if (document.getElementById('profile-email')) {
+                document.getElementById('profile-email').value = profileData.email || '';
+            }
+            
+            if (document.getElementById('profile-bio')) {
+                document.getElementById('profile-bio').value = profileData.bio || '';
+            }
+            
+            // Set up form submission
+            const profileForm = document.getElementById('profile-form');
+            if (profileForm) {
+                profileForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Update profile data
+                    profileData.name = document.getElementById('profile-name').value;
+                    profileData.email = document.getElementById('profile-email').value;
+                    profileData.bio = document.getElementById('profile-bio').value;
+                    
+                    // Save to localStorage
+                    localStorage.setItem('userProfile', JSON.stringify(profileData));
+                    
+                    // Show success message
+                    const flashMessage = document.getElementById('flash-message');
+                    if (flashMessage) {
+                        flashMessage.innerHTML = `
+                            <div class="alert alert-success" role="alert">
+                                Profile updated successfully!
+                            </div>
+                        `;
+                        
+                        // Hide message after 3 seconds
+                        setTimeout(() => {
+                            flashMessage.innerHTML = '';
+                        }, 3000);
+                    }
+                    
+                    // Update profile header
+                    updateProfileHeader();
+                });
+            }
+            
+            // Initialize profile header
+            updateProfileHeader();
+            
+            // Load exam history
+            loadExamHistory();
+        });
+        
+        // Update profile header with user info
+        function updateProfileHeader() {
+            const profileData = JSON.parse(localStorage.getItem('userProfile') || '{"name":"","email":"","bio":""}');
+            const profileNameDisplay = document.getElementById('profile-name-display');
+            const profileInitials = document.getElementById('profile-initials');
+            
+            if (profileNameDisplay) {
+                profileNameDisplay.textContent = profileData.name || 'NCLEX Student';
+            }
+            
+            if (profileInitials && profileData.name) {
+                // Get initials from name
+                const nameParts = profileData.name.split(' ');
+                if (nameParts.length > 1) {
+                    profileInitials.textContent = (nameParts[0][0] + nameParts[1][0]).toUpperCase();
+                } else {
+                    profileInitials.textContent = nameParts[0][0] ? nameParts[0][0].toUpperCase() : 'U';
+                }
+            }
+        }
+        
+        // Load exam history from localStorage
+        function loadExamHistory() {
+            const examHistoryContainer = document.getElementById('exam-history');
+            if (!examHistoryContainer) return;
+            
+            // Get analytics data
+            const analytics = JSON.parse(localStorage.getItem('nclexAnalytics') || '{"pageViews":[],"examAttempts":{}}');
+            
+            // Check if we have any completed exams
+            const hasCompletedExams = Object.values(analytics.examAttempts).some(exam => exam.completions > 0);
+            
+            if (!hasCompletedExams) {
+                examHistoryContainer.innerHTML = `
+                    <div class="neu-card tertiary">
+                        <p>No exam history available yet. Complete an exam to see your results!</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Create history items
+            let historyHTML = '';
+            
+            for (const [examType, stats] of Object.entries(analytics.examAttempts)) {
+                if (stats.completions > 0) {
+                    const examName = examType === 'exam1' ? 'Standard NCLEX Practice' : 
+                                   examType === 'exam2' ? 'Next Generation NCLEX' : 
+                                   examType === 'simulator' ? 'Full NCLEX Simulator' : examType;
+                    
+                    const scoreClass = stats.avgScore >= 80 ? 'high' : 
+                                     stats.avgScore >= 60 ? 'medium' : 'low';
+                    
+                    historyHTML += `
+                        <div class="exam-history-item">
+                            <div>
+                                <h5>${examName}</h5>
+                                <p>Completed ${stats.completions} time(s)</p>
+                            </div>
+                            <div class="exam-score ${scoreClass}">
+                                ${stats.avgScore}%
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+            
+            examHistoryContainer.innerHTML = historyHTML;
+        }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">paylenn<span>.tech</span></a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <a href="dashboard.html" class="nav-link"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="index.html#exams" class="nav-link"><i class="fas fa-pencil-alt"></i> Exams</a>
+                <a href="login.html" class="nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Profile Content -->
+    <div class="container profile-container">
+        <div class="profile-header">
+            <div class="profile-avatar">
+                <span id="profile-initials">U</span>
+            </div>
+            <div class="profile-info">
+                <h1 id="profile-name-display">NCLEX Student</h1>
+                <p>Member since <strong>April 2025</strong></p>
+            </div>
+        </div>
+        
+        <div id="flash-message"></div>
+        
+        <!-- Profile Form -->
+        <div class="profile-section">
+            <div class="neu-card">
+                <h3>Personal Information</h3>
+                <form id="profile-form" class="profile-form">
+                    <div>
+                        <label for="profile-name">Name</label>
+                        <input type="text" id="profile-name" name="name" placeholder="Your name">
+                    </div>
+                    
+                    <div>
+                        <label for="profile-email">Email</label>
+                        <input type="email" id="profile-email" name="email" placeholder="Your email">
+                    </div>
+                    
+                    <div>
+                        <label for="profile-bio">Bio</label>
+                        <textarea id="profile-bio" name="bio" rows="4" placeholder="Tell us about yourself and your NCLEX goals"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="neubtn primary">Save Changes</button>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Exam History -->
+        <div class="profile-section">
+            <div class="section-subheader">
+                <h3>EXAM HISTORY</h3>
+                <div class="section-subline"></div>
+            </div>
+            
+            <div id="exam-history">
+                <!-- Exam history will be populated by JavaScript -->
+            </div>
+        </div>
+        
+        <!-- Achievements -->
+        <div class="profile-section">
+            <div class="section-subheader">
+                <h3>ACHIEVEMENTS</h3>
+                <div class="section-subline"></div>
+            </div>
+            
+            <div class="achievement-grid">
+                <div class="achievement-item">
+                    <div class="achievement-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h5>First Exam</h5>
+                    <p>Completed first practice exam</p>
+                </div>
+                
+                <div class="achievement-item locked">
+                    <div class="achievement-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h5>Perfect Score</h5>
+                    <p>Score 100% on any exam</p>
+                </div>
+                
+                <div class="achievement-item locked">
+                    <div class="achievement-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h5>7 Day Streak</h5>
+                    <p>Study for 7 days in a row</p>
+                </div>
+                
+                <div class="achievement-item locked">
+                    <div class="achievement-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h5>Quick Learner</h5>
+                    <p>Improve score by 20% between exams</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Font Size Controls -->
+    <div class="font-size-controls collapsed" id="fontSizeControls">
+        <div class="font-size-controls-header" id="fontSizeControlsHeader">
+            <span class="font-size-controls-title"><i class="fas fa-font"></i> Text Size</span>
+            <span class="font-size-controls-toggle"><i class="fas fa-chevron-up"></i></span>
+        </div>
+        <div class="font-size-buttons">
+            <button class="font-size-button" data-size="small">A</button>
+            <button class="font-size-button active" data-size="medium">A</button>
+            <button class="font-size-button" data-size="large">A</button>
+            <button class="font-size-button" data-size="xl">A</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>paylenn.tech</h3>
+                    <p>Your NCLEX Success Partner</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                <nav class="footer-nav">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#exams">Exams</a>
+                    <a href="index.html#tips">Tips</a>
+                    <a href="login.html">Login</a>
+                </nav>
+                <div class="footer-legal">
+                    <p>&copy; 2025 paylenn.tech. All rights reserved.</p>
+                    <div class="footer-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Use</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Font size control functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Font size controls
+            const fontSizeControls = document.getElementById('fontSizeControls');
+            const fontSizeControlsHeader = document.getElementById('fontSizeControlsHeader');
+            const fontSizeButtons = document.querySelectorAll('.font-size-button');
+            
+            // Toggle font size controls
+            if (fontSizeControlsHeader) {
+                fontSizeControlsHeader.addEventListener('click', function() {
+                    fontSizeControls.classList.toggle('collapsed');
+                });
+            }
+            
+            // Set font size
+            if (fontSizeButtons) {
+                // Check for stored font size preference
+                const storedFontSize = localStorage.getItem('fontSizePreference');
+                if (storedFontSize) {
+                    document.body.className = '';
+                    document.body.classList.add('font-size-' + storedFontSize);
+                    
+                    // Update active button
+                    fontSizeButtons.forEach(button => {
+                        button.classList.remove('active');
+                        if (button.dataset.size === storedFontSize) {
+                            button.classList.add('active');
+                        }
+                    });
+                }
+                
+                // Add click handlers for font size buttons
+                fontSizeButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const size = this.dataset.size;
+                        
+                        // Remove all font size classes
+                        document.body.className = '';
+                        
+                        // Add selected font size class
+                        document.body.classList.add('font-size-' + size);
+                        
+                        // Update active button
+                        fontSizeButtons.forEach(btn => {
+                            btn.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                        
+                        // Store preference
+                        localStorage.setItem('fontSizePreference', size);
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

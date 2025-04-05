@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - NCLEX Practice</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/neubrutalism.css">
+    <style>
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+        
+        .dashboard-card {
+            margin-bottom: var(--space-lg);
+            height: 100%;
+        }
+        
+        .recent-activity {
+            margin-bottom: var(--space-xl);
+        }
+        
+        .activity-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .activity-item {
+            padding: var(--space-md);
+            margin-bottom: var(--space-sm);
+            border: 2px solid var(--color-dark);
+            background-color: var(--color-white);
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+        }
+        
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--color-tertiary);
+            border: 2px solid var(--color-dark);
+        }
+        
+        .activity-content {
+            flex: 1;
+        }
+        
+        .activity-time {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .progress-container {
+            height: 20px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            margin-top: var(--space-sm);
+            overflow: hidden;
+            border: 2px solid var(--color-dark);
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background-color: var(--color-primary);
+            border-right: 2px solid var(--color-dark);
+        }
+        
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+            font-size: 0.9rem;
+        }
+        
+        .badge-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: var(--space-md);
+        }
+        
+        .badge-item {
+            text-align: center;
+            padding: var(--space-sm);
+        }
+        
+        .badge-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto;
+            border-radius: 50%;
+            background-color: var(--color-white);
+            border: 3px solid var(--color-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: var(--space-sm);
+            box-shadow: 4px 4px 0 var(--shadow-color);
+        }
+        
+        .badge-name {
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .badge-description {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .recommendation-card {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-md);
+        }
+        
+        .recommendation-icon {
+            font-size: 2rem;
+            color: var(--color-primary);
+        }
+        
+        .recommendation-content {
+            flex: 1;
+        }
+    </style>
+    <script async>
+        // Simple dashboard data initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get analytics data
+            const analytics = JSON.parse(localStorage.getItem('nclexAnalytics') || '{"pageViews":[],"examAttempts":{}}');
+            
+            // Calculate stats
+            const totalExamStarts = Object.values(analytics.examAttempts).reduce((sum, exam) => sum + exam.starts, 0);
+            const totalExamCompletions = Object.values(analytics.examAttempts).reduce((sum, exam) => sum + exam.completions, 0);
+            const completionRate = totalExamStarts > 0 ? Math.round((totalExamCompletions / totalExamStarts) * 100) : 0;
+            
+            // Update dashboard stats
+            if (document.getElementById('total-exams')) {
+                document.getElementById('total-exams').textContent = totalExamStarts;
+            }
+            if (document.getElementById('completion-rate')) {
+                document.getElementById('completion-rate').textContent = completionRate + '%';
+            }
+            if (document.getElementById('progress-bar')) {
+                document.getElementById('progress-bar').style.width = completionRate + '%';
+            }
+            
+            // Generate recent activity
+            generateActivity();
+            
+            // Update study streak
+            updateStudyStreak();
+        });
+        
+        // Generate mock activity
+        function generateActivity() {
+            const activityList = document.getElementById('activity-list');
+            if (!activityList) return;
+            
+            // Get real data where possible
+            const analytics = JSON.parse(localStorage.getItem('nclexAnalytics') || '{"pageViews":[],"examAttempts":{}}');
+            
+            // Create recent activity items based on real page views and exam attempts
+            let activityItems = [];
+            
+            // Add page views as activity
+            if (analytics.pageViews && analytics.pageViews.length > 0) {
+                const recentPageViews = analytics.pageViews.slice(-3).reverse();
+                recentPageViews.forEach(view => {
+                    activityItems.push({
+                        icon: 'fa-eye',
+                        color: 'var(--color-tertiary)',
+                        title: 'Visited Homepage',
+                        description: 'You visited the main page',
+                        time: new Date(view.time).toLocaleString()
+                    });
+                });
+            }
+            
+            // Add exam attempts as activity
+            for (const [examType, stats] of Object.entries(analytics.examAttempts)) {
+                if (stats.lastAttempt) {
+                    let examName = examType === 'exam1' ? 'Standard NCLEX Practice' : 
+                                 examType === 'exam2' ? 'Next Generation NCLEX' : 
+                                 examType === 'simulator' ? 'Full NCLEX Simulator' : examType;
+                    
+                    activityItems.push({
+                        icon: 'fa-pencil-alt',
+                        color: 'var(--color-primary)',
+                        title: `Started ${examName}`,
+                        description: `You began an exam session`,
+                        time: new Date(stats.lastAttempt).toLocaleString()
+                    });
+                }
+            }
+            
+            // Sort by time (newest first)
+            activityItems.sort((a, b) => new Date(b.time) - new Date(a.time));
+            
+            // Limit to 5 most recent activities
+            activityItems = activityItems.slice(0, 5);
+            
+            // If no activities, add a default message
+            if (activityItems.length === 0) {
+                activityList.innerHTML = `
+                    <div class="activity-item">
+                        <div class="activity-icon" style="background-color: var(--color-secondary);">
+                            <i class="fas fa-info"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p>No activity recorded yet. Start practicing to see your activity!</p>
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Generate HTML for activities
+            let activityHTML = '';
+            activityItems.forEach(item => {
+                activityHTML += `
+                    <li class="activity-item">
+                        <div class="activity-icon" style="background-color: ${item.color};">
+                            <i class="fas ${item.icon}"></i>
+                        </div>
+                        <div class="activity-content">
+                            <p><strong>${item.title}</strong> - ${item.description}</p>
+                            <p class="activity-time">${item.time}</p>
+                        </div>
+                    </li>
+                `;
+            });
+            
+            activityList.innerHTML = activityHTML;
+        }
+        
+        // Update study streak
+        function updateStudyStreak() {
+            const streakElement = document.getElementById('study-streak');
+            if (!streakElement) return;
+            
+            // Get analytics data
+            const analytics = JSON.parse(localStorage.getItem('nclexAnalytics') || '{"pageViews":[],"examAttempts":{}}');
+            
+            // Initialize streak data if needed
+            if (!localStorage.getItem('studyStreak')) {
+                localStorage.setItem('studyStreak', JSON.stringify({
+                    currentStreak: 1,
+                    lastStudyDate: new Date().toISOString().split('T')[0]
+                }));
+            }
+            
+            let streakData = JSON.parse(localStorage.getItem('studyStreak'));
+            const today = new Date().toISOString().split('T')[0];
+            const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+            
+            // Check if user studied today
+            if (streakData.lastStudyDate === today) {
+                // Already counted for today
+            } 
+            // Check if user studied yesterday
+            else if (streakData.lastStudyDate === yesterday) {
+                streakData.currentStreak += 1;
+                streakData.lastStudyDate = today;
+                localStorage.setItem('studyStreak', JSON.stringify(streakData));
+            }
+            // Streak broken
+            else if (streakData.lastStudyDate < yesterday) {
+                streakData.currentStreak = 1;
+                streakData.lastStudyDate = today;
+                localStorage.setItem('studyStreak', JSON.stringify(streakData));
+            }
+            
+            // Update streak display
+            streakElement.textContent = streakData.currentStreak;
+        }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="index.html" class="logo">paylenn<span>.tech</span></a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                <a href="index.html#exams" class="nav-link"><i class="fas fa-pencil-alt"></i> Exams</a>
+                <a href="#" class="nav-link"><i class="fas fa-user"></i> Profile</a>
+                <a href="login.html" class="nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Dashboard Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">DASHBOARD</div>
+                <h1>WELCOME, <span class="highlight">STUDENT!</span></h1>
+                <p class="hero-subtitle">Track your progress, view insights, and continue your NCLEX preparation journey.</p>
+            </div>
+            <div class="hero-decoration">
+                <div class="hero-shape shape-1"></div>
+                <div class="hero-shape shape-2"></div>
+                <div class="hero-shape shape-3"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Content -->
+    <section class="section">
+        <div class="container">
+            <!-- Stats overview -->
+            <div class="dashboard-stats">
+                <div class="neu-card primary">
+                    <h4>Total Exams</h4>
+                    <div class="stat-value" id="total-exams">0</div>
+                    <p>Exams attempted</p>
+                </div>
+                
+                <div class="neu-card secondary">
+                    <h4>Study Streak</h4>
+                    <div class="stat-value" id="study-streak">1</div>
+                    <p>Days in a row</p>
+                </div>
+                
+                <div class="neu-card tertiary">
+                    <h4>Completion Rate</h4>
+                    <div class="stat-value" id="completion-rate">0%</div>
+                    <p>Overall progress</p>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progress-bar" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-label">
+                        <span>Beginner</span>
+                        <span>Advanced</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recent Activity -->
+            <div class="section-subheader">
+                <h3>RECENT ACTIVITY</h3>
+                <div class="section-subline"></div>
+            </div>
+            
+            <div class="recent-activity">
+                <ul class="activity-list" id="activity-list">
+                    <!-- Activity items will be populated by JavaScript -->
+                </ul>
+            </div>
+            
+            <!-- Quick Actions -->
+            <div class="section-subheader">
+                <h3>QUICK ACTIONS</h3>
+                <div class="section-subline"></div>
+            </div>
+            
+            <div class="grid-3">
+                <div class="neu-card primary dashboard-card">
+                    <h4>Continue Practice</h4>
+                    <p>Resume from where you left off or start a new session.</p>
+                    <a href="index.html#exams" class="neubtn">Choose Exam <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="neu-card secondary dashboard-card">
+                    <h4>Review Answers</h4>
+                    <p>Check your previous answers and review explanations.</p>
+                    <a href="#" class="neubtn">View History <i class="fas fa-history"></i></a>
+                </div>
+                
+                <div class="neu-card tertiary dashboard-card">
+                    <h4>Study Resources</h4>
+                    <p>Access study materials and additional resources.</p>
+                    <a href="#" class="neubtn">Browse Resources <i class="fas fa-book"></i></a>
+                </div>
+            </div>
+            
+            <!-- Achievements -->
+            <div class="section-subheader">
+                <h3>ACHIEVEMENTS</h3>
+                <div class="section-subline"></div>
+            </div>
+            
+            <div class="neu-card">
+                <div class="badge-container">
+                    <div class="badge-item">
+                        <div class="badge-icon" style="background-color: var(--color-tertiary);">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="badge-name">First Exam</div>
+                        <div class="badge-description">Completed your first practice exam</div>
+                    </div>
+                    
+                    <div class="badge-item">
+                        <div class="badge-icon" style="background-color: #ddd; color: #777; opacity: 0.7;">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="badge-name">Perfect Score</div>
+                        <div class="badge-description">Score 100% on any exam</div>
+                    </div>
+                    
+                    <div class="badge-item">
+                        <div class="badge-icon" style="background-color: #ddd; color: #777; opacity: 0.7;">
+                            <i class="fas fa-fire"></i>
+                        </div>
+                        <div class="badge-name">7 Day Streak</div>
+                        <div class="badge-description">Study for 7 days in a row</div>
+                    </div>
+                    
+                    <div class="badge-item">
+                        <div class="badge-icon" style="background-color: #ddd; color: #777; opacity: 0.7;">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="badge-name">Quick Learner</div>
+                        <div class="badge-description">Improve score by 20% on consecutive exams</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Personalized Recommendations -->
+            <div class="section-subheader">
+                <h3>RECOMMENDATIONS</h3>
+                <div class="section-subline"></div>
+            </div>
+            
+            <div class="neu-card">
+                <div class="recommendation-card">
+                    <div class="recommendation-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="recommendation-content">
+                        <h4>Try Next Generation NCLEX Format</h4>
+                        <p>Practice with the latest question formats to improve your clinical judgment skills.</p>
+                        <a href="pages/practice.html?exam=exam2" class="neubtn secondary">Start NGN Practice</a>
+                    </div>
+                </div>
+                
+                <div class="recommendation-card">
+                    <div class="recommendation-icon">
+                        <i class="fas fa-laptop-medical"></i>
+                    </div>
+                    <div class="recommendation-content">
+                        <h4>Full NCLEX Simulator</h4>
+                        <p>Experience a realistic exam environment with all 100 questions.</p>
+                        <a href="pages/simulator.html" class="neubtn tertiary">Launch Simulator</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Font Size Controls -->
+    <div class="font-size-controls collapsed" id="fontSizeControls">
+        <div class="font-size-controls-header" id="fontSizeControlsHeader">
+            <span class="font-size-controls-title"><i class="fas fa-font"></i> Text Size</span>
+            <span class="font-size-controls-toggle"><i class="fas fa-chevron-up"></i></span>
+        </div>
+        <div class="font-size-buttons">
+            <button class="font-size-button" data-size="small">A</button>
+            <button class="font-size-button active" data-size="medium">A</button>
+            <button class="font-size-button" data-size="large">A</button>
+            <button class="font-size-button" data-size="xl">A</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>paylenn.tech</h3>
+                    <p>Your NCLEX Success Partner</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    </div>
+                </div>
+                <nav class="footer-nav">
+                    <a href="index.html">Home</a>
+                    <a href="index.html#exams">Exams</a>
+                    <a href="index.html#tips">Tips</a>
+                    <a href="login.html">Login</a>
+                </nav>
+                <div class="footer-legal">
+                    <p>&copy; 2025 paylenn.tech. All rights reserved.</p>
+                    <div class="footer-links">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Use</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Font size control functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Font size controls
+            const fontSizeControls = document.getElementById('fontSizeControls');
+            const fontSizeControlsHeader = document.getElementById('fontSizeControlsHeader');
+            const fontSizeButtons = document.querySelectorAll('.font-size-button');
+            
+            // Toggle font size controls
+            if (fontSizeControlsHeader) {
+                fontSizeControlsHeader.addEventListener('click', function() {
+                    fontSizeControls.classList.toggle('collapsed');
+                });
+            }
+            
+            // Set font size
+            if (fontSizeButtons) {
+                // Check for stored font size preference
+                const storedFontSize = localStorage.getItem('fontSizePreference');
+                if (storedFontSize) {
+                    document.body.className = '';
+                    document.body.classList.add('font-size-' + storedFontSize);
+                    
+                    // Update active button
+                    fontSizeButtons.forEach(button => {
+                        button.classList.remove('active');
+                        if (button.dataset.size === storedFontSize) {
+                            button.classList.add('active');
+                        }
+                    });
+                }
+                
+                // Add click handlers for font size buttons
+                fontSizeButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const size = this.dataset.size;
+                        
+                        // Remove all font size classes
+                        document.body.className = '';
+                        
+                        // Add selected font size class
+                        document.body.classList.add('font-size-' + size);
+                        
+                        // Update active button
+                        fontSizeButtons.forEach(btn => {
+                            btn.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                        
+                        // Store preference
+                        localStorage.setItem('fontSizePreference', size);
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
