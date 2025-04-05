@@ -6,42 +6,79 @@
     <title>Login - NCLEX Practice</title>
     <link rel="stylesheet" href="https://cdn.replit.com/agent/bootstrap-agent-dark-theme.min.css">
     <link rel="stylesheet" href="css/neubrutalism.css">
+    <style>
+        .login-container {
+            max-width: 500px;
+            margin: 80px auto;
+            padding: 2rem;
+        }
+        
+        .neu-hero {
+            margin-bottom: 3rem;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="neu-card my-5 p-4">
-                    <h1 class="mb-4">Login</h1>
-                    
-                    {% with messages = get_flashed_messages() %}
-                        {% if messages %}
-                            {% for message in messages %}
-                                <div class="alert alert-danger">{{ message }}</div>
-                            {% endfor %}
-                        {% endif %}
-                    {% endwith %}
-                    
-                    <form method="POST">
-                        <div class="mb-3">
-                            <label for="username" class="form-label">Username</label>
-                            <input type="text" class="form-control" id="username" name="username" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password" name="password" required>
-                        </div>
-                        <div class="d-flex justify-content-between">
-                            <button type="submit" class="neubtn">Login</button>
-                            <a href="/register" class="neubtn">Register</a>
-                        </div>
-                    </form>
-                    <div class="mt-3 text-center">
-                        <a href="/">Back to Home</a>
-                    </div>
-                </div>
+        <header class="d-flex justify-content-between align-items-center py-3">
+            <div class="logo">
+                <a href="/" class="neu-logo">paylenn.tech</a>
             </div>
+            <nav>
+                <a href="/" class="neu-button me-2">Home</a>
+                <a href="/register" class="neu-button neu-button-primary">Register</a>
+            </nav>
+        </header>
+        
+        <div class="login-container neu-container">
+            <div class="neu-hero text-center">
+                <h1 class="display-4">Login</h1>
+                <p class="lead">Access your NCLEX Practice Dashboard</p>
+            </div>
+            
+            <div id="flash-messages">
+                <!-- Flash messages will be displayed here -->
+            </div>
+            
+            <form id="login-form" action="/login" method="POST">
+                <div class="mb-4">
+                    <label for="username" class="form-label">Username</label>
+                    <input type="text" class="form-control neu-input" id="username" name="username" required>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="password" class="form-label">Password</label>
+                    <input type="password" class="form-control neu-input" id="password" name="password" required>
+                </div>
+                
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary neu-button neu-button-primary btn-lg">Login</button>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <p>Don't have an account? <a href="/register" class="neu-link">Register here</a></p>
+                </div>
+            </form>
         </div>
     </div>
+    
+    <script>
+        // Check for flash messages in URL params (redirected from server)
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const flashMessage = urlParams.get('flash');
+            const flashType = urlParams.get('type') || 'info';
+            
+            if (flashMessage) {
+                const flashContainer = document.getElementById('flash-messages');
+                flashContainer.innerHTML = `
+                    <div class="alert alert-${flashType} alert-dismissible fade show" role="alert">
+                        ${flashMessage}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                `;
+            }
+        });
+    </script>
 </body>
 </html>
